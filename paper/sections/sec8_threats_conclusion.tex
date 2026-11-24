@@ -1,0 +1,51 @@
+\section{Threats to Validity}
+\label{sec:threats}
+
+Following empirical software engineering guidelines~\cite{wohlin2012experimentation,bludau2026szz}, we organize threats across construct, internal, external, and conclusion dimensions, stating both our mitigations and remaining boundaries.
+
+\subsection{Construct Validity}
+
+Three construct threats affect mutation-based audits of flaky test repair: \emph{Test Flimsiness}~\cite{parry2026flimsiness}, execution misattribution, and specification over-constraining. We curb flimsiness and misattribution through five-run clean baselines, focal scope restriction, exact test-case and lifecycle attribution with explicit indeterminate tracking, and three-run kill intersection, excluding five tests with fewer than three obligations. For order-dependent held-out checks, we pair repeated-pollution execution with unmodified-repository controls across all 142 order-dependent tests and keep strict yield separate from matched-control sensitivity. To prevent over-constraining from hiding behind mutation counts, we explicitly measure false rejections against audited developer pull requests.
+
+Four construct boundaries remain. First, PIT XML output does not separate setup failures from test-body failures or record runtime exception classes, so Java held-out stratification uses mutator families rather than assertion-only runtime exceptions. Second, Python's held-out pool shares 24 mutants across sibling tests in the same repository, though never with a target test's own repair gate. Third, held-out mutants approximate regression sensitivity rather than real production bug commits~\cite{just2014mutants}. Finally, our Stage-2 blinded cross-audit using OpenAI Codex (\texttt{gpt-6-astra}, CLI v0.153.4) confirmed substantial-to-almost-perfect agreement on primary categories ($\kappa = 0.63$ to $0.83$), with all 35 primary-decision disagreements arbitrated. Nevertheless, an automated cross-audit replaces neither a second independent human annotator nor direct surveys of repository maintainers. In addition, the three-way boundary separating genuine degradation from responsibility shift on fixture-narrowing edits showed lower pre-arbitration agreement ($\kappa = 0.24$) despite 98.2\% agreement that those patches were non-legitimate.
+
+\subsection{Internal Validity}
+
+Internal threats include trajectory splicing, stale build artifacts, partial model completions, and prefix-forked execution mechanics. Whenever baseline pool updates, guard refinements, or JUnit~3 isolation fixes altered an earlier decision, all downstream rounds were re-executed end to end rather than spliced. In Java, compiled class files are cleared before test compilation and restored with preserved timestamps under per-repository locks to prevent stale builds. Automated regression checks, lifecycle-ordering verification, and live replay of all 1,243 held-out candidate patches guard these execution invariants end to end. Evaluating Structural Guard out-of-sample on confirmatory Qwen 3.7 Plus, Kimi K2.5, and GLM-5 further confirms that its blind spots are not artifacts of exploratory tuning.
+
+Three execution boundaries warrant disclosure. In the prefix-forked experiment, Scalar Ratio and True Witness reused verified prefixes from the main campaign, and Misleading Witness ran fresh. Twelve Misleading Witness forks were omitted due to API token caps, and witness prompts varied naturally in length with focal slice size. Similarly, one eligible test on DeepSeek Flash and 15 on DeepSeek V4 Pro hit 16k reasoning-token caps; fixed-cohort and intent-to-treat rates score incomplete runs as zero, and confirmatory Qwen 3.7 Plus along with both cross-family single-pass models completed 100\% of runs. Finally, session latencies sum recorded per-round model and evaluation stage times without failed network retry backoff.
+
+\subsection{External Validity}
+
+Our benchmark spans $\BenchEligible$ tests across $\BenchProjects$ Java and Python repositories and five modern LLMs from four vendors, yet four boundaries limit generalization:
+\begin{enumerate}[nosep]
+    \item \emph{Model vendor and ecosystem concentration.} All five modern models in our controlled multi-round and single-pass evaluations (DeepSeek, Alibaba Qwen, Moonshot Kimi, and Zhipu GLM) originate from Chinese model providers, while Western frontier models appear only through historical GPT-4 artifacts in RQ1. Although erosion rates stay highly uniform across reasoning and non-reasoning architectures from four independent vendors, replicating the multi-round gate on current OpenAI, Anthropic, and Google frontier models remains an important external-validity extension.
+    \item \emph{Concurrency and network flakiness.} Tests failing intermittently under isolated execution, such as thread races or socket timeouts, are excluded; gating concurrency repairs requires deterministic schedulers or mocked clocks.
+    \item \emph{Build and probe ceilings.} Cohort selection enforced 120\,s module builds and 90\,s Java or 45\,s Python baseline probes, excluding monolithic builds and tests with fewer than three obligations. Scaling to large monorepos requires incremental build caching.
+    \item \emph{Offline subset modeling.} Our Top-$k$ analysis models fixed eroded patches offline; deploying subset sampling inside live repair loops could alter trajectories and requires dedicated online evaluation.
+\end{enumerate}
+
+\subsection{Conclusion Validity}
+
+Because flaky tests cluster within repositories, treating individual tests as independent understates variance. Every primary paired difference reports 20,000-resample whole-repository cluster bootstrap confidence intervals alongside equal-repository sensitivity checks and equal-model-weighted inference on the prefix-forked ablation. Significance tests use paired project-level Rademacher sign-flip permutations with Holm--Bonferroni family control. Where confidence intervals cross zero and permutation tests are non-significant, such as overall held-out yield under both strict and stress definitions, we report the outcome as statistically inconclusive rather than inferring superiority or equivalence.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Automated flaky test repair pipelines are widely evaluated by single-sided stabilization reruns, yet optimizing solely for green execution invites \emph{Stabilization via Oracle Erosion}. Across $\BenchEligible$ Java and Python flaky tests in $\BenchProjects$ repositories, roughly one in five to one in four stabilization-passing patches from historical tools and five modern LLM families silently erodes baseline fault-detection obligations. Strengthening static checks into a structural correspondence guard does not close this gap: over four-fifths of eroded patches still bypass static rules through behavioral setup, delimiter, shared-scope, and call-substitution shifts, and static rejections lower out-of-sample sound-fix yield.
+
+Across all five LLMs, \textsc{MuGuard-Flake} eliminates in-loop erosion completely. Across the three multi-round backbones, it lifts operational sound-fix yield by 12 to 18 percentage points over static guards and cuts unseen fault loss among accepted patches by 45\% to 65\%. In a controlled prefix-forked ablation, localized witnesses recover 71.1\% of eroded repairs compared with 43.0\% under bare scalar counts. These safeguards remain explicitly bounded. Conservative abstention leaves overall end-to-end held-out yield statistically inconclusive, though expected CI cost favors \textsc{MuGuard-Flake} over every non-mutation baseline whenever a silent regression costs more than 1.3 to 2.4 times an abstention review. Moreover, 20.5\% of legitimate developer pull requests trigger false rejections, and subtle weakenings outside default mutators can still slip through. Even so, with uncached focal probing under ten seconds in Java and four seconds in Python, fail-closed mutation gating paired with explicit abstention and witness-guided review offers a practical, auditable safety gate for continuous integration.
+
+\section*{Declarations}
+
+\paragraph{Funding.}
+No external funding was received for conducting this study.
+
+\paragraph{Data Availability Statement.}
+The complete replication package, including the frozen experimental protocol, benchmark and held-out obligation definitions, historical artifact and pull-request manifests, blinded dual-auditor reliability and arbitration records, multi-model execution traces, automated verification suites, and figure-generation scripts, is publicly available at \url{https://github.com/789748456v/MuGuard-Flake-SQJ}.
+
+\paragraph{Competing Interests.}
+The authors declare that they have no competing financial or non-financial interests relevant to the content of this article.
+
+\paragraph{Author Contributions.}
+Zhijie Li led study conceptualization, methodology design, implementation, empirical evaluation, and manuscript drafting. Ketong Liu, Shaoyang Xu, Shibo Meng, and Feiran Gao contributed to data curation, experimental validation, analysis, and manuscript review and editing. Yuli Zhao supervised the study, provided methodological guidance, and reviewed and edited the manuscript. All authors read and approved the final version.

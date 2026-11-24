@@ -1,0 +1,23 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3.6pt}
+\caption{Cohort composition and focal obligation profile across $\BenchEligible$ eligible flaky tests in $\BenchProjects$ repositories (five of $\BenchInitAttempted$ attempted tests excluded for fewer than three attributed clean-$e_0$ kills).}
+\label{tab:benchmark}
+\begin{tabular}{llrrrrrr}
+\toprule
+Lang. & Subtype & Repos & Elig. & Target $|M_{\text{det}}|$ & Partner $|M_{\text{det}}|$ & $|M_{\text{ext}}|$ (Tests) & Base Probe (s) \\
+\midrule
+Java & ID (NonDex) & 25 & 61 & 2,089 & 0 (N/A) & 1,777 (61) & 13.02 \\
+Java & OD-victim & 11 & 49 & 1,160 & 371 & 1,485 (49) & 7.69 \\
+\textit{Java} & \textit{Subtotal} & \textit{35} & \textit{110} & \textit{3,249} & \textit{371} & \textit{3,262 (110)} & \textit{10.21} \\
+\midrule
+Python & OD-victim & 19 & 60 & 1,154 & 404 & 189 (47) & 11.81 \\
+Python & OD-brittle & 16 & 33 & 439 & 262 & 67 (20) & 15.39 \\
+\textit{Python} & \textit{Subtotal} & \textit{34} & \textit{93} & \textit{1,593} & \textit{666} & \textit{256 (67)} & \textit{12.29} \\
+\midrule
+\textbf{Total} & \textbf{Eligible} & \textbf{69} & \textbf{203} & \textbf{4,842} (med.\ 15) & \textbf{1,037} (126/142) & \textbf{3,518} (177) & \textbf{11.69} \\
+\bottomrule
+\end{tabular}
+\par\smallskip\parbox{0.96\textwidth}{\scriptsize\textit{Note:} Base Probe (s) is the median time of one full baseline sweep over the entire focal pool $M_{\text{focal}}$ under $e_0$ (up to 55 Python AST mutants including unkilled ones; OD-brittle replays $\langle T_{\text{set}}, T_{\text{orig}} \rangle$ per mutant). In-loop gating probes only the frozen obligation subset $M_{\text{det}}$ (median 14 in Python; Table~\ref{tab:latency}).}
+\end{table}

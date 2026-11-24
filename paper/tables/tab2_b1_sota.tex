@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.0pt}
+\caption{Audit of official upstream passing patches from \textsc{FlakyDoctor} and partner-matched \textsc{iPFlakies} artifacts under unified attribution. Bold marks silent oracle erosion among $W^+$-passing fixes.}
+\label{tab:b1_sota}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Historical Artifact Cohort & Avail. & Mism. & Comp. & Pass@$W^+$ & Eroded & Leak ($W^+$) & SoundFix \\
+\midrule
+FlakyDoctor GPT-4 (official pass) & 75 & 20 & 38 & 33 (44.00\%) & \textbf{9} & \textbf{27.27\%} & 24 (32.00\%) \\
+FlakyDoctor Magicoder (official pass) & 13 & 6 & 4 & 4 (30.77\%) & \textbf{0} & \textbf{0.00\%} & 4 (30.77\%) \\
+iPFlakies (partner-matched) & 77 & 0 & 60 & 42 (54.55\%) & \textbf{10} & \textbf{23.81\%} & 32 (41.56\%) \\
+\bottomrule
+\end{tabular}
+\end{table}

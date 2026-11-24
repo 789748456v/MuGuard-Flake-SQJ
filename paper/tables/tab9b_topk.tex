@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{6.0pt}
+\caption{Offline mutant subset-sampling detection recall across $\TaxUniquePatches$ unique eroded patches over joint target-and-partner obligation pools versus target-only probing.}
+\label{tab:topk}
+\begin{tabular}{lrrrrr}
+\toprule
+Sampling Budget & Pool Share & Uniform Random & File/Line Disp. & Operator Priority & Target-Only \\
+\midrule
+Top-1 & 5.1\% & 18.8\% & 19.5\% & 25.8\% & 20.7\% \\
+Top-5 & 25.6\% & 50.8\% & 41.5\% & 42.8\% & 57.6\% \\
+Top-10 & 44.6\% & 68.9\% & 64.2\% & 44.2\% & 75.5\% \\
+Top-25 & 72.4\% & 92.3\% & 79.5\% & 84.0\% & 93.5\% \\
+All & 100.0\% & 100.0\% & 100.0\% & 100.0\% & 99.0\% \\
+\bottomrule
+\end{tabular}
+\par\smallskip\parbox{0.96\textwidth}{\scriptsize\textit{Note:} Target-Only omits partner obligations $M_{\text{det}}(T_{\text{part}})$, capping recall at 99.0\% because four eroded patches weaken exclusively partner obligations.}
+\end{table}

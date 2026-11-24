@@ -1,0 +1,90 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage[skip=4pt]{caption}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+
+\emergencystretch=2em
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\definecolor{codebg}{RGB}{248,249,250}
+\definecolor{codeframe}{RGB}{218,222,226}
+\definecolor{diffdel}{RGB}{176,24,42}
+\definecolor{diffadd}{RGB}{18,110,62}
+\definecolor{codekw}{RGB}{0,70,155}
+\definecolor{codecmt}{RGB}{95,105,115}
+
+\lstdefinestyle{sqjcode}{
+    backgroundcolor=\color{codebg},
+    frame=single,
+    rulecolor=\color{codeframe},
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{codekw}\bfseries,
+    commentstyle=\color{codecmt}\itshape,
+    stringstyle=\color{diffadd},
+    breaklines=true,
+    breakatwhitespace=false,
+    columns=fullflexible,
+    keepspaces=true,
+    showstringspaces=false,
+    aboveskip=0.65em,
+    belowskip=0.65em,
+    xleftmargin=0.4em,
+    xrightmargin=0.4em
+}
+\lstset{style=sqjcode}
+
+% Auto-generated quantitative macros from data/v2_study_summary_metrics.json (2.3.0-certified)
+\input{generated_macros.tex}
+
+\title{\textbf{Stabilization via Oracle Erosion: An Empirical Audit and Local Mutation Gate for Flaky Test Repair}}
+
+\author{
+  Zhijie Li$^{1}$, Ketong Liu$^{1}$, Shaoyang Xu$^{1}$, Shibo Meng$^{1}$, Feiran Gao$^{2}$, and Yuli Zhao$^{1*}$ \\[0.55em]
+  \small $^{1}$Software College, Northeastern University, Shenyang, China \\
+  \small $^{2}$School of Computer Science and Technology, Beijing Institute of Technology, Beijing, China \\[0.35em]
+  \footnotesize \textit{Emails:} \href{mailto:lizhijie@mails.neu.edu.cn}{lizhijie@mails.neu.edu.cn}, \href{mailto:liuketong@mails.neu.edu.cn}{liuketong@mails.neu.edu.cn}, \href{mailto:xusy3@mails.neu.edu.cn}{xusy3@mails.neu.edu.cn}, \\
+  \footnotesize \href{mailto:mengsb1@mails.neu.edu.cn}{mengsb1@mails.neu.edu.cn}, \href{mailto:3120260997@bit.edu.cn}{3120260997@bit.edu.cn}, \href{mailto:zhaoyl@swc.neu.edu.cn}{zhaoyl@swc.neu.edu.cn} ($^{*}$Corresponding author)
+}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Automated flaky test repair tools increasingly combine context localization with large language models to remove intermittent continuous integration failures. However, nearly every pipeline accepts a candidate patch once it compiles, passes rerun schedules, and keeps its assertion statements. Because test repair edits the test oracle and fixture themselves, optimizing solely for green runs invites \emph{Stabilization via Oracle Erosion}. Eroded tests turn permanently green while losing their ability to catch future production faults. We audit 203 flaky Java and Python tests, comparing historical repair artifacts, developer pull requests, and five modern language models. Roughly one in five to one in four stabilization-passing patches from prior tools and unconstrained models silently drops baseline fault-detection obligations. Even a strengthened structural static guard fails to block over four-fifths of eroded patches because semantic shifts evade syntax checks. We introduce \textsc{MuGuard-Flake}, a fail-closed local mutation gate that verifies modified tests and their shared-state partners before merging a repair. It eliminates erosion during repair, raises operational sound-fix yield, and cuts unseen fault-detection loss among accepted patches by 45\% to 65\%, running in seconds per candidate. Strict gating is not free: conservative abstention leaves overall end-to-end held-out yield statistically inconclusive and rejects 20.5\% of legitimate developer pull requests. In a controlled feedback comparison, concrete surviving-mutant witnesses recover far more eroded repairs than bare numeric counts (71\% versus 43\%).
+\end{abstract}
+
+\medskip
+\noindent\textbf{Keywords:} Flaky test repair $\cdot$ Oracle erosion $\cdot$ Mutation testing $\cdot$ Large language models $\cdot$ Continuous integration quality gates $\cdot$ Empirical software engineering
+
+\input{sections/sec1_intro.tex}
+\input{sections/sec2_background_related.tex}
+\input{sections/sec3_construct_formulation.tex}
+\input{sections/sec4_muguard_methodology.tex}
+\input{sections/sec5_experimental_design.tex}
+\input{sections/sec6_empirical_results.tex}
+\input{sections/sec7_discussion.tex}
+\input{sections/sec8_threats_conclusion.tex}
+
+\bibliographystyle{abbrvnat}
+\bibliography{references}
+
+\end{document}

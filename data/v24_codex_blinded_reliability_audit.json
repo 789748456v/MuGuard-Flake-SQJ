@@ -1,0 +1,288 @@
+{
+  "protocol_version": "2.4.0-reliability-audited",
+  "blinding_protocol": "Rater 2 (independent OpenAI Codex auditor) evaluated all three datasets inside a physically isolated read-only directory containing only code diffs and surviving/lost mutant lists, completely blinded to repair strategy names, model identities, gate accept/reject verdicts, PR merge status, and Rater 1 labels.",
+  "pre_arbitration_summary": {
+    "pr_53_five_class": {
+      "n": 53,
+      "agree": 45,
+      "raw_agreement_pct": 84.91,
+      "expected_agreement_pct": 41.51,
+      "cohen_kappa": 0.7419
+    },
+    "pr_43_test_only_wplus_four_class": {
+      "n": 43,
+      "agree": 35,
+      "raw_agreement_pct": 81.4,
+      "expected_agreement_pct": 57.65,
+      "cohen_kappa": 0.5607
+    },
+    "pr_43_legitimate_vs_nonlegit": {
+      "n": 43,
+      "agree": 40,
+      "raw_agreement_pct": 93.02,
+      "expected_agreement_pct": 80.96,
+      "cohen_kappa": 0.6335
+    },
+    "tax_55_primary_mechanism": {
+      "n": 55,
+      "agree": 48,
+      "raw_agreement_pct": 87.27,
+      "expected_agreement_pct": 26.68,
+      "cohen_kappa": 0.8264
+    },
+    "tax_55_semantic_severity": {
+      "n": 55,
+      "agree": 27,
+      "raw_agreement_pct": 49.09,
+      "expected_agreement_pct": 33.26,
+      "cohen_kappa": 0.2372
+    },
+    "mext_111_wsl_three_class": {
+      "n": 111,
+      "agree": 86,
+      "raw_agreement_pct": 77.48,
+      "expected_agreement_pct": 34.53,
+      "cohen_kappa": 0.656
+    },
+    "disagreement_counts": {
+      "pr_53": 8,
+      "pr_43": 8,
+      "pr_43_legit_flip": 3,
+      "tax_55_mech": 7,
+      "tax_55_sev": 28,
+      "mext_111": 25
+    }
+  },
+  "tax_55_binary_nonlegit_vs_legit": {
+    "n": 55,
+    "agree": 54,
+    "raw_agreement_pct": 98.18,
+    "cohen_kappa": 0.7909,
+    "note": "27 of 28 three-way severity disagreements separated Genuine Degradation vs. Test Responsibility Shift while agreeing the eroded patch is non-legitimate."
+  },
+  "arbitration_count": 35,
+  "arbitration_alignment_counts": {
+    "PR43_LEGIT_BOUNDARY::R1": 1,
+    "PR43_LEGIT_BOUNDARY::R2": 2,
+    "TAX55_MECHANISM::R2": 7,
+    "MEXT111_WSL::R2": 23,
+    "MEXT111_WSL::R1": 2
+  },
+  "arbitration_resolutions": [
+    {
+      "case_id": "PR::avro::TestReflect.testAnnotationMultiAvroMeta",
+      "final_label": "TEST_RESPONSIBILITY_SHIFT",
+      "aligned_with": "R1",
+      "arbitration_note": "Direct Schema equality preserves metadata associations but replaces the serialized-output check entirely, shifting verification from JSON emission to the reflected schema."
+    },
+    {
+      "case_id": "PR::apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "Independent substring checks neither bind the namespace and ID to one notification nor delimit the numeric ID, permitting extra records and incorrect ID suffixes."
+    },
+    {
+      "case_id": "PR::zerocode::BasicHttpClientTest.createRequestBuilder",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "The three map lookups verify expected values but allow additional form parameters that the original exact body comparison rejected."
+    },
+    {
+      "case_id": "TAX_MECH::26::visualee::DescriptionTest.testGenerateDescription2",
+      "final_label": "M2_StateResetOrClobber",
+      "aligned_with": "R2",
+      "arbitration_note": "Clearing FilterContainer at target entry removes inherited filtering state and makes the partner's cleanup unnecessary, directly explaining the surviving partner clear mutant."
+    },
+    {
+      "case_id": "TAX_MECH::28::cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt",
+      "final_label": "M2_StateResetOrClobber",
+      "aligned_with": "R2",
+      "arbitration_note": "Replacing the static encryptor with an empty AtomicReference explicitly discards provider state before execution, consistent with the surviving create conditional mutant."
+    },
+    {
+      "case_id": "TAX_MECH::29::cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted",
+      "final_label": "M2_StateResetOrClobber",
+      "aligned_with": "R2",
+      "arbitration_note": "The reflective assignment clears the cached encryptor before the pre-encrypted-value checks, making state reset the concrete mechanism behind the changed create coverage."
+    },
+    {
+      "case_id": "TAX_MECH::32::remoting::DiagnosedStreamCorruptionExceptionTest.exercise",
+      "final_label": "M4_SUTCallAlterationOrBypass",
+      "aligned_with": "R2",
+      "arbitration_note": "The isolated class loader redirects hudson.remoting execution to separately loaded classes, while the guarded branch retains negotiate and verify rather than simply deleting SUT execution."
+    },
+    {
+      "case_id": "TAX_MECH::33::http-request::HttpRequestTest.headWithMappedQueryParams",
+      "final_label": "M4_SUTCallAlterationOrBypass",
+      "aligned_with": "R2",
+      "arbitration_note": "The anonymous factory calls URL.openConnection directly, bypassing the production default create implementation containing the surviving mutant."
+    },
+    {
+      "case_id": "TAX_MECH::36::cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted",
+      "final_label": "M2_StateResetOrClobber",
+      "aligned_with": "R2",
+      "arbitration_note": "The target explicitly overwrites the cached encryptor with an empty reference, identifying state clobbering more precisely than the fact that a partner was also edited."
+    },
+    {
+      "case_id": "TAX_MECH::51::py::Breathe::test_loading.test_reloading",
+      "final_label": "M7_PreconditionOrSingletonSetupAlteration",
+      "aligned_with": "R2",
+      "arbitration_note": "Calling load_modules after writing the replacement grammar establishes the desired state before the rebuild command, weakening the reload transition despite retaining the recognition assertions."
+    },
+    {
+      "case_id": "MEXT::aries-cdi::MapsTest.checkMerge_1::b09ec62ed59f95795f",
+      "final_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "aligned_with": "R2",
+      "arbitration_note": "Exact map size, boolean checks, and sorted typed lists retain contents and multiplicities, while the lost mutants belong only to the removed expectation-building Maps.of call."
+    },
+    {
+      "case_id": "MEXT::aries-cdi::MapsTest.checkMerge_1::de777d644c74e615e7",
+      "final_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "aligned_with": "R2",
+      "arbitration_note": "Sorted typed stream comparisons preserve list values and duplicate counts alongside all four map entries, with losses confined to the incidental Maps.of oracle builder."
+    },
+    {
+      "case_id": "MEXT::aries-cdi::MapsTest.checkMerge_1::f14250a6134cd3326c",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "String.valueOf normalization accepts string elements where integer elements were required, weakening value-type verification beyond order normalization."
+    },
+    {
+      "case_id": "MEXT::avro::TestReflect.testAvroDoc::280619f4b6266af977",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "The reported serialization mutants remain covered but survive, supporting a weakened shared serialization oracle rather than R1's claim that serialization coverage disappears completely."
+    },
+    {
+      "case_id": "MEXT::avro::TestReflect.testAvroDoc::680314d7e7681d0b12",
+      "final_label": "TEST_RESPONSIBILITY_SHIFT",
+      "aligned_with": "R1",
+      "arbitration_note": "The visible replacement checks schema getters and leaves serialization mutants uncovered, whereas the truncated diff does not establish the claimed omission of the nested default assertion."
+    },
+    {
+      "case_id": "MEXT::avro::TestReflect.testMultipleFieldAliases::2c0b68ae4e91cd4a11",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "Schema equality does not enforce field aliases, so replacing the serialized comparison loses the focal alias check as well as serializer coverage."
+    },
+    {
+      "case_id": "MEXT::avro::TestReflect.testMultipleFieldAliases::e9d178b0c1eb8567ae",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "The sole Schema equality assertion omits explicit alias verification, allowing missing aliases in addition to leaving the listed serialization mutants uncovered."
+    },
+    {
+      "case_id": "MEXT::avro::TestReflect.testRecord::007641d1089a59d887",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "Both field maps derive their values through the same schema serializer, allowing matching serialization corruption while the reported serializer mutants remain covered."
+    },
+    {
+      "case_id": "MEXT::avro::TestReflect.testRecord::810c9aabe40887b485",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "Manually constructing canonical JSON verifies selected getters rather than production JSON output, and surviving covered serializer mutants contradict the claim of complete serialization coverage removal."
+    },
+    {
+      "case_id": "MEXT::fastjson::JSONPParseTest3.test_f::8489ed70d0ef3b9d9f",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "Comparing reparsed functions and parameters discards the BrowserSecure comment prefix and literal Unicode escaping required by the original output assertion."
+    },
+    {
+      "case_id": "MEXT::fastjson::WriteClassNameTest_Map.test_list::1fb12e9c0eca6fbbcf",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R1",
+      "arbitration_note": "Besides removing instance serialization, the selected getter checks allow extra root and table1001 properties that the original exact JSON assertion rejected."
+    },
+    {
+      "case_id": "MEXT::fastjson::WriteClassNameTest_Map.test_list::95091f2224d0cdaf43",
+      "final_label": "TEST_RESPONSIBILITY_SHIFT",
+      "aligned_with": "R2",
+      "arbitration_note": "Independent nested-map equality preserves complete parsed contents but removes instance toJSONString execution, matching the serializer mutants marked NO_COVERAGE."
+    },
+    {
+      "case_id": "MEXT::fastjson::WriteClassNameTest_Map.test_list::caa73e686ab02e8aea",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "Parsing the expected value through the same parser permits matching null results under the reported surviving parser mutants, despite sorted serialization."
+    },
+    {
+      "case_id": "MEXT::fastjson::WriteClassNameTest_Map.test_list::ff9a3c5756ca921481",
+      "final_label": "TEST_RESPONSIBILITY_SHIFT",
+      "aligned_with": "R2",
+      "arbitration_note": "The independent HashMap expectation retains complete parsed-content comparison while eliminating the instance serialization path containing the uncovered mutants."
+    },
+    {
+      "case_id": "MEXT::fastjson::WriteDuplicateType.test_dupType::469d818695cb098223",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "Parsing emitted JSON into a map collapses duplicate @type occurrences, masking the duplicate-emission fault associated with the surviving containsKey mutant."
+    },
+    {
+      "case_id": "MEXT::fastjson::WriteDuplicateType.test_dupType::845b923f66e1ba9b78",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "DisableSpecialKeyDetect preserves @type as a property but parsed-object equality still loses occurrence counts, allowing duplicate type emission to escape."
+    },
+    {
+      "case_id": "MEXT::fastjson::WriteDuplicateType.test_dupType::9927bb25d773b02773",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "The inner size assertion counts distinct parsed keys rather than emitted occurrences, so it cannot detect duplicate @type output from the surviving containsKey mutant."
+    },
+    {
+      "case_id": "MEXT::fastjson::WriteDuplicateType.test_dupType::ab879d52b4e7b9b453",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "Parsing both strings before comparison erases duplicate-key evidence and therefore weakens the duplicate-type serialization check."
+    },
+    {
+      "case_id": "MEXT::fastjson::WriteDuplicateType.test_dupType::b3b8b8a27a8c2d6709",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "An independently constructed expected JSONObject does not restore serialized key multiplicity lost when actual output is parsed, explaining the surviving containsKey mutant."
+    },
+    {
+      "case_id": "MEXT::fastjson::WriteDuplicateType.test_dupType::dd3103d7de31754ad2",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "The added containsKey and constructor assertions check auxiliary behavior but leave parsed-output equality unable to reject duplicate @type emission."
+    },
+    {
+      "case_id": "MEXT::fastjson::WriteDuplicateType.test_dupType::de702f861d611612dc",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "Replacing literal output equality with parsed JSONObject equality collapses repeated @type keys and masks the reported containsKey mutation."
+    },
+    {
+      "case_id": "MEXT::hippo4j::ContentUtilTest.assertGetPoolContent::7f9f1e652ba6068b86",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "Unconditional substring trimming ignores the outer delimiters and split discards trailing empty tokens, admitting malformed output despite preserving sorted field fragments."
+    },
+    {
+      "case_id": "MEXT::karate::JsEngineTest.testObjectsWithinFunction::710b9762beaf6ee498",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "Map insertion collapses duplicate entries, tuple indexing ignores extra elements, and intValue truncates fractional values, weakening the Object.entries result check."
+    },
+    {
+      "case_id": "MEXT::nacos::JacksonUtilsTest.testToJsonBytes::d9402df2f84bfd2e19",
+      "final_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "aligned_with": "R2",
+      "arbitration_note": "Complete expected-tree equality retains both serialization implementations' JSON contents and types, while listed coverage losses concern only the removed ByteUtils comparison adapter."
+    },
+    {
+      "case_id": "MEXT::nacos::JacksonUtilsTest.testToJsonBytes::e5172251c65c9dbf10",
+      "final_label": "GENUINE_ORACLE_WEAKENING",
+      "aligned_with": "R2",
+      "arbitration_note": "Selected asInt and asText assertions permit coercible type errors and unchecked extra fields that the original complete JSON comparison rejected."
+    }
+  ],
+  "auditor_cli": "codex-cli 0.153.4",
+  "auditor_model": "gpt-6-astra",
+  "auditor_reasoning_effort": "medium",
+  "auditor_campaign_window": "2026-11",
+  "arbitration_scope": "35 primary-decision disagreements: 3 PR legitimacy boundaries + 7 Tax-55 primary mechanisms + 25 Mext-111 W/S/L labels"
+}

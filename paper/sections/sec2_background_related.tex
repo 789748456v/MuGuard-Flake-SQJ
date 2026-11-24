@@ -1,0 +1,51 @@
+\section{Background and Related Work}
+\label{sec:related}
+
+Prior flaky-test repair systems optimize stability without checking fault detection inside the repair loop, whereas test-evolution and empirical-methodology research explains why proxy checks silently erode oracle strength. Table~\ref{tab:related_boundary} positions \textsc{MuGuard-Flake} across three intersecting threads: automated flaky-test stabilization, oracle quality and test flimsiness, and bias-aware, safety-gated testing.
+
+\begin{table*}[t]
+\centering
+\caption{Methodological positioning of \textsc{MuGuard-Flake} relative to representative flaky test repair, test transformation, and quality-assurance studies.}
+\label{tab:related_boundary}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.7cm}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{5.6cm}}
+\toprule
+Study or System & Venue & Primary Validation Criterion & Limitation or Methodological Role \\
+\midrule
+\textsc{DexFix}~\cite{zhang2021dexfix} & ICSE 2021 & Template rules and \textsc{NonDex} reruns & Permissive comparators such as non-strict JSON equality mask extraneous or corrupted fields. \\
+\textsc{iPFlakies}~\cite{wang2022ipflakies} & ICSE-Comp.\ 2022 & Polluter search and order reruns in Python & Spliced cleaners or minimal setup calls can drop preconditions needed by focal assertions. \\
+\textsc{FlakyDoctor}~\cite{chen2024flakydoctor} & ISSTA 2024 & Neurosymbolic localization and LLM reruns & No in-loop fault-detection check verifies whether stabilized patches retain regression sensitivity. \\
+\textsc{TestBoost}~\cite{li2024testboost} & ASE 2024 & Fixture-sharing transform and post-hoc mutation audit & Shows 30.7\% of transformed classes lose mutation kills, without an automated repair gate. \\
+\textsc{Test Flimsiness}~\cite{parry2026flimsiness} & ICSE 2026 & Multi-run mutation testing for flaky kills & Characterizes noisy kills; we counter flimsiness by requiring consistent kills across repeated isolated runs. \\
+Leunig \& Petersen~\cite{leunig2026perl} & SQJ 2026 & Industrial LLM test-repair audit at IBM & Shows green execution conceals assertion dilution; motivates executable conservation gates. \\
+Bludau \& Pretschner~\cite{bludau2026szz} & SQJ 2026 & Ground-truth swap for proxy evaluation bias & Motivates measuring the inflation gap between stabilization, in-loop preservation, and external fault retention. \\
+Zhang et al.~\cite{zhang2026typerepair} & SQJ 2026 & Present, absent, and mismatched diagnostic control & Inspires our controlled contrast of absent, misleading, and accurate witness feedback. \\
+Salva~\cite{salva2026nltestrunner} & SQJ 2026 & False-acceptance vs.\ false-rejection control & Inspires our fail-closed three-state CI gate and explicit pull-request false-rejection audit. \\
+\midrule
+\textbf{MuGuard-Flake} & \textbf{This Paper} & \textbf{Fail-closed stability and local mutation gate (target and modified partners), witness retry, and explicit abstention} & \textbf{Audits historical artifacts, developer PRs, and five LLMs across Java and Python; quantifies safety, coverage, and false-rejection boundaries.} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Root Causes and Automated Repair of Flaky Tests}
+
+Intermittent test failures weaken regression signaling in CI by breaking the link between test verdicts and code changes~\cite{luo2014empirical,lam2020lifecycle,parry2021survey}. Empirical taxonomies highlight two context-sensitive categories as primary targets for automated repair~\cite{lam2019idflakies,gyori2016nondex,wang2022ipflakies}. Implementation-Dependent (ID) tests rely on unspecified library behavior, such as hash-map iteration order, reflection ordering, or unordered JSON serialization~\cite{gyori2016nondex,zhang2021dexfix}; \textsc{NonDex} exposes them by permuting internal data structures across seeds. Order-Dependent (OD) tests depend on shared mutable state left behind by earlier tests, such as static fields, singletons, system properties, or files~\cite{lam2019idflakies,shi2019ifixflakies,wang2022ipflakies}. Order-dependent tests split into \emph{victims}, which pass in isolation but fail after a state-polluting test, and \emph{brittles}, which fail in isolation unless preceded by a state-setter test~\cite{shi2019ifixflakies,wang2022ipflakies}.
+
+Automated repair progressed from suite search and syntax templates to LLM agents. \textsc{iFixFlakies}~\cite{shi2019ifixflakies} and \textsc{iPFlakies}~\cite{wang2022ipflakies} mine cleaner or helper statements from the test suite and splice them into order-dependent tests. \textsc{DexFix}~\cite{zhang2021dexfix} applies syntax templates, such as switching unordered sets to linked variants or relaxing exact JSON equality to non-strict mode, to fix implementation-dependent tests. More recently, \textsc{FlakyDoctor}~\cite{chen2024flakydoctor} pairs dynamic localization with iterative LLM repair under rerun validation, and industrial systems such as \textsc{AutoCover}~\cite{rastenis2026autocover} and database flakiness repair pipelines~\cite{berndt2026dbms} adopt similar generate-and-rerun loops.
+
+Across these pipelines, acceptance remains single-sided: any candidate that compiles and passes the stability rerun suite is accepted. Even in template repair, Zhang et al.~\cite{zhang2021dexfix} noted that relaxing JSON checks to ignore key order can admit extra or corrupted fields. Yet neither \textsc{FlakyDoctor}~\cite{chen2024flakydoctor} nor suite-search tools verify inside the repair loop whether a stabilized test preserves its original fault-detection power.
+
+\subsection{Patch Overfitting, Oracle Quality, and Test Flimsiness}
+
+Oracle erosion in flaky test repair is a sharper form of patch overfitting in automated program repair (APR). In production APR, generate-and-validate loops often emit plausible patches that pass weak test suites by deleting behavior or bypassing faulty paths~\cite{qi2015kali,smith2015cure}. Test repair faces an even sharper asymmetry~\cite{barr2015oracle,daniel2009reassert,li2019trip,rahman2025utfix}. Whereas production APR leaves the test suite intact as an external referee, flaky test repair edits the test oracle and fixture themselves. Once an assertion is weakened, CI reports a permanently green build with no failure signal.
+
+Prior test-evolution studies confirm that automated test edits can silently mask regressions, yet existing safeguards either target production-code changes or stop at post-hoc diagnosis. Early tools such as \textsc{ReAssert}~\cite{daniel2009reassert} risked hiding bugs by rewriting expected values from live runs, and \textsc{TestBoost}~\cite{li2024testboost} later found that 30.7\% of fixture-transformed classes lost mutation kills despite passing order checks, without gating repairs. Meanwhile, Checked Coverage~\cite{schuler2013checked}, path-condition similarity~\cite{li2019trip}, and change-aware slicing~\cite{rahman2025utfix} assess or update tests broken by production changes rather than stabilizing flaky tests while holding production code fixed.
+
+Evaluating test edits with mutation testing builds on extensive evidence linking mutant kills to real fault detection~\cite{just2014mutants,papadakis2019mutation}, yet introduces its own measurement hazards. Automatically generated suites are frequently flaky~\cite{gruber2024generated}, and mutation scores in LLM-generated suites shift with granularity and code version~\cite{zhao2026correlation}. Most directly, Parry et al.~\cite{parry2026flimsiness} formalized \emph{Test Flimsiness}: mutating production code can trigger intermittent failures in otherwise passing tests, causing single-run mutation testing to credit chance failures as genuine kills. To prevent chance failures from posing as preserved fault detection, Section~\ref{sec:construct} requires baseline kills to reproduce consistently across repeated isolated runs and match the exact test outcome, while cross-checking findings on independent held-out faults and real developer pull requests.
+
+\subsection{Proxy Bias, Diagnostic Controls, and Safety-Gated Testing}
+
+Sound evaluation of repair gates must confront two recurring validity threats: green pass rates that conceal weakened assertions and proxy metrics that conflate distinct quality dimensions. In an industrial study at IBM, Leunig and Petersen~\cite{leunig2026perl} showed that pass rates hide assertion dilution during iterative LLM test repair, while Bludau and Pretschner~\cite{bludau2026szz} showed how noisy proxy labels distort empirical rankings. Following those lessons, we separate stability, in-loop fault preservation, independent held-out fault detection, and semantic erosion types instead of collapsing them into a single repair rate.
+
+Turning diagnosis into a practical CI gate also requires testing whether error feedback truly drives repair gains and measuring the cost of conservatism. Adopting the diagnostic-control logic of Zhang et al.~\cite{zhang2026typerepair}, who contrasted accurate, absent, and mismatched error signals in LLM repair, we test whether localized surviving-mutant feedback outperforms bare numeric counts or misleading hints. On the deployment side, Salva~\cite{salva2026nltestrunner} framed LLM testing agents around explicit retry-and-abstention control of false acceptances versus false rejections. \textsc{MuGuard-Flake} unifies these principles in a fail-closed CI merge gate whose false-rejection rate, external fault-detection benefit, and runtime overhead we measure end to end. Closing the gaps across these three threads first requires formalizing oracle erosion and non-circular external validation, which we turn to next.

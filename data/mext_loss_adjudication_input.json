@@ -1,0 +1,2177 @@
+{
+  "protocol_version": "2.3.0-certified",
+  "adjudication_policy": "Symmetric semantic adjudication applied with ONE identical contract rubric to ALL unique active M_ext-loss patches across all six K=5 strategies (Ours_MuGuard_Flake, B4_Scalar_Gate_Loop, B3_Plus_Structural_Guard, B3_Static_AST_Guard, B2_Prompt_Guard, and B0_Standard_Validator) under v2.3.0-certified fresh 3/3 PIT pools.",
+  "symmetric_summary_by_strategy": {
+    "Ours_MuGuard_Flake": {
+      "unique_mext_loss_patches": 20,
+      "label_counts": {
+        "GENUINE_ORACLE_WEAKENING": 7,
+        "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 10,
+        "TEST_RESPONSIBILITY_SHIFT": 3
+      }
+    },
+    "B4_Scalar_Gate_Loop": {
+      "unique_mext_loss_patches": 14,
+      "label_counts": {
+        "GENUINE_ORACLE_WEAKENING": 6,
+        "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 7,
+        "TEST_RESPONSIBILITY_SHIFT": 1
+      }
+    },
+    "B3_Plus_Structural_Guard": {
+      "unique_mext_loss_patches": 47,
+      "label_counts": {
+        "GENUINE_ORACLE_WEAKENING": 15,
+        "TEST_RESPONSIBILITY_SHIFT": 24,
+        "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 8
+      }
+    },
+    "B3_Static_AST_Guard": {
+      "unique_mext_loss_patches": 50,
+      "label_counts": {
+        "GENUINE_ORACLE_WEAKENING": 15,
+        "TEST_RESPONSIBILITY_SHIFT": 24,
+        "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 11
+      }
+    },
+    "B2_Prompt_Guard": {
+      "unique_mext_loss_patches": 50,
+      "label_counts": {
+        "GENUINE_ORACLE_WEAKENING": 15,
+        "TEST_RESPONSIBILITY_SHIFT": 24,
+        "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 11
+      }
+    },
+    "B0_Standard_Validator": {
+      "unique_mext_loss_patches": 47,
+      "label_counts": {
+        "GENUINE_ORACLE_WEAKENING": 14,
+        "TEST_RESPONSIBILITY_SHIFT": 25,
+        "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 8
+      }
+    }
+  },
+  "entries": {
+    "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::14cccf4040d745d715": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::14cccf4040d745d715",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 31,
+      "m_ext_total": 32,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Asserted URL-encoded `notifications=%5B%7B...` query parameter produced by `assembleLongPollRefreshUrl`.",
+      "patch_behavior_change": "Called `URLDecoder.decode` before inspecting `notifications` (or replaced with `.contains(...)`), tolerating unescaped raw JSON characters in the query string.",
+      "mutant_behavior_change": "Lost `ArgumentPropagationMutator` on `Escaper::escape` (L284): omitting URL-escaping on `notifications` no longer fails the test.",
+      "rationale": "Symmetric strict rubric: URL-escaping of query parameters is part of the HTTP assembly contract, so decoding without verifying encoding weakens fault detection (applies equally to Ours, B4, B3+, and B0).",
+      "confidence": "HIGH"
+    },
+    "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::498814ea2fd309e8c5": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::498814ea2fd309e8c5",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 31,
+      "m_ext_total": 32,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Asserted URL-encoded `notifications=%5B%7B...` query parameter produced by `assembleLongPollRefreshUrl`.",
+      "patch_behavior_change": "Called `URLDecoder.decode` before inspecting `notifications` (or replaced with `.contains(...)`), tolerating unescaped raw JSON characters in the query string.",
+      "mutant_behavior_change": "Lost `ArgumentPropagationMutator` on `Escaper::escape` (L284): omitting URL-escaping on `notifications` no longer fails the test.",
+      "rationale": "Symmetric strict rubric: URL-escaping of query parameters is part of the HTTP assembly contract, so decoding without verifying encoding weakens fault detection (applies equally to Ours, B4, B3+, and B0).",
+      "confidence": "HIGH"
+    },
+    "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::70e9dff70f4cdb4b94": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::70e9dff70f4cdb4b94",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 31,
+      "m_ext_total": 32,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Asserted URL-encoded `notifications=%5B%7B...` query parameter produced by `assembleLongPollRefreshUrl`.",
+      "patch_behavior_change": "Called `URLDecoder.decode` before inspecting `notifications` (or replaced with `.contains(...)`), tolerating unescaped raw JSON characters in the query string.",
+      "mutant_behavior_change": "Lost `ArgumentPropagationMutator` on `Escaper::escape` (L284): omitting URL-escaping on `notifications` no longer fails the test.",
+      "rationale": "Symmetric strict rubric: URL-escaping of query parameters is part of the HTTP assembly contract, so decoding without verifying encoding weakens fault detection (applies equally to Ours, B4, B3+, and B0).",
+      "confidence": "HIGH"
+    },
+    "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::8e1893b55562ef6a9b": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::8e1893b55562ef6a9b",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 31,
+      "m_ext_total": 32,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Asserted URL-encoded `notifications=%5B%7B...` query parameter produced by `assembleLongPollRefreshUrl`.",
+      "patch_behavior_change": "Called `URLDecoder.decode` before inspecting `notifications` (or replaced with `.contains(...)`), tolerating unescaped raw JSON characters in the query string.",
+      "mutant_behavior_change": "Lost `ArgumentPropagationMutator` on `Escaper::escape` (L284): omitting URL-escaping on `notifications` no longer fails the test.",
+      "rationale": "Symmetric strict rubric: URL-escaping of query parameters is part of the HTTP assembly contract, so decoding without verifying encoding weakens fault detection (applies equally to Ours, B4, B3+, and B0).",
+      "confidence": "HIGH"
+    },
+    "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::d789b84790b1d8969e": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::d789b84790b1d8969e",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 31,
+      "m_ext_total": 32,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Asserted URL-encoded `notifications=%5B%7B...` query parameter produced by `assembleLongPollRefreshUrl`.",
+      "patch_behavior_change": "Called `URLDecoder.decode` before inspecting `notifications` (or replaced with `.contains(...)`), tolerating unescaped raw JSON characters in the query string.",
+      "mutant_behavior_change": "Lost `ArgumentPropagationMutator` on `Escaper::escape` (L284): omitting URL-escaping on `notifications` no longer fails the test.",
+      "rationale": "Symmetric strict rubric: URL-escaping of query parameters is part of the HTTP assembly contract, so decoding without verifying encoding weakens fault detection (applies equally to Ours, B4, B3+, and B0).",
+      "confidence": "HIGH"
+    },
+    "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::0f546249e79bd98029": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::0f546249e79bd98029",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 31,
+      "m_ext_total": 32,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Asserted URL-encoded `notifications=%5B%7B...` query parameter produced by `assembleLongPollRefreshUrl`.",
+      "patch_behavior_change": "Called `URLDecoder.decode` before inspecting `notifications` (or replaced with `.contains(...)`), tolerating unescaped raw JSON characters in the query string.",
+      "mutant_behavior_change": "Lost `ArgumentPropagationMutator` on `Escaper::escape` (L284): omitting URL-escaping on `notifications` no longer fails the test.",
+      "rationale": "Symmetric strict rubric: URL-escaping of query parameters is part of the HTTP assembly contract, so decoding without verifying encoding weakens fault detection (applies equally to Ours, B4, B3+, and B0).",
+      "confidence": "HIGH"
+    },
+    "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::3547d6c14b9a40896d": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::3547d6c14b9a40896d",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 31,
+      "m_ext_total": 32,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Asserted URL-encoded `notifications=%5B%7B...` query parameter produced by `assembleLongPollRefreshUrl`.",
+      "patch_behavior_change": "Called `URLDecoder.decode` before inspecting `notifications` (or replaced with `.contains(...)`), tolerating unescaped raw JSON characters in the query string.",
+      "mutant_behavior_change": "Lost `ArgumentPropagationMutator` on `Escaper::escape` (L284): omitting URL-escaping on `notifications` no longer fails the test.",
+      "rationale": "Symmetric strict rubric: URL-escaping of query parameters is part of the HTTP assembly contract, so decoding without verifying encoding weakens fault detection (applies equally to Ours, B4, B3+, and B0).",
+      "confidence": "HIGH"
+    },
+    "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::4e8ec67ab86c3cb3a1": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::4e8ec67ab86c3cb3a1",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 31,
+      "m_ext_total": 32,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Asserted URL-encoded `notifications=%5B%7B...` query parameter produced by `assembleLongPollRefreshUrl`.",
+      "patch_behavior_change": "Called `URLDecoder.decode` before inspecting `notifications` (or replaced with `.contains(...)`), tolerating unescaped raw JSON characters in the query string.",
+      "mutant_behavior_change": "Lost `ArgumentPropagationMutator` on `Escaper::escape` (L284): omitting URL-escaping on `notifications` no longer fails the test.",
+      "rationale": "Symmetric strict rubric: URL-escaping of query parameters is part of the HTTP assembly contract, so decoding without verifying encoding weakens fault detection (applies equally to Ours, B4, B3+, and B0).",
+      "confidence": "HIGH"
+    },
+    "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::593ee964a256e48316": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::593ee964a256e48316",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 31,
+      "m_ext_total": 32,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Asserted URL-encoded `notifications=%5B%7B...` query parameter produced by `assembleLongPollRefreshUrl`.",
+      "patch_behavior_change": "Called `URLDecoder.decode` before inspecting `notifications` (or replaced with `.contains(...)`), tolerating unescaped raw JSON characters in the query string.",
+      "mutant_behavior_change": "Lost `ArgumentPropagationMutator` on `Escaper::escape` (L284): omitting URL-escaping on `notifications` no longer fails the test.",
+      "rationale": "Symmetric strict rubric: URL-escaping of query parameters is part of the HTTP assembly contract, so decoding without verifying encoding weakens fault detection (applies equally to Ours, B4, B3+, and B0).",
+      "confidence": "HIGH"
+    },
+    "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::9cee016bec04c11531": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::9cee016bec04c11531",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 31,
+      "m_ext_total": 32,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Asserted URL-encoded `notifications=%5B%7B...` query parameter produced by `assembleLongPollRefreshUrl`.",
+      "patch_behavior_change": "Called `URLDecoder.decode` before inspecting `notifications` (or replaced with `.contains(...)`), tolerating unescaped raw JSON characters in the query string.",
+      "mutant_behavior_change": "Lost `ArgumentPropagationMutator` on `Escaper::escape` (L284): omitting URL-escaping on `notifications` no longer fails the test.",
+      "rationale": "Symmetric strict rubric: URL-escaping of query parameters is part of the HTTP assembly contract, so decoding without verifying encoding weakens fault detection (applies equally to Ours, B4, B3+, and B0).",
+      "confidence": "HIGH"
+    },
+    "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::af16c3df21b10e2b35": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::af16c3df21b10e2b35",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 31,
+      "m_ext_total": 32,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Asserted URL-encoded `notifications=%5B%7B...` query parameter produced by `assembleLongPollRefreshUrl`.",
+      "patch_behavior_change": "Called `URLDecoder.decode` before inspecting `notifications` (or replaced with `.contains(...)`), tolerating unescaped raw JSON characters in the query string.",
+      "mutant_behavior_change": "Lost `ArgumentPropagationMutator` on `Escaper::escape` (L284): omitting URL-escaping on `notifications` no longer fails the test.",
+      "rationale": "Symmetric strict rubric: URL-escaping of query parameters is part of the HTTP assembly contract, so decoding without verifying encoding weakens fault detection (applies equally to Ours, B4, B3+, and B0).",
+      "confidence": "HIGH"
+    },
+    "aries-cdi::MapsTest.checkMerge_1::b09ec62ed59f95795f": {
+      "cand_key": "aries-cdi::MapsTest.checkMerge_1::b09ec62ed59f95795f",
+      "sample_id": "aries-cdi::MapsTest.checkMerge_1",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 19,
+      "m_ext_total": 26,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Constructed expected map via `Maps.of(...)` and compared with `Maps.merge(...)`.",
+      "patch_behavior_change": "Replaced `Maps.of(...)` with manual `HashMap`/field assertions.",
+      "mutant_behavior_change": "Lost 7/26 `M_ext` obligations inside `Maps.of(...)`.",
+      "rationale": "Removing the `Maps.of` helper call from the test shifts coverage away from `Maps.of`.",
+      "confidence": "HIGH"
+    },
+    "aries-cdi::MapsTest.checkMerge_1::de777d644c74e615e7": {
+      "cand_key": "aries-cdi::MapsTest.checkMerge_1::de777d644c74e615e7",
+      "sample_id": "aries-cdi::MapsTest.checkMerge_1",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 19,
+      "m_ext_total": 26,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Constructed expected map via `Maps.of(...)` and compared with `Maps.merge(...)`.",
+      "patch_behavior_change": "Replaced `Maps.of(...)` with manual `HashMap`/field assertions.",
+      "mutant_behavior_change": "Lost 7/26 `M_ext` obligations inside `Maps.of(...)`.",
+      "rationale": "Removing the `Maps.of` helper call from the test shifts coverage away from `Maps.of`.",
+      "confidence": "HIGH"
+    },
+    "aries-cdi::MapsTest.checkMerge_1::f14250a6134cd3326c": {
+      "cand_key": "aries-cdi::MapsTest.checkMerge_1::f14250a6134cd3326c",
+      "sample_id": "aries-cdi::MapsTest.checkMerge_1",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 19,
+      "m_ext_total": 26,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Constructed expected map via `Maps.of(...)` and compared with `Maps.merge(...)`.",
+      "patch_behavior_change": "Replaced `Maps.of(...)` with manual `HashMap`/field assertions.",
+      "mutant_behavior_change": "Lost 7/26 `M_ext` obligations inside `Maps.of(...)`.",
+      "rationale": "Removing the `Maps.of` helper call from the test shifts coverage away from `Maps.of`.",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testAnnotationMultiAvroMeta::53bfbbef45b6705951": {
+      "cand_key": "avro::TestReflect.testAnnotationMultiAvroMeta::53bfbbef45b6705951",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "strategies_accepting": [
+        "B4_Scalar_Gate_Loop"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 10,
+      "m_ext_total": 12,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Verified JSON schema string emitted by `Schema.toString()`.",
+      "patch_behavior_change": "Kept `ReflectData.get().getSchema(...).toString()` and compared complete JSON trees via Jackson `ObjectMapper.readTree`/`readValue` (with sorted `fields` array where needed).",
+      "mutant_behavior_change": "Lost only `Schema.toString()` pretty-print boolean flag mutants (`L382 0->1`, `L394`) because JSON tree parsing ignores pretty-print whitespace.",
+      "rationale": "Complete structural JSON equality preserving `Schema.toString()` serialization; surviving mutants only toggle whitespace formatting.",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testAnnotationMultiAvroMeta::5626de3786fd4fdaf3": {
+      "cand_key": "avro::TestReflect.testAnnotationMultiAvroMeta::5626de3786fd4fdaf3",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "strategies_accepting": [
+        "B0_Standard_Validator",
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash",
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 2,
+      "m_ext_total": 12,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testAnnotationMultiAvroMeta::6fea9f0b34ed07a82c": {
+      "cand_key": "avro::TestReflect.testAnnotationMultiAvroMeta::6fea9f0b34ed07a82c",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 2,
+      "m_ext_total": 12,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testAnnotationMultiAvroMeta::75643ac2d6e95afa5f": {
+      "cand_key": "avro::TestReflect.testAnnotationMultiAvroMeta::75643ac2d6e95afa5f",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 2,
+      "m_ext_total": 12,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testAnnotationMultiAvroMeta::819b283b4d57865195": {
+      "cand_key": "avro::TestReflect.testAnnotationMultiAvroMeta::819b283b4d57865195",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "strategies_accepting": [
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 10,
+      "m_ext_total": 12,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Verified JSON schema string emitted by `Schema.toString()`.",
+      "patch_behavior_change": "Kept `ReflectData.get().getSchema(...).toString()` and compared complete JSON trees via Jackson `ObjectMapper.readTree`/`readValue` (with sorted `fields` array where needed).",
+      "mutant_behavior_change": "Lost only `Schema.toString()` pretty-print boolean flag mutants (`L382 0->1`, `L394`) because JSON tree parsing ignores pretty-print whitespace.",
+      "rationale": "Complete structural JSON equality preserving `Schema.toString()` serialization; surviving mutants only toggle whitespace formatting.",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testAnnotationMultiAvroMeta::bcf35f8530f74535c0": {
+      "cand_key": "avro::TestReflect.testAnnotationMultiAvroMeta::bcf35f8530f74535c0",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 2,
+      "m_ext_total": 12,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testAnnotationMultiAvroMeta::e12ee95b45f36738c2": {
+      "cand_key": "avro::TestReflect.testAnnotationMultiAvroMeta::e12ee95b45f36738c2",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "strategies_accepting": [
+        "B3_Plus_Structural_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 2,
+      "m_ext_total": 12,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testAnnotationMultiAvroMeta::ef16d5589749e0b021": {
+      "cand_key": "avro::TestReflect.testAnnotationMultiAvroMeta::ef16d5589749e0b021",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 10,
+      "m_ext_total": 12,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Verified JSON schema string emitted by `Schema.toString()`.",
+      "patch_behavior_change": "Kept `ReflectData.get().getSchema(...).toString()` and compared complete JSON trees via Jackson `ObjectMapper.readTree`/`readValue` (with sorted `fields` array where needed).",
+      "mutant_behavior_change": "Lost only `Schema.toString()` pretty-print boolean flag mutants (`L382 0->1`, `L394`) because JSON tree parsing ignores pretty-print whitespace.",
+      "rationale": "Complete structural JSON equality preserving `Schema.toString()` serialization; surviving mutants only toggle whitespace formatting.",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testAvroDoc::280619f4b6266af977": {
+      "cand_key": "avro::TestReflect.testAvroDoc::280619f4b6266af977",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 3,
+      "m_ext_total": 10,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testAvroDoc::40e548b8a056317c2b": {
+      "cand_key": "avro::TestReflect.testAvroDoc::40e548b8a056317c2b",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 0,
+      "m_ext_total": 10,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testAvroDoc::42ffb3b584accadd08": {
+      "cand_key": "avro::TestReflect.testAvroDoc::42ffb3b584accadd08",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 8,
+      "m_ext_total": 10,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Verified JSON schema string emitted by `Schema.toString()`.",
+      "patch_behavior_change": "Kept `ReflectData.get().getSchema(...).toString()` and compared complete JSON trees via Jackson `ObjectMapper.readTree`/`readValue` (with sorted `fields` array where needed).",
+      "mutant_behavior_change": "Lost only `Schema.toString()` pretty-print boolean flag mutants (`L382 0->1`, `L394`) because JSON tree parsing ignores pretty-print whitespace.",
+      "rationale": "Complete structural JSON equality preserving `Schema.toString()` serialization; surviving mutants only toggle whitespace formatting.",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testAvroDoc::680314d7e7681d0b12": {
+      "cand_key": "avro::TestReflect.testAvroDoc::680314d7e7681d0b12",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 0,
+      "m_ext_total": 10,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testAvroDoc::799958a124e58eb552": {
+      "cand_key": "avro::TestReflect.testAvroDoc::799958a124e58eb552",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 0,
+      "m_ext_total": 10,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testAvroDoc::87cf76d958fadc2bce": {
+      "cand_key": "avro::TestReflect.testAvroDoc::87cf76d958fadc2bce",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 8,
+      "m_ext_total": 10,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Verified JSON schema string emitted by `Schema.toString()`.",
+      "patch_behavior_change": "Kept `ReflectData.get().getSchema(...).toString()` and compared complete JSON trees via Jackson `ObjectMapper.readTree`/`readValue` (with sorted `fields` array where needed).",
+      "mutant_behavior_change": "Lost only `Schema.toString()` pretty-print boolean flag mutants (`L382 0->1`, `L394`) because JSON tree parsing ignores pretty-print whitespace.",
+      "rationale": "Complete structural JSON equality preserving `Schema.toString()` serialization; surviving mutants only toggle whitespace formatting.",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testAvroDoc::b1f935455f9dccefbd": {
+      "cand_key": "avro::TestReflect.testAvroDoc::b1f935455f9dccefbd",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "strategies_accepting": [
+        "B4_Scalar_Gate_Loop"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 8,
+      "m_ext_total": 10,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Verified JSON schema string emitted by `Schema.toString()`.",
+      "patch_behavior_change": "Kept `ReflectData.get().getSchema(...).toString()` and compared complete JSON trees via Jackson `ObjectMapper.readTree`/`readValue` (with sorted `fields` array where needed).",
+      "mutant_behavior_change": "Lost only `Schema.toString()` pretty-print boolean flag mutants (`L382 0->1`, `L394`) because JSON tree parsing ignores pretty-print whitespace.",
+      "rationale": "Complete structural JSON equality preserving `Schema.toString()` serialization; surviving mutants only toggle whitespace formatting.",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testAvroDoc::c54ac58b5dd24ca520": {
+      "cand_key": "avro::TestReflect.testAvroDoc::c54ac58b5dd24ca520",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 8,
+      "m_ext_total": 10,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Verified JSON schema string emitted by Schema.toString().",
+      "patch_behavior_change": "Kept ReflectData.get().getSchema(DocTest.class).toString() and compared complete Jackson ObjectMapper.readTree JSON trees with sorted fields arrays.",
+      "mutant_behavior_change": "Lost only Schema.toString() pretty-print boolean flag mutants (L382 0->1, L394) exposed under lossless 8-tuple PIT identity because JSON tree parsing ignores pretty-print whitespace.",
+      "rationale": "Complete structural JSON equality preserving Schema.toString() serialization; surviving mutants only toggle whitespace formatting.",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testMultipleFieldAliases::0ff8e7243bb926b04b": {
+      "cand_key": "avro::TestReflect.testMultipleFieldAliases::0ff8e7243bb926b04b",
+      "sample_id": "avro::TestReflect.testMultipleFieldAliases",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 0,
+      "m_ext_total": 31,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testMultipleFieldAliases::270e1d548954aad98a": {
+      "cand_key": "avro::TestReflect.testMultipleFieldAliases::270e1d548954aad98a",
+      "sample_id": "avro::TestReflect.testMultipleFieldAliases",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 28,
+      "m_ext_total": 31,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testMultipleFieldAliases::2c0b68ae4e91cd4a11": {
+      "cand_key": "avro::TestReflect.testMultipleFieldAliases::2c0b68ae4e91cd4a11",
+      "sample_id": "avro::TestReflect.testMultipleFieldAliases",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 28,
+      "m_ext_total": 31,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testMultipleFieldAliases::e9d178b0c1eb8567ae": {
+      "cand_key": "avro::TestReflect.testMultipleFieldAliases::e9d178b0c1eb8567ae",
+      "sample_id": "avro::TestReflect.testMultipleFieldAliases",
+      "strategies_accepting": [
+        "B0_Standard_Validator",
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash",
+        "deepseek-v4-pro",
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 28,
+      "m_ext_total": 31,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testRecord::007641d1089a59d887": {
+      "cand_key": "avro::TestReflect.testRecord::007641d1089a59d887",
+      "sample_id": "avro::TestReflect.testRecord",
+      "strategies_accepting": [
+        "B3_Plus_Structural_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 2,
+      "m_ext_total": 10,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testRecord::01d923eda0ad3018b1": {
+      "cand_key": "avro::TestReflect.testRecord::01d923eda0ad3018b1",
+      "sample_id": "avro::TestReflect.testRecord",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 8,
+      "m_ext_total": 10,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Verified JSON schema string emitted by `Schema.toString()`.",
+      "patch_behavior_change": "Kept `ReflectData.get().getSchema(...).toString()` and compared complete JSON trees via Jackson `ObjectMapper.readTree`/`readValue` (with sorted `fields` array where needed).",
+      "mutant_behavior_change": "Lost only `Schema.toString()` pretty-print boolean flag mutants (`L382 0->1`, `L394`) because JSON tree parsing ignores pretty-print whitespace.",
+      "rationale": "Complete structural JSON equality preserving `Schema.toString()` serialization; surviving mutants only toggle whitespace formatting.",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testRecord::13c9eb07dbefd854f5": {
+      "cand_key": "avro::TestReflect.testRecord::13c9eb07dbefd854f5",
+      "sample_id": "avro::TestReflect.testRecord",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 0,
+      "m_ext_total": 10,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testRecord::810c9aabe40887b485": {
+      "cand_key": "avro::TestReflect.testRecord::810c9aabe40887b485",
+      "sample_id": "avro::TestReflect.testRecord",
+      "strategies_accepting": [
+        "B4_Scalar_Gate_Loop"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 3,
+      "m_ext_total": 10,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testRecord::a87247228fe6b50932": {
+      "cand_key": "avro::TestReflect.testRecord::a87247228fe6b50932",
+      "sample_id": "avro::TestReflect.testRecord",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 0,
+      "m_ext_total": 10,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testRecord::c6194410fbad1767d4": {
+      "cand_key": "avro::TestReflect.testRecord::c6194410fbad1767d4",
+      "sample_id": "avro::TestReflect.testRecord",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 0,
+      "m_ext_total": 10,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testRecord::c863d0dbd12f9f5efd": {
+      "cand_key": "avro::TestReflect.testRecord::c863d0dbd12f9f5efd",
+      "sample_id": "avro::TestReflect.testRecord",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 0,
+      "m_ext_total": 10,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testRecord::cc7905c5f8e2ef96e0": {
+      "cand_key": "avro::TestReflect.testRecord::cc7905c5f8e2ef96e0",
+      "sample_id": "avro::TestReflect.testRecord",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 8,
+      "m_ext_total": 10,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Verified JSON schema string emitted by `Schema.toString()`.",
+      "patch_behavior_change": "Kept `ReflectData.get().getSchema(...).toString()` and compared complete JSON trees via Jackson `ObjectMapper.readTree`/`readValue` (with sorted `fields` array where needed).",
+      "mutant_behavior_change": "Lost only `Schema.toString()` pretty-print boolean flag mutants (`L382 0->1`, `L394`) because JSON tree parsing ignores pretty-print whitespace.",
+      "rationale": "Complete structural JSON equality preserving `Schema.toString()` serialization; surviving mutants only toggle whitespace formatting.",
+      "confidence": "HIGH"
+    },
+    "avro::TestReflect.testRecord::e58787fb56c81c510e": {
+      "cand_key": "avro::TestReflect.testRecord::e58787fb56c81c510e",
+      "sample_id": "avro::TestReflect.testRecord",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 0,
+      "m_ext_total": 10,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Invoked `check(cls, expectedJson)` exercising `Schema.toString()` / `Schema.toJson()` serialization.",
+      "patch_behavior_change": "Bypassed `Schema.toString()` completely, comparing in-memory `Schema` objects or manually building strings/field checks.",
+      "mutant_behavior_change": "Lost `Schema.toJson` and `Schema.toString` serialization mutants (`7-10/10` or `10/12` `M_ext` obligations).",
+      "rationale": "Drops JSON serialization coverage completely; classified symmetrically as responsibility shift / serialization blindness (occurs in B0/B3+ and 1 B4 patch).",
+      "confidence": "HIGH"
+    },
+    "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValue::7faeed7d53481d61e5": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValue::7faeed7d53481d61e5",
+      "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValue",
+      "strategies_accepting": [
+        "B0_Standard_Validator",
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro",
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 34,
+      "m_ext_total": 40,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Tested `SensitiveValue` encryption/decryption using Spring-managed `EncryptionProvider`.",
+      "patch_behavior_change": "Used Java reflection to overwrite private static `EncryptionProvider.encryptor` with `new AtomicReference<>()`.",
+      "mutant_behavior_change": "Lost 5-7/40 `M_ext` obligations in `EncryptionProvider::create()` singleton cache branches.",
+      "rationale": "Reflective internal field reset alters singleton initialization branch coverage in `EncryptionProvider::create`.",
+      "confidence": "MEDIUM-HIGH"
+    },
+    "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValue::ed2642147b5d7269a8": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValue::ed2642147b5d7269a8",
+      "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValue",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 34,
+      "m_ext_total": 40,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Tested `SensitiveValue` encryption/decryption using Spring-managed `EncryptionProvider`.",
+      "patch_behavior_change": "Used Java reflection to overwrite private static `EncryptionProvider.encryptor` with `new AtomicReference<>()`.",
+      "mutant_behavior_change": "Lost 5-7/40 `M_ext` obligations in `EncryptionProvider::create()` singleton cache branches.",
+      "rationale": "Reflective internal field reset alters singleton initialization branch coverage in `EncryptionProvider::create`.",
+      "confidence": "MEDIUM-HIGH"
+    },
+    "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted::726893d90e13f64979": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted::726893d90e13f64979",
+      "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 34,
+      "m_ext_total": 40,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Tested `SensitiveValue` encryption/decryption using Spring-managed `EncryptionProvider`.",
+      "patch_behavior_change": "Used Java reflection to overwrite private static `EncryptionProvider.encryptor` with `new AtomicReference<>()`.",
+      "mutant_behavior_change": "Lost 5-7/40 `M_ext` obligations in `EncryptionProvider::create()` singleton cache branches.",
+      "rationale": "Reflective internal field reset alters singleton initialization branch coverage in `EncryptionProvider::create`.",
+      "confidence": "MEDIUM-HIGH"
+    },
+    "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted::a1e6ecf8ad057ae479": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted::a1e6ecf8ad057ae479",
+      "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 34,
+      "m_ext_total": 40,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Tested `SensitiveValue` encryption/decryption using Spring-managed `EncryptionProvider`.",
+      "patch_behavior_change": "Used Java reflection to overwrite private static `EncryptionProvider.encryptor` with `new AtomicReference<>()`.",
+      "mutant_behavior_change": "Lost 5-7/40 `M_ext` obligations in `EncryptionProvider::create()` singleton cache branches.",
+      "rationale": "Reflective internal field reset alters singleton initialization branch coverage in `EncryptionProvider::create`.",
+      "confidence": "MEDIUM-HIGH"
+    },
+    "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted::ab954a1b7af089c1cb": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted::ab954a1b7af089c1cb",
+      "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 34,
+      "m_ext_total": 40,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Tested `SensitiveValue` encryption/decryption using Spring-managed `EncryptionProvider`.",
+      "patch_behavior_change": "Used Java reflection to overwrite private static `EncryptionProvider.encryptor` with `new AtomicReference<>()`.",
+      "mutant_behavior_change": "Lost 5-7/40 `M_ext` obligations in `EncryptionProvider::create()` singleton cache branches.",
+      "rationale": "Reflective internal field reset alters singleton initialization branch coverage in `EncryptionProvider::create`.",
+      "confidence": "MEDIUM-HIGH"
+    },
+    "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt::16908e20364c205100": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt::16908e20364c205100",
+      "sample_id": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 36,
+      "m_ext_total": 40,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Tested `SensitiveValue` encryption/decryption using Spring-managed `EncryptionProvider`.",
+      "patch_behavior_change": "Used Java reflection to overwrite private static `EncryptionProvider.encryptor` with `new AtomicReference<>()`.",
+      "mutant_behavior_change": "Lost 5-7/40 `M_ext` obligations in `EncryptionProvider::create()` singleton cache branches.",
+      "rationale": "Reflective internal field reset alters singleton initialization branch coverage in `EncryptionProvider::create`.",
+      "confidence": "MEDIUM-HIGH"
+    },
+    "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt::1f1b98e495b88af355": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt::1f1b98e495b88af355",
+      "sample_id": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 36,
+      "m_ext_total": 40,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Tested `SensitiveValue` encryption/decryption using Spring-managed `EncryptionProvider`.",
+      "patch_behavior_change": "Used Java reflection to overwrite private static `EncryptionProvider.encryptor` with `new AtomicReference<>()`.",
+      "mutant_behavior_change": "Lost 5-7/40 `M_ext` obligations in `EncryptionProvider::create()` singleton cache branches.",
+      "rationale": "Reflective internal field reset alters singleton initialization branch coverage in `EncryptionProvider::create`.",
+      "confidence": "MEDIUM-HIGH"
+    },
+    "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt::81cb23c30197262b18": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt::81cb23c30197262b18",
+      "sample_id": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 36,
+      "m_ext_total": 40,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Tested `SensitiveValue` encryption/decryption using Spring-managed `EncryptionProvider`.",
+      "patch_behavior_change": "Used Java reflection to overwrite private static `EncryptionProvider.encryptor` with `new AtomicReference<>()`.",
+      "mutant_behavior_change": "Lost 5-7/40 `M_ext` obligations in `EncryptionProvider::create()` singleton cache branches.",
+      "rationale": "Reflective internal field reset alters singleton initialization branch coverage in `EncryptionProvider::create`.",
+      "confidence": "MEDIUM-HIGH"
+    },
+    "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt::bbb114afdc8331f436": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt::bbb114afdc8331f436",
+      "sample_id": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 36,
+      "m_ext_total": 40,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Tested `SensitiveValue` encryption/decryption using Spring-managed `EncryptionProvider`.",
+      "patch_behavior_change": "Used Java reflection to overwrite private static `EncryptionProvider.encryptor` with `new AtomicReference<>()`.",
+      "mutant_behavior_change": "Lost 5-7/40 `M_ext` obligations in `EncryptionProvider::create()` singleton cache branches.",
+      "rationale": "Reflective internal field reset alters singleton initialization branch coverage in `EncryptionProvider::create`.",
+      "confidence": "MEDIUM-HIGH"
+    },
+    "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::583d968be271316fe1": {
+      "cand_key": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::583d968be271316fe1",
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 39,
+      "m_ext_total": 40,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Verified complete multiline indented `toString` formatting including leading spaces (`spaces=2`) and line breaks.",
+      "patch_behavior_change": "Replaced exact formatting assertion with `.contains(...)` checks (`B0`) or `.trim()` stripping leading indentation (`B3+`).",
+      "mutant_behavior_change": "Lost `6-25/40` `M_ext` mutants on `MultilineRecursiveToStringStyle` indentation arithmetic (`spaces=2 -> 1/0/-1/-2/3`).",
+      "rationale": "Stripping whitespace/indentation or using `.contains()` directly blinds the test to the formatting contract of `MultilineRecursiveToStringStyle`.",
+      "confidence": "HIGH"
+    },
+    "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::d81119fd7dac6fd857": {
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Verified complete multiline indented `toString` formatting including leading spaces (`spaces=2`) and line breaks.",
+      "patch_behavior_change": "Split output by line, stripped leading indentation with `line.trim()`, and checked `lines.contains(...)` / `indexOf(...)`.",
+      "mutant_behavior_change": "Lost 20/40 `M_ext` mutants including `CRCR1-4/6`, `MemberVariableMutator` on `spaces = 2` (L76), and `ABSMutator`/`AOD1Mutator` on `appendDetail` indentation arithmetic (L193).",
+      "rationale": "Stripping whitespace/indentation with `.trim()` and using `.contains()` directly blinds the test to the formatting contract of `MultilineRecursiveToStringStyle`.",
+      "confidence": "HIGH",
+      "cand_key": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::d81119fd7dac6fd857",
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 20,
+      "m_ext_total": 40
+    },
+    "commons-lang::MultilineRecursiveToStringStyleTest.noArray::0b796954323b0b7cb9": {
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Verified complete multiline indented `toString` formatting including leading spaces (`spaces=2`) and line breaks.",
+      "patch_behavior_change": "Split expected and actual lines by `BR`, called `.trim()` on every field line (discarding leading indentation), stripped commas, sorted, and compared lists.",
+      "mutant_behavior_change": "Lost 14/40 `M_ext` mutants including `CRCR1-4/6`, `MemberVariableMutator` on `spaces = 2` (L76), and `UOI2/UOI4` on `resetIndent` (L91).",
+      "rationale": "Stripping leading whitespace with `.trim()` directly blinds the test to the indentation formatting contract of `MultilineRecursiveToStringStyle`.",
+      "confidence": "HIGH",
+      "cand_key": "commons-lang::MultilineRecursiveToStringStyleTest.noArray::0b796954323b0b7cb9",
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.noArray",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 26,
+      "m_ext_total": 40
+    },
+    "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator::4f552ea6827230dbc1": {
+      "cand_key": "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator::4f552ea6827230dbc1",
+      "sample_id": "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 13,
+      "m_ext_total": 28,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Specifically tested pretty-print indentation and trailing line-separator behavior of `JsonFormatter`.",
+      "patch_behavior_change": "Parsed `formatter.toJson(map)` with `objectMapper.readTree(...)`, discarding all pretty-print whitespace and trailing newline checks.",
+      "mutant_behavior_change": "Lost `15-17/29` `M_ext` obligations in `JsonFormatter` constructor flags (`prettyPrint`, `appendLineSeparator`).",
+      "rationale": "Using `readTree` on a pretty-print/line-separator test destroys the core formatting oracle under test.",
+      "confidence": "HIGH"
+    },
+    "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator::80befda902ab8924ff": {
+      "cand_key": "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator::80befda902ab8924ff",
+      "sample_id": "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 13,
+      "m_ext_total": 28,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Specifically tested pretty-print indentation and trailing line-separator behavior of `JsonFormatter`.",
+      "patch_behavior_change": "Parsed `formatter.toJson(map)` with `objectMapper.readTree(...)`, discarding all pretty-print whitespace and trailing newline checks.",
+      "mutant_behavior_change": "Lost `15-17/29` `M_ext` obligations in `JsonFormatter` constructor flags (`prettyPrint`, `appendLineSeparator`).",
+      "rationale": "Using `readTree` on a pretty-print/line-separator test destroys the core formatting oracle under test.",
+      "confidence": "HIGH"
+    },
+    "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator::f7baab3008f13d12b6": {
+      "cand_key": "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator::f7baab3008f13d12b6",
+      "sample_id": "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 13,
+      "m_ext_total": 28,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Specifically tested pretty-print indentation and trailing line-separator behavior of `JsonFormatter`.",
+      "patch_behavior_change": "Parsed `formatter.toJson(map)` with `objectMapper.readTree(...)`, discarding all pretty-print whitespace and trailing newline checks.",
+      "mutant_behavior_change": "Lost `15-17/29` `M_ext` obligations in `JsonFormatter` constructor flags (`prettyPrint`, `appendLineSeparator`).",
+      "rationale": "Using `readTree` on a pretty-print/line-separator test destroys the core formatting oracle under test.",
+      "confidence": "HIGH"
+    },
+    "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator::10404b8729d217d07c": {
+      "cand_key": "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator::10404b8729d217d07c",
+      "sample_id": "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 12,
+      "m_ext_total": 29,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Specifically tested pretty-print indentation and trailing line-separator behavior of `JsonFormatter`.",
+      "patch_behavior_change": "Parsed `formatter.toJson(map)` with `objectMapper.readTree(...)`, discarding all pretty-print whitespace and trailing newline checks.",
+      "mutant_behavior_change": "Lost `15-17/29` `M_ext` obligations in `JsonFormatter` constructor flags (`prettyPrint`, `appendLineSeparator`).",
+      "rationale": "Using `readTree` on a pretty-print/line-separator test destroys the core formatting oracle under test.",
+      "confidence": "HIGH"
+    },
+    "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator::ac9f65339a8250193b": {
+      "cand_key": "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator::ac9f65339a8250193b",
+      "sample_id": "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 12,
+      "m_ext_total": 29,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Specifically tested pretty-print indentation and trailing line-separator behavior of `JsonFormatter`.",
+      "patch_behavior_change": "Parsed `formatter.toJson(map)` with `objectMapper.readTree(...)`, discarding all pretty-print whitespace and trailing newline checks.",
+      "mutant_behavior_change": "Lost `15-17/29` `M_ext` obligations in `JsonFormatter` constructor flags (`prettyPrint`, `appendLineSeparator`).",
+      "rationale": "Using `readTree` on a pretty-print/line-separator test destroys the core formatting oracle under test.",
+      "confidence": "HIGH"
+    },
+    "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator::ba3205452adb374dcf": {
+      "cand_key": "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator::ba3205452adb374dcf",
+      "sample_id": "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 12,
+      "m_ext_total": 29,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Specifically tested pretty-print indentation and trailing line-separator behavior of `JsonFormatter`.",
+      "patch_behavior_change": "Parsed `formatter.toJson(map)` with `objectMapper.readTree(...)`, discarding all pretty-print whitespace and trailing newline checks.",
+      "mutant_behavior_change": "Lost `15-17/29` `M_ext` obligations in `JsonFormatter` constructor flags (`prettyPrint`, `appendLineSeparator`).",
+      "rationale": "Using `readTree` on a pretty-print/line-separator test destroys the core formatting oracle under test.",
+      "confidence": "HIGH"
+    },
+    "fastjson::JSONPParseTest3.test_f::3f1d691f26618dc911": {
+      "cand_key": "fastjson::JSONPParseTest3.test_f::3f1d691f26618dc911",
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 30,
+      "m_ext_total": 32,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Verified JSONP output with `SerializerFeature.BrowserSecure`, including escaping `)` as `\\u0029`.",
+      "patch_behavior_change": "Parsed inner payload via `JSON.parseArray`/`JSON.parseObject` (which decodes `\\u0029` back to `)`) without checking escaped output.",
+      "mutant_behavior_change": "Lost `JSONPObject::write:L59` (`BrowserSecure` escaping mutant survives) alongside `JSONObject.<init>:L80`.",
+      "rationale": "Symmetric strict rubric: losing `BrowserSecure` escaping verification is genuine oracle weakening (applies equally to Ours Pro `#16`, B3+ Pro `#66`, and B0 Flash `#65`).",
+      "confidence": "HIGH"
+    },
+    "fastjson::JSONPParseTest3.test_f::5d5cf38bf861840453": {
+      "cand_key": "fastjson::JSONPParseTest3.test_f::5d5cf38bf861840453",
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 30,
+      "m_ext_total": 32,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Verified JSONP output with `SerializerFeature.BrowserSecure`, including escaping `)` as `\\u0029`.",
+      "patch_behavior_change": "Parsed inner payload via `JSON.parseArray`/`JSON.parseObject` (which decodes `\\u0029` back to `)`) without checking escaped output.",
+      "mutant_behavior_change": "Lost `JSONPObject::write:L59` (`BrowserSecure` escaping mutant survives) alongside `JSONObject.<init>:L80`.",
+      "rationale": "Symmetric strict rubric: losing `BrowserSecure` escaping verification is genuine oracle weakening (applies equally to Ours Pro `#16`, B3+ Pro `#66`, and B0 Flash `#65`).",
+      "confidence": "HIGH"
+    },
+    "fastjson::JSONPParseTest3.test_f::66acc9daa24fe1db58": {
+      "cand_key": "fastjson::JSONPParseTest3.test_f::66acc9daa24fe1db58",
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 31,
+      "m_ext_total": 32,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Asserted exact JSONP string with unordered 2-key `JSONObject` (`id`, `name`).",
+      "patch_behavior_change": "Accepted both exact JSONP string permutations (preserving `\\u0029` escaping) or parsed complete `JSONPObject` equality.",
+      "mutant_behavior_change": "Lost only `JSONObject.<init>(IZ)V:L80` (`ordered` flag branch `HashMap` vs `LinkedHashMap`).",
+      "rationale": "Eliminating accidental `HashMap` key-order sensitivity legitimately stops killing the internal map-ordering branch mutant.",
+      "confidence": "HIGH"
+    },
+    "fastjson::JSONPParseTest3.test_f::7421d596122535d5e0": {
+      "cand_key": "fastjson::JSONPParseTest3.test_f::7421d596122535d5e0",
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 30,
+      "m_ext_total": 32,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Verified JSONP output with `SerializerFeature.BrowserSecure`, including escaping `)` as `\\u0029`.",
+      "patch_behavior_change": "Parsed inner payload via `JSON.parseArray`/`JSON.parseObject` (which decodes `\\u0029` back to `)`) without checking escaped output.",
+      "mutant_behavior_change": "Lost `JSONPObject::write:L59` (`BrowserSecure` escaping mutant survives) alongside `JSONObject.<init>:L80`.",
+      "rationale": "Symmetric strict rubric: losing `BrowserSecure` escaping verification is genuine oracle weakening (applies equally to Ours Pro `#16`, B3+ Pro `#66`, and B0 Flash `#65`).",
+      "confidence": "HIGH"
+    },
+    "fastjson::JSONPParseTest3.test_f::8489ed70d0ef3b9d9f": {
+      "cand_key": "fastjson::JSONPParseTest3.test_f::8489ed70d0ef3b9d9f",
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 31,
+      "m_ext_total": 32,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Asserted exact JSONP string with unordered 2-key `JSONObject` (`id`, `name`).",
+      "patch_behavior_change": "Accepted both exact JSONP string permutations (preserving `\\u0029` escaping) or parsed complete `JSONPObject` equality.",
+      "mutant_behavior_change": "Lost only `JSONObject.<init>(IZ)V:L80` (`ordered` flag branch `HashMap` vs `LinkedHashMap`).",
+      "rationale": "Eliminating accidental `HashMap` key-order sensitivity legitimately stops killing the internal map-ordering branch mutant.",
+      "confidence": "HIGH"
+    },
+    "fastjson::JSONPParseTest3.test_f::c34d90c8caca3aac22": {
+      "cand_key": "fastjson::JSONPParseTest3.test_f::c34d90c8caca3aac22",
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 31,
+      "m_ext_total": 32,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Asserted exact JSONP string with unordered 2-key `JSONObject` (`id`, `name`).",
+      "patch_behavior_change": "Accepted both exact JSONP string permutations (preserving `\\u0029` escaping) or parsed complete `JSONPObject` equality.",
+      "mutant_behavior_change": "Lost only `JSONObject.<init>(IZ)V:L80` (`ordered` flag branch `HashMap` vs `LinkedHashMap`).",
+      "rationale": "Eliminating accidental `HashMap` key-order sensitivity legitimately stops killing the internal map-ordering branch mutant.",
+      "confidence": "HIGH"
+    },
+    "fastjson::JSONPParseTest3.test_f::e0524eea17f28e48b8": {
+      "cand_key": "fastjson::JSONPParseTest3.test_f::e0524eea17f28e48b8",
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 31,
+      "m_ext_total": 32,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Asserted exact JSONP string with unordered 2-key `JSONObject` (`id`, `name`).",
+      "patch_behavior_change": "Accepted both exact JSONP string permutations (preserving `\\u0029` escaping) or parsed complete `JSONPObject` equality.",
+      "mutant_behavior_change": "Lost only `JSONObject.<init>(IZ)V:L80` (`ordered` flag branch `HashMap` vs `LinkedHashMap`).",
+      "rationale": "Eliminating accidental `HashMap` key-order sensitivity legitimately stops killing the internal map-ordering branch mutant.",
+      "confidence": "HIGH"
+    },
+    "fastjson::JSONPParseTest3.test_f::e2d0463d5f2280dda3": {
+      "cand_key": "fastjson::JSONPParseTest3.test_f::e2d0463d5f2280dda3",
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 31,
+      "m_ext_total": 32,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Asserted exact JSONP string with unordered 2-key `JSONObject` (`id`, `name`).",
+      "patch_behavior_change": "Accepted both exact JSONP string permutations (preserving `\\u0029` escaping) or parsed complete `JSONPObject` equality.",
+      "mutant_behavior_change": "Lost only `JSONObject.<init>(IZ)V:L80` (`ordered` flag branch `HashMap` vs `LinkedHashMap`).",
+      "rationale": "Eliminating accidental `HashMap` key-order sensitivity legitimately stops killing the internal map-ordering branch mutant.",
+      "confidence": "HIGH"
+    },
+    "fastjson::WriteClassNameTest_Map.test_list::1456b44a73e04488e5": {
+      "cand_key": "fastjson::WriteClassNameTest_Map.test_list::1456b44a73e04488e5",
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 39,
+      "m_ext_total": 40,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Verified serialized JSON of `jsonObject` whose inner keys had nondeterministic order.",
+      "patch_behavior_change": "Verified exact nested `toJSONString()` per sub-table or complete parsed JSON equality.",
+      "mutant_behavior_change": "Lost only `JSONObject.<init>(IZ)V:L80` (`ordered` flag branch).",
+      "rationale": "Order-insensitive complete payload verification; lost mutant is purely internal map-order flag.",
+      "confidence": "HIGH"
+    },
+    "fastjson::WriteClassNameTest_Map.test_list::1fb12e9c0eca6fbbcf": {
+      "cand_key": "fastjson::WriteClassNameTest_Map.test_list::1fb12e9c0eca6fbbcf",
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 35,
+      "m_ext_total": 40,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Verified `jsonObject.toJSONString()` output after `Feature.IgnoreAutoType`.",
+      "patch_behavior_change": "Eliminated `jsonObject.toJSONString()` call and compared unserialized `Map`/`JSONObject` objects directly (or individual getters).",
+      "mutant_behavior_change": "Lost `SerializerFeature::isEnabled` / `JSON::parse` serialization-path obligations (`5-7/40` `M_ext` mutants).",
+      "rationale": "Dropping the serialization step under test weakens serialization fault detection.",
+      "confidence": "HIGH"
+    },
+    "fastjson::WriteClassNameTest_Map.test_list::35ba56749a46aa220e": {
+      "cand_key": "fastjson::WriteClassNameTest_Map.test_list::35ba56749a46aa220e",
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "strategies_accepting": [
+        "B0_Standard_Validator",
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 33,
+      "m_ext_total": 40,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Verified `jsonObject.toJSONString()` output after `Feature.IgnoreAutoType`.",
+      "patch_behavior_change": "Eliminated `jsonObject.toJSONString()` call and compared unserialized `Map`/`JSONObject` objects directly (or individual getters).",
+      "mutant_behavior_change": "Lost `SerializerFeature::isEnabled` / `JSON::parse` serialization-path obligations (`5-7/40` `M_ext` mutants).",
+      "rationale": "Dropping the serialization step under test weakens serialization fault detection.",
+      "confidence": "HIGH"
+    },
+    "fastjson::WriteClassNameTest_Map.test_list::95091f2224d0cdaf43": {
+      "cand_key": "fastjson::WriteClassNameTest_Map.test_list::95091f2224d0cdaf43",
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "strategies_accepting": [
+        "B3_Plus_Structural_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 35,
+      "m_ext_total": 40,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Verified `jsonObject.toJSONString()` output after `Feature.IgnoreAutoType`.",
+      "patch_behavior_change": "Eliminated `jsonObject.toJSONString()` call and compared unserialized `Map`/`JSONObject` objects directly (or individual getters).",
+      "mutant_behavior_change": "Lost `SerializerFeature::isEnabled` / `JSON::parse` serialization-path obligations (`5-7/40` `M_ext` mutants).",
+      "rationale": "Dropping the serialization step under test weakens serialization fault detection.",
+      "confidence": "HIGH"
+    },
+    "fastjson::WriteClassNameTest_Map.test_list::caa73e686ab02e8aea": {
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Asserted serialized JSON output of `Model` and parsed `JSONObject` with `Feature.IgnoreAutoType`, plus typed round-trip deserialization.",
+      "patch_behavior_change": "Canonicalized serialized map key order via `JSON.toJSONString(..., SerializerFeature.MapSortField)` while retaining full JSON serialization and `Model.class` round-trip assertions.",
+      "mutant_behavior_change": "Lost 5/40 `M_ext` mutants strictly on the unparameterized `JSON.toJSONString()` / `JSON.parse` overload bypassed by `SerializerFeature.MapSortField`.",
+      "rationale": "Order-insensitive complete serialized JSON verification preserving all keys, values, and typed round-trip behavior.",
+      "confidence": "HIGH",
+      "cand_key": "fastjson::WriteClassNameTest_Map.test_list::caa73e686ab02e8aea",
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 35,
+      "m_ext_total": 40
+    },
+    "fastjson::WriteClassNameTest_Map.test_list::ff9a3c5756ca921481": {
+      "cand_key": "fastjson::WriteClassNameTest_Map.test_list::ff9a3c5756ca921481",
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 35,
+      "m_ext_total": 40,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Verified `jsonObject.toJSONString()` output after `Feature.IgnoreAutoType`.",
+      "patch_behavior_change": "Eliminated `jsonObject.toJSONString()` call and compared unserialized `Map`/`JSONObject` objects directly (or individual getters).",
+      "mutant_behavior_change": "Lost `SerializerFeature::isEnabled` / `JSON::parse` serialization-path obligations (`5-7/40` `M_ext` mutants).",
+      "rationale": "Dropping the serialization step under test weakens serialization fault detection.",
+      "confidence": "HIGH"
+    },
+    "fastjson::WriteDuplicateType.test_dupType::0710031a7673a1af23": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::0710031a7673a1af23",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 8,
+      "m_ext_total": 12,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Constructed unordered `new JSONObject()` and asserted single key order in `toJSONString`.",
+      "patch_behavior_change": "Either used `new JSONObject(true)` / `LinkedHashMap` or parsed complete `JSONObject` with `Feature.DisableSpecialKeyDetect`.",
+      "mutant_behavior_change": "Lost `JSONObject.<init>` default-constructor unordered-branch mutants (`L61`, `L80`, `L83`).",
+      "rationale": "Canonicalizing input map order or comparing complete parsed JSON object legitimately stops exercising the unordered-constructor path.",
+      "confidence": "HIGH"
+    },
+    "fastjson::WriteDuplicateType.test_dupType::0c77c5cc6f7ead37e2": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::0c77c5cc6f7ead37e2",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 8,
+      "m_ext_total": 12,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Constructed unordered `new JSONObject()` and asserted single key order in `toJSONString`.",
+      "patch_behavior_change": "Either used `new JSONObject(true)` / `LinkedHashMap` or parsed complete `JSONObject` with `Feature.DisableSpecialKeyDetect`.",
+      "mutant_behavior_change": "Lost `JSONObject.<init>` default-constructor unordered-branch mutants (`L61`, `L80`, `L83`).",
+      "rationale": "Canonicalizing input map order or comparing complete parsed JSON object legitimately stops exercising the unordered-constructor path.",
+      "confidence": "HIGH"
+    },
+    "fastjson::WriteDuplicateType.test_dupType::469d818695cb098223": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::469d818695cb098223",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "strategies_accepting": [
+        "B3_Plus_Structural_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 9,
+      "m_ext_total": 12,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Constructed unordered `new JSONObject()` and asserted single key order in `toJSONString`.",
+      "patch_behavior_change": "Either used `new JSONObject(true)` / `LinkedHashMap` or parsed complete `JSONObject` with `Feature.DisableSpecialKeyDetect`.",
+      "mutant_behavior_change": "Lost `JSONObject.<init>` default-constructor unordered-branch mutants (`L61`, `L80`, `L83`).",
+      "rationale": "Canonicalizing input map order or comparing complete parsed JSON object legitimately stops exercising the unordered-constructor path.",
+      "confidence": "HIGH"
+    },
+    "fastjson::WriteDuplicateType.test_dupType::845b923f66e1ba9b78": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::845b923f66e1ba9b78",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "strategies_accepting": [
+        "B3_Plus_Structural_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 9,
+      "m_ext_total": 12,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Constructed unordered `new JSONObject()` and asserted single key order in `toJSONString`.",
+      "patch_behavior_change": "Either used `new JSONObject(true)` / `LinkedHashMap` or parsed complete `JSONObject` with `Feature.DisableSpecialKeyDetect`.",
+      "mutant_behavior_change": "Lost `JSONObject.<init>` default-constructor unordered-branch mutants (`L61`, `L80`, `L83`).",
+      "rationale": "Canonicalizing input map order or comparing complete parsed JSON object legitimately stops exercising the unordered-constructor path.",
+      "confidence": "HIGH"
+    },
+    "fastjson::WriteDuplicateType.test_dupType::9927bb25d773b02773": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::9927bb25d773b02773",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 9,
+      "m_ext_total": 12,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Constructed unordered `new JSONObject()` and asserted single key order in `toJSONString`.",
+      "patch_behavior_change": "Either used `new JSONObject(true)` / `LinkedHashMap` or parsed complete `JSONObject` with `Feature.DisableSpecialKeyDetect`.",
+      "mutant_behavior_change": "Lost `JSONObject.<init>` default-constructor unordered-branch mutants (`L61`, `L80`, `L83`).",
+      "rationale": "Canonicalizing input map order or comparing complete parsed JSON object legitimately stops exercising the unordered-constructor path.",
+      "confidence": "HIGH"
+    },
+    "fastjson::WriteDuplicateType.test_dupType::ab879d52b4e7b9b453": {
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Asserted serialized JSON output of `LinkedHashMap<String, JSONObject>` with `SerializerFeature.WriteClassName`.",
+      "patch_behavior_change": "Parsed both expected and actual JSON via `JSON.parseObject(..., Feature.DisableSpecialKeyDetect)` and asserted complete `JSONObject` equality.",
+      "mutant_behavior_change": "Lost 3/12 `M_ext` mutants on unordered `JSONObject` constructor/containsKey paths.",
+      "rationale": "Canonicalizing input map order or comparing complete parsed `JSONObject` trees legitimately stops exercising the unordered-constructor path.",
+      "confidence": "HIGH",
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::ab879d52b4e7b9b453",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 9,
+      "m_ext_total": 12
+    },
+    "fastjson::WriteDuplicateType.test_dupType::b049007d4d79c3fea4": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::b049007d4d79c3fea4",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 8,
+      "m_ext_total": 12,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Constructed unordered `new JSONObject()` and asserted single key order in `toJSONString`.",
+      "patch_behavior_change": "Either used `new JSONObject(true)` / `LinkedHashMap` or parsed complete `JSONObject` with `Feature.DisableSpecialKeyDetect`.",
+      "mutant_behavior_change": "Lost `JSONObject.<init>` default-constructor unordered-branch mutants (`L61`, `L80`, `L83`).",
+      "rationale": "Canonicalizing input map order or comparing complete parsed JSON object legitimately stops exercising the unordered-constructor path.",
+      "confidence": "HIGH"
+    },
+    "fastjson::WriteDuplicateType.test_dupType::b3b8b8a27a8c2d6709": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::b3b8b8a27a8c2d6709",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 9,
+      "m_ext_total": 12,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Constructed unordered `new JSONObject()` and asserted single key order in `toJSONString`.",
+      "patch_behavior_change": "Either used `new JSONObject(true)` / `LinkedHashMap` or parsed complete `JSONObject` with `Feature.DisableSpecialKeyDetect`.",
+      "mutant_behavior_change": "Lost `JSONObject.<init>` default-constructor unordered-branch mutants (`L61`, `L80`, `L83`).",
+      "rationale": "Canonicalizing input map order or comparing complete parsed JSON object legitimately stops exercising the unordered-constructor path.",
+      "confidence": "HIGH"
+    },
+    "fastjson::WriteDuplicateType.test_dupType::dd3103d7de31754ad2": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::dd3103d7de31754ad2",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 10,
+      "m_ext_total": 12,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Constructed unordered `new JSONObject()` and asserted single key order in `toJSONString`.",
+      "patch_behavior_change": "Either used `new JSONObject(true)` / `LinkedHashMap` or parsed complete `JSONObject` with `Feature.DisableSpecialKeyDetect`.",
+      "mutant_behavior_change": "Lost `JSONObject.<init>` default-constructor unordered-branch mutants (`L61`, `L80`, `L83`).",
+      "rationale": "Canonicalizing input map order or comparing complete parsed JSON object legitimately stops exercising the unordered-constructor path.",
+      "confidence": "HIGH"
+    },
+    "fastjson::WriteDuplicateType.test_dupType::de702f861d611612dc": {
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Asserted serialized JSON output of `LinkedHashMap<String, JSONObject>` with `SerializerFeature.WriteClassName`.",
+      "patch_behavior_change": "Parsed both expected and actual JSON via `JSON.parseObject(..., Feature.DisableSpecialKeyDetect)` and asserted complete `JSONObject` equality.",
+      "mutant_behavior_change": "Lost 3/12 `M_ext` mutants on unordered `JSONObject` constructor/containsKey paths.",
+      "rationale": "Canonicalizing input map order or comparing complete parsed `JSONObject` trees legitimately stops exercising the unordered-constructor path.",
+      "confidence": "HIGH",
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::de702f861d611612dc",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 9,
+      "m_ext_total": 12
+    },
+    "hippo4j::ContentUtilTest.assertGetPoolContent::609aea3eb6037ac7bb": {
+      "cand_key": "hippo4j::ContentUtilTest.assertGetPoolContent::609aea3eb6037ac7bb",
+      "sample_id": "hippo4j::ContentUtilTest.assertGetPoolContent",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 27,
+      "m_ext_total": 28,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Called `cn.hippo4j.common.toolkit.Assert.isTrue(testText.equals(ContentUtil.getPoolContent(...)))`.",
+      "patch_behavior_change": "Replaced `hippo4j.Assert.isTrue` with `org.junit.Assert.assertEquals` / `assertArrayEquals` over complete parsed JSON map/fields.",
+      "mutant_behavior_change": "Lost only 1/28 `M_ext` mutant in `cn.hippo4j.common.toolkit.Assert::isTrue` (assertion helper swap, 0 SUT `ContentUtil` obligations lost).",
+      "rationale": "Swapping an internal `Assert.isTrue` wrapper for JUnit `assertEquals` preserves full `ContentUtil` verification.",
+      "confidence": "HIGH"
+    },
+    "hippo4j::ContentUtilTest.assertGetPoolContent::7f9f1e652ba6068b86": {
+      "cand_key": "hippo4j::ContentUtilTest.assertGetPoolContent::7f9f1e652ba6068b86",
+      "sample_id": "hippo4j::ContentUtilTest.assertGetPoolContent",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 27,
+      "m_ext_total": 28,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Called `cn.hippo4j.common.toolkit.Assert.isTrue(testText.equals(ContentUtil.getPoolContent(...)))`.",
+      "patch_behavior_change": "Replaced `hippo4j.Assert.isTrue` with `org.junit.Assert.assertEquals` / `assertArrayEquals` over complete parsed JSON map/fields.",
+      "mutant_behavior_change": "Lost only 1/28 `M_ext` mutant in `cn.hippo4j.common.toolkit.Assert::isTrue` (assertion helper swap, 0 SUT `ContentUtil` obligations lost).",
+      "rationale": "Swapping an internal `Assert.isTrue` wrapper for JUnit `assertEquals` preserves full `ContentUtil` verification.",
+      "confidence": "HIGH"
+    },
+    "hippo4j::ContentUtilTest.assertGetPoolContent::89b282d50fed91bba7": {
+      "cand_key": "hippo4j::ContentUtilTest.assertGetPoolContent::89b282d50fed91bba7",
+      "sample_id": "hippo4j::ContentUtilTest.assertGetPoolContent",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 27,
+      "m_ext_total": 28,
+      "label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "orig_contract_evidence": "Called `cn.hippo4j.common.toolkit.Assert.isTrue(testText.equals(ContentUtil.getPoolContent(...)))`.",
+      "patch_behavior_change": "Replaced `hippo4j.Assert.isTrue` with `org.junit.Assert.assertEquals` / `assertArrayEquals` over complete parsed JSON map/fields.",
+      "mutant_behavior_change": "Lost only 1/28 `M_ext` mutant in `cn.hippo4j.common.toolkit.Assert::isTrue` (assertion helper swap, 0 SUT `ContentUtil` obligations lost).",
+      "rationale": "Swapping an internal `Assert.isTrue` wrapper for JUnit `assertEquals` preserves full `ContentUtil` verification.",
+      "confidence": "HIGH"
+    },
+    "http-request::HttpRequestTest.headWithMappedQueryParams::34bf0d464320900856": {
+      "cand_key": "http-request::HttpRequestTest.headWithMappedQueryParams::34bf0d464320900856",
+      "sample_id": "http-request::HttpRequestTest.headWithMappedQueryParams",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 39,
+      "m_ext_total": 40,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Exercised `HttpRequest` using `ConnectionFactory.DEFAULT`.",
+      "patch_behavior_change": "Installed an inline anonymous `ConnectionFactory` inside the test instead of resetting `HttpRequest.setConnectionFactory(null)`.",
+      "mutant_behavior_change": "Lost 1/40 (or 1/13) `M_ext` obligation in `ConnectionFactory.DEFAULT`.",
+      "rationale": "Bypassing `ConnectionFactory.DEFAULT` with an inline stub shifts away from the default factory code path.",
+      "confidence": "HIGH"
+    },
+    "http-request::HttpRequestTest.headWithMappedQueryParams::8a9092ff1d2c16c0e8": {
+      "cand_key": "http-request::HttpRequestTest.headWithMappedQueryParams::8a9092ff1d2c16c0e8",
+      "sample_id": "http-request::HttpRequestTest.headWithMappedQueryParams",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 39,
+      "m_ext_total": 40,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Exercised `HttpRequest` using `ConnectionFactory.DEFAULT`.",
+      "patch_behavior_change": "Installed an inline anonymous `ConnectionFactory` inside the test instead of resetting `HttpRequest.setConnectionFactory(null)`.",
+      "mutant_behavior_change": "Lost 1/40 (or 1/13) `M_ext` obligation in `ConnectionFactory.DEFAULT`.",
+      "rationale": "Bypassing `ConnectionFactory.DEFAULT` with an inline stub shifts away from the default factory code path.",
+      "confidence": "HIGH"
+    },
+    "http-request::HttpRequestTest.headWithVaragsQueryParams::b103216ad1124b4bc2": {
+      "cand_key": "http-request::HttpRequestTest.headWithVaragsQueryParams::b103216ad1124b4bc2",
+      "sample_id": "http-request::HttpRequestTest.headWithVaragsQueryParams",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 39,
+      "m_ext_total": 40,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Exercised `HttpRequest` using `ConnectionFactory.DEFAULT`.",
+      "patch_behavior_change": "Installed an inline anonymous `ConnectionFactory` inside the test instead of resetting `HttpRequest.setConnectionFactory(null)`.",
+      "mutant_behavior_change": "Lost 1/40 (or 1/13) `M_ext` obligation in `ConnectionFactory.DEFAULT`.",
+      "rationale": "Bypassing `ConnectionFactory.DEFAULT` with an inline stub shifts away from the default factory code path.",
+      "confidence": "HIGH"
+    },
+    "http-request::HttpRequestTest.postWithEscapedMappedQueryParams::836c34090a3bc6bb5a": {
+      "cand_key": "http-request::HttpRequestTest.postWithEscapedMappedQueryParams::836c34090a3bc6bb5a",
+      "sample_id": "http-request::HttpRequestTest.postWithEscapedMappedQueryParams",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 39,
+      "m_ext_total": 40,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Exercised `HttpRequest` using `ConnectionFactory.DEFAULT`.",
+      "patch_behavior_change": "Installed an inline anonymous `ConnectionFactory` inside the test instead of resetting `HttpRequest.setConnectionFactory(null)`.",
+      "mutant_behavior_change": "Lost 1/40 (or 1/13) `M_ext` obligation in `ConnectionFactory.DEFAULT`.",
+      "rationale": "Bypassing `ConnectionFactory.DEFAULT` with an inline stub shifts away from the default factory code path.",
+      "confidence": "HIGH"
+    },
+    "http-request::HttpRequestTest.postWithEscapedVarargsQueryParams::34139f5045ae5c5c7f": {
+      "cand_key": "http-request::HttpRequestTest.postWithEscapedVarargsQueryParams::34139f5045ae5c5c7f",
+      "sample_id": "http-request::HttpRequestTest.postWithEscapedVarargsQueryParams",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 39,
+      "m_ext_total": 40,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Exercised `HttpRequest` using `ConnectionFactory.DEFAULT`.",
+      "patch_behavior_change": "Installed an inline anonymous `ConnectionFactory` inside the test instead of resetting `HttpRequest.setConnectionFactory(null)`.",
+      "mutant_behavior_change": "Lost 1/40 (or 1/13) `M_ext` obligation in `ConnectionFactory.DEFAULT`.",
+      "rationale": "Bypassing `ConnectionFactory.DEFAULT` with an inline stub shifts away from the default factory code path.",
+      "confidence": "HIGH"
+    },
+    "http-request::HttpRequestTest.postWithNumericQueryParams::e60fe15e87ccffa082": {
+      "cand_key": "http-request::HttpRequestTest.postWithNumericQueryParams::e60fe15e87ccffa082",
+      "sample_id": "http-request::HttpRequestTest.postWithNumericQueryParams",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 39,
+      "m_ext_total": 40,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Exercised `HttpRequest` using `ConnectionFactory.DEFAULT`.",
+      "patch_behavior_change": "Installed an inline anonymous `ConnectionFactory` inside the test instead of resetting `HttpRequest.setConnectionFactory(null)`.",
+      "mutant_behavior_change": "Lost 1/40 (or 1/13) `M_ext` obligation in `ConnectionFactory.DEFAULT`.",
+      "rationale": "Bypassing `ConnectionFactory.DEFAULT` with an inline stub shifts away from the default factory code path.",
+      "confidence": "HIGH"
+    },
+    "http-request::HttpRequestTest.singleSslSocketFactory::fb12554db5dea9474c": {
+      "cand_key": "http-request::HttpRequestTest.singleSslSocketFactory::fb12554db5dea9474c",
+      "sample_id": "http-request::HttpRequestTest.singleSslSocketFactory",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash",
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 12,
+      "m_ext_total": 13,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Exercised `HttpRequest` using `ConnectionFactory.DEFAULT`.",
+      "patch_behavior_change": "Installed an inline anonymous `ConnectionFactory` inside the test instead of resetting `HttpRequest.setConnectionFactory(null)`.",
+      "mutant_behavior_change": "Lost 1/40 (or 1/13) `M_ext` obligation in `ConnectionFactory.DEFAULT`.",
+      "rationale": "Bypassing `ConnectionFactory.DEFAULT` with an inline stub shifts away from the default factory code path.",
+      "confidence": "HIGH"
+    },
+    "http-request::HttpRequestTest.singleVerifier::6d2af44a3f8a343871": {
+      "cand_key": "http-request::HttpRequestTest.singleVerifier::6d2af44a3f8a343871",
+      "sample_id": "http-request::HttpRequestTest.singleVerifier",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 12,
+      "m_ext_total": 13,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Exercised `HttpRequest` using `ConnectionFactory.DEFAULT`.",
+      "patch_behavior_change": "Installed an inline anonymous `ConnectionFactory` inside the test instead of resetting `HttpRequest.setConnectionFactory(null)`.",
+      "mutant_behavior_change": "Lost 1/40 (or 1/13) `M_ext` obligation in `ConnectionFactory.DEFAULT`.",
+      "rationale": "Bypassing `ConnectionFactory.DEFAULT` with an inline stub shifts away from the default factory code path.",
+      "confidence": "HIGH"
+    },
+    "karate::JsEngineTest.testObjectsWithinFunction::710b9762beaf6ee498": {
+      "cand_key": "karate::JsEngineTest.testObjectsWithinFunction::710b9762beaf6ee498",
+      "sample_id": "karate::JsEngineTest.testObjectsWithinFunction",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 23,
+      "m_ext_total": 40,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Asserted `Match.that(result).isEqualTo(\"[[a, 1],[b, 2]]\")`, exercising `Match::parseIfJsonOrXmlString`.",
+      "patch_behavior_change": "Converted `result` to `Map` and compared against `Map`, bypassing string-parsing branch of `Match`.",
+      "mutant_behavior_change": "Lost 17/40 `M_ext` obligations in `Match::parseIfJsonOrXmlString`.",
+      "rationale": "Changing `Match.that` expected input from JSON-like string to `Map` drops `Match` string-parsing coverage.",
+      "confidence": "HIGH"
+    },
+    "nacos::JacksonUtilsTest.testToJsonBytes::d9402df2f84bfd2e19": {
+      "cand_key": "nacos::JacksonUtilsTest.testToJsonBytes::d9402df2f84bfd2e19",
+      "sample_id": "nacos::JacksonUtilsTest.testToJsonBytes",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 5,
+      "m_ext_total": 7,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Verified `ByteUtils.toString(JacksonUtils.toJsonBytes(restResult))` against exact JSON string.",
+      "patch_behavior_change": "Decoded bytes directly via `JacksonUtils.toObj` / `new String`, removing `ByteUtils.toString` call.",
+      "mutant_behavior_change": "Lost `2/7` `M_ext` obligations in `ByteUtils::toString`.",
+      "rationale": "Replaced `ByteUtils.toString(bytes)` with `JacksonUtils.toObj(bytes, JsonNode.class)`, bypassing `ByteUtils::toString` null check while preserving JSON tree checks.",
+      "confidence": "HIGH"
+    },
+    "nacos::JacksonUtilsTest.testToJsonBytes::e5172251c65c9dbf10": {
+      "cand_key": "nacos::JacksonUtilsTest.testToJsonBytes::e5172251c65c9dbf10",
+      "sample_id": "nacos::JacksonUtilsTest.testToJsonBytes",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 5,
+      "m_ext_total": 7,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Verified `ByteUtils.toString(JacksonUtils.toJsonBytes(restResult))` against exact JSON string.",
+      "patch_behavior_change": "Decoded bytes directly via `JacksonUtils.toObj` / `new String`, removing `ByteUtils.toString` call.",
+      "mutant_behavior_change": "Lost `2/7` `M_ext` obligations in `ByteUtils::toString`.",
+      "rationale": "Replaced `ByteUtils.toString(bytes)` with `JacksonUtils.toObj(bytes, JsonNode.class)`, bypassing `ByteUtils::toString` null check while preserving JSON tree checks.",
+      "confidence": "HIGH"
+    },
+    "openhtmltopdf::Slf4JLoggerTest.testLogger::3c890264dd36de7677": {
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Captured `System.err` while invoking `XRLog.setLoggerImpl(new Slf4jLogger()); runWithLogOutput();` and asserted `[INFO]` and `[WARN]` log lines.",
+      "patch_behavior_change": "Added extensive reflection over `SimpleLogger` and `SimpleLoggerConfiguration` internal static/instance `currentLogLevel` and `targetStream` fields before running `runWithLogOutput()`, keeping original `containsString` assertions.",
+      "mutant_behavior_change": "Lost 20/26 `M_ext` mutants on `Slf4jLogger` (`isLogLevelEnabled`, `getLoggerName`, `log` message formatting).",
+      "rationale": "Reflectively mutating internal `SimpleLogger` fields shifts logger initialization and filtering branches away from `Slf4jLogger`'s normal execution path.",
+      "confidence": "HIGH",
+      "cand_key": "openhtmltopdf::Slf4JLoggerTest.testLogger::3c890264dd36de7677",
+      "sample_id": "openhtmltopdf::Slf4JLoggerTest.testLogger",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 6,
+      "m_ext_total": 26
+    },
+    "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations::50c5f6c341166d647b": {
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Directly tested `BeanCacheKey.equals(a, b)` and `hashCode()` equivalence across two annotation arrays.",
+      "patch_behavior_change": "Deleted `Assert.assertEquals(a, b)` and compared reflectively normalized private fields (`normalizer.normalizeBean(a)` vs `normalizer.normalizeBean(b)`), explicitly skipping `lazyAtLoader`.",
+      "mutant_behavior_change": "Lost 30/39 `M_ext` mutants across `BeanCacheKey::ensureQualifierAtAreLoaded`, `qualifierArrayEquals`, and `lazyAtLoader`.",
+      "rationale": "Deleting the `equals` assertion in `testEquals2Annotations` completely destroys the method's core oracle.",
+      "confidence": "HIGH",
+      "cand_key": "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations::50c5f6c341166d647b",
+      "sample_id": "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 9,
+      "m_ext_total": 39
+    },
+    "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations::c2f3d77ef06635f646": {
+      "cand_key": "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations::c2f3d77ef06635f646",
+      "sample_id": "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 9,
+      "m_ext_total": 39,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Tested `BeanCacheKey.equals(Object)` contract via `Assert.assertEquals(a, b)`.",
+      "patch_behavior_change": "Deleted `Assert.assertEquals(a, b)` and compared reflected private fields or `toString()` output instead.",
+      "mutant_behavior_change": "Lost `30/38` `M_ext` obligations inside `BeanCacheKey.equals` and `ensureQualifierAtAreLoaded`.",
+      "rationale": "Deleting the `equals` assertion in `testEquals2Annotations` completely destroys the method's core oracle.",
+      "confidence": "HIGH"
+    },
+    "py::Breathe::test_command_context.test_manual_context_noccr::128a7a2377ceda6ec6": {
+      "cand_key": "py::Breathe::test_command_context.test_manual_context_noccr::128a7a2377ceda6ec6",
+      "sample_id": "py::Breathe::test_command_context.test_manual_context_noccr",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 0,
+      "m_ext_total": 1,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "OD-brittle test relying on `test_manual_context` setup in `breathe.rules.context_switcher`.",
+      "patch_behavior_change": "Inserted `engine.mimic([\"enable\", \"test\"])` without matching baseline context-switcher initialization.",
+      "mutant_behavior_change": "Lost `1/1` `M_ext` obligation (`CallKwargDropMutator` on `context_switcher.__init__`).",
+      "rationale": "Altered setup path bypasses `value` kwarg sensitivity on `context_switcher.__init__`.",
+      "confidence": "MEDIUM-HIGH"
+    },
+    "py::Breathe::test_command_context.test_manual_context_noccr::99a4dea1d6f24533db": {
+      "cand_key": "py::Breathe::test_command_context.test_manual_context_noccr::99a4dea1d6f24533db",
+      "sample_id": "py::Breathe::test_command_context.test_manual_context_noccr",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 0,
+      "m_ext_total": 1,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "OD-brittle test relying on `test_manual_context` setup in `breathe.rules.context_switcher`.",
+      "patch_behavior_change": "Inserted `engine.mimic([\"enable\", \"test\"])` without matching baseline context-switcher initialization.",
+      "mutant_behavior_change": "Lost `1/1` `M_ext` obligation (`CallKwargDropMutator` on `context_switcher.__init__`).",
+      "rationale": "Altered setup path bypasses `value` kwarg sensitivity on `context_switcher.__init__`.",
+      "confidence": "MEDIUM-HIGH"
+    },
+    "py::Breathe::test_command_context.test_manual_context_noccr::e088b7b09e158b1f1f": {
+      "cand_key": "py::Breathe::test_command_context.test_manual_context_noccr::e088b7b09e158b1f1f",
+      "sample_id": "py::Breathe::test_command_context.test_manual_context_noccr",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 0,
+      "m_ext_total": 1,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "OD-brittle test relying on `test_manual_context` setup in `breathe.rules.context_switcher`.",
+      "patch_behavior_change": "Inserted `engine.mimic([\"enable\", \"test\"])` without matching baseline context-switcher initialization.",
+      "mutant_behavior_change": "Lost `1/1` `M_ext` obligation (`CallKwargDropMutator` on `context_switcher.__init__`).",
+      "rationale": "Altered setup path bypasses `value` kwarg sensitivity on `context_switcher.__init__`.",
+      "confidence": "MEDIUM-HIGH"
+    },
+    "py::Breathe::test_command_context.test_manual_context_noccr::f0cc98dad7d6c2b52c": {
+      "cand_key": "py::Breathe::test_command_context.test_manual_context_noccr::f0cc98dad7d6c2b52c",
+      "sample_id": "py::Breathe::test_command_context.test_manual_context_noccr",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 0,
+      "m_ext_total": 1,
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "OD-brittle test relying on `test_manual_context` setup in `breathe.rules.context_switcher`.",
+      "patch_behavior_change": "Inserted `engine.mimic([\"enable\", \"test\"])` without matching baseline context-switcher initialization.",
+      "mutant_behavior_change": "Lost `1/1` `M_ext` obligation (`CallKwargDropMutator` on `context_switcher.__init__`).",
+      "rationale": "Altered setup path bypasses `value` kwarg sensitivity on `context_switcher.__init__`.",
+      "confidence": "MEDIUM-HIGH"
+    },
+    "py::krllint::LowerOrMixedCaseBuiltInTestCase.test_rule_without_fix::674713cc0db79de714": {
+      "cand_key": "py::krllint::LowerOrMixedCaseBuiltInTestCase.test_rule_without_fix::674713cc0db79de714",
+      "sample_id": "py::krllint::LowerOrMixedCaseBuiltInTestCase.test_rule_without_fix",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 7,
+      "m_ext_total": 8,
+      "label": "GENUINE_ORACLE_WEAKENING",
+      "orig_contract_evidence": "Indexed `reporter.found_issues[Category.CONVENTION]`, requiring `MemoryReporter.__init__` to pre-populate every `Category` key.",
+      "patch_behavior_change": "Changed direct key indexing `[Category.*]` to `.get(Category.*, 0)`.",
+      "mutant_behavior_change": "Lost `DictEntryDropMutator` on `MemoryReporter.__init__`: missing initial dict entry is silently masked by default `0`.",
+      "rationale": "Replacing strict dict lookup with `.get(..., 0)` masks missing-key initialization defects.",
+      "confidence": "HIGH"
+    },
+    "visualee::GraphCreatorTest.testBuildJSONNode::3df29bab4ab8c79741": {
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Asserted `GraphCreator.buildJSONNode(javaSource)` JSON fields (`name`, `group`, `description`, `sourcecode`); baseline PIT also incidentally killed `DependencyFilter` mutants via uncleaned singleton state.",
+      "patch_behavior_change": "Kept all original `GraphCreator.buildJSONNode` assertions intact, cleared `FilterContainer`/`JavaSourceContainer`/`DependencyContainer`, and in Round 2 prepended synthetic `assertSame(dependencyFilter, dependencyFilter.addType/filterAllTypes/setDirectlyConnected(...))` calls to satisfy the three surviving `M_det` `NullReturnValsMutator` witnesses.",
+      "mutant_behavior_change": "Lost 6/32 `M_ext` mutants (`InlineConstantMutator`, `MemberVariableMutator` on `directlyConnected`/`filterTypes`, `NonVoidMethodCallMutator` on `List::add`/`Arrays::asList`) inside `DependencyFilter` because the synthetic fluent-return checks never inspect `DependencyFilter`'s mutated internal fields.",
+      "rationale": "Symmetric strict rubric: clearing `FilterContainer` shifts incidental singleton coverage away from `DependencyFilter`, and Round-2 synthetic `assertSame` stubs game only the 3 `M_det` null-return witnesses without verifying `DependencyFilter` internal state; classified as non-legitimate `TEST_RESPONSIBILITY_SHIFT` (exposing shallow witness-targeted compensation caught by held-out `M_ext`).",
+      "confidence": "HIGH",
+      "cand_key": "visualee::GraphCreatorTest.testBuildJSONNode::3df29bab4ab8c79741",
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "m_ext_killed": 26,
+      "m_ext_total": 32
+    },
+    "visualee::GraphCreatorTest.testBuildJSONNode::833166dd7f1c5849cd": {
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Asserted `GraphCreator.buildJSONNode(javaSource)` JSON fields (`name`, `group`, `description`, `sourcecode`); baseline PIT also incidentally killed `DependencyFilter` mutants via uncleaned singleton state.",
+      "patch_behavior_change": "Kept all original `GraphCreator.buildJSONNode` assertions intact, cleared `FilterContainer`/`JavaSourceContainer`/`DependencyContainer`, and in Round 2 prepended synthetic `assertNotNull(new DependencyFilter().addType/filterAllTypes/setDirectlyConnected(...))` calls to satisfy the three surviving `M_det` `NullReturnValsMutator` witnesses.",
+      "mutant_behavior_change": "Lost 6/32 `M_ext` mutants (`InlineConstantMutator`, `MemberVariableMutator` on `directlyConnected`/`filterTypes`, `NonVoidMethodCallMutator` on `List::add`/`Arrays::asList`) inside `DependencyFilter` because the synthetic `assertNotNull` checks never inspect `DependencyFilter`'s mutated internal fields.",
+      "rationale": "Symmetric strict rubric: clearing `FilterContainer` shifts incidental singleton coverage away from `DependencyFilter`, and Round-2 synthetic `assertNotNull` stubs game only the 3 `M_det` null-return witnesses without verifying `DependencyFilter` internal state; classified as non-legitimate `TEST_RESPONSIBILITY_SHIFT` (exposing shallow witness-targeted compensation caught by held-out `M_ext`).",
+      "confidence": "HIGH",
+      "cand_key": "visualee::GraphCreatorTest.testBuildJSONNode::833166dd7f1c5849cd",
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 26,
+      "m_ext_total": 32
+    },
+    "visualee::GraphCreatorTest.testBuildJSONNodes::4c4d40f3fc25f927bd": {
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Asserted `GraphCreator.buildJSONNodes(null).build().size()` equals 10; baseline PIT also incidentally killed `DependencyFilter` mutants via uncleaned singleton state.",
+      "patch_behavior_change": "Kept all original `GraphCreator.buildJSONNodes` assertions intact, cleared `FilterContainer`/`JavaSourceContainer`, and in Round 2 prepended a synthetic `assertNotNull(new DependencyFilter().addType(...).filterAllTypes().setDirectlyConnected(true))` chain to satisfy the three surviving `M_det` `NullReturnValsMutator` witnesses.",
+      "mutant_behavior_change": "Lost 6/32 `M_ext` mutants (`InlineConstantMutator`, `MemberVariableMutator` on `directlyConnected`/`filterTypes`, `NonVoidMethodCallMutator` on `List::add`/`Arrays::asList`) inside `DependencyFilter` because the synthetic fluent chain never inspects `DependencyFilter`'s mutated internal fields.",
+      "rationale": "Symmetric strict rubric: clearing `FilterContainer` shifts incidental singleton coverage away from `DependencyFilter`, and Round-2 synthetic `assertNotNull` stubbing games only the 3 `M_det` null-return witnesses without verifying `DependencyFilter` internal state; classified as non-legitimate `TEST_RESPONSIBILITY_SHIFT` (exposing shallow witness-targeted compensation caught by held-out `M_ext`).",
+      "confidence": "HIGH",
+      "cand_key": "visualee::GraphCreatorTest.testBuildJSONNodes::4c4d40f3fc25f927bd",
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "m_ext_killed": 26,
+      "m_ext_total": 32
+    },
+    "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany::f13458808371e60d6b": {
+      "label": "TEST_RESPONSIBILITY_SHIFT",
+      "orig_contract_evidence": "Verified `ExaminerJPA.examine(javaSource)` records `MANY_TO_MANY` dependency from `User` to `Group`.",
+      "patch_behavior_change": "Prepended `FilterContainer.getInstance().clear(); DependencyContainer.getInstance().clear();` while leaving all original test logic and assertions untouched.",
+      "mutant_behavior_change": "Lost 15/40 `M_ext` mutants on `DependencyContainer::getDependencies` and `Examiner::cleanPrimitives`/`createDependency` previously killed via accumulated singleton state.",
+      "rationale": "Pre-test singleton cleanup shifts incidental cross-test coverage on shared `DependencyContainer`/`Examiner` branches while preserving the test's own `MANY_TO_MANY` contract.",
+      "confidence": "HIGH",
+      "cand_key": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany::f13458808371e60d6b",
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "m_ext_killed": 25,
+      "m_ext_total": 40
+    }
+  },
+  "total_unique_active_mext_loss_patches": 111
+}

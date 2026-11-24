@@ -1,0 +1,84 @@
+\section{Problem Formulation: Stabilization via Oracle Erosion}
+\label{sec:construct}
+
+To ground both our empirical audit and our repair gate without circularity, we formalize flaky test stabilization, attributed fault obligations, partner-scope conservation, and disjoint external validation. The box below summarizes core notation; language-specific instrumentation mechanics appear in Section~\ref{sec:impl}.
+
+\medskip
+\noindent\fbox{\parbox{0.97\textwidth}{\scriptsize\setlength{\tabcolsep}{2.5pt}
+\textbf{Core Notation and Metric Quick Reference}\\[0.2em]
+\begin{tabular}{@{}p{0.14\textwidth}p{0.31\textwidth}@{\hspace{0.015\textwidth}}p{0.15\textwidth}p{0.31\textwidth}@{}}
+$P_0, T_{\text{orig}}, T_{\text{part}}$ & Frozen production code, target test, and OD partner & $\mathcal{O}_{\text{joint}}, R_{\text{joint}}$ & Role-tagged target-and-partner obligation union and retention \\
+$e_0, e_{\text{iso}}$ & Clean baseline schedule and isolated standalone check & $\Delta_{\text{inf}}$ & Proxy Inflation Gap ($\text{Pass@}W^+\% - \text{SoundFix}\%$) \\
+$W^+, W^+_{\text{heldout}}$ & In-loop and disjoint held-out stability schedules & $M_{\text{ext-op}}, M_{\text{ext-inst}}$ & Disjoint held-out mutants (unseen operators and overflow sites) \\
+$M_{\text{focal}}, M_{\text{det}}$ & Covered focal mutants and $3/3$ attributed kill baseline & $Y_s^{\text{strict}}, Y_s^{\text{stress}}$ & Fixed-cohort end-to-end held-out yield (strict vs.\ stress) \\
+\end{tabular}
+}}
+\medskip
+
+\subsection{Clean Reference Execution (\texorpdfstring{$e_0$}{e0}) and Stabilization Schedules (\texorpdfstring{$W^+$}{W+})}
+
+Let $P_0$ denote the unmodified production code at a frozen benchmark commit, and let $T_{\text{orig}}$ denote a target flaky test in suite $\mathcal{T}$, paired with partner test $T_{\text{part}}$ when order-dependent. Running test $T$ against program $P$ under schedule $e$ records the executed test case, lifecycle phase (setup, call, or teardown), exception type, and final status. Each run resolves to pass, call failure, setup or infrastructure error, skip, timeout, or compile error.
+
+\begin{definition}[Clean Reference Configuration $e_0$]
+\label{def:e0}
+For a flaky test $T_{\text{orig}}$, its \emph{clean reference configuration} $e_0$ is the canonical schedule under which $T_{\text{orig}}$ passes reliably on unmodified production code $P_0$:
+\begin{itemize}[nosep]
+    \item For an ID or OD-victim test, $e_0$ runs $T_{\text{orig}}$ alone in a fresh process with default library settings and random-order plugins disabled.
+    \item For an OD-brittle test paired with its minimal state-setter $T_{\text{set}}$, $e_0$ runs $\langle T_{\text{set}}, T_{\text{orig}} \rangle$ in a fresh process.
+\end{itemize}
+To exclude timing or external-I/O nondeterminism, $T_{\text{orig}}$ must pass $e_0$ across five consecutive independent runs before entering the cohort.
+\end{definition}
+
+\begin{definition}[In-Loop Stabilization $W^+$ and Held-Out Schedules $W^+_{\text{heldout}}$]
+\label{def:w_plus}
+Let $W^+(T_{\text{orig}})$ denote the specification-preserving perturbations checked inside the repair loop, and let $W^+_{\text{heldout}}(T_{\text{orig}})$ denote a disjoint held-out stability check:
+\begin{itemize}[nosep]
+    \item \emph{Java ID tests.} In-loop $W^+$ runs five \textsc{NonDex}~\cite{gyori2016nondex} permutations. Held-out $W^+_{\text{heldout}}$ runs five disjoint deterministic seeds never seen during repair.
+    \item \emph{Java and Python OD tests.} In-loop $W^+$ executes three fresh-process schedules: standalone $\langle T \rangle$, coupled $\langle T_{\text{part}}, T \rangle$, and reverse $\langle T, T_{\text{part}} \rangle$. Held-out $W^+_{\text{heldout}}$ repeats each schedule twice and adds one single-lifecycle repeated-pollution run $\langle p_1, p_2, \text{target} \rangle = \langle T_{\text{part}}, T_{\text{part}}, T \rangle$.
+\end{itemize}
+A candidate patch $T'$ achieves stabilization (\emph{Pass@$W^+$}) if it compiles cleanly and passes every schedule in $W^+(T_{\text{orig}})$ with zero failures, errors, or skipped tests.
+\end{definition}
+
+The repeated-pollution schedule tests whether state leaks across back-to-back partner runs in one lifecycle, tracking slots $p_1$, $p_2$, and target. Under our primary strict rule, all three slots must pass every lifecycle phase. Because some unmodified partner tests are inherently non-idempotent when invoked twice, we also run unmodified-repository controls for every order-dependent test. Under a secondary stress-relaxed check, a call-phase failure in $p_2$ is excused only if three conditions hold: the candidate leaves $T_{\text{part}}$ untouched, all setup and teardown phases pass, and the matched control is valid and reproduces the same $p_2$ failure (matching exception class in Java, or call-only failure in Python). Tests lacking phase-level hooks never receive this exemption.
+
+\subsection{Attributed Focal Obligations (\texorpdfstring{$M_{\text{det}}$}{M\_det}) and Partner Scope}
+
+Measuring oracle preservation~\cite{barr2015oracle} via mutation testing~\cite{just2014mutants,papadakis2019mutation} faces two construct threats on flaky tests: \emph{Test Flimsiness}~\cite{parry2026flimsiness}, which credits chance ordering failures as kills, and execution misattribution, which counts setup crashes, timeouts, duplicate records, or sibling-test failures as target kills. We counter both through a three-stage baseline protocol.
+
+First, \emph{dynamic focal scope restriction} limits candidate mutants $M_{\text{focal}}(T_{\text{orig}})$ strictly to same-repository production classes and lines executed by $T_{\text{orig}}$ under $e_0$. Second, \emph{attributed three-run kill intersection} runs each focal mutant $m \in M_{\text{focal}}(T_{\text{orig}})$, yielding mutated program $P_m$, across three independent clean-$e_0$ executions. A mutant enters the baseline obligation set if and only if all three runs yield an exact target-attributed kill. Timeouts, duplicate conflicts, and runner or setup errors fail closed as indeterminate (neither killed nor surviving):
+\begin{equation}
+\label{eq:m_det}
+M_{\text{det}}(T_{\text{orig}}) = \Big\{ m \in M_{\text{focal}}(T_{\text{orig}}) \;\Big|\; \forall j \in \{1, 2, 3\},\; \text{AttrKill}^{(j)}(P_m, T_{\text{orig}}, e_0) = \text{true} \Big\}.
+\end{equation}
+
+Third, order-dependent repairs can edit not only $T_{\text{orig}}$ but also its partner test, class fields, fixtures, or shared helpers. We therefore compute three-run attributed obligations $M_{\text{det}}(T_{\text{part}})$ independently for every order-dependent partner and tag each obligation by test role:
+\begin{equation}
+\label{eq:joint}
+\mathcal{O}_{\text{joint}} = \big\{ (\text{target}, m) \mid m \in M_{\text{det}}(T_{\text{orig}}) \big\} \;\cup\; \big\{ (\text{partner}, m) \mid m \in M_{\text{det}}(T_{\text{part}}) \big\}.
+\end{equation}
+Role tagging keeps shared production mutants distinct across target and partner tests. For any $W^+$-passing candidate $T'$, obligation retention measures the fraction of baseline obligations still killed under isolated execution $e_{\text{iso}}$. This yields target retention $R_{\text{target}}(T')$, partner retention $R_{\text{partner}}(T')$ whenever partner or shared scope changes, and joint retention $R_{\text{joint}}(T')$ over the applicable union.
+
+\subsection{Oracle Erosion, External Held-Out Yield (\texorpdfstring{$Y_s$}{Ys}), and False Rejections}
+
+\begin{definition}[Operational Sound Fix and Stabilization via Oracle Erosion]
+\label{def:erosion}
+For a flaky test $T_{\text{orig}}$ with $|M_{\text{det}}(T_{\text{orig}})| \ge 3$ and a candidate patch $T'$:
+\begin{enumerate}[nosep]
+    \item \emph{Operational Sound Fix (SoundFix).} $T'$ compiles, passes $W^+(T_{\text{orig}})$, retains all partner obligations whenever partner or shared scope changes (with non-empty partner obligations and zero indeterminate outcomes), and achieves $R_{\text{joint}}(T') = 1.0$.
+    \item \emph{Stabilization via Oracle Erosion (ErodedFix).} $T'$ compiles and passes $W^+(T_{\text{orig}})$, yet $R_{\text{joint}}(T') < 1.0$, leaving a non-empty surviving witness set $M_{\text{surv}}(T')$.
+\end{enumerate}
+Across a benchmark cohort, the \emph{Proxy Inflation Gap} is $\Delta_{\text{inf}} = \text{Pass@}W^+\% - \text{SoundFix\%}$.
+\end{definition}
+
+\paragraph{Non-Circular External Validation ($M_{\text{ext}}$ and $Y_s$).}
+Because \textsc{MuGuard-Flake} gates repairs on $M_{\text{det}}(T_{\text{orig}})$, zero operational leakage on $M_{\text{det}}$ holds by construction and cannot prove external generalization. Before confirmatory evaluations, we freeze two disjoint held-out fault pools $M_{\text{ext}}(T_{\text{orig}})$ never exposed to any gate or prompt. The first pool, \emph{unseen operator families} ($M_{\text{ext-op}}$), stratifies mutants outside the default gate by failure mechanism: value-flow versus call-removal mutators in Java, and assertion-error versus non-assertion crash kills across five unseen AST mutators in Python. The second pool, \emph{within-instance held-out focal sites} ($M_{\text{ext-inst}}$), collects remaining Python baseline focal mutants beyond the 55-mutant in-loop cap after SHA-256 deduplication against that test's own target and partner gating pools.
+
+Held-out obligations $M_{\text{ext}}$ measure out-of-gate fault retention rather than real production bug commits~\cite{just2014mutants}. To prevent selection bias from comparing retention solely over accepted patches or shifting denominators under API limits, we define \emph{Fixed-Cohort End-to-End Held-Out Yield} ($Y_s$) for each strategy $s$ over the fixed eligible cohort $E = \{ i \mid |M_{\text{ext}, i}| \ge 1 \}$:
+\begin{equation}
+\label{eq:ys}
+Y_s = \frac{1}{|E|} \sum_{i \in E} \mathbf{1}\Big\{ \text{Accepted}_{i, s} \;\land\; W^+_{\text{heldout}, i, s} \;\land\; \text{Indeterminate}_{i, s} = 0 \;\land\; R_{\text{ext}, i, s} = 1.0 \Big\}.
+\end{equation}
+Primary $Y_s^{\text{strict}}$ and sensitivity $Y_s^{\text{stress}}$ reflect the strict and stress-relaxed held-out schedules above. API-incomplete runs and indeterminate evaluations score zero in $Y_s$, and tests with empty $M_{\text{ext}}$ are excluded prior to inspecting strategy outcomes.
+
+\paragraph{Why Single-Sided Loops Erode Oracles and Why Strict Gating Falsely Rejects.}
+Under a single-sided validator checking only that legitimate schedule outputs pass $T'$, any monotonic coarsening of the oracle raises stability and shrinks sensitivity to corrupted production states. Conversely, strict conservation ($R_{\text{joint}} = 1.0$) is not free of false rejections. A legitimate canonicalizing fix, such as enabling deterministic map-key sorting in a serializer, can route execution along a sorted path that no longer visits an unsorted branch covered by a baseline mutant. Nor does pull-request acceptance alone guarantee zero weakening. We therefore audit evaluated developer pull requests via blinded diff adjudication, measuring both the \emph{Accepted-PR Rejection Rate} and the \emph{Adjudicated Legitimate-Fix False-Rejection Rate} alongside genuine weakenings. Section~\ref{sec:methodology} now presents how \textsc{MuGuard-Flake} enforces these criteria inside an automated repair loop.

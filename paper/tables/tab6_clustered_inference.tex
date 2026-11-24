@@ -1,0 +1,46 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.2pt}
+\caption{Project-clustered paired inference using 20,000 repository bootstrap resamples and sign-flip tests, with Holm--Bonferroni adjustment within Family 1 (completed eligible cohorts) and Family 2 (fixed cohort $|E|=\BenchMExtSamples$).}
+\label{tab:stat_tests}
+\begin{tabular}{lllrrrrr}
+\toprule
+Model & Family & MuGuard Minus & Test-Wt.\ $\Delta$ [95\% CI] & Equal-Repo $\Delta$ [95\% CI] & $(b, a)$ & $p_{\text{cluster}}$ & $p_{\text{Holm}}$ \\
+\midrule
+DS-Flash & Fam.1 Op. & Unconstrained & +16.34 [+8.22, +25.11] & +12.79 [+5.33, +20.66] & $(2,35)$ & $0.0003$ & $0.0005$ \\
+DS-Flash & Fam.1 Op. & Syntactic & +16.34 [+8.67, +23.53] & +9.06 [+4.47, +14.56] & $(0,33)$ & $0.0002$ & $0.0005$ \\
+DS-Flash & Fam.1 Op. & Structural & +17.82 [+9.71, +25.57] & +10.95 [+5.56, +17.22] & $(0,36)$ & $0.0001$ & $0.0004$ \\
+DS-Flash & Fam.1 Op. & Scalar Gate & +7.43 [+1.20, +14.67] & +2.36 [-2.16, +6.55] & $(1,16)$ & $0.0625$ & --- \\
+DS-Flash & Fam.2 $Y_s^{\text{strict}}$ & Unconstrained & -5.65 [-15.64, +2.81] & -4.06 [-12.86, +4.52] & $(19,9)$ & $0.3150$ & $0.9451$ \\
+DS-Flash & Fam.2 $Y_s^{\text{strict}}$ & Syntactic & -2.82 [-13.51, +5.99] & -4.17 [-11.01, +1.81] & $(14,9)$ & $0.6758$ & $1.0000$ \\
+DS-Flash & Fam.2 $Y_s^{\text{strict}}$ & Structural & -2.82 [-13.51, +5.99] & -4.17 [-11.01, +1.81] & $(14,9)$ & $0.6758$ & $1.0000$ \\
+DS-Flash & Fam.2 $Y_s^{\text{strict}}$ & Scalar Gate & +4.52 [+0.00, +10.13] & +1.07 [-3.23, +4.90] & $(1,9)$ & $0.1562$ & --- \\
+DS-Flash & Sens. $Y_s^{\text{stress}}$ & Unconstrained & -3.95 [-13.46, +4.08] & -1.05 [-10.22, +7.91] & $(17,10)$ & $0.5099$ & $1.0000$ \\
+DS-Flash & Sens. $Y_s^{\text{stress}}$ & Structural & -2.82 [-13.51, +5.99] & -4.17 [-11.01, +1.81] & $(14,9)$ & $0.6758$ & $1.0000$ \\
+\midrule
+DS-V4-Pro & Fam.1 Op. & Unconstrained & +15.43 [+5.66, +25.13] & +9.70 [+2.23, +17.79] & $(6,35)$ & $0.0082$ & $0.0139$ \\
+DS-V4-Pro & Fam.1 Op. & Syntactic & +15.96 [+6.90, +24.12] & +8.52 [+0.95, +16.32] & $(5,35)$ & $0.0036$ & $0.0108$ \\
+DS-V4-Pro & Fam.1 Op. & Structural & +17.02 [+6.67, +26.44] & +8.16 [-0.61, +16.99] & $(6,38)$ & $0.0069$ & $0.0139$ \\
+DS-V4-Pro & Fam.1 Op. & Scalar Gate & +6.91 [+1.12, +14.35] & +2.96 [+0.60, +6.01] & $(0,13)$ & $0.0625$ & --- \\
+DS-V4-Pro & Fam.2 $Y_s^{\text{strict}}$ & Unconstrained & -1.13 [-9.94, +6.63] & -0.70 [-8.86, +7.52] & $(17,15)$ & $0.8973$ & $1.0000$ \\
+DS-V4-Pro & Fam.2 $Y_s^{\text{strict}}$ & Syntactic & -1.69 [-11.19, +6.71] & -3.81 [-11.88, +3.63] & $(16,13)$ & $0.8115$ & $1.0000$ \\
+DS-V4-Pro & Fam.2 $Y_s^{\text{strict}}$ & Structural & -1.69 [-11.66, +7.03] & -3.94 [-12.43, +3.76] & $(16,13)$ & $0.8188$ & $1.0000$ \\
+DS-V4-Pro & Fam.2 $Y_s^{\text{strict}}$ & Scalar Gate & +4.52 [+0.74, +9.83] & +2.45 [+0.40, +5.10] & $(0,8)$ & $0.0625$ & --- \\
+DS-V4-Pro & Sens. $Y_s^{\text{stress}}$ & Unconstrained & -0.56 [-9.60, +7.54] & -0.77 [-8.91, +7.22] & $(16,15)$ & $1.0000$ & $1.0000$ \\
+DS-V4-Pro & Sens. $Y_s^{\text{stress}}$ & Structural & -1.69 [-11.66, +7.03] & -3.94 [-12.43, +3.76] & $(16,13)$ & $0.8188$ & $1.0000$ \\
+\midrule
+Qwen3.7+ & Fam.1 Op. & Unconstrained & +14.29 [+7.11, +21.80] & +12.33 [+4.70, +20.26] & $(5,34)$ & $0.0008$ & $0.0016$ \\
+Qwen3.7+ & Fam.1 Op. & Syntactic & +12.32 [+5.26, +20.00] & +6.93 [-0.19, +14.20] & $(2,27)$ & $0.0018$ & $0.0018$ \\
+Qwen3.7+ & Fam.1 Op. & Structural & +16.26 [+8.21, +25.00] & +11.37 [+5.74, +17.88] & $(0,33)$ & $<0.0001$ & $0.0002$ \\
+Qwen3.7+ & Fam.1 Op. & Scalar Gate & +3.94 [+1.18, +6.88] & +2.07 [+0.57, +4.14] & $(1,9)$ & $0.0312$ & --- \\
+Qwen3.7+ & Fam.2 $Y_s^{\text{strict}}$ & Unconstrained & -2.26 [-11.70, +7.09] & +1.85 [-6.94, +10.82] & $(20,16)$ & $0.7284$ & $1.0000$ \\
+Qwen3.7+ & Fam.2 $Y_s^{\text{strict}}$ & Syntactic & -2.82 [-10.86, +5.48] & -0.63 [-7.86, +6.62] & $(15,10)$ & $0.6034$ & $1.0000$ \\
+Qwen3.7+ & Fam.2 $Y_s^{\text{strict}}$ & Structural & -1.69 [-10.47, +7.07] & +1.07 [-5.50, +7.90] & $(15,12)$ & $0.8091$ & $1.0000$ \\
+Qwen3.7+ & Fam.2 $Y_s^{\text{strict}}$ & Scalar Gate & +2.82 [+0.56, +5.39] & +1.47 [+0.20, +3.46] & $(1,6)$ & $0.1250$ & --- \\
+Qwen3.7+ & Sens. $Y_s^{\text{stress}}$ & Unconstrained & +0.56 [-8.72, +9.93] & +8.04 [-0.85, +17.43] & $(18,19)$ & $1.0000$ & $1.0000$ \\
+Qwen3.7+ & Sens. $Y_s^{\text{stress}}$ & Structural & -1.13 [-9.94, +7.55] & +1.39 [-5.16, +8.22] & $(15,13)$ & $0.9033$ & $1.0000$ \\
+\bottomrule
+\end{tabular}
+\par\smallskip\parbox{0.97\textwidth}{\scriptsize\textit{Note:} $p_{\text{Holm}}$ is omitted (---) for Scalar Gate rows because pre-registered Holm--Bonferroni families ($m=3$ per model) adjust the three primary non-mutation comparisons, whereas witness isolation is tested in Family~3 (Table~\ref{tab:ablation}). On Scalar Gate rows, only $P_{\text{nz}} \in \{4,5,6,7\}$ repositories have non-zero paired differences; exact two-sided Rademacher sign-flip enumeration over $2^{P_{\text{nz}}}$ assignments therefore has a discrete floor $p \ge 2/2^{P_{\text{nz}}}$ (e.g., $0.0625$ at $P_{\text{nz}}=5$ and $0.1250$ at $P_{\text{nz}}=4$), so $p_{\text{cluster}}$ can exceed $0.05$ even when the 95\% cluster-bootstrap CI excludes zero.}
+\end{table}

@@ -1,0 +1,23 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Edit-mechanism audit across $\TaxUniquePatches$ unique $W^+$-passing eroded patches in $\TaxDistinctProjects$ repositories, pairing automated diff coding with a $\TaxManualN$-patch stratified manual audit.}
+\label{tab:taxonomy}
+\begin{tabular}{lrrrr}
+\toprule
+Patch Edit Mechanism & Auto Prim. & Auto Multi & Bypasses Struct. & Manual ($N=60$) \\
+\midrule
+Predicate Projection or Relaxation & 10 & 84 & 5 & 2 \\
+State Reset or Post-Act Clobber & 26 & 45 & 7 & 3 \\
+Control-Flow or Exception Shift & 0 & 14 & 0 & 3 \\
+Focal Call Alteration or Bypass & 52 & 54 & 48 & 9 \\
+Partner or Shared-Scope Side-Effect & 53 & 53 & 43 & 4 \\
+Delimiter or Format Normalization & 112 & 123 & 86 & 14 \\
+Precondition or Singleton Setup Shift & 120 & 131 & 119 & 25 \\
+Unclassified Residual & 27 & 27 & 27 & 0 \\
+\midrule
+\textbf{Total Unique Eroded Patches} & \textbf{400} & --- & \textbf{335} (Synt.: 396) & \textbf{60} \\
+\bottomrule
+\end{tabular}
+\end{table}

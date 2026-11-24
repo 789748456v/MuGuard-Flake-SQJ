@@ -1,0 +1,33 @@
+\section{Discussion and Practical Deployment Playbook}
+\label{sec:discussion}
+
+Rather than repeating the empirical rates from Section~\ref{sec:results}, this section translates our findings into concrete adoption decisions for continuous integration teams and methodological standards for future flaky-test benchmarks.
+
+\subsection{Why Behavioral Verification and LLMs Act as Complements}
+
+Our cross-language evidence explains why purely static guardrails hit a structural ceiling. Strengthening syntactic rules into assertion-correspondence heuristics still fails to predict how upstream fixture changes, delimiter normalizations, shared-state resets, or stubbed collaborators alter production execution. Worse, strict syntactic heuristics penalize legitimate structural refactorings in developer pull requests and nudge language models away from obvious assertion deletions toward subtler semantic shifts that keep every assertion call syntactically intact.
+
+Executable probing and LLM reasoning instead solve complementary halves of the repair problem. Local mutation probing does not synthesize test code, but it supplies deterministic behavioral visibility over fixed production code. Conversely, modern LLMs excel at rewriting order-sensitive assertions once told \emph{which} production branch or side effect lost observability. The prefix-forked contrast confirms that localized counterexamples---not extra retries or longer prompts---unlock that synergy, converting rejected drafts into lossless repairs where bare numeric counts stall.
+
+\subsection{A Practical CI Adoption and Triage Playbook}
+
+Because strict obligation conservation trades auto-merge coverage for lower post-merge regression risk, engineering teams should treat \textsc{MuGuard-Flake} as a configurable CI safety policy rather than a one-size-fits-all switch. Three operational questions govern practical rollout:
+
+\paragraph{1. Which Repositories Should Enable Strict Fail-Closed Gating First?}
+Our asymmetric break-even analysis (Equation~\ref{eq:breakeven}) supplies an objective adoption rule: fail-closed gating achieves strictly lower expected CI cost than non-mutation baselines whenever a silently regression-blind test costs more than roughly 1.3 to 2.4 times the effort of triaging an explicit abstention ticket. Core libraries, financial or protocol serializers, shared infrastructure modules, and release-blocking CI suites sit far above that threshold and should enable strict dual-role gating by default. Conversely, fast-moving prototypes or low-criticality UI suites with scarce reviewer bandwidth may prefer an advisory mode that posts surviving witnesses as pull-request review comments without blocking merges.
+
+\paragraph{2. When Should Teams Activate Extended Mutation Operators Beyond Defaults?}
+Default bytecode and AST mutators catch all in-loop erosion and cut unseen held-out fault loss sharply at seconds-scale latency, yet our pull-request and held-out audits expose narrow semantic blind spots in encoding, URL parsing, and relational container invariants. Rather than enabling heavy operator suites globally, teams should keep default operators as the fast synchronous gate on all repositories and selectively layer extended argument-propagation or relational mutators onto security-sensitive, serialization, and protocol-encoding modules. To keep pull-request turnaround crisp, teams should trigger one-time baseline pre-computation asynchronously the moment a test is quarantined as flaky, amortizing baseline cost completely off the developer critical path.
+
+\paragraph{3. How Should Abstention Tickets Wire Into Human Review?}
+Effective human triage depends on separating avoidable formatting failures from genuine semantic trade-offs before an engineer opens a ticket. First, deterministic method re-indentation or syntax-constrained decoding should precede the repair gate in Python pipelines to eliminate formatting-driven abstentions without weakening oracle safety. Second, when the gate abstains on erosion or an uncovered partner, the CI bot should post the top surviving-mutant witnesses directly onto the pull request. Maintainers can then act in minutes by either approving a verified canonicalization override (such as deterministic serializer key sorting or intentional singleton fixture isolation) or applying a targeted fix guided by those surviving production lines. Reviewers inspecting witness-driven LLM patches should still verify intended semantics, because models can occasionally satisfy a small set of baseline return-value witnesses with shallow checks rather than exercising full domain state.
+
+\subsection{Upgrading Empirical Standards for Flaky-Test Repair Benchmarks}
+
+Echoing Bludau and Pretschner's call to audit proxy-induced evaluation bias~\cite{bludau2026szz} and Leunig and Petersen's industrial warning on assertion dilution~\cite{leunig2026perl}, our study suggests four concrete methodological upgrades for future flaky-test repair research:
+\begin{enumerate}[nosep]
+    \item \emph{Report multi-dimensional risk--coverage profiles.} Benchmarks should pair stabilization pass rates with operational soundness, conditional unseen-fault loss, fixed-cohort held-out yield, and explicit abstention counts so safety--coverage trade-offs remain transparent.
+    \item \emph{Enforce exact attribution and fail-closed accounting.} Evaluators should require repeated clean baselines, exact test-case and lifecycle attribution, explicit separation of timeouts and setup errors from surviving mutants, and dual-role partner checks whenever order-dependent edits touch shared scope.
+    \item \emph{Audit historical tools and developer PRs with strict provenance.} Historical baselines should filter strictly to official passing logs, developer pull requests should be applied atomically across all edited test files, and semantic diff adjudication should incorporate blinded cross-auditing with reported inter-rater reliability.
+    \item \emph{Cluster inference by repository.} Because flaky tests correlate strongly within projects, future comparisons should rely on whole-repository cluster resampling and sign-flip permutation tests rather than test-level independence assumptions.
+\end{enumerate}

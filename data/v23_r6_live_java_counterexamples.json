@@ -1,0 +1,137 @@
+{
+  "before_fail": {
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "FT1PhaseCounterexampleTest$BeforeFail#partner -> FT1PhaseCounterexampleTest$BeforeFail#partner -> FT1PhaseCounterexampleTest$BeforeFail#target",
+    "order_exact": true,
+    "phase_level_known": true,
+    "total_run": 3,
+    "total_fail": 1,
+    "total_ign": 0,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "FAIL",
+        "call": "SKIPPED",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      }
+    },
+    "fail_lines": [
+      "FT1_REP_FAIL: partner(FT1PhaseCounterexampleTest$BeforeFail) :: java.lang.RuntimeException: p2 before boom :: java.lang.RuntimeException: p2 before boom \tat FT1PhaseCounterexampleTest$BeforeFail.setUp(FT1PhaseCounterexampleTest.java:11) \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) \tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) \tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorI"
+    ],
+    "strict_passed": false,
+    "target_stress_passed": false,
+    "is_unknown": true,
+    "status": "UNKNOWN_P2_SETUP_FAIL",
+    "p1_ok": true,
+    "p2_ok": false,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": false,
+    "target_ok": true,
+    "p2_call_exception_type": null
+  },
+  "after_fail": {
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "FT1PhaseCounterexampleTest$AfterFail#partner -> FT1PhaseCounterexampleTest$AfterFail#partner -> FT1PhaseCounterexampleTest$AfterFail#target",
+    "order_exact": true,
+    "phase_level_known": true,
+    "total_run": 3,
+    "total_fail": 1,
+    "total_ign": 0,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "FAIL",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      }
+    },
+    "fail_lines": [
+      "FT1_REP_FAIL: partner(FT1PhaseCounterexampleTest$AfterFail) :: java.lang.IllegalStateException: p2 after boom :: java.lang.IllegalStateException: p2 after boom \tat FT1PhaseCounterexampleTest$AfterFail.tearDown(FT1PhaseCounterexampleTest.java:21) \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) \tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) \tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAcc"
+    ],
+    "strict_passed": false,
+    "target_stress_passed": false,
+    "is_unknown": true,
+    "status": "UNKNOWN_P2_TEARDOWN_FAIL",
+    "p1_ok": true,
+    "p2_ok": false,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": false,
+    "target_ok": true,
+    "p2_call_exception_type": null
+  },
+  "call_only_fail": {
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "FT1PhaseCounterexampleTest$CallOnlyFail#partner -> FT1PhaseCounterexampleTest$CallOnlyFail#partner -> FT1PhaseCounterexampleTest$CallOnlyFail#target",
+    "order_exact": true,
+    "phase_level_known": true,
+    "total_run": 3,
+    "total_fail": 1,
+    "total_ign": 0,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.IllegalStateException"
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      }
+    },
+    "fail_lines": [
+      "FT1_REP_FAIL: partner(FT1PhaseCounterexampleTest$CallOnlyFail) :: java.lang.IllegalStateException: p2 nonidempotent body :: java.lang.IllegalStateException: p2 nonidempotent body \tat FT1PhaseCounterexampleTest$CallOnlyFail.partner(FT1PhaseCounterexampleTest.java:33) \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) \tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) \tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Delegatin"
+    ],
+    "strict_passed": false,
+    "target_stress_passed": true,
+    "is_unknown": false,
+    "status": "P2_CALL_FAILED_TARGET_PASSED",
+    "p1_ok": true,
+    "p2_ok": false,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "p2_call_exception_type": "java.lang.IllegalStateException"
+  }
+}

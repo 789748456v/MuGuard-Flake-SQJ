@@ -1,0 +1,198 @@
+\section{Empirical Results}
+\label{sec:results}
+
+We evaluate oracle erosion across $N = \BenchEligible$ flaky tests in $\BenchProjects$ repositories and 1,243 unique held-out candidate patches. We first quantify erosion prevalence and developer pull-request boundaries (RQ1), then diagnose why static guards miss behavioral shifts (RQ2) before assessing fail-closed mutation gating, asymmetric CI cost, and runtime overhead (RQ3--RQ4).
+
+\subsection{RQ1: Prevalence of Silent Oracle Erosion and Pull-Request Boundaries}
+\label{sec:rq1}
+
+\paragraph{Historical Repair Artifacts.}
+Silent oracle erosion is already pervasive in published flaky-test repair artifacts (Table~\ref{tab:b1_sota}). Among official upstream passing entries from \textsc{FlakyDoctor} GPT-4, nearly half compile verbatim and pass stability reruns, yet \BOneGptLeakPct{} of those stabilized patches silently drop baseline fault obligations. That erosion lowers operational sound-fix yield by 12 percentage points. By contrast, none of the four matched and stabilized \textsc{FlakyDoctor} Magicoder patches erode obligations, though four patches are too few to support model-level conclusions.
+
+Python suite-search patching exhibits nearly the same erosion rate as LLM-based Java repair. Among partner-matched official \textsc{iPFlakies} entries, \BOneIpfLeakPct{} of stabilized fixes lose baseline obligations, opening a 13-point gap between apparent stabilization and sound repair. Silent erosion is therefore not unique to language models. Whenever a repair pipeline rewards green execution without checking fault detection, both search-based splicers and generative agents gravitate toward edits that silence intermittent failures at the cost of weaker assertions or shallower fixture states.
+
+\input{tables/tab2_b1_sota.tex}
+
+\paragraph{Modern LLM Backbones Across Five Models.}
+Unconstrained LLM repair loops show consistent erosion rates across all five models from four vendors (Figure~\ref{fig:inflation_gap}, Table~\ref{tab:k5_operational}, and Table~\ref{tab:crossfamily_r1}). Under multi-round validation, API reasoning-token limits truncated one eligible test on DeepSeek Flash and 15 on DeepSeek V4 Pro, whereas confirmatory Qwen 3.7 Plus completed the full cohort. Silent erosion affects roughly one-fifth to one-quarter of stabilized patches on every backbone. Combined with the explicit \emph{Unver.} column in Table~\ref{tab:k5_operational}---unverified shared-scope partner edits plus one indeterminate target timeout on DeepSeek Flash and DeepSeek V4 Pro Unconstrained---these losses open a Proxy Inflation Gap of 24 to 26 percentage points across backbones.
+
+Single-pass screening across two additional model families confirms that this gap generalizes beyond DeepSeek and Qwen. Without multi-round retries, unconstrained Kimi K2.5 leaks 26.8\% eroded patches among its stabilized outputs, and GLM-5 leaks 25.6\%. Across both reasoning and non-reasoning models, green stability checks overstate sound repair rates by roughly a quarter. This uniformity points to a structural incentive flaw rather than a quirk of any single model family. Because stabilization checks penalize every flaky failure immediately but never penalize a missing assertion check, stronger models simply become more adept at finding permissive edits that turn tests green quickly.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{figures/fig1_inflation_gap_models.pdf}
+\caption{Apparent stabilization pass rate versus operational sound-fix rate across historical artifacts, multi-round LLM repair, and single-pass cross-family screening.}
+\label{fig:inflation_gap}
+\end{figure*}
+
+\paragraph{Developer Pull Requests and the False-Rejection Boundary.}
+Auditing real human fixes exposes both the false-rejection cost and the incomplete recall of strict mutation gating (Table~\ref{tab:pr_adjudication}). Across $\PRTotalInstances$ Java instances from $\PRDistinctURLs$ GitHub pull requests, 45 test-only fixes apply cleanly and 43 pass stability reruns, including all 24 order-dependent cases. Focusing on the 16 merged fixes that stabilize, Syntactic Guard rejects one, Structural Guard rejects three, and \textsc{MuGuard-Flake} rejects two. Diff adjudication---corroborated at 93.0\% agreement ($\kappa = 0.63$) by our blinded cross-audit---reveals opposite semantics for those two rejections: one Fastjson pull request legitimately enables deterministic map-key sorting, and a Nacos pull request replaces exact JSON equality with partial substring checks that genuinely weaken the oracle.
+
+Across all $\PRLegitTotal$ verified legitimate test-only repairs, strict \textsc{MuGuard-Flake} gating rejects eight fixes, a \PRLegitFalseRejMuGuardPct{} false-rejection rate (or 22.5\% if the single Apache Avro responsibility-shift fix is included). Those eight false rejections stem from two concrete patterns: three Fastjson canonicalization fixes that bypass unsorted serialization branches, and five Visualee fixtures whose \texttt{@Before} singleton cleanup lowers PIT kill counts without altering any assertion. Conversely, manual review surfaced three genuine weakening pull requests among stabilized fixes. \textsc{MuGuard-Flake} and Structural Guard both catch the Nacos substring downgrade, and two subtle merged weakenings in Commons Collections and Apollo retain all default PIT kills and escape every gate.
+
+These pull-request cases sharpen how strict mutation gating should be interpreted in practice. A strict gate does not separate legitimate fixes from broken ones with perfect precision, because valid canonicalization or fixture cleanup can legitimately change which production branches a test traverses. At the same time, default bytecode operators cannot expose every subtle relational weakening, such as dropping a cross-entry key-to-value bijection. Strict mutation gating therefore operates as an auditable safety filter with concrete false-rejection and false-negative boundaries rather than an omniscient oracle.
+
+\input{tables/tab3_pr_adjudication.tex}
+
+\medskip
+\noindent\fbox{\parbox{0.97\textwidth}{\textbf{Summary for RQ1:} Silent oracle erosion affects roughly one in five to one in four stabilization-passing patches across historical tools and five modern LLM families. On audited developer pull requests, strict mutation gating incurs a \PRLegitFalseRejMuGuardPct{} false-rejection rate on legitimate fixes and misses two of three subtle weakening patches outside default mutators.}}
+\medskip
+
+Given how consistently silent erosion emerges across tools and models, RQ2 examines which concrete edit patterns erode obligations and why static guards fail to intercept them.
+
+\subsection{RQ2: Behavioral Erosion Mechanisms and Static-Guard Blind Spots}
+\label{sec:rq2}
+
+Static checks fail to curb silent erosion and can even harm repair yield (Tables~\ref{tab:k5_operational} and~\ref{tab:crossfamily_r1}). Contract-preservation prompts and syntactic assertion-count checks do not consistently reduce leaked erosion relative to unconstrained repair, slightly increasing leakage on both DeepSeek models and reducing it by barely one percentage point on Qwen. Even the strengthened Structural Guard still leaks \FlashBThreePlusLeakPct{} to \ProBThreePlusLeakPct{} eroded patches across the three multi-round models. Worse, it lowers operational sound-fix yield below Syntactic Guard on every backbone, including a 3.9-point drop on confirmatory Qwen 3.7 Plus.
+
+Two competing forces explain why stricter static heuristics underperform. Static pattern rules block legitimate structural rewrites when developers or models reorganize assertions, as reflected in Structural Guard's 18.8\% rejection rate on merged test-only pull requests. At the same time, rejecting obvious syntactic shortcuts nudges models toward subtler behavioral edits that keep every assertion statement intact while changing what production code executes. Rather than solving erosion, aggressive syntax rules trade transparent assertion edits for harder-to-spot behavioral shifts.
+
+\input{tables/tab7_taxonomy_codebook.tex}
+
+Over four-fifths of unique eroded patches across \TaxDistinctProjects{} repositories bypass Structural Guard, and nearly all bypass Syntactic Guard (Table~\ref{tab:taxonomy}). Our stratified manual audit confirms that nearly three-quarters represent genuine fault-detection weakening, one-fifth shift test responsibility, and only four patches reflect legitimate canonicalization, matching automated mechanism labels on 92.7\% of active patches. Blinded cross-auditing independently confirms strong mechanism agreement ($\kappa = 0.83$) and near-unanimous non-legitimacy agreement ($\kappa = 0.79$). Across mutator families, eroded patches blind tests primarily to branch-condition faults, followed by value-return and side-effect call faults.
+
+Four behavioral blind spots account for most static-guard bypasses:
+\begin{enumerate}[nosep]
+    \item \emph{Precondition and singleton setup shifts} (119 of 120 patches bypass Structural Guard). Minimal fixture setups preserve every assertion while skipping deeper production branches. In Python \texttt{NestedDictionary::test\_del} (Listing~\ref{lst:case_e3}), Structural Guard accepts the same single-key setup produced by \textsc{iPFlakies}, leaving the dictionary empty after deletion until \textsc{MuGuard-Flake}'s witness restores a sibling key.
+    \item \emph{Delimiter and format normalizations} (86 of 112 patches bypass Structural Guard). In our Java running example \texttt{ToStringBuilderTest.testReflectionStatics} (Figure~\ref{fig:architecture}, Listings~\ref{lst:witness_example} and~\ref{lst:case_e1}), Structural Guard accepts single-argument \texttt{split(",")}, which silently strips trailing empty tokens and misses eight faults in \texttt{ToStringStyle} until the witness induces \texttt{split(",", -1)}.
+    \item \emph{Partner-test and shared-fixture edits} (43 of 53 patches bypass Structural Guard). Editing a partner test or shared setup block leaves target assertions untouched while silently dropping partner obligations.
+    \item \emph{Focal call alteration or bypass} (48 of 52 patches bypass Structural Guard). In Java \texttt{HttpRequestTest} (Listing~\ref{lst:case_e4}), substituting an anonymous factory stub bypasses \texttt{ConnectionFactory.DEFAULT} while preserving every assertion statement.
+\end{enumerate}
+
+A common thread links all four blind spots. None of these edits looks suspicious under local syntactic inspection of the assertion block itself: every assertion call remains present, non-trivial, and properly typed. Instead, the fault-detection loss happens upstream in the fixture, the input parser, the shared helper, or the mocked collaborator. Catching such regressions requires executing the repaired test against mutated production behavior rather than pattern-matching its syntax tree.
+
+\begin{lstlisting}[language=Python,caption={Precondition shift in \texttt{NestedDictionary::test\_del}, where a single-key setup accepted by \textsc{iPFlakies} and Structural Guard skips a nested lookup path until witness feedback restores a sibling key.},label={lst:case_e3}]
+# Official iPFlakies and Structural Guard Accepted Patch (Retention = 4/5):
+def test_del(x):
+    x[123] = 'abc'        # Dict becomes empty after del -> skips _look_deeper:L41
+    del x[123]
+    with raises(KeyError): assert x[123]
+
+# MuGuard-Flake Witness (easy_dict._look_deeper:L41) -> Round-2 Safe Pass (5/5):
+def test_del(x):
+    x[123] = 'abc'; x['def'] = 456  # Preserves non-empty sibling lookup path
+    del x[123]
+    with raises(KeyError): assert x[123]
+\end{lstlisting}
+
+\begin{lstlisting}[language=Java,caption={Format normalization in \texttt{ToStringBuilderTest.testReflectionStatics}, where single-argument \texttt{split(",")} drops trailing-token checks under Structural Guard until witness feedback restores \texttt{split(",", -1)}.},label={lst:case_e1}]
+// Structural Guard Accepted Patch (Passes NonDex; Retention = 84/92):
+final List<String> fields = new ArrayList<>(Arrays.asList(fieldBody.split(",")));
+
+// MuGuard-Flake Witness (ToStringStyle.appendEnd:L427) -> Round-2 Safe Pass (92/92):
+final List<String> fields = new ArrayList<>(Arrays.asList(fieldBody.split(",", -1)));
+\end{lstlisting}
+
+\begin{lstlisting}[language=Java,caption={Focal call bypass in \texttt{HttpRequestTest}, where an anonymous factory stub bypasses \texttt{ConnectionFactory.DEFAULT} under Structural Guard until witness feedback restores the default factory.},label={lst:case_e4}]
+// Structural Guard Accepted Patch (Assertions untouched; Retention = 21/22):
+HttpRequest.setConnectionFactory(new ConnectionFactory() { ... });
+
+// MuGuard-Flake Witness (ConnectionFactory$1.create:L389) -> Round-2 Safe Pass (22/22):
+HttpRequest.setConnectionFactory(ConnectionFactory.DEFAULT);
+\end{lstlisting}
+
+\medskip
+\noindent\fbox{\parbox{0.97\textwidth}{\textbf{Summary for RQ2:} Over four-fifths of unique eroded patches bypass an enhanced static structural guard through behavioral setup shifts, delimiter normalizations, shared-scope edits, and focal call bypasses. Stratified auditing confirms that nearly three-quarters represent genuine fault-detection degradation.}}
+\medskip
+
+Because static rules cannot intercept these behavioral shifts, RQ3 evaluates whether executable mutation gating and surviving-mutant witnesses close the gap.
+
+\subsection{RQ3: Fail-Closed Gating Trade-Off, External Validation, and Witness Recovery}
+\label{sec:rq3}
+
+\paragraph{Operational Sound-Fix Gains Across Five Models.}
+Under fail-closed mutation gating, \textsc{MuGuard-Flake} eliminates leaked in-loop erosion across all multi-round models and lifts operational sound-fix yield far above our 5-point practical threshold (Tables~\ref{tab:k5_operational} and~\ref{tab:stat_tests}). On confirmatory Qwen 3.7 Plus, it reaches \QwenOursSoundPct{} operational sound-fix yield, beating unconstrained and static baselines by 12 to 16 percentage points. Exploratory DeepSeek Flash and DeepSeek V4 Pro show a similar 15- to 18-point advantage over every non-mutation baseline. Every primary test-weighted gain survives whole-repository clustering and Holm--Bonferroni correction, with positive equal-repository point estimates throughout.
+
+Two mechanisms combine to produce these large operational gains. First, the gate immediately blocks every stabilized candidate that silently drops baseline obligations or alters uncovered shared scope, removing the erosion and unverified leakage that drag down unconstrained and static-guarded loops. Second, rather than discarding those blocked candidates, witness-guided retries convert most intercepted erosions into clean, obligation-preserving repairs within the remaining iteration budget. This pairing explains why \textsc{MuGuard-Flake} lifts sound-fix yield consistently across models with different reasoning styles and base repair capacities.
+
+\input{tables/tab4a_k5_operational.tex}
+
+Single-pass screening on Kimi K2.5 and GLM-5 confirms that the admission gate transfers across model families even without retries (Table~\ref{tab:crossfamily_r1}). On both models, \textsc{MuGuard-Flake} blocks every eroded first-round patch, intercepting 30 on Kimi K2.5 and 34 on GLM-5 without sacrificing single-pass sound-fix yield. It edges past Structural Guard by two percentage points on each model. These single-pass results show that mutation gating protects build quality immediately on round one, before iterative witness recovery even begins.
+
+\paragraph{External Validation: Conditional Safety vs.\ Unconditional Yield Trade-Off.}
+External validation across all 1,243 candidate patches on disjoint schedules and unseen fault obligations ($|E| = \BenchMExtSamples$) exposes a sharp risk--coverage trade-off (Table~\ref{tab:k5_heldout}). Among accepted patches, \textsc{MuGuard-Flake} cuts conditional unseen-obligation loss substantially on every model: by \FlashRelRedVsBZeroPct{} to \QwenRelRedVsBZeroPct{} versus Unconstrained, and by \FlashRelRedVsBThreePlusPct{} to \QwenRelRedVsBThreePlusPct{} versus Structural Guard. Auditing all 111 unique held-out loss patches---corroborated at $\kappa = 0.66$ by our blinded cross-audit, which reproduces identical \textsc{MuGuard-Flake} $W/S/L$ counts on DeepSeek V4 Pro and Qwen 3.7 Plus---confirms that these reductions reflect genuine semantic protection rather than benchmark noise. Responsibility shifts drop from eight or nine tests per model under Unconstrained and Structural Guard down to zero to two under \textsc{MuGuard-Flake}, and genuine oracle weakenings drop on DeepSeek Flash, Qwen 3.7 Plus, and relative to Structural Guard on DeepSeek V4 Pro.
+
+\input{tables/tab5_crossfamily_k1.tex}
+
+The held-out audit also clarifies both the mechanism behind conditional safety and its sharpest failure modes. All three residual responsibility shifts under \textsc{MuGuard-Flake} occur on Visualee's \texttt{GraphCreatorTest}, where three null-return witnesses prompted synthetic fluent-return checks that passed baseline witnesses but missed six held-out field mutations. Separately, six of the seven residual genuine weakenings across all three models are Apollo URL-decoder bypasses exposed only by held-out argument-propagation mutants, showing that default mutators still leave a narrow residual blind spot. Comparing against Scalar Gate confirms which component drives safety: Scalar Gate achieves a slightly lower conditional loss rate (2.9\% to 3.7\% versus \textsc{MuGuard-Flake}'s 4.1\% to 4.8\%) at lower acceptance coverage. The fail-closed gate itself therefore delivers conditional safety, and localized witnesses recover auto-merge yield.
+
+\input{tables/tab4b_k5_heldout.tex}
+
+Safer accepted patches come at the cost of conservative abstention under unconditional end-to-end held-out yield ($Y_s$, Tables~\ref{tab:k5_heldout} and~\ref{tab:stat_tests}). Because Equation~\ref{eq:ys} scores explicit abstention identically to merging an eroded patch, \textsc{MuGuard-Flake}'s abstention rate (12\% to 21\% across models) offsets its drop in merged fault losses. Across all three models, differences against non-mutation baselines range from $-5.7$ to $-1.1$ percentage points under strict yield and $-4.0$ to $+0.6$ points under stress-relaxed yield. Because wide cluster confidence intervals cross zero in every comparison, we treat unconditional held-out yield under both definitions as statistically inconclusive. The data establish neither superiority nor equivalence on end-to-end yield.
+
+Unmodified-repository controls confirm that this trade-off is not an artifact of partner flakiness or harness errors. Nearly all controls execute cleanly (90 of 93 in Python and 43 of 49 in Java), unresolved controls receive no stress exemptions, and the single reproducible candidate timeout scores zero under fixed-cohort yield. More revealingly, inspecting discordant pairs where Unconstrained passes strict held-out yield and \textsc{MuGuard-Flake} does not shows that most misses come from conservative abstentions rather than accepted-patch regressions.
+
+\paragraph{Asymmetric CI Cost Break-Even Analysis.}
+Unconditional $Y_s$ weights abstention and silent erosion equally, yet those outcomes carry starkly asymmetric costs in CI. An explicit abstention leaves the existing test intact and flags a short witness-backed review, and a merged eroded patch permanently silences future regression detection. To quantify that asymmetry directly from Table~\ref{tab:k5_heldout}, assign cost $0$ to a clean sound auto-merge and regression-risk cost $c_{\text{reg}} = \lambda c_{\text{rev}}$ to any accepted patch with unseen $M_{\text{ext}}$ loss, taking precedence if it also fails held-out reruns. Assign triage cost $c_{\text{rev}}$ to all remaining non-sound outcomes, covering abstentions, API omissions, timeouts, and loud rerun failures without $M_{\text{ext}}$ loss. Because this precedence rule partitions $E$ into mutually exclusive outcomes, \textsc{MuGuard-Flake} achieves strictly lower expected CI cost than a baseline whenever
+\begin{equation}
+\label{eq:breakeven}
+\lambda > \lambda^* = 1 + \frac{\Delta Y_s^{\text{strict}}}{\Delta L_{\text{ext}}},
+\end{equation}
+where $\Delta Y_s^{\text{strict}}$ counts foregone strict sound auto-merges and $\Delta L_{\text{ext}}$ counts avoided $M_{\text{ext}}$-loss merges. Against Unconstrained, this break-even ratio spans $\lambda^* = 1.25$ on DeepSeek V4 Pro, $1.31$ on confirmatory Qwen 3.7 Plus, and $2.43$ on DeepSeek Flash; against Structural Guard, it stays tightly bounded at $1.27$--$1.63$ across models, and restricting losses to adjudicated weakening and shift yields a similar range. Whenever silently merging a regression-blind test costs more than roughly two-and-a-half times triaging a witness-backed abstention, \textsc{MuGuard-Flake} achieves strictly lower expected CI cost than every non-mutation baseline across all three backbones.
+
+\input{tables/tab6_clustered_inference.tex}
+
+Figure~\ref{fig:forest_effects} contrasts both faces of this trade-off directly. In panel~(a), every operational sound-fix gain over Unconstrained and static baselines clears the 5-point practical threshold with confidence intervals well above zero. In panel~(b), unconditional held-out yield straddles zero against non-mutation baselines, and \textsc{MuGuard-Flake} remains consistently ahead of Scalar Gate by 2.8 to 4.5 points across models.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.96\textwidth]{figures/fig2_round_trajectories.pdf}
+\caption{Whole-project clustered paired differences and 95\% confidence intervals for \textsc{MuGuard-Flake} on (a) operational sound-fix yield and (b) fixed-cohort held-out yield.}
+\label{fig:forest_effects}
+\end{figure*}
+
+\paragraph{Causal Isolation of Surviving-Mutant Witnesses.}
+The prefix-forked experiment across all $\ForkTotal$ frozen erosion states in $\ForkProjects$ repositories confirms that localized witnesses drive substantial recovery gains beyond gated retries alone (Table~\ref{tab:ablation} and Figure~\ref{fig:ablation_fork}). Supplying the True Witness package recovers \ForkAThreePct{} of eroded repairs, outperforming Scalar Ratio feedback (\ForkAOnePct{}) by 28.1 percentage points overall and by virtually the same margin under equal model weighting. This lift achieves clustered significance and holds across every model, spanning 20 points on confirmatory Qwen 3.7 Plus to 34 points on DeepSeek Flash.
+
+Qualitative inspection of recovered trajectories explains why bare scalar ratios lag so sharply behind concrete witnesses. Told only that a few mutants survived, models often guess blindly, adding redundant assertions around the same weakened check or oscillating between two flaky variants. Given the exact surviving production line and source slice, by contrast, models immediately recognize the missed branch or truncated token and repair the root cause in a single follow-up turn.
+
+\input{tables/tab8_forked_ablation.tex}
+
+The Misleading Witness arm confirms that diagnostic accuracy, not prompt verbosity, explains this gain. Keeping prompt structure and mutant count identical and pointing to already-killed mutants drops recovery to \ForkATwoPct{}, a 37.1-point deficit below True Witness on matched forks (Figure~\ref{fig:ablation_fork}). Models follow the misleading hint into irrelevant code regions, proving that mislocalized diagnostics actively harm recovery. Because roughly three-quarters of tests never trigger an erosion retry, that 28-point conditional lift translates into consistent full-cohort gains over Scalar Gate of 4 to 7 points in operational yield and 3 to 5 points in held-out yield (Figure~\ref{fig:forest_effects}). Gate enforcement and witness diagnostics thus play distinct, complementary roles: the gate stops silent erosion, and localized witnesses turn rejected drafts into valid fixes.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.74\textwidth]{figures/fig4_n14_ablation_and_pareto.pdf}
+\caption{Post-fork recovery rates and 95\% cluster confidence intervals across feedback arms on frozen erosion states.}
+\label{fig:ablation_fork}
+\end{figure}
+
+\medskip
+\noindent\fbox{\parbox{0.97\textwidth}{\textbf{Summary for RQ3:} \textsc{MuGuard-Flake} eliminates in-loop erosion, raises operational sound-fix yield by 12 to 18 points over static guards, and cuts unseen held-out loss among accepted patches by 45\% to 65\%. Conservative abstention leaves unconditional held-out yield inconclusive, yet break-even analysis favors gating over non-mutation baselines whenever a silent regression costs more than 1.3 to 2.4 times an abstention review. Across $\ForkTotal$ prefix-forked states, localized witnesses outperform scalar feedback by 28 points.}}
+\medskip
+
+Having established the safety--coverage trade-off and witness mechanism in RQ3, RQ4 evaluates whether local mutation probing fits within practical CI latency budgets and what drives terminal abstentions.
+
+\subsection{RQ4: Uncached Latencies, Abstentions, and Subset Sensitivity}
+\label{sec:rq4}
+
+\paragraph{Uncached Verification Latency vs.\ LLM Reasoning Cost.}
+Local focal mutation probing is not the interactive bottleneck in automated flaky test repair (Table~\ref{tab:latency}). Even without caching, target mutation probing completes in a median of \LatUncachedJavaMutMed\,s on Java and \LatUncachedPyMutMed\,s on Python. Shared-scope partner probing adds 5.6\,s median in Java and 2.1\,s in Python.
+
+Python's online gate runs more than three times faster than its single-run baseline sweep in Table~\ref{tab:benchmark} because the two stages probe different mutant sets. Offline baseline construction sweeps the full focal pool $M_{\text{focal}}$, including unkilled AST mutants and state-setter replays on OD-brittle tests. In-loop gating replays only the smaller frozen obligation subset $M_{\text{det}}$ (median 14 mutants) under standalone execution $e_{\text{iso}}$. In Java, PIT instruments covered focal classes as a unit on every invocation, keeping baseline and in-loop medians close.
+
+By contrast, model inference dominates end-to-end repair time. Excluding network retry backoff, a single LLM reasoning call alone consumes a median of 53 to 80\,s across models. Including validation and retry rounds, end-to-end \textsc{MuGuard-Flake} sessions reach a median of 60\,s on DeepSeek Flash, 120\,s on DeepSeek V4 Pro, and 143\,s on Qwen 3.7 Plus. Within single-module CI builds, seconds-scale focal probing therefore adds only modest overhead on top of LLM generation, and short-circuiting compile or stability failures keeps probing focused strictly on viable candidates.
+
+\input{tables/tab9a_latency.tex}
+
+\paragraph{Abstention Root Causes and Offline Subset Sensitivity.}
+Unrecoverable oracle erosion accounts for only a minority of \textsc{MuGuard-Flake}'s terminal abstentions across the three multi-round models (25 on Flash, 28 on Pro, and 42 on Qwen). Across backbones, only five to nine tests end in erosion abstention, alongside two or three cases blocked by missing partner baseline coverage. Most abstentions stem instead from model formatting and stability limits, with malformed-patch sanity rejections and unstable reruns forming the bulk of terminal abstentions.
+
+Inspecting those sanity rejections reveals a straightforward engineering root cause rather than an inherent flaw of mutation gating. In Python repositories, language models frequently emit class test methods with mismatched leading indentation, triggering immediate syntax rejection before stability or mutation checks even execute. Enforcing syntax-constrained decoding or deterministic method re-indentation would therefore recover substantial auto-merge coverage without weakening oracle protection.
+
+Offline subset-sampling bounds across all \TaxUniquePatches{} unique eroded patches confirm two practical guidelines for gate configuration (Table~\ref{tab:topk} and Figure~\ref{fig:latency_topk}). First, omitting partner obligations caps maximum detection recall at 99.0\% even when probing all target mutants, because four eroded patches weaken exclusively partner obligations. Second, probing small subsets misses substantial erosion: uniform random sampling detects only 50.8\% of eroded patches at a 5-mutant budget and 68.9\% at 10 mutants, reaching 92.3\% at 25 mutants and outperforming line-dispersion and operator-priority heuristics at higher budgets.
+
+\input{tables/tab9b_topk.tex}
+
+That ordering reflects how behavioral erosion spreads across a repository. Heuristics that concentrate on a few lines or operator classes overlook faults in untouched helper methods, fixture branches, or partner classes, whereas uniform sampling covers the focal footprint more evenly. Even so, sampling trades away substantial safety for only a few seconds of saved compute. Because full single-test probing already completes in a median of under ten seconds, probing the complete target-and-partner obligation pool remains the clear default for CI merge gates.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig5_latency_distributions.pdf}
+\caption{(a) Uncached in-loop stage latencies across Java and Python, and (b) offline subset-sampling detection recall over joint obligation pools.}
+\label{fig:latency_topk}
+\end{figure*}
+
+\medskip
+\noindent\fbox{\parbox{0.97\textwidth}{\textbf{Summary for RQ4:} Uncached in-loop probing takes under ten seconds median in Java and under four seconds in Python (replaying only frozen $M_{\text{det}}$ rather than full baseline $M_{\text{focal}}$), while LLM reasoning dominates session time. Most abstentions stem from Python formatting and stability limits rather than unrecoverable erosion, and full target-and-partner probing avoids both small-subset recall drops and partner-only blind spots.}}
+\medskip

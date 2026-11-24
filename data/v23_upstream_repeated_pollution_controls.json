@@ -1,0 +1,3529 @@
+{
+  "py::crom::TestFactorySerialization.test_recursion": {
+    "sample_id": "py::crom::TestFactorySerialization.test_recursion",
+    "language": "python",
+    "project_name": "crom",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.77
+  },
+  "py::centreon-sdk-python::TestCommands.test_command_list": {
+    "sample_id": "py::centreon-sdk-python::TestCommands.test_command_list",
+    "language": "python",
+    "project_name": "centreon-sdk-python",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.83
+  },
+  "py::crom::TestFactorySerialization.test_string_list": {
+    "sample_id": "py::crom::TestFactorySerialization.test_string_list",
+    "language": "python",
+    "project_name": "crom",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.69
+  },
+  "py::centreon-sdk-python::TestCommands.test_command_not_exist": {
+    "sample_id": "py::centreon-sdk-python::TestCommands.test_command_not_exist",
+    "language": "python",
+    "project_name": "centreon-sdk-python",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.88
+  },
+  "py::krllint::ExtraneousWhiteSpaceTestCase.test_rule_with_fix": {
+    "sample_id": "py::krllint::ExtraneousWhiteSpaceTestCase.test_rule_with_fix",
+    "language": "python",
+    "project_name": "krllint",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.75
+  },
+  "py::centreon-sdk-python::TestCommands.test_command_setparam": {
+    "sample_id": "py::centreon-sdk-python::TestCommands.test_command_setparam",
+    "language": "python",
+    "project_name": "centreon-sdk-python",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.82
+  },
+  "py::crom::TestFactorySerialization.test_toJSON": {
+    "sample_id": "py::crom::TestFactorySerialization.test_toJSON",
+    "language": "python",
+    "project_name": "crom",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.7
+  },
+  "py::krllint::ExtraneousWhiteSpaceTestCase.test_rule_without_fix": {
+    "sample_id": "py::krllint::ExtraneousWhiteSpaceTestCase.test_rule_without_fix",
+    "language": "python",
+    "project_name": "krllint",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.7
+  },
+  "py::centreon-sdk-python::TestHosts.test_hosts_list": {
+    "sample_id": "py::centreon-sdk-python::TestHosts.test_hosts_list",
+    "language": "python",
+    "project_name": "centreon-sdk-python",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.81
+  },
+  "py::crom::TestFactorySerialization.test_toJSON_fast": {
+    "sample_id": "py::crom::TestFactorySerialization.test_toJSON_fast",
+    "language": "python",
+    "project_name": "crom",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.76
+  },
+  "py::Breathe::test_command_context.test_manual_context_noccr": {
+    "sample_id": "py::Breathe::test_command_context.test_manual_context_noccr",
+    "language": "python",
+    "project_name": "Breathe",
+    "od_subtype": "OD-brittle",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "P2_CALL_FAILED_TARGET_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.82
+  },
+  "py::krllint::IndentationCheckerTestCase.test_rule_with_fix": {
+    "sample_id": "py::krllint::IndentationCheckerTestCase.test_rule_with_fix",
+    "language": "python",
+    "project_name": "krllint",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.69
+  },
+  "py::ljson::test_ljson_disk.test_contains": {
+    "sample_id": "py::ljson::test_ljson_disk.test_contains",
+    "language": "python",
+    "project_name": "ljson",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.71
+  },
+  "py::centreon-sdk-python::TestHosts.test_hosts_not_exist": {
+    "sample_id": "py::centreon-sdk-python::TestHosts.test_hosts_not_exist",
+    "language": "python",
+    "project_name": "centreon-sdk-python",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.81
+  },
+  "py::crom::TestFactorySerialization.test_toString": {
+    "sample_id": "py::crom::TestFactorySerialization.test_toString",
+    "language": "python",
+    "project_name": "crom",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.66
+  },
+  "py::krllint::LowerOrMixedCaseBuiltInTestCase.test_rule_with_fix": {
+    "sample_id": "py::krllint::LowerOrMixedCaseBuiltInTestCase.test_rule_with_fix",
+    "language": "python",
+    "project_name": "krllint",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.69
+  },
+  "py::Breathe::test_loading.test_loading": {
+    "sample_id": "py::Breathe::test_loading.test_loading",
+    "language": "python",
+    "project_name": "Breathe",
+    "od_subtype": "OD-brittle",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "P2_CALL_FAILED_TARGET_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.82
+  },
+  "py::ljson::test_ljson_disk.test_delete": {
+    "sample_id": "py::ljson::test_ljson_disk.test_delete",
+    "language": "python",
+    "project_name": "ljson",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.66
+  },
+  "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_building_line": {
+    "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_building_line",
+    "language": "python",
+    "project_name": "centreon-sdk-python",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.8
+  },
+  "py::crom::TestFactorySerialization.test_toString_fast": {
+    "sample_id": "py::crom::TestFactorySerialization.test_toString_fast",
+    "language": "python",
+    "project_name": "crom",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.66
+  },
+  "py::Breathe::test_loading.test_loading_failure": {
+    "sample_id": "py::Breathe::test_loading.test_loading_failure",
+    "language": "python",
+    "project_name": "Breathe",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.87
+  },
+  "py::krllint::LowerOrMixedCaseBuiltInTestCase.test_rule_without_fix": {
+    "sample_id": "py::krllint::LowerOrMixedCaseBuiltInTestCase.test_rule_without_fix",
+    "language": "python",
+    "project_name": "krllint",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.71
+  },
+  "py::ljson::test_ljson_disk.test_edit": {
+    "sample_id": "py::ljson::test_ljson_disk.test_edit",
+    "language": "python",
+    "project_name": "ljson",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.66
+  },
+  "py::py-autodoc::TestAutodoc.test_create_document": {
+    "sample_id": "py::py-autodoc::TestAutodoc.test_create_document",
+    "language": "python",
+    "project_name": "py-autodoc",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": false,
+    "target_ok": false,
+    "is_unknown": true,
+    "status": "UNKNOWN_P2_TEARDOWN_failed",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.84
+  },
+  "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_delete": {
+    "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_delete",
+    "language": "python",
+    "project_name": "centreon-sdk-python",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.8
+  },
+  "py::crom::TestMagicMethods.test_not_multiple_instance": {
+    "sample_id": "py::crom::TestMagicMethods.test_not_multiple_instance",
+    "language": "python",
+    "project_name": "crom",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.68
+  },
+  "py::krllint::OpenTaskTestCase.test_rule_with_fix": {
+    "sample_id": "py::krllint::OpenTaskTestCase.test_rule_with_fix",
+    "language": "python",
+    "project_name": "krllint",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.66
+  },
+  "py::Breathe::test_loading.test_reloading": {
+    "sample_id": "py::Breathe::test_loading.test_reloading",
+    "language": "python",
+    "project_name": "Breathe",
+    "od_subtype": "OD-brittle",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.83
+  },
+  "py::ljson::test_ljson_disk.test_read": {
+    "sample_id": "py::ljson::test_ljson_disk.test_read",
+    "language": "python",
+    "project_name": "ljson",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.66
+  },
+  "py::py-autodoc::TestAutodoc.test_parse_response": {
+    "sample_id": "py::py-autodoc::TestAutodoc.test_parse_response",
+    "language": "python",
+    "project_name": "py-autodoc",
+    "od_subtype": "OD-victim",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.78
+  },
+  "py::logx::test_logx.test_formatted_output": {
+    "sample_id": "py::logx::test_logx.test_formatted_output",
+    "language": "python",
+    "project_name": "logx",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.68
+  },
+  "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_get_one": {
+    "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_get_one",
+    "language": "python",
+    "project_name": "centreon-sdk-python",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.74
+  },
+  "py::crom::TestMagicMethods.test_validate_multiplicity": {
+    "sample_id": "py::crom::TestMagicMethods.test_validate_multiplicity",
+    "language": "python",
+    "project_name": "crom",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.68
+  },
+  "py::Breathe::test_merger.test_context_commands": {
+    "sample_id": "py::Breathe::test_merger.test_context_commands",
+    "language": "python",
+    "project_name": "Breathe",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.79
+  },
+  "py::krllint::OpenTaskTestCase.test_rule_without_fix": {
+    "sample_id": "py::krllint::OpenTaskTestCase.test_rule_without_fix",
+    "language": "python",
+    "project_name": "krllint",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.64
+  },
+  "py::nodal::TestGraph.test__on_node_create": {
+    "sample_id": "py::nodal::TestGraph.test__on_node_create",
+    "language": "python",
+    "project_name": "nodal",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.63
+  },
+  "py::ljson::test_ljson_disk.test_unique_check": {
+    "sample_id": "py::ljson::test_ljson_disk.test_unique_check",
+    "language": "python",
+    "project_name": "ljson",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.62
+  },
+  "py::riemann::TestAddresses.test_make_p2sh_address_msig": {
+    "sample_id": "py::riemann::TestAddresses.test_make_p2sh_address_msig",
+    "language": "python",
+    "project_name": "riemann",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.65
+  },
+  "py::py-autodoc::TestAutodoc.test_parse_responses": {
+    "sample_id": "py::py-autodoc::TestAutodoc.test_parse_responses",
+    "language": "python",
+    "project_name": "py-autodoc",
+    "od_subtype": "OD-victim",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.74
+  },
+  "py::yamicache::test_class.test_cached": {
+    "sample_id": "py::yamicache::test_class.test_cached",
+    "language": "python",
+    "project_name": "yamicache",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 8.68
+  },
+  "py::yamicache::test_class.test_keyed_cached": {
+    "sample_id": "py::yamicache::test_class.test_keyed_cached",
+    "language": "python",
+    "project_name": "yamicache",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.74
+  },
+  "py::ucal::TestSyntax.test_function_ln": {
+    "sample_id": "py::ucal::TestSyntax.test_function_ln",
+    "language": "python",
+    "project_name": "ucal",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.64
+  },
+  "py::LabIFSC::medida_test.test_medida_si_2": {
+    "sample_id": "py::LabIFSC::medida_test.test_medida_si_2",
+    "language": "python",
+    "project_name": "LabIFSC",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.8
+  },
+  "py::json-storage-manager::test_main.test_get_item": {
+    "sample_id": "py::json-storage-manager::test_main.test_get_item",
+    "language": "python",
+    "project_name": "json-storage-manager",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.64
+  },
+  "py::logx::test_logx.test_plain_output": {
+    "sample_id": "py::logx::test_logx.test_plain_output",
+    "language": "python",
+    "project_name": "logx",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.69
+  },
+  "py::tornado-swirl::TestSampleEndpoints.test_security_scheme1": {
+    "sample_id": "py::tornado-swirl::TestSampleEndpoints.test_security_scheme1",
+    "language": "python",
+    "project_name": "tornado-swirl",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.77
+  },
+  "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_not_exist": {
+    "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_not_exist",
+    "language": "python",
+    "project_name": "centreon-sdk-python",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.76
+  },
+  "py::crom::TestMagicMethods.test_validate_profile_off": {
+    "sample_id": "py::crom::TestMagicMethods.test_validate_profile_off",
+    "language": "python",
+    "project_name": "crom",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.72
+  },
+  "py::pysllo::test_propagation_logger.test_forcing_level_by_dict": {
+    "sample_id": "py::pysllo::test_propagation_logger.test_forcing_level_by_dict",
+    "language": "python",
+    "project_name": "pysllo",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.67
+  },
+  "py::feature_engine::test_missing_data_imputer.test_ArbitraryNumberImputer": {
+    "sample_id": "py::feature_engine::test_missing_data_imputer.test_ArbitraryNumberImputer",
+    "language": "python",
+    "project_name": "feature_engine",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 1.75
+  },
+  "py::skillful::TestSkill.test_process": {
+    "sample_id": "py::skillful::TestSkill.test_process",
+    "language": "python",
+    "project_name": "skillful",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.73
+  },
+  "py::pytm::TestMethod.test_defaults": {
+    "sample_id": "py::pytm::TestMethod.test_defaults",
+    "language": "python",
+    "project_name": "pytm",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.66
+  },
+  "py::Breathe::test_merger.test_core_commands": {
+    "sample_id": "py::Breathe::test_merger.test_core_commands",
+    "language": "python",
+    "project_name": "Breathe",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.86
+  },
+  "py::krllint::TrailingWhiteSpaceTestCase.test_rule_with_fix": {
+    "sample_id": "py::krllint::TrailingWhiteSpaceTestCase.test_rule_with_fix",
+    "language": "python",
+    "project_name": "krllint",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.64
+  },
+  "py::nodal::TestGraph.test__on_node_destroy": {
+    "sample_id": "py::nodal::TestGraph.test__on_node_destroy",
+    "language": "python",
+    "project_name": "nodal",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.75
+  },
+  "py::ljson::test_ljson_mem.test_contains": {
+    "sample_id": "py::ljson::test_ljson_mem.test_contains",
+    "language": "python",
+    "project_name": "ljson",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.65
+  },
+  "py::yamicache::test_class.test_utility": {
+    "sample_id": "py::yamicache::test_class.test_utility",
+    "language": "python",
+    "project_name": "yamicache",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.64
+  },
+  "py::riemann::TestSimple.test_unsigned_witness_tx": {
+    "sample_id": "py::riemann::TestSimple.test_unsigned_witness_tx",
+    "language": "python",
+    "project_name": "riemann",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.67
+  },
+  "py::py-autodoc::TestAutodoc.test_should_change_separators": {
+    "sample_id": "py::py-autodoc::TestAutodoc.test_should_change_separators",
+    "language": "python",
+    "project_name": "py-autodoc",
+    "od_subtype": "OD-victim",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.73
+  },
+  "py::alphanum_code::test_alphanum_code.test_next_code": {
+    "sample_id": "py::alphanum_code::test_alphanum_code.test_next_code",
+    "language": "python",
+    "project_name": "alphanum_code",
+    "od_subtype": "OD-brittle",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.87
+  },
+  "py::bottle-neck::test_routing.test_router_register_handler_fn_pass": {
+    "sample_id": "py::bottle-neck::test_routing.test_router_register_handler_fn_pass",
+    "language": "python",
+    "project_name": "bottle-neck",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": false,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "P1_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.73
+  },
+  "py::PyGraph::TestSimpleGraph.test_is_terminal": {
+    "sample_id": "py::PyGraph::TestSimpleGraph.test_is_terminal",
+    "language": "python",
+    "project_name": "PyGraph",
+    "od_subtype": "OD-brittle",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "P2_CALL_FAILED_TARGET_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.68
+  },
+  "py::ucal::TestSyntax.test_function_log": {
+    "sample_id": "py::ucal::TestSyntax.test_function_log",
+    "language": "python",
+    "project_name": "ucal",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.69
+  },
+  "py::pydbvolve::test_01_migration_table.test_02_check_migration_table_bad_structure": {
+    "sample_id": "py::pydbvolve::test_01_migration_table.test_02_check_migration_table_bad_structure",
+    "language": "python",
+    "project_name": "pydbvolve",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.73
+  },
+  "py::LabIFSC::medida_test.test_medida_si_3": {
+    "sample_id": "py::LabIFSC::medida_test.test_medida_si_3",
+    "language": "python",
+    "project_name": "LabIFSC",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.61
+  },
+  "py::json-storage-manager::test_main.test_update_item": {
+    "sample_id": "py::json-storage-manager::test_main.test_update_item",
+    "language": "python",
+    "project_name": "json-storage-manager",
+    "od_subtype": "OD-brittle",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.67
+  },
+  "py::logx::test_logx.test_set_format": {
+    "sample_id": "py::logx::test_logx.test_set_format",
+    "language": "python",
+    "project_name": "logx",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.72
+  },
+  "py::autoyaml::TestAutoyamlMethods.test_b_decrypt_config": {
+    "sample_id": "py::autoyaml::TestAutoyamlMethods.test_b_decrypt_config",
+    "language": "python",
+    "project_name": "autoyaml",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.83
+  },
+  "py::tornado-swirl::TestSampleEndpoints.test_security_scheme2": {
+    "sample_id": "py::tornado-swirl::TestSampleEndpoints.test_security_scheme2",
+    "language": "python",
+    "project_name": "tornado-swirl",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.74
+  },
+  "py::multiindex::test_multiindex.test_remove": {
+    "sample_id": "py::multiindex::test_multiindex.test_remove",
+    "language": "python",
+    "project_name": "multiindex",
+    "od_subtype": "OD-brittle",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "P2_CALL_FAILED_TARGET_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.66
+  },
+  "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_setparam": {
+    "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_setparam",
+    "language": "python",
+    "project_name": "centreon-sdk-python",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.77
+  },
+  "py::PySyncDroid::TestSync.test_do_sync": {
+    "sample_id": "py::PySyncDroid::TestSync.test_do_sync",
+    "language": "python",
+    "project_name": "PySyncDroid",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.73
+  },
+  "py::feature_engine::test_missing_data_imputer.test_CategoricalVariableImputer": {
+    "sample_id": "py::feature_engine::test_missing_data_imputer.test_CategoricalVariableImputer",
+    "language": "python",
+    "project_name": "feature_engine",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 1.7
+  },
+  "py::crom::TestPropertyCache.test_cache_hierarchy": {
+    "sample_id": "py::crom::TestPropertyCache.test_cache_hierarchy",
+    "language": "python",
+    "project_name": "crom",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.7
+  },
+  "py::pythondi::test_configure.test_configure": {
+    "sample_id": "py::pythondi::test_configure.test_configure",
+    "language": "python",
+    "project_name": "pythondi",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.66
+  },
+  "py::lithoxyl::test_stats.test_acc_random": {
+    "sample_id": "py::lithoxyl::test_stats.test_acc_random",
+    "language": "python",
+    "project_name": "lithoxyl",
+    "od_subtype": "OD-brittle",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "P2_CALL_FAILED_TARGET_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 1.21
+  },
+  "py::pysllo::test_propagation_logger.test_forcing_level_with_kwargs_by_level": {
+    "sample_id": "py::pysllo::test_propagation_logger.test_forcing_level_with_kwargs_by_level",
+    "language": "python",
+    "project_name": "pysllo",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.63
+  },
+  "py::parse_it::BaseTests.test_parser_read_all_configuration_variables_raise_allowed_types_error": {
+    "sample_id": "py::parse_it::BaseTests.test_parser_read_all_configuration_variables_raise_allowed_types_error",
+    "language": "python",
+    "project_name": "parse_it",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.7
+  },
+  "py::NestedDictionary::test_01_default.test_del": {
+    "sample_id": "py::NestedDictionary::test_01_default.test_del",
+    "language": "python",
+    "project_name": "NestedDictionary",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.66
+  },
+  "py::skillful::TestSkill.test_process_end": {
+    "sample_id": "py::skillful::TestSkill.test_process_end",
+    "language": "python",
+    "project_name": "skillful",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.69
+  },
+  "py::stowage::TestPathGenerators.test_needed_symlink_walk": {
+    "sample_id": "py::stowage::TestPathGenerators.test_needed_symlink_walk",
+    "language": "python",
+    "project_name": "stowage",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.66
+  },
+  "py::pytm::TestUniqueNames.test_duplicate_boundary_names_have_different_unique_names": {
+    "sample_id": "py::pytm::TestUniqueNames.test_duplicate_boundary_names_have_different_unique_names",
+    "language": "python",
+    "project_name": "pytm",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.74
+  },
+  "py::api-python::TestApiKey.test_query_no_api_key": {
+    "sample_id": "py::api-python::TestApiKey.test_query_no_api_key",
+    "language": "python",
+    "project_name": "api-python",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.7
+  },
+  "py::fooof::test_fit.test_fooof_fit_nk": {
+    "sample_id": "py::fooof::test_fit.test_fooof_fit_nk",
+    "language": "python",
+    "project_name": "fooof",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": false,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": false,
+    "target_ok": true,
+    "is_unknown": true,
+    "status": "UNKNOWN_P1_SETUP_skipped",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 1.24
+  },
+  "py::Breathe::test_merger.test_noccr_commands": {
+    "sample_id": "py::Breathe::test_merger.test_noccr_commands",
+    "language": "python",
+    "project_name": "Breathe",
+    "od_subtype": "OD-brittle",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "P2_CALL_FAILED_TARGET_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.8
+  },
+  "py::pyatlasclient::TestDiscoveryREST.test_search_attribute_get": {
+    "sample_id": "py::pyatlasclient::TestDiscoveryREST.test_search_attribute_get",
+    "language": "python",
+    "project_name": "pyatlasclient",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.9
+  },
+  "py::krllint::TrailingWhiteSpaceTestCase.test_rule_without_fix": {
+    "sample_id": "py::krllint::TrailingWhiteSpaceTestCase.test_rule_without_fix",
+    "language": "python",
+    "project_name": "krllint",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.66
+  },
+  "py::easy_python_requirements::test_mock_functions.test_mock_class_update": {
+    "sample_id": "py::easy_python_requirements::test_mock_functions.test_mock_class_update",
+    "language": "python",
+    "project_name": "easy_python_requirements",
+    "od_subtype": "OD-brittle",
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.67
+  },
+  "py::nodal::TestNoOp.test_name": {
+    "sample_id": "py::nodal::TestNoOp.test_name",
+    "language": "python",
+    "project_name": "nodal",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.66
+  },
+  "py::ljson::test_ljson_mem.test_edit": {
+    "sample_id": "py::ljson::test_ljson_mem.test_edit",
+    "language": "python",
+    "project_name": "ljson",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "sec": 0.68
+  },
+  "py::yamicache::test_noclass.test_main": {
+    "sample_id": "py::yamicache::test_noclass.test_main",
+    "language": "python",
+    "project_name": "yamicache",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.66
+  },
+  "py::riemann::TestTxBuilder.test_make_pkh_output_script": {
+    "sample_id": "py::riemann::TestTxBuilder.test_make_pkh_output_script",
+    "language": "python",
+    "project_name": "riemann",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.71
+  },
+  "py::py-autodoc::test_pytest.test_index": {
+    "sample_id": "py::py-autodoc::test_pytest.test_index",
+    "language": "python",
+    "project_name": "py-autodoc",
+    "od_subtype": "OD-victim",
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "target_ok": false,
+    "is_unknown": true,
+    "status": "UNKNOWN_TARGET_TEARDOWN_failed",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "sec": 0.75
+  },
+  "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived": {
+    "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+    "language": "java",
+    "project_name": "aismessages",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "dk.tbsalling.aismessages.nmea.NMEAMessageHandlerTest#canFlushUnhandled -> dk.tbsalling.aismessages.nmea.NMEAMessageHandlerTest#canFlushUnhandled -> dk.tbsalling.aismessages.nmea.NMEAMessageHandlerTest#canHandleUnfragmentedMessageReceived",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.NullPointerException"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: canHandleUnfragmentedMessageReceived(dk.tbsalling.aismessages.nmea.NMEAMessageHandlerTest) :: java.lang.NullPointerException :: java.lang.NullPointerException \tat dk.tbsalling.aismessages.nmea.NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived(NMEAMessageHandlerTest.java:43) \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) \tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) \tat sun.reflect.DelegatingMethodAccessorImpl.in"
+    ],
+    "sec": 0.95
+  },
+  "aismessages::NMEAMessageHandlerTest.canHandleFragmentedMessageReceived": {
+    "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleFragmentedMessageReceived",
+    "language": "java",
+    "project_name": "aismessages",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "dk.tbsalling.aismessages.nmea.NMEAMessageHandlerTest#canFlushUnhandled -> dk.tbsalling.aismessages.nmea.NMEAMessageHandlerTest#canFlushUnhandled -> dk.tbsalling.aismessages.nmea.NMEAMessageHandlerTest#canHandleFragmentedMessageReceived",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.NullPointerException"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: canHandleFragmentedMessageReceived(dk.tbsalling.aismessages.nmea.NMEAMessageHandlerTest) :: java.lang.NullPointerException :: java.lang.NullPointerException \tat dk.tbsalling.aismessages.nmea.NMEAMessageHandlerTest.canHandleFragmentedMessageReceived(NMEAMessageHandlerTest.java:60) \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) \tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) \tat sun.reflect.DelegatingMethodAccessorImpl.invo"
+    ],
+    "sec": 0.9
+  },
+  "Sentinel::SentinelConfigTest.testDefaultConfig": {
+    "sample_id": "Sentinel::SentinelConfigTest.testDefaultConfig",
+    "language": "java",
+    "project_name": "Sentinel",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.alibaba.csp.sentinel.config.SentinelConfigTest#testColdFactoryLargerThanOne -> com.alibaba.csp.sentinel.config.SentinelConfigTest#testColdFactoryLargerThanOne -> com.alibaba.csp.sentinel.config.SentinelConfigTest#testDefaultConfig",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testDefaultConfig(com.alibaba.csp.sentinel.config.SentinelConfigTest) :: java.lang.AssertionError: expected:<3> but was:<4> :: java.lang.AssertionError: expected:<3> but was:<4> \tat org.junit.Assert.fail(Assert.java:88) \tat org.junit.Assert.failNotEquals(Assert.java:834) \tat org.junit.Assert.assertEquals(Assert.java:645) \tat org.junit.Assert.assertEquals(Assert.java:631) \tat com.alibaba.csp.sentinel.config.SentinelConfigTest.testDefaultConfig(SentinelConfigTest.java:27) \ta"
+    ],
+    "sec": 0.96
+  },
+  "Sentinel::TracerTest.setExceptionsToTrace": {
+    "sample_id": "Sentinel::TracerTest.setExceptionsToTrace",
+    "language": "java",
+    "project_name": "Sentinel",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.alibaba.csp.sentinel.TracerTest#setExceptionPredicate -> com.alibaba.csp.sentinel.TracerTest#setExceptionPredicate -> com.alibaba.csp.sentinel.TracerTest#setExceptionsToTrace",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: setExceptionsToTrace(com.alibaba.csp.sentinel.TracerTest) :: java.lang.AssertionError :: java.lang.AssertionError \tat org.junit.Assert.fail(Assert.java:86) \tat org.junit.Assert.assertTrue(Assert.java:41) \tat org.junit.Assert.assertTrue(Assert.java:52) \tat com.alibaba.csp.sentinel.TracerTest.setExceptionsToTrace(TracerTest.java:51) \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) \tat sun.reflect.NativeMethodAccessorImpl.i"
+    ],
+    "sec": 0.93
+  },
+  "Sentinel::TracerTest.setExceptionsToIgnore": {
+    "sample_id": "Sentinel::TracerTest.setExceptionsToIgnore",
+    "language": "java",
+    "project_name": "Sentinel",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.alibaba.csp.sentinel.TracerTest#setExceptionPredicate -> com.alibaba.csp.sentinel.TracerTest#setExceptionPredicate -> com.alibaba.csp.sentinel.TracerTest#setExceptionsToIgnore",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: setExceptionsToIgnore(com.alibaba.csp.sentinel.TracerTest) :: java.lang.AssertionError :: java.lang.AssertionError \tat org.junit.Assert.fail(Assert.java:86) \tat org.junit.Assert.assertTrue(Assert.java:41) \tat org.junit.Assert.assertTrue(Assert.java:52) \tat com.alibaba.csp.sentinel.TracerTest.setExceptionsToIgnore(TracerTest.java:82) \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) \tat sun.reflect.NativeMethodAccessorImpl."
+    ],
+    "sec": 0.92
+  },
+  "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt": {
+    "sample_id": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt",
+    "language": "java",
+    "project_name": "cloud-slang",
+    "mode": "CUSTOM_RUNWITH_SEQUENTIAL_SAME_JVM",
+    "exec_order": "io.cloudslang.lang.entities.encryption.EncryptorConfigTest#testEncryptionWithoutEncryptorImplementation -> io.cloudslang.lang.entities.encryption.EncryptorConfigTest#testEncryptionWithoutEncryptorImplementation -> io.cloudslang.fortest.SensitiveValueTest#testSensitiveValueEncryptDecrypt",
+    "phase_level_known": false,
+    "phases": {},
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": false,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": true,
+    "status": "UNKNOWN_PHASE_UNAVAILABLE",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testSensitiveValueEncryptDecrypt(io.cloudslang.fortest.SensitiveValueTest) :: org.junit.ComparisonFailure: expected:<[{Encrypted}]rO0ABXQAFk9yaWdpbmFs...> but was:<[]rO0ABXQAFk9yaWdpbmFs...> :: org.junit.ComparisonFailure: expected:<[{Encrypted}]rO0ABXQAFk9yaWdpbmFs...> but was:<[]rO0ABXQAFk9yaWdpbmFs...> \tat org.junit.Assert.assertEquals(Assert.java:115) \tat org.junit.Assert.assertEquals(Assert.java:144) \tat io.cloudslang.fortest.SensitiveValueTest.verifySensitiveValue(SensitiveValueTest.java:128) \tat io.cloudslang.fortest.SensitiveValue"
+    ],
+    "sec": 1.32
+  },
+  "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted": {
+    "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted",
+    "language": "java",
+    "project_name": "cloud-slang",
+    "mode": "CUSTOM_RUNWITH_SEQUENTIAL_SAME_JVM",
+    "exec_order": "io.cloudslang.lang.entities.encryption.EncryptorConfigTest#testEncryptionWithoutEncryptorImplementation -> io.cloudslang.lang.entities.encryption.EncryptorConfigTest#testEncryptionWithoutEncryptorImplementation -> io.cloudslang.fortest.SensitiveValueTest#testEncryptedStringSensitiveValuePreEncrypted",
+    "phase_level_known": false,
+    "phases": {},
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": false,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": true,
+    "status": "UNKNOWN_PHASE_UNAVAILABLE",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testEncryptedStringSensitiveValuePreEncrypted(io.cloudslang.fortest.SensitiveValueTest) :: org.junit.ComparisonFailure: expected:<[]bar> but was:<[{Encrypted}]bar> :: org.junit.ComparisonFailure: expected:<[]bar> but was:<[{Encrypted}]bar> \tat org.junit.Assert.assertEquals(Assert.java:115) \tat org.junit.Assert.assertEquals(Assert.java:144) \tat io.cloudslang.fortest.SensitiveValueTest.verifySensitiveValue(SensitiveValueTest.java:129) \tat io.cloudslang.fortest.SensitiveValueTest.verifyEncrypted(SensitiveValueTest."
+    ],
+    "sec": 1.37
+  },
+  "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValue": {
+    "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValue",
+    "language": "java",
+    "project_name": "cloud-slang",
+    "mode": "CUSTOM_RUNWITH_SEQUENTIAL_SAME_JVM",
+    "exec_order": "io.cloudslang.lang.entities.encryption.EncryptorConfigTest#testEncryptionWithoutEncryptorImplementation -> io.cloudslang.lang.entities.encryption.EncryptorConfigTest#testEncryptionWithoutEncryptorImplementation -> io.cloudslang.fortest.SensitiveValueTest#testEncryptedStringSensitiveValue",
+    "phase_level_known": false,
+    "phases": {},
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": false,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": true,
+    "status": "UNKNOWN_PHASE_UNAVAILABLE",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testEncryptedStringSensitiveValue(io.cloudslang.fortest.SensitiveValueTest) :: org.junit.ComparisonFailure: expected:<[{Encrypted}]foo> but was:<[]foo> :: org.junit.ComparisonFailure: expected:<[{Encrypted}]foo> but was:<[]foo> \tat org.junit.Assert.assertEquals(Assert.java:115) \tat org.junit.Assert.assertEquals(Assert.java:144) \tat io.cloudslang.fortest.SensitiveValueTest.verifySensitiveValue(SensitiveValueTest.java:128) \tat io.cloudslang.fortest.SensitiveValueTest.verifyEncrypted(SensitiveValueTest."
+    ],
+    "sec": 1.31
+  },
+  "marine-api::AISMessageFactoryTest.testCreateWithTwo": {
+    "sample_id": "marine-api::AISMessageFactoryTest.testCreateWithTwo",
+    "language": "java",
+    "project_name": "marine-api",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "net.sf.marineapi.nmea.parser.SentenceFactoryTest#testRegisterParserWithAlternativeBeginChar -> net.sf.marineapi.nmea.parser.SentenceFactoryTest#testRegisterParserWithAlternativeBeginChar -> net.sf.marineapi.ais.parser.AISMessageFactoryTest#testCreateWithTwo",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PENDING",
+        "call": "PENDING",
+        "teardown": "PENDING",
+        "outer_fail": false,
+        "call_exc": null
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": true,
+    "status": "UNKNOWN_TARGET_SETUP_PENDING",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testCreateWithTwo(net.sf.marineapi.ais.parser.AISMessageFactoryTest) :: net.sf.marineapi.nmea.parser.UnsupportedSentenceException: Parser for type 'VDM' not found :: net.sf.marineapi.nmea.parser.UnsupportedSentenceException: Parser for type 'VDM' not found \tat net.sf.marineapi.nmea.parser.SentenceFactory.createParserImpl(SentenceFactory.java:243) \tat net.sf.marineapi.nmea.parser.SentenceFactory.createParser(SentenceFactory.java:101) \tat net.sf.marineapi.ais.parser.AISMessageFactoryTest.<init>(AISMessageFactoryT"
+    ],
+    "sec": 0.93
+  },
+  "marine-api::AISMessageFactoryTest.testCreateWithIncorrectOrder": {
+    "sample_id": "marine-api::AISMessageFactoryTest.testCreateWithIncorrectOrder",
+    "language": "java",
+    "project_name": "marine-api",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "net.sf.marineapi.nmea.parser.SentenceFactoryTest#testRegisterParserWithAlternativeBeginChar -> net.sf.marineapi.nmea.parser.SentenceFactoryTest#testRegisterParserWithAlternativeBeginChar -> net.sf.marineapi.ais.parser.AISMessageFactoryTest#testCreateWithIncorrectOrder",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PENDING",
+        "call": "PENDING",
+        "teardown": "PENDING",
+        "outer_fail": false,
+        "call_exc": null
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": true,
+    "status": "UNKNOWN_TARGET_SETUP_PENDING",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testCreateWithIncorrectOrder(net.sf.marineapi.ais.parser.AISMessageFactoryTest) :: net.sf.marineapi.nmea.parser.UnsupportedSentenceException: Parser for type 'VDM' not found :: net.sf.marineapi.nmea.parser.UnsupportedSentenceException: Parser for type 'VDM' not found \tat net.sf.marineapi.nmea.parser.SentenceFactory.createParserImpl(SentenceFactory.java:243) \tat net.sf.marineapi.nmea.parser.SentenceFactory.createParser(SentenceFactory.java:101) \tat net.sf.marineapi.ais.parser.AISMessageFactoryTest.<init>(AISMessageFactoryT"
+    ],
+    "sec": 0.9
+  },
+  "marine-api::AbstractAISMessageListenerTest.testSequenceListenerWithMixedOrder": {
+    "sample_id": "marine-api::AbstractAISMessageListenerTest.testSequenceListenerWithMixedOrder",
+    "language": "java",
+    "project_name": "marine-api",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "net.sf.marineapi.nmea.parser.SentenceFactoryTest#testRegisterParserWithAlternativeBeginChar -> net.sf.marineapi.nmea.parser.SentenceFactoryTest#testRegisterParserWithAlternativeBeginChar -> net.sf.marineapi.ais.event.AbstractAISMessageListenerTest#testSequenceListenerWithMixedOrder",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PENDING",
+        "call": "PENDING",
+        "teardown": "PENDING",
+        "outer_fail": false,
+        "call_exc": null
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": true,
+    "status": "UNKNOWN_TARGET_SETUP_PENDING",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testSequenceListenerWithMixedOrder(net.sf.marineapi.ais.event.AbstractAISMessageListenerTest) :: net.sf.marineapi.nmea.parser.UnsupportedSentenceException: Parser for type 'VDM' not found :: net.sf.marineapi.nmea.parser.UnsupportedSentenceException: Parser for type 'VDM' not found \tat net.sf.marineapi.nmea.parser.SentenceFactory.createParserImpl(SentenceFactory.java:243) \tat net.sf.marineapi.nmea.parser.SentenceFactory.createParser(SentenceFactory.java:101) \tat net.sf.marineapi.ais.event.AbstractAISMessageListenerTest.<init>(AbstractAI"
+    ],
+    "sec": 0.94
+  },
+  "jnr-posix::SpawnTest.outputPipe": {
+    "sample_id": "jnr-posix::SpawnTest.outputPipe",
+    "language": "java",
+    "project_name": "jnr-posix",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "jnr.posix.EnvTest#testSetenvOverwrite -> jnr.posix.EnvTest#testSetenvOverwrite -> jnr.posix.SpawnTest#outputPipe",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": "java.lang.AssertionError",
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "fail_lines": [
+      "FT1_REP_FAIL: testSetenvOverwrite(jnr.posix.EnvTest) :: java.lang.AssertionError: Values should be different. Actual: new value :: java.lang.AssertionError: Values should be different. Actual: new value \tat org.junit.Assert.fail(Assert.java:89) \tat org.junit.Assert.failEquals(Assert.java:187) \tat org.junit.Assert.assertNotEquals(Assert.java:163) \tat org.junit.Assert.assertNotEquals(Assert.java:177) \tat jnr.posix.EnvTest.testSetenvOverwrite(EnvTest.java:41) \tat sun.reflect.Nati",
+      "FT1_REP_FAIL: outputPipe(jnr.posix.SpawnTest) :: java.lang.AssertionError :: java.lang.AssertionError \tat org.junit.Assert.fail(Assert.java:87) \tat org.junit.Assert.assertTrue(Assert.java:42) \tat org.junit.Assert.assertTrue(Assert.java:53) \tat jnr.posix.SpawnTest.outputPipe(SpawnTest.java:73) \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) \tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorI"
+    ],
+    "sec": 1.2
+  },
+  "jnr-posix::NlLanginfoTest.testNlLanginfo": {
+    "sample_id": "jnr-posix::NlLanginfoTest.testNlLanginfo",
+    "language": "java",
+    "project_name": "jnr-posix",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "jnr.posix.EnvTest#testSetenvOverwrite -> jnr.posix.EnvTest#testSetenvOverwrite -> jnr.posix.NlLanginfoTest#testNlLanginfo",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.io.IOException"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": "java.lang.AssertionError",
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "fail_lines": [
+      "FT1_REP_FAIL: testSetenvOverwrite(jnr.posix.EnvTest) :: java.lang.AssertionError: Values should be different. Actual: new value :: java.lang.AssertionError: Values should be different. Actual: new value \tat org.junit.Assert.fail(Assert.java:89) \tat org.junit.Assert.failEquals(Assert.java:187) \tat org.junit.Assert.assertNotEquals(Assert.java:163) \tat org.junit.Assert.assertNotEquals(Assert.java:177) \tat jnr.posix.EnvTest.testSetenvOverwrite(EnvTest.java:41) \tat sun.reflect.Nati",
+      "FT1_REP_FAIL: testNlLanginfo(jnr.posix.NlLanginfoTest) :: java.io.IOException: Cannot run program \"locale\": error=2, No such file or directory :: java.io.IOException: Cannot run program \"locale\": error=2, No such file or directory \tat java.lang.ProcessBuilder.start(ProcessBuilder.java:1048) \tat java.lang.Runtime.exec(Runtime.java:593) \tat java.lang.Runtime.exec(Runtime.java:423) \tat java.lang.Runtime.exec(Runtime.java:320) \tat jnr.posix.NlLanginfoTest.testNlLanginfo(NlLanginfoTest.java:28)"
+    ],
+    "sec": 1.1
+  },
+  "jnr-posix::GroupTest.getgroups": {
+    "sample_id": "jnr-posix::GroupTest.getgroups",
+    "language": "java",
+    "project_name": "jnr-posix",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "jnr.posix.EnvTest#testSetenvOverwrite -> jnr.posix.EnvTest#testSetenvOverwrite -> jnr.posix.GroupTest#getgroups",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.io.IOException"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": "java.lang.AssertionError",
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "fail_lines": [
+      "FT1_REP_FAIL: testSetenvOverwrite(jnr.posix.EnvTest) :: java.lang.AssertionError: Values should be different. Actual: new value :: java.lang.AssertionError: Values should be different. Actual: new value \tat org.junit.Assert.fail(Assert.java:89) \tat org.junit.Assert.failEquals(Assert.java:187) \tat org.junit.Assert.assertNotEquals(Assert.java:163) \tat org.junit.Assert.assertNotEquals(Assert.java:177) \tat jnr.posix.EnvTest.testSetenvOverwrite(EnvTest.java:41) \tat sun.reflect.Nati",
+      "FT1_REP_FAIL: getgroups(jnr.posix.GroupTest) :: java.io.IOException: Cannot run program \"id\": error=2, No such file or directory :: java.io.IOException: Cannot run program \"id\": error=2, No such file or directory \tat java.lang.ProcessBuilder.start(ProcessBuilder.java:1048) \tat java.lang.Runtime.exec(Runtime.java:593) \tat java.lang.Runtime.exec(Runtime.java:423) \tat java.lang.Runtime.exec(Runtime.java:320) \tat jnr.posix.GroupTest.exec(GroupTest.java:122) \tat jnr.posix.GroupTest."
+    ],
+    "sec": 1.23
+  },
+  "jnr-posix::SpawnTest.inputPipe": {
+    "sample_id": "jnr-posix::SpawnTest.inputPipe",
+    "language": "java",
+    "project_name": "jnr-posix",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "jnr.posix.EnvTest#testSetenvOverwrite -> jnr.posix.EnvTest#testSetenvOverwrite -> jnr.posix.SpawnTest#inputPipe",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": "java.lang.AssertionError",
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "fail_lines": [
+      "FT1_REP_FAIL: testSetenvOverwrite(jnr.posix.EnvTest) :: java.lang.AssertionError: Values should be different. Actual: new value :: java.lang.AssertionError: Values should be different. Actual: new value \tat org.junit.Assert.fail(Assert.java:89) \tat org.junit.Assert.failEquals(Assert.java:187) \tat org.junit.Assert.assertNotEquals(Assert.java:163) \tat org.junit.Assert.assertNotEquals(Assert.java:177) \tat jnr.posix.EnvTest.testSetenvOverwrite(EnvTest.java:41) \tat sun.reflect.Nati",
+      "FT1_REP_FAIL: inputPipe(jnr.posix.SpawnTest) :: java.lang.AssertionError :: java.lang.AssertionError \tat org.junit.Assert.fail(Assert.java:87) \tat org.junit.Assert.assertTrue(Assert.java:42) \tat org.junit.Assert.assertTrue(Assert.java:53) \tat jnr.posix.SpawnTest.inputPipe(SpawnTest.java:107) \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) \tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorI"
+    ],
+    "sec": 1.16
+  },
+  "openhtmltopdf::Slf4JLoggerTest.testLogger": {
+    "sample_id": "openhtmltopdf::Slf4JLoggerTest.testLogger",
+    "language": "java",
+    "project_name": "openhtmltopdf",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.openhtmltopdf.slf4j.Slf4JLoggerTest#testLoggerWarnLevel -> com.openhtmltopdf.slf4j.Slf4JLoggerTest#testLoggerWarnLevel -> com.openhtmltopdf.slf4j.Slf4JLoggerTest#testLogger",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testLogger(com.openhtmltopdf.slf4j.Slf4JLoggerTest) :: java.lang.AssertionError:"
+    ],
+    "sec": 1.18
+  },
+  "http-request::HttpRequestTest.verifierAccepts": {
+    "sample_id": "http-request::HttpRequestTest.verifierAccepts",
+    "language": "java",
+    "project_name": "http-request",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#verifierAccepts",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.ClassCastException"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: verifierAccepts(com.github.kevinsawicki.http.HttpRequestTest) :: java.lang.ClassCastException: sun.net.www.protocol.http.HttpURLConnection cannot be cast to javax.net.ssl.HttpsURLConnection :: java.lang.ClassCastException: sun.net.www.protocol.http.HttpURLConnection cannot be cast to javax.net.ssl.HttpsURLConnection \tat com.github.kevinsawicki.http.HttpRequestTest.verifierAccepts(HttpRequestTest.java:1797) \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) \tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorI"
+    ],
+    "sec": 1.23
+  },
+  "http-request::HttpRequestTest.singleVerifier": {
+    "sample_id": "http-request::HttpRequestTest.singleVerifier",
+    "language": "java",
+    "project_name": "http-request",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#singleVerifier",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.ClassCastException"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: singleVerifier(com.github.kevinsawicki.http.HttpRequestTest) :: java.lang.ClassCastException: sun.net.www.protocol.http.HttpURLConnection cannot be cast to javax.net.ssl.HttpsURLConnection :: java.lang.ClassCastException: sun.net.www.protocol.http.HttpURLConnection cannot be cast to javax.net.ssl.HttpsURLConnection \tat com.github.kevinsawicki.http.HttpRequestTest.singleVerifier(HttpRequestTest.java:1810) \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) \tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorIm"
+    ],
+    "sec": 1.18
+  },
+  "http-request::HttpRequestTest.singleSslSocketFactory": {
+    "sample_id": "http-request::HttpRequestTest.singleSslSocketFactory",
+    "language": "java",
+    "project_name": "http-request",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#singleSslSocketFactory",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.ClassCastException"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: singleSslSocketFactory(com.github.kevinsawicki.http.HttpRequestTest) :: java.lang.ClassCastException: sun.net.www.protocol.http.HttpURLConnection cannot be cast to javax.net.ssl.HttpsURLConnection :: java.lang.ClassCastException: sun.net.www.protocol.http.HttpURLConnection cannot be cast to javax.net.ssl.HttpsURLConnection \tat com.github.kevinsawicki.http.HttpRequestTest.singleSslSocketFactory(HttpRequestTest.java:1826) \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) \tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAc"
+    ],
+    "sec": 1.22
+  },
+  "http-request::HttpRequestTest.putWithVarargsQueryParams": {
+    "sample_id": "http-request::HttpRequestTest.putWithVarargsQueryParams",
+    "language": "java",
+    "project_name": "http-request",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#putWithVarargsQueryParams",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: putWithVarargsQueryParams(com.github.kevinsawicki.http.HttpRequestTest) :: java.lang.AssertionError: expected:<user> but was:<null> :: java.lang.AssertionError: expected:<user> but was:<null> \tat org.junit.Assert.fail(Assert.java:93) \tat org.junit.Assert.failNotEquals(Assert.java:647) \tat org.junit.Assert.assertEquals(Assert.java:128) \tat org.junit.Assert.assertEquals(Assert.java:147) \tat com.github.kevinsawicki.http.HttpRequestTest.putWithVarargsQueryParams(HttpRequestTest.java:2"
+    ],
+    "sec": 1.26
+  },
+  "http-request::HttpRequestTest.putWithMappedQueryParams": {
+    "sample_id": "http-request::HttpRequestTest.putWithMappedQueryParams",
+    "language": "java",
+    "project_name": "http-request",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#putWithMappedQueryParams",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: putWithMappedQueryParams(com.github.kevinsawicki.http.HttpRequestTest) :: java.lang.AssertionError: expected:<user> but was:<null> :: java.lang.AssertionError: expected:<user> but was:<null> \tat org.junit.Assert.fail(Assert.java:93) \tat org.junit.Assert.failNotEquals(Assert.java:647) \tat org.junit.Assert.assertEquals(Assert.java:128) \tat org.junit.Assert.assertEquals(Assert.java:147) \tat com.github.kevinsawicki.http.HttpRequestTest.putWithMappedQueryParams(HttpRequestTest.java:28"
+    ],
+    "sec": 1.2
+  },
+  "http-request::HttpRequestTest.putWithEscapedVarargsQueryParams": {
+    "sample_id": "http-request::HttpRequestTest.putWithEscapedVarargsQueryParams",
+    "language": "java",
+    "project_name": "http-request",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#putWithEscapedVarargsQueryParams",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: putWithEscapedVarargsQueryParams(com.github.kevinsawicki.http.HttpRequestTest) :: java.lang.AssertionError: expected:<us er> but was:<null> :: java.lang.AssertionError: expected:<us er> but was:<null> \tat org.junit.Assert.fail(Assert.java:93) \tat org.junit.Assert.failNotEquals(Assert.java:647) \tat org.junit.Assert.assertEquals(Assert.java:128) \tat org.junit.Assert.assertEquals(Assert.java:147) \tat com.github.kevinsawicki.http.HttpRequestTest.putWithEscapedVarargsQueryParams(HttpRequestTes"
+    ],
+    "sec": 1.27
+  },
+  "http-request::HttpRequestTest.putWithEscapedMappedQueryParams": {
+    "sample_id": "http-request::HttpRequestTest.putWithEscapedMappedQueryParams",
+    "language": "java",
+    "project_name": "http-request",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#putWithEscapedMappedQueryParams",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: putWithEscapedMappedQueryParams(com.github.kevinsawicki.http.HttpRequestTest) :: java.lang.AssertionError: expected:<us er> but was:<null> :: java.lang.AssertionError: expected:<us er> but was:<null> \tat org.junit.Assert.fail(Assert.java:93) \tat org.junit.Assert.failNotEquals(Assert.java:647) \tat org.junit.Assert.assertEquals(Assert.java:128) \tat org.junit.Assert.assertEquals(Assert.java:147) \tat com.github.kevinsawicki.http.HttpRequestTest.putWithEscapedMappedQueryParams(HttpRequestTest"
+    ],
+    "sec": 1.18
+  },
+  "http-request::HttpRequestTest.postWithVaragsQueryParams": {
+    "sample_id": "http-request::HttpRequestTest.postWithVaragsQueryParams",
+    "language": "java",
+    "project_name": "http-request",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#postWithVaragsQueryParams",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: postWithVaragsQueryParams(com.github.kevinsawicki.http.HttpRequestTest) :: java.lang.AssertionError: expected:<user> but was:<null> :: java.lang.AssertionError: expected:<user> but was:<null> \tat org.junit.Assert.fail(Assert.java:93) \tat org.junit.Assert.failNotEquals(Assert.java:647) \tat org.junit.Assert.assertEquals(Assert.java:128) \tat org.junit.Assert.assertEquals(Assert.java:147) \tat com.github.kevinsawicki.http.HttpRequestTest.postWithVaragsQueryParams(HttpRequestTest.java:2"
+    ],
+    "sec": 1.19
+  },
+  "http-request::HttpRequestTest.postWithNumericQueryParams": {
+    "sample_id": "http-request::HttpRequestTest.postWithNumericQueryParams",
+    "language": "java",
+    "project_name": "http-request",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#postWithNumericQueryParams",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: postWithNumericQueryParams(com.github.kevinsawicki.http.HttpRequestTest) :: java.lang.AssertionError: expected:<2> but was:<null> :: java.lang.AssertionError: expected:<2> but was:<null> \tat org.junit.Assert.fail(Assert.java:93) \tat org.junit.Assert.failNotEquals(Assert.java:647) \tat org.junit.Assert.assertEquals(Assert.java:128) \tat org.junit.Assert.assertEquals(Assert.java:147) \tat com.github.kevinsawicki.http.HttpRequestTest.postWithNumericQueryParams(HttpRequestTest.java:258"
+    ],
+    "sec": 1.15
+  },
+  "http-request::HttpRequestTest.postWithMappedQueryParams": {
+    "sample_id": "http-request::HttpRequestTest.postWithMappedQueryParams",
+    "language": "java",
+    "project_name": "http-request",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#postWithMappedQueryParams",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: postWithMappedQueryParams(com.github.kevinsawicki.http.HttpRequestTest) :: java.lang.AssertionError: expected:<user> but was:<null> :: java.lang.AssertionError: expected:<user> but was:<null> \tat org.junit.Assert.fail(Assert.java:93) \tat org.junit.Assert.failNotEquals(Assert.java:647) \tat org.junit.Assert.assertEquals(Assert.java:128) \tat org.junit.Assert.assertEquals(Assert.java:147) \tat com.github.kevinsawicki.http.HttpRequestTest.postWithMappedQueryParams(HttpRequestTest.java:2"
+    ],
+    "sec": 1.26
+  },
+  "http-request::HttpRequestTest.postWithEscapedVarargsQueryParams": {
+    "sample_id": "http-request::HttpRequestTest.postWithEscapedVarargsQueryParams",
+    "language": "java",
+    "project_name": "http-request",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#postWithEscapedVarargsQueryParams",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: postWithEscapedVarargsQueryParams(com.github.kevinsawicki.http.HttpRequestTest) :: java.lang.AssertionError: expected:<us er> but was:<null> :: java.lang.AssertionError: expected:<us er> but was:<null> \tat org.junit.Assert.fail(Assert.java:93) \tat org.junit.Assert.failNotEquals(Assert.java:647) \tat org.junit.Assert.assertEquals(Assert.java:128) \tat org.junit.Assert.assertEquals(Assert.java:147) \tat com.github.kevinsawicki.http.HttpRequestTest.postWithEscapedVarargsQueryParams(HttpRequestTe"
+    ],
+    "sec": 1.11
+  },
+  "http-request::HttpRequestTest.postWithEscapedMappedQueryParams": {
+    "sample_id": "http-request::HttpRequestTest.postWithEscapedMappedQueryParams",
+    "language": "java",
+    "project_name": "http-request",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#postWithEscapedMappedQueryParams",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: postWithEscapedMappedQueryParams(com.github.kevinsawicki.http.HttpRequestTest) :: java.lang.AssertionError: expected:<us er> but was:<null> :: java.lang.AssertionError: expected:<us er> but was:<null> \tat org.junit.Assert.fail(Assert.java:93) \tat org.junit.Assert.failNotEquals(Assert.java:647) \tat org.junit.Assert.assertEquals(Assert.java:128) \tat org.junit.Assert.assertEquals(Assert.java:147) \tat com.github.kevinsawicki.http.HttpRequestTest.postWithEscapedMappedQueryParams(HttpRequestTes"
+    ],
+    "sec": 1.15
+  },
+  "http-request::HttpRequestTest.headWithVaragsQueryParams": {
+    "sample_id": "http-request::HttpRequestTest.headWithVaragsQueryParams",
+    "language": "java",
+    "project_name": "http-request",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#headWithVaragsQueryParams",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: headWithVaragsQueryParams(com.github.kevinsawicki.http.HttpRequestTest) :: java.lang.AssertionError: expected:<user> but was:<null> :: java.lang.AssertionError: expected:<user> but was:<null> \tat org.junit.Assert.fail(Assert.java:93) \tat org.junit.Assert.failNotEquals(Assert.java:647) \tat org.junit.Assert.assertEquals(Assert.java:128) \tat org.junit.Assert.assertEquals(Assert.java:147) \tat com.github.kevinsawicki.http.HttpRequestTest.headWithVaragsQueryParams(HttpRequestTest.java:2"
+    ],
+    "sec": 1.21
+  },
+  "http-request::HttpRequestTest.headWithMappedQueryParams": {
+    "sample_id": "http-request::HttpRequestTest.headWithMappedQueryParams",
+    "language": "java",
+    "project_name": "http-request",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#customConnectionFactory -> com.github.kevinsawicki.http.HttpRequestTest#headWithMappedQueryParams",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: headWithMappedQueryParams(com.github.kevinsawicki.http.HttpRequestTest) :: java.lang.AssertionError: expected:<user> but was:<null> :: java.lang.AssertionError: expected:<user> but was:<null> \tat org.junit.Assert.fail(Assert.java:93) \tat org.junit.Assert.failNotEquals(Assert.java:647) \tat org.junit.Assert.assertEquals(Assert.java:128) \tat org.junit.Assert.assertEquals(Assert.java:147) \tat com.github.kevinsawicki.http.HttpRequestTest.headWithMappedQueryParams(HttpRequestTest.java:2"
+    ],
+    "sec": 1.12
+  },
+  "spring-ws::SpringDigestPasswordValidationCallbackHandlerTest.testAuthenticateUserDigestValidInvalid": {
+    "sample_id": "spring-ws::SpringDigestPasswordValidationCallbackHandlerTest.testAuthenticateUserDigestValidInvalid",
+    "language": "java",
+    "project_name": "spring-ws",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "org.springframework.ws.soap.security.wss4j2.callback.SpringSecurityPasswordValidationCallbackHandlerTest#testHandleUsernameTokenPrincipal -> org.springframework.ws.soap.security.wss4j2.callback.SpringSecurityPasswordValidationCallbackHandlerTest#testHandleUsernameTokenPrincipal -> org.springframework.ws.soap.security.xwss.callback.SpringDigestPasswordValidationCallbackHandlerTest#testAuthenticateUserDigestValidInvalid",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testAuthenticateUserDigestValidInvalid(org.springframework.ws.soap.security.xwss.callback.SpringDigestPasswordValidationCallbackHandlerTest) :: java.lang.AssertionError: Authentication created expected null, but was:<org.springframework.security.authentication.UsernamePasswordAuthenticationToken@5ef582e1: Principal: WSUsernameTokenPrincipalImpl:  Ernie; Credentials: [PROTECTED]; Authenticated: true; Details: null; Granted Authorities: ROLE_1> :: java.lang.AssertionError: Authentication created expected null, but was:<org.springframework.security.authentication.UsernamePasswordAuthenticationToken@5ef582e1: Principal: WSUsernameTokenPrincipalImpl:  Ernie; Credentials: [PROTECTED]; Authenticated: true; Details: null; Granted Authorities: ROLE_1> \tat org.junit.Assert.fail(Assert.java:88) \tat o"
+    ],
+    "sec": 1.45
+  },
+  "spring-ws::SpringDigestPasswordValidationCallbackHandlerTest.testAuthenticateUserDigestUserNotFound": {
+    "sample_id": "spring-ws::SpringDigestPasswordValidationCallbackHandlerTest.testAuthenticateUserDigestUserNotFound",
+    "language": "java",
+    "project_name": "spring-ws",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "org.springframework.ws.soap.security.wss4j2.callback.SpringSecurityPasswordValidationCallbackHandlerTest#testHandleUsernameTokenPrincipal -> org.springframework.ws.soap.security.wss4j2.callback.SpringSecurityPasswordValidationCallbackHandlerTest#testHandleUsernameTokenPrincipal -> org.springframework.ws.soap.security.xwss.callback.SpringDigestPasswordValidationCallbackHandlerTest#testAuthenticateUserDigestUserNotFound",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testAuthenticateUserDigestUserNotFound(org.springframework.ws.soap.security.xwss.callback.SpringDigestPasswordValidationCallbackHandlerTest) :: java.lang.AssertionError: Authentication created expected null, but was:<org.springframework.security.authentication.UsernamePasswordAuthenticationToken@5ef582e1: Principal: WSUsernameTokenPrincipalImpl:  Ernie; Credentials: [PROTECTED]; Authenticated: true; Details: null; Granted Authorities: ROLE_1> :: java.lang.AssertionError: Authentication created expected null, but was:<org.springframework.security.authentication.UsernamePasswordAuthenticationToken@5ef582e1: Principal: WSUsernameTokenPrincipalImpl:  Ernie; Credentials: [PROTECTED]; Authenticated: true; Details: null; Granted Authorities: ROLE_1> \tat org.junit.Assert.fail(Assert.java:88) \tat o"
+    ],
+    "sec": 1.39
+  },
+  "shardingsphere-elasticjob::AppConstraintEvaluatorTest.assertExistExecutorOnS0": {
+    "sample_id": "shardingsphere-elasticjob::AppConstraintEvaluatorTest.assertExistExecutorOnS0",
+    "language": "java",
+    "project_name": "shardingsphere-elasticjob",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "org.apache.shardingsphere.elasticjob.cloud.scheduler.mesos.AppConstraintEvaluatorTest#assertGetExecutorError -> org.apache.shardingsphere.elasticjob.cloud.scheduler.mesos.AppConstraintEvaluatorTest#assertGetExecutorError -> org.apache.shardingsphere.elasticjob.cloud.scheduler.mesos.AppConstraintEvaluatorTest#assertExistExecutorOnS0",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "com.google.gson.JsonParseException"
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "com.google.gson.JsonParseException"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": false,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": "com.google.gson.JsonParseException",
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": true,
+    "fail_lines": [
+      "FT1_REP_FAIL: assertGetExecutorError(org.apache.shardingsphere.elasticjob.cloud.scheduler.mesos.AppConstraintEvaluatorTest) :: com.google.gson.JsonParseException :: com.google.gson.JsonParseException",
+      "FT1_REP_FAIL: assertExistExecutorOnS0(org.apache.shardingsphere.elasticjob.cloud.scheduler.mesos.AppConstraintEvaluatorTest) :: com.google.gson.JsonParseException :: com.google.gson.JsonParseException"
+    ],
+    "sec": 2.51
+  },
+  "shardingsphere-elasticjob::ShardingListenerManagerTest.assertListenServersChangedJobListenerWhenIsInstanceChangeButJobInstanceIsShutdown": {
+    "sample_id": "shardingsphere-elasticjob::ShardingListenerManagerTest.assertListenServersChangedJobListenerWhenIsInstanceChangeButJobInstanceIsShutdown",
+    "language": "java",
+    "project_name": "shardingsphere-elasticjob",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "io.elasticjob.lite.api.JobSchedulerTest#assertInit -> io.elasticjob.lite.api.JobSchedulerTest#assertInit -> io.elasticjob.lite.internal.sharding.ShardingListenerManagerTest#assertListenServersChangedJobListenerWhenIsInstanceChangeButJobInstanceIsShutdown",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "org.mockito.exceptions.verification.NeverWantedButInvoked"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: assertListenServersChangedJobListenerWhenIsInstanceChangeButJobInstanceIsShutdown(io.elasticjob.lite.internal.sharding.ShardingListenerManagerTest) :: org.mockito.exceptions.verification.NeverWantedButInvoked:"
+    ],
+    "sec": 2.33
+  },
+  "shardingsphere-elasticjob::ShutdownListenerManagerTest.assertIsShutdownAlready": {
+    "sample_id": "shardingsphere-elasticjob::ShutdownListenerManagerTest.assertIsShutdownAlready",
+    "language": "java",
+    "project_name": "shardingsphere-elasticjob",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "io.elasticjob.lite.internal.instance.ShutdownListenerManagerTest#assertRemoveLocalInstancePath -> io.elasticjob.lite.internal.instance.ShutdownListenerManagerTest#assertRemoveLocalInstancePath -> io.elasticjob.lite.internal.instance.ShutdownListenerManagerTest#assertIsShutdownAlready",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "org.mockito.exceptions.verification.NeverWantedButInvoked"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: assertIsShutdownAlready(io.elasticjob.lite.internal.instance.ShutdownListenerManagerTest) :: org.mockito.exceptions.verification.NeverWantedButInvoked:"
+    ],
+    "sec": 1.92
+  },
+  "shardingsphere-elasticjob::ElectionListenerManagerTest.assertLeaderElectionWhenRemoveLeaderInstancePathWithAvailableServerButJobInstanceIsShutdown": {
+    "sample_id": "shardingsphere-elasticjob::ElectionListenerManagerTest.assertLeaderElectionWhenRemoveLeaderInstancePathWithAvailableServerButJobInstanceIsShutdown",
+    "language": "java",
+    "project_name": "shardingsphere-elasticjob",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "io.elasticjob.lite.internal.instance.ShutdownListenerManagerTest#assertRemoveLocalInstancePathForReconnectedRegistryCenter -> io.elasticjob.lite.internal.instance.ShutdownListenerManagerTest#assertRemoveLocalInstancePathForReconnectedRegistryCenter -> io.elasticjob.lite.internal.election.ElectionListenerManagerTest#assertLeaderElectionWhenRemoveLeaderInstancePathWithAvailableServerButJobInstanceIsShutdown",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "org.mockito.exceptions.verification.NeverWantedButInvoked"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: assertLeaderElectionWhenRemoveLeaderInstancePathWithAvailableServerButJobInstanceIsShutdown(io.elasticjob.lite.internal.election.ElectionListenerManagerTest) :: org.mockito.exceptions.verification.NeverWantedButInvoked:"
+    ],
+    "sec": 2.05
+  },
+  "remoting::DiagnosedStreamCorruptionExceptionTest.exercise": {
+    "sample_id": "remoting::DiagnosedStreamCorruptionExceptionTest.exercise",
+    "language": "java",
+    "project_name": "remoting",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "hudson.remoting.DefaultClassFilterTest#testDefaultsAreUsedIfOverridesAreGarbage -> hudson.remoting.DefaultClassFilterTest#testDefaultsAreUsedIfOverridesAreGarbage -> hudson.remoting.DiagnosedStreamCorruptionExceptionTest#exercise",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      }
+    },
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": true,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [],
+    "sec": 2.43
+  },
+  "remoting::ClassFilterTest.userRequest_singleClassLoader": {
+    "sample_id": "remoting::ClassFilterTest.userRequest_singleClassLoader",
+    "language": "java",
+    "project_name": "remoting",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "hudson.remoting.DefaultClassFilterTest#testDefaultsAreUsedIfOverridesAreGarbage -> hudson.remoting.DefaultClassFilterTest#testDefaultsAreUsedIfOverridesAreGarbage -> hudson.remoting.ClassFilterTest#userRequest_singleClassLoader",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      }
+    },
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": true,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [],
+    "sec": 2.52
+  },
+  "remoting::DiagnosedStreamCorruptionExceptionTest.blockingStreamShouldNotPreventDiagnosis": {
+    "sample_id": "remoting::DiagnosedStreamCorruptionExceptionTest.blockingStreamShouldNotPreventDiagnosis",
+    "language": "java",
+    "project_name": "remoting",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "hudson.remoting.DefaultClassFilterTest#testDefaultsAreUsedIfOverridesAreGarbage -> hudson.remoting.DefaultClassFilterTest#testDefaultsAreUsedIfOverridesAreGarbage -> hudson.remoting.DiagnosedStreamCorruptionExceptionTest#blockingStreamShouldNotPreventDiagnosis",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      }
+    },
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": true,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [],
+    "sec": 3.3
+  },
+  "remoting::ClassFilterTest.userRequest": {
+    "sample_id": "remoting::ClassFilterTest.userRequest",
+    "language": "java",
+    "project_name": "remoting",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "hudson.remoting.DefaultClassFilterTest#testDefaultsAreUsedIfOverridesAreGarbage -> hudson.remoting.DefaultClassFilterTest#testDefaultsAreUsedIfOverridesAreGarbage -> hudson.remoting.ClassFilterTest#userRequest",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      }
+    },
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": true,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [],
+    "sec": 2.48
+  },
+  "remoting::ClassFilterTest.transport_nio": {
+    "sample_id": "remoting::ClassFilterTest.transport_nio",
+    "language": "java",
+    "project_name": "remoting",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "hudson.remoting.DefaultClassFilterTest#testDefaultsAreUsedIfOverridesAreGarbage -> hudson.remoting.DefaultClassFilterTest#testDefaultsAreUsedIfOverridesAreGarbage -> hudson.remoting.ClassFilterTest#transport_nio",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      }
+    },
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": true,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [],
+    "sec": 2.67
+  },
+  "remoting::ClassFilterTest.transport_chunking": {
+    "sample_id": "remoting::ClassFilterTest.transport_chunking",
+    "language": "java",
+    "project_name": "remoting",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "hudson.remoting.DefaultClassFilterTest#testDefaultsAreUsedIfOverridesAreGarbage -> hudson.remoting.DefaultClassFilterTest#testDefaultsAreUsedIfOverridesAreGarbage -> hudson.remoting.ClassFilterTest#transport_chunking",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      }
+    },
+    "strict_passed": true,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": true,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "STRICT_ALL_PASSED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [],
+    "sec": 2.57
+  },
+  "visualee::DescriptionTest.testGenerateDescription2": {
+    "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+    "language": "java",
+    "project_name": "visualee",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest#testIsOkIncludeTrue -> de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest#testIsOkIncludeTrue -> de.strullerbaumann.visualee.ui.graph.control.DescriptionTest#testGenerateDescription2",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.NullPointerException"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testGenerateDescription2(de.strullerbaumann.visualee.ui.graph.control.DescriptionTest) :: java.lang.NullPointerException :: java.lang.NullPointerException \tat de.strullerbaumann.visualee.ui.graph.control.DescriptionTest.testGenerateDescription2(DescriptionTest.java:151) \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) \tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) \tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Deleg"
+    ],
+    "sec": 1.03
+  },
+  "visualee::SourcecodeFilterTest.testIsOkIncludeTrue": {
+    "sample_id": "visualee::SourcecodeFilterTest.testIsOkIncludeTrue",
+    "language": "java",
+    "project_name": "visualee",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest#testIsOkIncludeFalse -> de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest#testIsOkIncludeFalse -> de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest#testIsOkIncludeTrue",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testIsOkIncludeTrue(de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest) :: java.lang.AssertionError: expected:<true> but was:<false> :: java.lang.AssertionError: expected:<true> but was:<false> \tat org.junit.Assert.fail(Assert.java:88) \tat org.junit.Assert.failNotEquals(Assert.java:834) \tat org.junit.Assert.assertEquals(Assert.java:118) \tat org.junit.Assert.assertEquals(Assert.java:144) \tat de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest.testIsOkIncludeTrue(Sourcecod"
+    ],
+    "sec": 0.96
+  },
+  "visualee::DescriptionTest.testGenerateDescription": {
+    "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+    "language": "java",
+    "project_name": "visualee",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest#testIsOkIncludeTrue -> de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest#testIsOkIncludeTrue -> de.strullerbaumann.visualee.ui.graph.control.DescriptionTest#testGenerateDescription",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.NullPointerException"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testGenerateDescription(de.strullerbaumann.visualee.ui.graph.control.DescriptionTest) :: java.lang.NullPointerException :: java.lang.NullPointerException \tat de.strullerbaumann.visualee.ui.graph.control.DescriptionTest.testGenerateDescription(DescriptionTest.java:55) \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) \tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) \tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Delegat"
+    ],
+    "sec": 0.92
+  },
+  "visualee::SourcecodeFilterTest.testIsOkExcludeFalse": {
+    "sample_id": "visualee::SourcecodeFilterTest.testIsOkExcludeFalse",
+    "language": "java",
+    "project_name": "visualee",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest#testIsOkIncludeFalse -> de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest#testIsOkIncludeFalse -> de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest#testIsOkExcludeFalse",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testIsOkExcludeFalse(de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest) :: java.lang.AssertionError: expected:<true> but was:<false> :: java.lang.AssertionError: expected:<true> but was:<false> \tat org.junit.Assert.fail(Assert.java:88) \tat org.junit.Assert.failNotEquals(Assert.java:834) \tat org.junit.Assert.assertEquals(Assert.java:118) \tat org.junit.Assert.assertEquals(Assert.java:144) \tat de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest.testIsOkExcludeFalse(Sourceco"
+    ],
+    "sec": 0.91
+  },
+  "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany": {
+    "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+    "language": "java",
+    "project_name": "visualee",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest#testIsOkIncludeTrue -> de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest#testIsOkIncludeTrue -> de.strullerbaumann.visualee.examiner.jpa.JPAExaminerTest#testFindAndSetAttributesManyToMany",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.NullPointerException"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testFindAndSetAttributesManyToMany(de.strullerbaumann.visualee.examiner.jpa.JPAExaminerTest) :: java.lang.NullPointerException :: java.lang.NullPointerException \tat de.strullerbaumann.visualee.examiner.jpa.JPAExaminerTest.testFindAndSetAttributesManyToMany(JPAExaminerTest.java:93) \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) \tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) \tat sun.reflect.DelegatingMethodAccessorImpl.invoke("
+    ],
+    "sec": 0.85
+  },
+  "visualee::GraphCreatorTest.testBuildJSONNodes": {
+    "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+    "language": "java",
+    "project_name": "visualee",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest#testIsOkIncludeTrue -> de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest#testIsOkIncludeTrue -> de.strullerbaumann.visualee.ui.graph.boundary.GraphCreatorTest#testBuildJSONNodes",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.AssertionError"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testBuildJSONNodes(de.strullerbaumann.visualee.ui.graph.boundary.GraphCreatorTest) :: java.lang.AssertionError: expected:<10> but was:<0> :: java.lang.AssertionError: expected:<10> but was:<0> \tat org.junit.Assert.fail(Assert.java:88) \tat org.junit.Assert.failNotEquals(Assert.java:834) \tat org.junit.Assert.assertEquals(Assert.java:645) \tat org.junit.Assert.assertEquals(Assert.java:631) \tat de.strullerbaumann.visualee.ui.graph.boundary.GraphCreatorTest.testBuildJSONNodes(GraphCreatorTest"
+    ],
+    "sec": 0.86
+  },
+  "visualee::GraphCreatorTest.testBuildJSONNode": {
+    "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+    "language": "java",
+    "project_name": "visualee",
+    "mode": "SINGLE_LIFECYCLE_BLOCK_RUNNER",
+    "exec_order": "de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest#testIsOkIncludeTrue -> de.strullerbaumann.visualee.filter.entity.SourcecodeFilterTest#testIsOkIncludeTrue -> de.strullerbaumann.visualee.ui.graph.boundary.GraphCreatorTest#testBuildJSONNode",
+    "phase_level_known": true,
+    "phases": {
+      "p1": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "p2": {
+        "setup": "PASS",
+        "call": "PASS",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": null
+      },
+      "target": {
+        "setup": "PASS",
+        "call": "FAIL",
+        "teardown": "PASS",
+        "outer_fail": false,
+        "call_exc": "java.lang.NullPointerException"
+      }
+    },
+    "strict_passed": false,
+    "p1_ok": true,
+    "p2_call_ok": true,
+    "p2_lifecycle_ok": true,
+    "p2_call_exception_type": null,
+    "target_ok": false,
+    "order_exact": true,
+    "is_unknown": false,
+    "status": "TARGET_CALL_FAILED",
+    "upstream_nonidempotent_p2_call_fail_only": false,
+    "fail_lines": [
+      "FT1_REP_FAIL: testBuildJSONNode(de.strullerbaumann.visualee.ui.graph.boundary.GraphCreatorTest) :: java.lang.NullPointerException :: java.lang.NullPointerException \tat de.strullerbaumann.visualee.ui.graph.boundary.GraphCreatorTest.testBuildJSONNode(GraphCreatorTest.java:52) \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) \tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) \tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Delegating"
+    ],
+    "sec": 0.83
+  }
+}

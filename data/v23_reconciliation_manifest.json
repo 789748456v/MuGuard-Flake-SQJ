@@ -1,0 +1,3912 @@
+{
+  "created_at": "2026-11-23T21:33:14Z",
+  "harness_version": "2.3.0-certified",
+  "exec_benchmark_sha256": "eecf64845bb3810e949f39cd23b7a35c8449ecf921de2cb23d9aa5dfc43a3221",
+  "stage1_java_3x_pool_diff_summary": {
+    "total_java_eligible": 110,
+    "m_det_changed": 48,
+    "polluter_m_det_changed": 12,
+    "m_ext_changed": 55,
+    "dropped_below_3": 0,
+    "inloop_reconciled_sids_count": 51
+  },
+  "step3a_inloop_batch_count": 429,
+  "step3c_mext_batch_count": 371,
+  "stage3_od_heldout_wplus_count": 737,
+  "step3b_live_llm_calls_made": 172,
+  "step3b_live_remote_evals_made": 450,
+  "step3b_api_cap_omissions": [
+    {
+      "model": "deepseek-v4-pro",
+      "sample_id": "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations",
+      "error": "Empty LLM content (reasoning token cap or truncated stream)"
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "sample_id": "Mapper::ComplexEntityTest.test",
+      "error": "Empty LLM content (reasoning token cap or truncated stream)"
+    }
+  ],
+  "step3b_endpoint_outcome_changes_count": 163,
+  "step3b_endpoint_outcome_changes": [
+    {
+      "model": "deepseek-flash",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9905
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "deepseek-flash",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9905
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "deepseek-flash",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9905
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "deepseek-flash",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "deepseek-flash",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "Mapper::SqlHelperTest.testLogicDeleteSql",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.91
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "Mapper::SqlHelperTest.testLogicDeleteSql",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.91
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "Mapper::SqlHelperTest.testLogicDeleteSql",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.91
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "Mapper::SqlHelperTest.testLogicDeleteSql",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.91
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "Mapper::SqlHelperTest.testLogicDeleteSql",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "Mapper::SqlHelperTest.testLogicDeleteSql",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9559
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9559
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9559
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9722
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9722
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9722
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9652
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9652
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9652
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9091
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9091
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9091
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9032
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9032
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9032
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9032
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9891
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9891
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9891
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9891
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_UNSTABLE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      },
+      "new": {
+        "gate_state": "ABSTAIN_UNSTABLE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 4,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 5,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "Mapper::SqlHelperTest.testLogicDeleteSql",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.91
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "Mapper::SqlHelperTest.testLogicDeleteSql",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.91
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "Mapper::SqlHelperTest.testLogicDeleteSql",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.91
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "Mapper::SqlHelperTest.testLogicDeleteSql",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_COMPILE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "Mapper::SqlHelperTest.testLogicDeleteSql",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9559
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9559
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9559
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_COMPILE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "remoting::ClassFilterTest.userRequest_singleClassLoader",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "AST_REJECT_FINAL",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      },
+      "new": {
+        "gate_state": "ABSTAIN_UNSTABLE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "remoting::ClassFilterTest.userRequest_singleClassLoader",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "B3PLUS_REJECT_FINAL",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      },
+      "new": {
+        "gate_state": "ABSTAIN_UNSTABLE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 5,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9722
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9722
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9722
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 5,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType2",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_UNSTABLE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.noArray",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.7429
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.noArray",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.7429
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.noArray",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.7429
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.noArray",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 4,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.noArray",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 5,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "remoting::ClassFilterTest.userRequest",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "SANITY_REJECT_FINAL",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 5,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "remoting::ClassFilterTest.userRequest",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ABSTAIN_UNSTABLE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      },
+      "new": {
+        "gate_state": "B3PLUS_REJECT_FINAL",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "remoting::ClassFilterTest.userRequest",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SANITY_REJECT_FINAL",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 5,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "remoting::ClassFilterTest.userRequest",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SANITY_REJECT_FINAL",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 5,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9652
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 4,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9891
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9891
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9891
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9891
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9091
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9091
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9091
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9091
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9032
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "remoting::ClassFilterTest.transport_chunking",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "SANITY_REJECT_FINAL",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      },
+      "new": {
+        "gate_state": "ABSTAIN_UNSTABLE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "remoting::ClassFilterTest.transport_chunking",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ABSTAIN_COMPILE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      },
+      "new": {
+        "gate_state": "ABSTAIN_UNSTABLE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "remoting::ClassFilterTest.transport_chunking",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "ABSTAIN_COMPILE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      },
+      "new": {
+        "gate_state": "ABSTAIN_UNSTABLE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "remoting::ClassFilterTest.transport_chunking",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "ABSTAIN_COMPILE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      },
+      "new": {
+        "gate_state": "ABSTAIN_UNSTABLE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "jetcache::CreateCacheTest.test",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ABSTAIN_UNSTABLE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      },
+      "new": {
+        "gate_state": "SANITY_REJECT_FINAL",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.2273
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SANITY_REJECT_FINAL",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 5,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "ABSTAIN_UNSTABLE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9143
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.8077
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9143
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.8077
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9143
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.8077
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 4,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_UNSTABLE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "ABSTAIN_UNSTABLE",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 4,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValue",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 2,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 4,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "Mapper::ComplexEntityTest.test",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.8571
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "Mapper::ComplexEntityTest.test",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 4,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.8143
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "Mapper::ComplexEntityTest.test",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 4,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.8143
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "Mapper::ComplexEntityTest.test",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 4,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.8143
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "Mapper::ComplexEntityTest.test",
+      "strategy": "B4_Scalar_Gate_Loop",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "qwen3.7-plus",
+      "max_rounds": 5,
+      "sample_id": "Mapper::ComplexEntityTest.test",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 3,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "Mapper::SqlHelperTest.testLogicDeleteSql",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.91
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9559
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9559
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9722
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9722
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9652
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9652
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9652
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9091
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9091
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9091
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9091
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9032
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9032
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9032
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9032
+      }
+    },
+    {
+      "model": "kimi-k2.5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9559
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9559
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9559
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9722
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9722
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9722
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9652
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9652
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9652
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9091
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9091
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9091
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9091
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9891
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9891
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9891
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "B0_Standard_Validator",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9032
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "B2_Prompt_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9032
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "B3_Static_AST_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9032
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "B3_Plus_Structural_Guard",
+      "old": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ACCEPTED",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": false,
+        "eroded": true,
+        "joint_retention": 0.9032
+      }
+    },
+    {
+      "model": "glm-5",
+      "max_rounds": 1,
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "strategy": "Ours_MuGuard_Flake",
+      "old": {
+        "gate_state": "SAFE_PASS",
+        "accepted": true,
+        "accepted_round": 1,
+        "sound_fix": true,
+        "eroded": false,
+        "joint_retention": 1.0
+      },
+      "new": {
+        "gate_state": "ABSTAIN_EROSION",
+        "accepted": false,
+        "accepted_round": null,
+        "sound_fix": false,
+        "eroded": false,
+        "joint_retention": null
+      }
+    }
+  ],
+  "forked_ablation_updates_count": 34,
+  "forked_ablation_updates": [
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "deepseek-flash::fastjson::WriteClassNameTest_Map.test_list",
+      "r0": 1,
+      "a2_recovered": false,
+      "a3_recovered": true,
+      "a1_recovered": false
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "deepseek-flash::Mapper::SqlHelperTest.testLogicDeleteSql",
+      "r0": 2,
+      "a2_recovered": false,
+      "a3_recovered": false,
+      "a1_recovered": false
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "deepseek-flash::aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "r0": 2,
+      "a2_recovered": false,
+      "a3_recovered": true,
+      "a1_recovered": false
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "deepseek-flash::visualee::DescriptionTest.testGenerateDescription2",
+      "r0": 1,
+      "a2_recovered": false,
+      "a3_recovered": false,
+      "a1_recovered": false
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "deepseek-flash::visualee::DescriptionTest.testGenerateDescription",
+      "r0": 1,
+      "a2_recovered": true,
+      "a3_recovered": true,
+      "a1_recovered": false
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "deepseek-flash::Mapper::ComplexEntityTest.test",
+      "r0": 2,
+      "a2_recovered": false,
+      "a3_recovered": false,
+      "a1_recovered": false
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "deepseek-flash::visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "r0": 1,
+      "a2_recovered": false,
+      "a3_recovered": false,
+      "a1_recovered": false
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "deepseek-flash::openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations",
+      "r0": 3,
+      "a2_recovered": true,
+      "a3_recovered": false,
+      "a1_recovered": true
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "deepseek-v4-pro::Mapper::SqlHelperTest.testLogicDeleteSql",
+      "r0": 2,
+      "a2_recovered": false,
+      "a3_recovered": false,
+      "a1_recovered": false
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "deepseek-flash::visualee::GraphCreatorTest.testBuildJSONNodes",
+      "r0": 1,
+      "a2_recovered": false,
+      "a3_recovered": true,
+      "a1_recovered": false
+    },
+    {
+      "action": "A2_API_CAP",
+      "key": "deepseek-flash::visualee::GraphCreatorTest.testBuildJSONNode",
+      "r0": 1,
+      "error": "API call failed (deepseek/deepseek-flash -> http_402): {\"error\":{\"message\":\"Insufficient Balance (request_id: c57b0265-9c69-4693-a9d1-23d5dd365ac3)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+    },
+    {
+      "action": "A2_API_CAP",
+      "key": "deepseek-v4-pro::visualee::DescriptionTest.testGenerateDescription2",
+      "r0": 1,
+      "error": "API call failed (deepseek/deepseek-v4-pro -> http_402): {\"error\":{\"message\":\"Insufficient Balance (request_id: 02267874-bdd3-4e5c-aadd-d0ed79174db8)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+    },
+    {
+      "action": "A2_API_CAP",
+      "key": "deepseek-v4-pro::visualee::DescriptionTest.testGenerateDescription",
+      "r0": 1,
+      "error": "API call failed (deepseek/deepseek-v4-pro -> http_402): {\"error\":{\"message\":\"Insufficient Balance (request_id: 06845ecf-ecbb-4d9f-8f89-e2a48a16f184)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+    },
+    {
+      "action": "A2_API_CAP",
+      "key": "deepseek-v4-pro::visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "r0": 1,
+      "error": "API call failed (deepseek/deepseek-v4-pro -> http_402): {\"error\":{\"message\":\"Insufficient Balance (request_id: c4abfd22-2d50-40a1-a443-1e2238d416a7)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+    },
+    {
+      "action": "A2_API_CAP",
+      "key": "deepseek-v4-pro::visualee::GraphCreatorTest.testBuildJSONNodes",
+      "r0": 1,
+      "error": "API call failed (deepseek/deepseek-v4-pro -> http_402): {\"error\":{\"message\":\"Insufficient Balance (request_id: b1599938-a2f7-46b4-963a-29f05fbb3104)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+    },
+    {
+      "action": "A2_API_CAP",
+      "key": "deepseek-v4-pro::visualee::GraphCreatorTest.testBuildJSONNode",
+      "r0": 1,
+      "error": "API call failed (deepseek/deepseek-v4-pro -> http_402): {\"error\":{\"message\":\"Insufficient Balance (request_id: 736c6167-d21b-4f90-b6f1-3144ca21f9b0)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+    },
+    {
+      "action": "A2_API_CAP",
+      "key": "deepseek-v4-pro::fastjson::WriteClassNameTest_Map.test_list",
+      "r0": 1,
+      "error": "API call failed (deepseek/deepseek-v4-pro -> http_402): {\"error\":{\"message\":\"Insufficient Balance (request_id: 0746f1c7-a43b-4e89-b881-a3073c071c82)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+    },
+    {
+      "action": "A2_API_CAP",
+      "key": "deepseek-v4-pro::py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_not_exist",
+      "r0": 4,
+      "error": "API call failed (deepseek/deepseek-v4-pro -> http_402): {\"error\":{\"message\":\"Insufficient Balance (request_id: 6f0648a8-1be7-4043-89bc-7e353073cfd2)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+    },
+    {
+      "action": "A2_API_CAP",
+      "key": "deepseek-v4-pro::aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "r0": 2,
+      "error": "API call failed (deepseek/deepseek-v4-pro -> http_402): {\"error\":{\"message\":\"Insufficient Balance (request_id: 9e41f220-5957-4355-bd86-6b675db73550)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+    },
+    {
+      "action": "A2_API_CAP",
+      "key": "deepseek-v4-pro::commons-lang::ToStringBuilderTest.testInheritedReflectionStatics",
+      "r0": 1,
+      "error": "API call failed (deepseek/deepseek-v4-pro -> http_402): {\"error\":{\"message\":\"Insufficient Balance (request_id: e2fc39d4-932c-4ef7-88c6-d6a9e8dc96f5)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+    },
+    {
+      "action": "A2_API_CAP",
+      "key": "deepseek-flash::shardingsphere-elasticjob::ShutdownListenerManagerTest.assertIsShutdownAlready",
+      "r0": 1,
+      "error": "API call failed (deepseek/deepseek-flash -> http_402): {\"error\":{\"message\":\"Insufficient Balance (request_id: 31baa0c0-a56f-4bf6-9298-6ce4eca7591f)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+    },
+    {
+      "action": "A1_A3_SYNCED",
+      "key": "qwen3.7-plus::openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations",
+      "r0": 1,
+      "a1": true,
+      "a3": true
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "qwen3.7-plus::visualee::DescriptionTest.testGenerateDescription2",
+      "r0": 1,
+      "a2_recovered": false,
+      "a3_recovered": false,
+      "a1_recovered": false
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "qwen3.7-plus::Mapper::SqlHelperTest.testLogicDeleteSql",
+      "r0": 2,
+      "a2_recovered": false,
+      "a3_recovered": false,
+      "a1_recovered": false
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "qwen3.7-plus::fastjson::WriteClassNameTest_Map.test_list",
+      "r0": 1,
+      "a2_recovered": false,
+      "a3_recovered": false,
+      "a1_recovered": false
+    },
+    {
+      "action": "A2_API_CAP",
+      "key": "deepseek-v4-pro::py::centreon-sdk-python::TestCommands.test_command_not_exist",
+      "r0": 3,
+      "error": "API call failed (deepseek/deepseek-v4-pro -> http_402): {\"error\":{\"message\":\"Insufficient Balance (request_id: 67f88e02-72bc-42cb-bfa0-40c09b1d3deb)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "qwen3.7-plus::visualee::DescriptionTest.testGenerateDescription",
+      "r0": 1,
+      "a2_recovered": false,
+      "a3_recovered": true,
+      "a1_recovered": false
+    },
+    {
+      "action": "A1_A3_SYNCED",
+      "key": "qwen3.7-plus::visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "r0": 1,
+      "a1": false,
+      "a3": false
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "qwen3.7-plus::commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "r0": 3,
+      "a2_recovered": false,
+      "a3_recovered": true,
+      "a1_recovered": false
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "qwen3.7-plus::Mapper::ComplexEntityTest.test",
+      "r0": 4,
+      "a2_recovered": false,
+      "a3_recovered": false,
+      "a1_recovered": false
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "qwen3.7-plus::aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "r0": 2,
+      "a2_recovered": false,
+      "a3_recovered": true,
+      "a1_recovered": false
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "qwen3.7-plus::visualee::GraphCreatorTest.testBuildJSONNodes",
+      "r0": 1,
+      "a2_recovered": false,
+      "a3_recovered": false,
+      "a1_recovered": false
+    },
+    {
+      "action": "A2_RE_EXECUTED",
+      "key": "qwen3.7-plus::visualee::GraphCreatorTest.testBuildJSONNode",
+      "r0": 1,
+      "a2_recovered": false,
+      "a3_recovered": false,
+      "a1_recovered": false
+    },
+    {
+      "action": "DROPPED_TRIGGERS",
+      "keys": [
+        "deepseek-flash::commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+        "qwen3.7-plus::commons-lang::MultilineRecursiveToStringStyleTest.noArray"
+      ]
+    }
+  ],
+  "new_accepted_candidates_live_heldout": [
+    "visualee::DescriptionTest.testGenerateDescription::10aacf4a71a80d4737",
+    "visualee::GraphCreatorTest.testBuildJSONNodes::c58654d346c6633db3",
+    "http-request::HttpRequestTest.postWithEscapedMappedQueryParams::6f55055e416ac323cd",
+    "visualee::GraphCreatorTest.testBuildJSONNode::3df29bab4ab8c79741",
+    "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations::50c5f6c341166d647b",
+    "http-request::HttpRequestTest.postWithEscapedMappedQueryParams::ce61e2b664d5f68d7f",
+    "visualee::DescriptionTest.testGenerateDescription::3a01aeb311da634a89",
+    "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::c8d13f97284e099bed",
+    "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations::5e4b9597a6be1eb55e",
+    "http-request::HttpRequestTest.headWithVaragsQueryParams::77f382f339e408a886",
+    "visualee::GraphCreatorTest.testBuildJSONNodes::4c4d40f3fc25f927bd",
+    "commons-lang::MultilineRecursiveToStringStyleTest.noArray::0b796954323b0b7cb9",
+    "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations::a5f9992a43379b4814",
+    "http-request::HttpRequestTest.postWithEscapedVarargsQueryParams::e2ea3c5b8df9ded06a",
+    "remoting::ClassFilterTest.userRequest::5ac4cdaecf59e70b1c",
+    "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::d81119fd7dac6fd857",
+    "Mapper::SqlHelperTest.testLogicDeleteSql::1ab8e97d366aec4cd1",
+    "fastjson::WriteClassNameTest_Map.test_list::44a15c81ed3244d7d8",
+    "visualee::GraphCreatorTest.testBuildJSONNode::833166dd7f1c5849cd",
+    "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations::04682df76eb28dcf2c",
+    "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::40cc4fc1ce5ae2187e",
+    "http-request::HttpRequestTest.headWithMappedQueryParams::8809f88452d8d89cfa",
+    "remoting::ClassFilterTest.userRequest_singleClassLoader::ca38dcdaea236fb4b9",
+    "fastjson::WriteDuplicateType.test_dupType2::1dff15bedab444dba8",
+    "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived::55f221dd3ce22c7fd2",
+    "Mapper::SqlHelperTest.testLogicDeleteSql::b038129912636e0f88",
+    "visualee::DescriptionTest.testGenerateDescription::475af0de318d21f27e",
+    "shardingsphere-elasticjob::ShutdownListenerManagerTest.assertIsShutdownAlready::0fced073e02f3ca5a9",
+    "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::6c4da29f6da548400d",
+    "spring-ws::DefaultWsdl11DefinitionTest.testImport::b2c340133b33fcfb5c",
+    "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations::a96875a47234813d05",
+    "openhtmltopdf::Slf4JLoggerTest.testLogger::3c890264dd36de7677",
+    "commons-lang::MultilineRecursiveToStringStyleTest.noArray::8d20336c7544dd1e0f",
+    "http-request::HttpRequestTest.headWithMappedQueryParams::2affccd8658f6efa33",
+    "fastjson::WriteDuplicateType.test_dupType2::f2249a52093882f9b8",
+    "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt::5a7b8a17368fdb2af1",
+    "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived::001c4f63a7bdef87bd",
+    "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::bb0f7c350ff90a8f5b",
+    "Mapper::ComplexEntityTest.test::cf47ee2686aec74776",
+    "Algorithms::FindNthMostRepeatedElementTest.shouldFindNthMostRepeatedElement::bd632b272240176ea3",
+    "remoting::ClassFilterTest.userRequest::adff382cf2f5a064ae",
+    "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::fc806b4d112895b8e4"
+  ],
+  "elapsed_sec": 18931.7
+}
