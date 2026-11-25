@@ -1,3 +1,7 @@
+% ============================================================================
+% Verified BibTeX References for FT-1 (MuGuard-Flake, Software Quality Journal)
+% ============================================================================
+
 @article{zhang2026typerepair,
   author    = {Zhang, Ruxin and Zhang, Shanxin and Xie, Linbo},
   title     = {Towards defect-type-aware adaptive program repair: A stage-wise approach with large language models},
@@ -36,6 +40,17 @@
   year      = {2026},
   publisher = {Springer},
   doi       = {10.1007/s11219-026-09796-x}
+}
+
+@article{chou2026aijudge,
+  author    = {Chou, Sherlinford},
+  title     = {{AI}-as-a-Judge for software quality assessment: Consistency, attitude effects, and complexity sensitivity in multi-agent code evaluation},
+  journal   = {Software Quality Journal},
+  volume    = {34},
+  pages     = {48},
+  year      = {2026},
+  publisher = {Springer},
+  doi       = {10.1007/s11219-026-09785-0}
 }
 
 @inproceedings{chen2024flakydoctor,
@@ -141,9 +156,11 @@
   title     = {{UTFix}: Change Aware Unit Test Repairing using {LLM}},
   journal   = {Proceedings of the ACM on Programming Languages},
   volume    = {9},
-  number    = {OOPSLA},
+  number    = {OOPSLA1},
+  articleno = {85},
   year      = {2025},
-  note      = {arXiv:2503.14924}
+  publisher = {ACM},
+  doi       = {10.1145/3720416}
 }
 
 @inproceedings{luo2014empirical,
@@ -262,17 +279,6 @@
   doi       = {10.1016/bs.adcom.2018.03.015}
 }
 
-@article{mcnemar1947note,
-  author    = {McNemar, Quinn},
-  title     = {Note on the sampling error of the difference between correlated proportions or percentages},
-  journal   = {Psychometrika},
-  volume    = {12},
-  number    = {2},
-  pages     = {153--157},
-  year      = {1947},
-  doi       = {10.1007/BF02295996}
-}
-
 @article{holm1979simple,
   author    = {Holm, Sture},
   title     = {A simple sequentially rejective multiple test procedure},
@@ -281,17 +287,6 @@
   number    = {2},
   pages     = {65--70},
   year      = {1979}
-}
-
-@article{cliff1993dominance,
-  author    = {Cliff, Norman},
-  title     = {Dominance statistics: Ordinal analyses to answer ordinal questions},
-  journal   = {Psychological Bulletin},
-  volume    = {114},
-  number    = {3},
-  pages     = {494--509},
-  year      = {1993},
-  doi       = {10.1037/0033-2909.114.3.494}
 }
 
 @article{barr2015oracle,
@@ -344,4 +339,302 @@
   publisher = {Springer},
   address   = {Berlin, Heidelberg},
   doi       = {10.1007/978-3-642-29044-2}
+}
+
+% --- Supplement: Industrial & Academic Flaky Test Repair / Reproduction (2014-2026) ---
+
+@inproceedings{li2025flakyguard,
+  author    = {Li, Chengpeng and Behrang, Farnaz and Shi, August and Liu, Peng},
+  title     = {{FlakyGuard}: Automatically Fixing Flaky Tests at Industry Scale},
+  booktitle = {Proceedings of the 40th IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+  pages     = {2158--2170},
+  year      = {2025},
+  publisher = {IEEE},
+  doi       = {10.1109/ASE63991.2025.00179}
+}
+
+@article{rafi2026reproflake,
+  author    = {Rafi, Suzzana and Sumon, Mahbub-Ul-Hoque and Erfan, Md and Khan, Maruf Morshed and Shi, August and Lam, Wing},
+  title     = {A Dataset of Reproducible Flaky-Test Failures},
+  journal   = {Proceedings of the ACM on Software Engineering},
+  volume    = {3},
+  number    = {ISSTA},
+  pages     = {2862--2882},
+  year      = {2026},
+  publisher = {ACM},
+  doi       = {10.1145/3832216}
+}
+
+@article{fatima2024flakyfix,
+  author    = {Fatima, Sakina and Hemmati, Hadi and Briand, Lionel C.},
+  title     = {{FlakyFix}: Using Large Language Models for Predicting Flaky Test Fix Categories and Test Code Repair},
+  journal   = {IEEE Transactions on Software Engineering},
+  volume    = {50},
+  number    = {12},
+  pages     = {3146--3171},
+  year      = {2024},
+  publisher = {IEEE},
+  doi       = {10.1109/TSE.2024.3472476}
+}
+
+@inproceedings{li2022odrepair,
+  author    = {Li, Chengpeng and Zhu, Chenguang and Wang, Wenxi and Shi, August},
+  title     = {Repairing Order-Dependent Flaky Tests via Test Generation},
+  booktitle = {Proceedings of the 44th International Conference on Software Engineering (ICSE)},
+  pages     = {1881--1892},
+  year      = {2022},
+  publisher = {ACM},
+  doi       = {10.1145/3510003.3510173}
+}
+
+@inproceedings{rahman2024flakesync,
+  author    = {Rahman, Shanto and Shi, August},
+  title     = {{FlakeSync}: Automatically Repairing Async Flaky Tests},
+  booktitle = {Proceedings of the IEEE/ACM 46th International Conference on Software Engineering (ICSE)},
+  pages     = {1--12},
+  year      = {2024},
+  publisher = {ACM},
+  doi       = {10.1145/3597503.3639115}
+}
+
+@inproceedings{ke2025niodebugger,
+  author    = {Ke, Kaiyao},
+  title     = {{NIODebugger}: A Novel Approach to Repair Non-Idempotent-Outcome Tests with {LLM}-Based Agent},
+  booktitle = {Proceedings of the IEEE/ACM 47th International Conference on Software Engineering (ICSE)},
+  pages     = {1014--1025},
+  year      = {2025},
+  publisher = {IEEE},
+  doi       = {10.1109/ICSE55347.2025.00226}
+}
+
+@inproceedings{rahman2025rankf,
+  author    = {Rahman, Shanto and Chanumolu, Bala Naren and Rafi, Suzzana and Shi, August and Lam, Wing},
+  title     = {Ranking Relevant Tests for Order-Dependent Flaky Tests},
+  booktitle = {Proceedings of the IEEE/ACM 47th International Conference on Software Engineering (ICSE)},
+  pages     = {1999--2011},
+  year      = {2025},
+  publisher = {IEEE},
+  doi       = {10.1109/ICSE55347.2025.00178}
+}
+
+@inproceedings{rahman2026tdrepro,
+  author    = {Rahman, Shanto and Baral, Talank and Shi, August and Lam, Wing},
+  title     = {{TDRepro}: A Neurosymbolic Approach to Reproducing Timing-Dependent Flaky Test Failures},
+  booktitle = {Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+  year      = {2026},
+  publisher = {ACM},
+  doi       = {10.1145/3832783.3834384}
+}
+
+@inproceedings{foster2026flakefighters,
+  author    = {Foster, Michael and Parry, Owain and Hilton, Michael and Kapfhammer, Gregory M. and McMinn, Phil},
+  title     = {{FlakeFighters}: A {Pytest} Plugin to Detect Flaky Test Failures},
+  booktitle = {Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+  year      = {2026},
+  publisher = {ACM}
+}
+
+@inproceedings{dutta2021flex,
+  author    = {Dutta, Saikat and Shi, August and Misailovic, Sasa},
+  title     = {{FLEX}: Fixing Flaky Tests in Machine Learning Projects by Updating Assertion Bounds},
+  booktitle = {Proceedings of the 29th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE)},
+  pages     = {603--614},
+  year      = {2021},
+  publisher = {ACM},
+  doi       = {10.1145/3468264.3468615}
+}
+
+@inproceedings{gambi2018pradet,
+  author    = {Gambi, Alessio and Bell, Jonathan and Zeller, Andreas},
+  title     = {Practical Test Dependency Detection},
+  booktitle = {Proceedings of the 11th IEEE International Conference on Software Testing, Verification and Validation (ICST)},
+  pages     = {1--11},
+  year      = {2018},
+  publisher = {IEEE},
+  doi       = {10.1109/ICST.2018.00011}
+}
+
+@inproceedings{bell2014vmvm,
+  author    = {Bell, Jonathan and Kaiser, Gail},
+  title     = {Unit Test Virtualization with {VMVM}},
+  booktitle = {Proceedings of the 36th International Conference on Software Engineering (ICSE)},
+  pages     = {550--561},
+  year      = {2014},
+  publisher = {ACM},
+  doi       = {10.1145/2568225.2568248}
+}
+
+% --- Supplement: Oracle Degeneration, Reward Hacking, & Test-Authority Governance ---
+
+@inproceedings{li2026dcaware,
+  author    = {Li, Kefan and Yu, Hongyue and Yuan, Yuan},
+  title     = {Escaping the Self-Repair Trap: Improving Test Oracle Generation via Dual-Context Awareness},
+  booktitle = {Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+  pages     = {1144--1156},
+  year      = {2026},
+  publisher = {ACM},
+  doi       = {10.1145/3832783.3834421}
+}
+
+@article{ning2026unfaithful,
+  author    = {Ning, Hao and Dong, Jiahui and Yang, Zhen and Yan, Guanda and Sun, Yichen and Zhu, Xuanyu and Shen, Zheng and Pei, Yifei and Keung, Jacky and Zhang, Jie M.},
+  title     = {Executable but Unfaithful: Mock Object, Stub, and Assertion Generation by {LLMs} and Coding Agents},
+  journal   = {arXiv preprint arXiv:2610.14629},
+  year      = {2026},
+  doi       = {10.48550/arXiv.2610.14629}
+}
+
+@inproceedings{mohammadi2026whoseoracle,
+  author    = {Mohammadi, Bardia and Bindschaedler, Laurent},
+  title     = {Whose Oracle Is It? The Authority Problem in Deployed Agentic Program Repair},
+  booktitle = {Proceedings of the 7th IEEE/ACM International Workshop on Automated Program Repair (APR)},
+  year      = {2026},
+  publisher = {ACM},
+  doi       = {10.1145/3843776.3844673}
+}
+
+@article{zhong2025impossiblebench,
+  author    = {Zhong, Ziqian and Raghunathan, Aditi and Carlini, Nicholas},
+  title     = {{ImpossibleBench}: Measuring {LLMs}' Propensity of Exploiting Test Cases},
+  journal   = {arXiv preprint arXiv:2510.20270},
+  year      = {2025},
+  doi       = {10.48550/arXiv.2510.20270}
+}
+
+@article{zhao2026misguidance,
+  author    = {Zhao, Junda and Zhou, Shurui and Cohen, Eldan},
+  title     = {Evaluating and Mitigating the Misguidance Effect of Buggy Code in {LLM}-Generated Unit Tests},
+  journal   = {Proceedings of the ACM on Software Engineering},
+  volume    = {3},
+  number    = {ISSTA},
+  year      = {2026},
+  publisher = {ACM},
+  note      = {arXiv:2607.22883}
+}
+
+% --- Supplement: Mutation-Guided LLM Test Generation, Oracles, & Test Update ---
+
+@inproceedings{harman2025ach,
+  author    = {Harman, Mark and Ritchey, Jillian and Harper, Inna and Sengupta, Shubho and Mao, Ke and Gulati, Abhishek and Foster, Christopher and Robert, Herv{\'e}},
+  title     = {Mutation-Guided {LLM}-based Test Generation at {Meta}},
+  booktitle = {Companion Proceedings of the 33rd ACM International Conference on the Foundations of Software Engineering (FSE Companion)},
+  pages     = {180--191},
+  year      = {2025},
+  publisher = {ACM},
+  doi       = {10.1145/3696630.3728544}
+}
+
+@inproceedings{alshahwan2024testgenllm,
+  author    = {Alshahwan, Nadia and Chheda, Jubin and Finogenova, Anastasia and Gokkaya, Beliz and Harman, Mark and Harper, Inna and Marginean, Alexandru and Sengupta, Shubho and Wang, Eddy},
+  title     = {Automated Unit Test Improvement using Large Language Models at {Meta}},
+  booktitle = {Companion Proceedings of the 32nd ACM International Conference on the Foundations of Software Engineering (FSE Companion)},
+  pages     = {185--196},
+  year      = {2024},
+  publisher = {ACM},
+  doi       = {10.1145/3663529.3663839}
+}
+
+@article{dakhel2024mutap,
+  author    = {Dakhel, Arghavan Moradi and Nikanjam, Amin and Majdinasab, Vahid and Khomh, Foutse and Desmarais, Michel C.},
+  title     = {Effective Test Generation Using Pre-trained Large Language Models and Mutation Testing},
+  journal   = {Information and Software Technology},
+  volume    = {171},
+  pages     = {107468},
+  year      = {2024},
+  publisher = {Elsevier},
+  doi       = {10.1016/j.infsof.2024.107468}
+}
+
+@article{wang2026mutgen,
+  author    = {Wang, Guancheng and Xu, Qinghua and Briand, Lionel C. and Liu, Kui},
+  title     = {Mutation-Guided Unit Test Generation With a Large Language Model},
+  journal   = {IEEE Transactions on Software Engineering},
+  year      = {2026},
+  publisher = {IEEE},
+  doi       = {10.1109/TSE.2026.3682975}
+}
+
+@article{lu2026beyondcoverage,
+  author    = {Lu, Zeyu and Zhang, Peng and Nie, Yuge and Yang, Yibiao and Tang, Yutian and Chong, Chun Yong and Zhou, Yuming},
+  title     = {Beyond Coverage: Automatic Test Suite Augmentation for Enhanced Effectiveness using Large Language Models},
+  journal   = {Proceedings of the ACM on Programming Languages},
+  volume    = {10},
+  number    = {OOPSLA1},
+  articleno = {143},
+  pages     = {1403--1431},
+  year      = {2026},
+  publisher = {ACM},
+  doi       = {10.1145/3798251}
+}
+
+@article{du2026survivingmutants,
+  author    = {Du, Hang and Palepu, Vijay Krishna and Jones, James A.},
+  title     = {How Does Killing Surviving Mutants Help Detect Real Bugs with Assertion Generation? A Controlled Experiment},
+  journal   = {Proceedings of the ACM on Software Engineering},
+  volume    = {3},
+  number    = {ISSTA},
+  articleno = {ISSTA141},
+  year      = {2026},
+  publisher = {ACM},
+  doi       = {10.1145/3832232}
+}
+
+@inproceedings{alimadadi2026pytation,
+  author    = {Alimadadi, Saba and Gharachorlu, Golnaz},
+  title     = {Hybrid Fault-Driven Mutation Testing for {Python}},
+  booktitle = {Proceedings of the 48th IEEE/ACM International Conference on Software Engineering (ICSE)},
+  year      = {2026},
+  publisher = {ACM},
+  doi       = {10.1145/3744916.3787804}
+}
+
+@article{pizzorno2025coverup,
+  author    = {Altmayer Pizzorno, Juan and Berger, Emery D.},
+  title     = {{CoverUp}: Effective High Coverage Test Generation for {Python}},
+  journal   = {Proceedings of the ACM on Software Engineering},
+  volume    = {2},
+  number    = {FSE},
+  pages     = {2897--2919},
+  year      = {2025},
+  publisher = {ACM},
+  doi       = {10.1145/3729398}
+}
+
+@inproceedings{hossain2025togll,
+  author    = {Hossain, Soneya Binta and Dwyer, Matthew B.},
+  title     = {{TOGLL}: Correct and Strong Test Oracle Generation with {LLMs}},
+  booktitle = {Proceedings of the IEEE/ACM 47th International Conference on Software Engineering (ICSE)},
+  pages     = {1475--1487},
+  year      = {2025},
+  publisher = {IEEE},
+  doi       = {10.1109/ICSE55347.2025.00098}
+}
+
+@article{hayet2025chatassert,
+  author    = {Hayet, Ishrak and Scott, Adam and d'Amorim, Marcelo},
+  title     = {{ChatAssert}: {LLM}-Based Test Oracle Generation With External Tools Assistance},
+  journal   = {IEEE Transactions on Software Engineering},
+  volume    = {51},
+  number    = {1},
+  pages     = {305--319},
+  year      = {2025},
+  publisher = {IEEE},
+  doi       = {10.1109/TSE.2024.3519159}
+}
+
+@article{molina2025oraclesurvey,
+  author    = {Molina, Facundo and Gorla, Alessandra and d'Amorim, Marcelo},
+  title     = {Test Oracle Automation in the Era of {LLMs}},
+  journal   = {ACM Transactions on Software Engineering and Methodology},
+  year      = {2025},
+  publisher = {ACM},
+  doi       = {10.1145/3715107}
+}
+
+@article{tian2026mumutestup,
+  author    = {Tian, Dawei and Liu, Jiakun and Peng, Yun and Zhang, Yichen and Chi, Jianlei and Sun, Jun and Su, Xiaohong},
+  title     = {{MuMuTestUp}: Mutation-based Multi-Agent Test Case Update},
+  journal   = {arXiv preprint arXiv:2605.19265},
+  year      = {2026},
+  doi       = {10.48550/arXiv.2605.19265}
 }
