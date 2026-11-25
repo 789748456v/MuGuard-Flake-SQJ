@@ -1,0 +1,348 @@
+{
+  "total_samples": 17,
+  "samples": [
+    {
+      "sample_id": "Mapper::ComplexEntityTest.test",
+      "project_name": "Mapper",
+      "language": "java",
+      "git_root": "/root/sqj_work/FT1/projects/1764748eedb2f320a0d1c43cb4f928c4ccb1f2f5/Mapper",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "41ac700752385cff37e0dd06d19ab4d1976873df",
+          "date": "2018-03-11",
+          "subject": "\u4e0d\u518d\u652f\u6301 OGNL \u65b9\u5f0f\u7684 UUID \u7528\u6cd5\u3002",
+          "touched_focal_files": [
+            "core/src/main/java/tk/mybatis/mapper/entity/Config.java"
+          ],
+          "hit_eroded_line": "core/src/main/java/tk/mybatis/mapper/entity/Config.java:L194",
+          "diff_lines": 36
+        }
+      ]
+    },
+    {
+      "sample_id": "Mapper::SqlHelperTest.testLogicDeleteSql",
+      "project_name": "Mapper",
+      "language": "java",
+      "git_root": "/root/sqj_work/FT1/projects/1764748eedb2f320a0d1c43cb4f928c4ccb1f2f5/Mapper",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "41ac700752385cff37e0dd06d19ab4d1976873df",
+          "date": "2018-03-11",
+          "subject": "\u4e0d\u518d\u652f\u6301 OGNL \u65b9\u5f0f\u7684 UUID \u7528\u6cd5\u3002",
+          "touched_focal_files": [
+            "core/src/main/java/tk/mybatis/mapper/entity/Config.java"
+          ],
+          "hit_eroded_line": "core/src/main/java/tk/mybatis/mapper/entity/Config.java:L194",
+          "diff_lines": 36
+        }
+      ]
+    },
+    {
+      "sample_id": "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived",
+      "project_name": "aismessages",
+      "language": "java",
+      "git_root": "/root/sqj_work/FT1/projects/7b0c4c708b6bb9a6da3d5737bcad1857ade8a931/aismessages",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "0da4a82873774102652ed1ba4524339a58cccf10",
+          "date": "2015-11-19",
+          "subject": "Added AISMessage.create(...) accepting metadata",
+          "touched_focal_files": [
+            "src/main/java/dk/tbsalling/aismessages/nmea/NMEAMessageHandler.java"
+          ],
+          "hit_eroded_line": "src/main/java/dk/tbsalling/aismessages/nmea/NMEAMessageHandler.java:L74",
+          "diff_lines": 6
+        }
+      ]
+    },
+    {
+      "sample_id": "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator",
+      "project_name": "dropwizard",
+      "language": "java",
+      "git_root": "/root/sqj_work/FT1/projects/616ed866460ca909cb30a4eafb786c6040218ae8/dropwizard",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "31c8d571bf4a4876e8ab5501c902dcc7a963b80a",
+          "date": "2019-01-20",
+          "subject": "Add support for logging caller data in dropwizard-json-logging",
+          "touched_focal_files": [
+            "dropwizard-json-logging/src/main/java/io/dropwizard/logging/json/layout/JsonFormatter.java"
+          ],
+          "hit_eroded_line": "dropwizard-json-logging/src/main/java/io/dropwizard/logging/json/layout/JsonFormatter.java:L48",
+          "diff_lines": 13
+        }
+      ]
+    },
+    {
+      "sample_id": "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator",
+      "project_name": "dropwizard",
+      "language": "java",
+      "git_root": "/root/sqj_work/FT1/projects/616ed866460ca909cb30a4eafb786c6040218ae8/dropwizard",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "31c8d571bf4a4876e8ab5501c902dcc7a963b80a",
+          "date": "2019-01-20",
+          "subject": "Add support for logging caller data in dropwizard-json-logging",
+          "touched_focal_files": [
+            "dropwizard-json-logging/src/main/java/io/dropwizard/logging/json/layout/JsonFormatter.java"
+          ],
+          "hit_eroded_line": "dropwizard-json-logging/src/main/java/io/dropwizard/logging/json/layout/JsonFormatter.java:L48",
+          "diff_lines": 13
+        }
+      ]
+    },
+    {
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "project_name": "fastjson",
+      "language": "java",
+      "git_root": "/root/sqj_work/FT1/projects/e05e9c5e4be580691cc55a59f3256595393203a1/fastjson",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "27ff9a8ef6420b8c4c6241a3a398a458b2760e8d",
+          "date": "2017-10-01",
+          "subject": "bug fixed for issue #1503",
+          "touched_focal_files": [
+            "src/main/java/com/alibaba/fastjson/JSON.java"
+          ],
+          "hit_eroded_line": "src/main/java/com/alibaba/fastjson/JSON.java:L150",
+          "diff_lines": 20
+        },
+        {
+          "commit_sha": "088b23437386dca2a762202bf8da0a39ae993b8f",
+          "date": "2016-04-03",
+          "subject": "remove codegen",
+          "touched_focal_files": [
+            "src/main/java/com/alibaba/fastjson/serializer/SerializerFeature.java"
+          ],
+          "hit_eroded_line": "src/main/java/com/alibaba/fastjson/serializer/SerializerFeature.java:L168",
+          "diff_lines": 12
+        }
+      ]
+    },
+    {
+      "sample_id": "nacos::JacksonUtilsTest.testToJsonBytes",
+      "project_name": "nacos",
+      "language": "java",
+      "git_root": "/root/sqj_work/FT1/projects/0ac96e1602baf1f516c3c614f13523adb2992e69/nacos",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "d52db5c81d39ea17305942e13aec0266c3cad2fb",
+          "date": "2022-04-11",
+          "subject": "[Optimize] Use StandardCharsets.UTF_8 replace Charset.forName(\"UTF-8\") (#8115)",
+          "touched_focal_files": [
+            "common/src/main/java/com/alibaba/nacos/common/utils/ByteUtils.java"
+          ],
+          "hit_eroded_line": "common/src/main/java/com/alibaba/nacos/common/utils/ByteUtils.java:L66",
+          "diff_lines": 8
+        }
+      ]
+    },
+    {
+      "sample_id": "openhtmltopdf::Slf4JLoggerTest.testLogger",
+      "project_name": "openhtmltopdf",
+      "language": "java",
+      "git_root": "/root/sqj_work/FT1/projects/4a0612fab7b3a55e3e11d485233b063006d03b0f/openhtmltopdf",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "109ad5a3a4509d2c1c15aa35ba625a48935e7fb1",
+          "date": "2019-11-18",
+          "subject": "Refactor logging mechanism, allow the possibity to listen and handle diagnostic messages",
+          "touched_focal_files": [
+            "openhtmltopdf-slf4j/src/main/java/com/openhtmltopdf/slf4j/Slf4jLogger.java"
+          ],
+          "hit_eroded_line": "openhtmltopdf-slf4j/src/main/java/com/openhtmltopdf/slf4j/Slf4jLogger.java:L61",
+          "diff_lines": 40
+        }
+      ]
+    },
+    {
+      "sample_id": "py::Breathe::test_loading.test_loading",
+      "project_name": "Breathe",
+      "language": "python",
+      "git_root": "/root/sqj_work/FT1/py_projects/4600818e24_Breathe",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "78bddd20bdc092d9406f4c2a46e09388f8d723f7",
+          "date": "2019-11-17",
+          "subject": "Better logging",
+          "touched_focal_files": [
+            "breathe/grammar/master.py"
+          ],
+          "hit_eroded_line": "breathe/grammar/master.py:L210",
+          "diff_lines": 9
+        }
+      ]
+    },
+    {
+      "sample_id": "py::Breathe::test_loading.test_reloading",
+      "project_name": "Breathe",
+      "language": "python",
+      "git_root": "/root/sqj_work/FT1/py_projects/4600818e24_Breathe",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "78bddd20bdc092d9406f4c2a46e09388f8d723f7",
+          "date": "2019-11-17",
+          "subject": "Better logging",
+          "touched_focal_files": [
+            "breathe/grammar/master.py"
+          ],
+          "hit_eroded_line": "breathe/grammar/master.py:L210",
+          "diff_lines": 9
+        }
+      ]
+    },
+    {
+      "sample_id": "py::Breathe::test_merger.test_context_commands",
+      "project_name": "Breathe",
+      "language": "python",
+      "git_root": "/root/sqj_work/FT1/py_projects/4600818e24_Breathe",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "4ebd40ea027ca77f561425e44106ce739b977738",
+          "date": "2019-11-21",
+          "subject": "Cleaner",
+          "touched_focal_files": [
+            "breathe/grammar/master.py"
+          ],
+          "hit_eroded_line": "breathe/grammar/master.py:L251",
+          "diff_lines": 4
+        }
+      ]
+    },
+    {
+      "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_delete",
+      "project_name": "centreon-sdk-python",
+      "language": "python",
+      "git_root": "/root/sqj_work/FT1/py_projects/9f207d5458_centreon-sdk-python",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "6d8893fba50ed798a0fc0045e61887e4221325ff",
+          "date": "2018-12-14",
+          "subject": "CentreonAPI module refacto",
+          "touched_focal_files": [
+            "centreonapi/webservice/__init__.py"
+          ],
+          "hit_eroded_line": "centreonapi/webservice/__init__.py:L150",
+          "diff_lines": 9
+        }
+      ]
+    },
+    {
+      "sample_id": "remoting::DiagnosedStreamCorruptionExceptionTest.exercise",
+      "project_name": "remoting",
+      "language": "java",
+      "git_root": "/root/sqj_work/FT1/projects/abf0455a68ad6c52a57e912bb89d51f883f77542/remoting",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "81c2837089753a2a0c32a662bbe343dec5307a71",
+          "date": "2015-11-07",
+          "subject": "ClassFilter is not creating a new ClassLoader.",
+          "touched_focal_files": [
+            "src/main/java/hudson/remoting/ChannelBuilder.java"
+          ],
+          "hit_eroded_line": "src/main/java/hudson/remoting/ChannelBuilder.java:L483",
+          "diff_lines": 2
+        }
+      ]
+    },
+    {
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "project_name": "visualee",
+      "language": "java",
+      "git_root": "/root/sqj_work/FT1/projects/88732d9dbe5031dad9c9f85a4c4b35e5f1551f95/visualee",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "0550d4896282c110cf8de60dda67f23a01380feb",
+          "date": "2016-02-07",
+          "subject": "Implemented filters. Refactored.",
+          "touched_focal_files": [
+            "src/main/java/de/strullerbaumann/visualee/examiner/Examiner.java"
+          ],
+          "hit_eroded_line": "src/main/java/de/strullerbaumann/visualee/examiner/Examiner.java:L232",
+          "diff_lines": 60
+        }
+      ]
+    },
+    {
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "project_name": "visualee",
+      "language": "java",
+      "git_root": "/root/sqj_work/FT1/projects/88732d9dbe5031dad9c9f85a4c4b35e5f1551f95/visualee",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "316f0207bd700a78ebcb58dfbc6cdabe0622d693",
+          "date": "2013-09-20",
+          "subject": "JavaSource renamed injected to dependencies",
+          "touched_focal_files": [
+            "src/main/java/de/strullerbaumann/visualee/dependency/boundary/DependencyFilter.java"
+          ],
+          "hit_eroded_line": "src/main/java/de/strullerbaumann/visualee/dependency/boundary/DependencyFilter.java:L65",
+          "diff_lines": 10
+        }
+      ]
+    },
+    {
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "project_name": "visualee",
+      "language": "java",
+      "git_root": "/root/sqj_work/FT1/projects/88732d9dbe5031dad9c9f85a4c4b35e5f1551f95/visualee",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "316f0207bd700a78ebcb58dfbc6cdabe0622d693",
+          "date": "2013-09-20",
+          "subject": "JavaSource renamed injected to dependencies",
+          "touched_focal_files": [
+            "src/main/java/de/strullerbaumann/visualee/dependency/boundary/DependencyFilter.java"
+          ],
+          "hit_eroded_line": "src/main/java/de/strullerbaumann/visualee/dependency/boundary/DependencyFilter.java:L65",
+          "diff_lines": 10
+        }
+      ]
+    },
+    {
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "project_name": "visualee",
+      "language": "java",
+      "git_root": "/root/sqj_work/FT1/projects/88732d9dbe5031dad9c9f85a4c4b35e5f1551f95/visualee",
+      "has_eroded_llm_patches": true,
+      "candidate_commits": [
+        {
+          "commit_sha": "0550d4896282c110cf8de60dda67f23a01380feb",
+          "date": "2016-02-07",
+          "subject": "Implemented filters. Refactored.",
+          "touched_focal_files": [
+            "src/main/java/de/strullerbaumann/visualee/examiner/Examiner.java"
+          ],
+          "hit_eroded_line": "src/main/java/de/strullerbaumann/visualee/examiner/Examiner.java:L94",
+          "diff_lines": 60
+        },
+        {
+          "commit_sha": "75c5d9427bf0977d012b038834c07bb5c8c2fbe4",
+          "date": "2013-10-10",
+          "subject": "cleaned Examiners Template Pattern enhanced pom Profile release gpg",
+          "touched_focal_files": [
+            "src/main/java/de/strullerbaumann/visualee/examiner/jpa/ExaminerJPA.java"
+          ],
+          "hit_eroded_line": "src/main/java/de/strullerbaumann/visualee/examiner/jpa/ExaminerJPA.java:L103",
+          "diff_lines": 72
+        }
+      ]
+    }
+  ]
+}

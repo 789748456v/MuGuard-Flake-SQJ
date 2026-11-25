@@ -1,0 +1,34 @@
+{
+  "protocol_version": "3.0.0-k1-llm-judge",
+  "judge_model": "qwen3.7-plus",
+  "models": {
+    "kimi-k2.5": {
+      "n_eligible": 203,
+      "b2_w_plus_pool": 112,
+      "judge_accepted_w_plus": 101,
+      "judge_accepted_pct": 49.75,
+      "leaked_eroded": 22,
+      "unver": 0,
+      "leak_among_accepted_pct": 21.78,
+      "sound_fix": 79,
+      "sound_fix_pct": 38.92,
+      "eroded_caught": 7,
+      "sound_false_rejected": 4,
+      "median_judge_sec": 17.32
+    },
+    "glm-5": {
+      "n_eligible": 203,
+      "b2_w_plus_pool": 128,
+      "judge_accepted_w_plus": 113,
+      "judge_accepted_pct": 55.67,
+      "leaked_eroded": 26,
+      "unver": 2,
+      "leak_among_accepted_pct": 23.01,
+      "sound_fix": 85,
+      "sound_fix_pct": 41.87,
+      "eroded_caught": 5,
+      "sound_false_rejected": 10,
+      "median_judge_sec": 17.27
+    }
+  }
+}

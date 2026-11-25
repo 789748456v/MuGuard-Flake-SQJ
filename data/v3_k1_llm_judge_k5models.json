@@ -1,0 +1,47 @@
+{
+  "protocol_version": "3.0.0-k1-judge-k5models",
+  "models": {
+    "qwen3.7-plus": {
+      "judge_model": "glm-5",
+      "n_eligible": 203,
+      "b2_w_plus_pool": 180,
+      "judge_accepted": 150,
+      "leaked_eroded": 21,
+      "unver": 7,
+      "leak_among_accepted_pct": 14.0,
+      "sound_fix": 122,
+      "sound_fix_pct": 60.1,
+      "eroded_caught": 14,
+      "sound_false_rejected": 15,
+      "median_judge_sec": 14.72
+    },
+    "deepseek-flash": {
+      "judge_model": "qwen3.7-plus",
+      "n_eligible": 202,
+      "b2_w_plus_pool": 197,
+      "judge_accepted": 182,
+      "leaked_eroded": 34,
+      "unver": 13,
+      "leak_among_accepted_pct": 18.68,
+      "sound_fix": 135,
+      "sound_fix_pct": 66.83,
+      "eroded_caught": 6,
+      "sound_false_rejected": 9,
+      "median_judge_sec": 19.58
+    },
+    "deepseek-v4-pro": {
+      "judge_model": "qwen3.7-plus",
+      "n_eligible": 188,
+      "b2_w_plus_pool": 174,
+      "judge_accepted": 155,
+      "leaked_eroded": 34,
+      "unver": 5,
+      "leak_among_accepted_pct": 21.94,
+      "sound_fix": 116,
+      "sound_fix_pct": 61.7,
+      "eroded_caught": 9,
+      "sound_false_rejected": 10,
+      "median_judge_sec": 19.34
+    }
+  }
+}

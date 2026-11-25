@@ -1,0 +1,864 @@
+{
+  "protocol_version": "3.0.0-real-bug-replay",
+  "evaluated": {
+    "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived::aeed1e519b24": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "Sentinel::SentinelConfigTest.testDefaultConfig::326dd4434d43": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived::09715f173c39": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "avro::TestReflect.testAnnotationMultiAvroMeta::196777ccc2e6": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "avro::TestReflect.testAnnotationMultiAvroMeta::fa1a8ef80511": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "avro::TestReflect.testAnnotationMultiAvroMeta::c533aeff68af": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "avro::TestReflect.testAvroDoc::196777ccc2e6": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "avro::TestReflect.testAvroDoc::fa1a8ef80511": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "avro::TestReflect.testAvroDoc::c533aeff68af": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "avro::TestReflect.testMultipleFieldAliases::196777ccc2e6": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "avro::TestReflect.testMultipleFieldAliases::c533aeff68af": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "avro::TestReflect.testRecord::196777ccc2e6": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "avro::TestReflect.testRecord::fa1a8ef80511": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "avro::TestReflect.testRecord::c533aeff68af": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::3e08af573f8b": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::3a818ed6a833": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::e29f33c36677": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::MultilineRecursiveToStringStyleTest.stringArray::3e08af573f8b": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::MultilineRecursiveToStringStyleTest.stringArray::3a818ed6a833": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::MultilineRecursiveToStringStyleTest.stringArray::e29f33c36677": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ReflectionToStringBuilderSummaryTest.testSummary::c614fbcc7961": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ReflectionToStringBuilderSummaryTest.testSummary::3e08af573f8b": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ReflectionToStringBuilderSummaryTest.testSummary::3a818ed6a833": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ReflectionToStringBuilderSummaryTest.testSummary::8bb352631740": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testInheritedReflectionStatics::3e08af573f8b": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testInheritedReflectionStatics::3a818ed6a833": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testInheritedReflectionStatics::8bb352631740": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testInheritedReflectionStatics::e29f33c36677": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testReflectionHierarchy::3e08af573f8b": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testReflectionHierarchy::3a818ed6a833": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testReflectionHierarchy::e29f33c36677": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testReflectionHierarchyArrayList::3e08af573f8b": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testReflectionHierarchyArrayList::3a818ed6a833": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testReflectionHierarchyArrayList::e29f33c36677": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testReflectionStatics::3e08af573f8b": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testReflectionStatics::3a818ed6a833": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testReflectionStatics::8bb352631740": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testReflectionStatics::e29f33c36677": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testSelfInstanceTwoVarsReflectionObjectCycle::3e08af573f8b": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testSelfInstanceTwoVarsReflectionObjectCycle::3a818ed6a833": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testSelfInstanceTwoVarsReflectionObjectCycle::e29f33c36677": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testSimpleReflectionStatics::3e08af573f8b": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testSimpleReflectionStatics::3a818ed6a833": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "commons-lang::ToStringBuilderTest.testSimpleReflectionStatics::8bb352631740": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "dropwizard::LoggingExceptionMapperTest.handlesMethodNotAllowedWithHeaders::45e76fe8b29c": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "commons-lang::ToStringBuilderTest.testSimpleReflectionStatics::e29f33c36677": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "fastjson::JSONPParseTest3.test_f::c8c4fa9763db": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "fastjson::JSONPParseTest3.test_f::27ff9a8ef642": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "fastjson::JSONPParseTest3.test_f::4f4aea08c872": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "fastjson::JSONPParseTest3.test_f::da06eb8b53f3": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "fastjson::WriteClassNameTest_Map.test_list::9346be1ff9dc": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "fastjson::WriteClassNameTest_Map.test_list::b07ea7d5fa5f": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "fastjson::WriteClassNameTest_Map.test_list::c8c4fa9763db": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "fastjson::WriteClassNameTest_Map.test_list::0ac9d327e5f8": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "fastjson::WriteDuplicateType.test_dupType::c8c4fa9763db": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "fastjson::WriteDuplicateType.test_dupType::27ff9a8ef642": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "fastjson::WriteDuplicateType.test_dupType::4f4aea08c872": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "fastjson::WriteDuplicateType.test_dupType::da06eb8b53f3": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "hippo4j::ContentUtilTest.assertGetPoolContent::bf1acefaeeb3": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.headWithMappedQueryParams::38358628f80a": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.headWithMappedQueryParams::90c4b387e110": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.headWithMappedQueryParams::4f641c01e265": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.headWithMappedQueryParams::cb9e021f13b8": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.headWithVaragsQueryParams::38358628f80a": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.headWithVaragsQueryParams::90c4b387e110": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.headWithVaragsQueryParams::4f641c01e265": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.headWithVaragsQueryParams::cb9e021f13b8": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.postWithEscapedMappedQueryParams::38358628f80a": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.postWithEscapedMappedQueryParams::90c4b387e110": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.postWithEscapedMappedQueryParams::4f641c01e265": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.postWithEscapedMappedQueryParams::cb9e021f13b8": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.postWithEscapedVarargsQueryParams::38358628f80a": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.postWithEscapedVarargsQueryParams::90c4b387e110": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.postWithEscapedVarargsQueryParams::4f641c01e265": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.postWithEscapedVarargsQueryParams::cb9e021f13b8": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.postWithNumericQueryParams::38358628f80a": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.postWithNumericQueryParams::90c4b387e110": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.postWithNumericQueryParams::4f641c01e265": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.postWithNumericQueryParams::cb9e021f13b8": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.singleSslSocketFactory::38358628f80a": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.singleSslSocketFactory::90c4b387e110": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.singleSslSocketFactory::4f641c01e265": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.singleSslSocketFactory::cb9e021f13b8": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.singleVerifier::38358628f80a": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.singleVerifier::90c4b387e110": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.singleVerifier::4f641c01e265": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "http-request::HttpRequestTest.singleVerifier::cb9e021f13b8": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "karate::JsEngineTest.testObjectsWithinFunction::442a9168d616": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "karate::JsEngineTest.testObjectsWithinFunction::ebd51c3083a0": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "nacos::JacksonUtilsTest.testToJsonBytes::fa5fbd79e184": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "karate::JsEngineTest.testObjectsWithinFunction::e8d2fb33f5d8": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "nacos::JacksonUtilsTest.testToJsonBytes::f326a0c543c8": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "nacos::JacksonUtilsTest.testToJsonBytes::2d40c5225b5d": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::centreon-sdk-python::TestCommands.test_command_list::70d1752f91f6": {
+      "certified_real_bug": true,
+      "sample_id": "py::centreon-sdk-python::TestCommands.test_command_list",
+      "language": "python",
+      "commit_sha": "70d1752f91f67e1cf69e9f7356062ef7e710295a",
+      "commit_date": "2019-02-05",
+      "commit_subject": "WIP: Fix refacto (return)",
+      "touched_focal_files": [
+        "centreonapi/webservice/configuration/command.py"
+      ],
+      "orig_fail_diag": "P-Memory')\nE       TypeError: cannot unpack non-iterable Command object\n\ntests/test_command.py:68: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_command.py::TestCommands::test_command_list - TypeError: ca...\n1 failed, 1 passed in 0.19s\n\n",
+      "candidate_outcomes": {
+        "deepseek-flash::B0_Standard_Validator": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "ack non-iterable Command object\n\ntests/test_command.py:77: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_command.py::TestCommands::test_command_list - TypeError: ca...\n1 failed in 0.17s\n\n"
+        },
+        "deepseek-flash::B3_Plus_Structural_Guard": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "ack non-iterable Command object\n\ntests/test_command.py:76: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_command.py::TestCommands::test_command_list - TypeError: ca...\n1 failed in 0.22s\n\n"
+        },
+        "deepseek-v4-pro::B3_Plus_Structural_Guard": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "ack non-iterable Command object\n\ntests/test_command.py:78: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_command.py::TestCommands::test_command_list - TypeError: ca...\n1 failed in 0.26s\n\n"
+        },
+        "qwen3.7-plus::B5_Coverage_Gate": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "ack non-iterable Command object\n\ntests/test_command.py:73: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_command.py::TestCommands::test_command_list - TypeError: ca...\n1 failed in 0.19s\n\n"
+        },
+        "qwen3.7-plus::B6_LLM_Judge_Gate": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "ack non-iterable Command object\n\ntests/test_command.py:73: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_command.py::TestCommands::test_command_list - TypeError: ca...\n1 failed in 0.19s\n\n"
+        }
+      },
+      "wall_sec": 5.33
+    },
+    "py::centreon-sdk-python::TestCommands.test_command_list::d8c5cd659f6f": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "nacos::JacksonUtilsTest.testToJsonBytes::80078ae8ee8c": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "py::centreon-sdk-python::TestCommands.test_command_not_exist::70d1752f91f6": {
+      "certified_real_bug": true,
+      "sample_id": "py::centreon-sdk-python::TestCommands.test_command_not_exist",
+      "language": "python",
+      "commit_sha": "70d1752f91f67e1cf69e9f7356062ef7e710295a",
+      "commit_date": "2019-02-05",
+      "commit_subject": "WIP: Fix refacto (return)",
+      "touched_focal_files": [
+        "centreonapi/webservice/configuration/command.py"
+      ],
+      "orig_fail_diag": "         ValueError: Command empty not found\n\ncentreonapi/webservice/configuration/command.py:61: ValueError\n=========================== short test summary info ============================\nFAILED tests/test_command.py::TestCommands::test_command_not_exist - ValueErr...\n1 failed, 1 passed in 0.17s\n\n",
+      "candidate_outcomes": {
+        "deepseek-flash::B0_Standard_Validator": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "ound\n\ncentreonapi/webservice/configuration/command.py:61: ValueError\n=========================== short test summary info ============================\nFAILED tests/test_command.py::TestCommands::test_command_not_exist - ValueErr...\n1 failed in 0.16s\n\n"
+        },
+        "deepseek-flash::B3_Plus_Structural_Guard": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "ound\n\ncentreonapi/webservice/configuration/command.py:61: ValueError\n=========================== short test summary info ============================\nFAILED tests/test_command.py::TestCommands::test_command_not_exist - ValueErr...\n1 failed in 0.20s\n\n"
+        },
+        "deepseek-v4-pro::B0_Standard_Validator": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "ound\n\ncentreonapi/webservice/configuration/command.py:61: ValueError\n=========================== short test summary info ============================\nFAILED tests/test_command.py::TestCommands::test_command_not_exist - ValueErr...\n1 failed in 0.18s\n\n"
+        },
+        "deepseek-v4-pro::B3_Plus_Structural_Guard": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "ound\n\ncentreonapi/webservice/configuration/command.py:61: ValueError\n=========================== short test summary info ============================\nFAILED tests/test_command.py::TestCommands::test_command_not_exist - ValueErr...\n1 failed in 0.16s\n\n"
+        },
+        "qwen3.7-plus::B0_Standard_Validator": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "ound\n\ncentreonapi/webservice/configuration/command.py:61: ValueError\n=========================== short test summary info ============================\nFAILED tests/test_command.py::TestCommands::test_command_not_exist - ValueErr...\n1 failed in 0.17s\n\n"
+        }
+      },
+      "wall_sec": 4.9
+    },
+    "py::centreon-sdk-python::TestCommands.test_command_not_exist::d8c5cd659f6f": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::centreon-sdk-python::TestHosts.test_hosts_list::969a31461ada": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::centreon-sdk-python::TestHosts.test_hosts_list::70d1752f91f6": {
+      "certified_real_bug": true,
+      "sample_id": "py::centreon-sdk-python::TestHosts.test_hosts_list",
+      "language": "python",
+      "commit_sha": "70d1752f91f67e1cf69e9f7356062ef7e710295a",
+      "commit_date": "2019-02-05",
+      "commit_subject": "WIP: Fix refacto (return)",
+      "touched_focal_files": [
+        "centreonapi/webservice/configuration/host.py"
+      ],
+      "orig_fail_diag": "anus-frontend')\nE       TypeError: cannot unpack non-iterable Host object\n\ntests/test_hosts.py:72: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_hosts.py::TestHosts::test_hosts_list - TypeError: cannot un...\n1 failed, 1 passed in 0.18s\n\n",
+      "candidate_outcomes": {
+        "deepseek-flash::B0_Standard_Validator": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "t unpack non-iterable Host object\n\ntests/test_hosts.py:82: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_hosts.py::TestHosts::test_hosts_list - TypeError: cannot un...\n1 failed in 0.21s\n\n"
+        },
+        "deepseek-flash::B3_Plus_Structural_Guard": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "t unpack non-iterable Host object\n\ntests/test_hosts.py:83: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_hosts.py::TestHosts::test_hosts_list - TypeError: cannot un...\n1 failed in 0.22s\n\n"
+        },
+        "deepseek-flash::Ours_MuGuard_Flake": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "t unpack non-iterable Host object\n\ntests/test_hosts.py:76: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_hosts.py::TestHosts::test_hosts_list - TypeError: cannot un...\n1 failed in 0.20s\n\n"
+        },
+        "deepseek-v4-pro::B0_Standard_Validator": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "t unpack non-iterable Host object\n\ntests/test_hosts.py:83: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_hosts.py::TestHosts::test_hosts_list - TypeError: cannot un...\n1 failed in 0.18s\n\n"
+        },
+        "deepseek-v4-pro::B3_Plus_Structural_Guard": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "t unpack non-iterable Host object\n\ntests/test_hosts.py:85: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_hosts.py::TestHosts::test_hosts_list - TypeError: cannot un...\n1 failed in 0.17s\n\n"
+        }
+      },
+      "wall_sec": 5.06
+    },
+    "py::centreon-sdk-python::TestHosts.test_hosts_not_exist::969a31461ada": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::centreon-sdk-python::TestHosts.test_hosts_not_exist::70d1752f91f6": {
+      "certified_real_bug": true,
+      "sample_id": "py::centreon-sdk-python::TestHosts.test_hosts_not_exist",
+      "language": "python",
+      "commit_sha": "70d1752f91f67e1cf69e9f7356062ef7e710295a",
+      "commit_date": "2019-02-05",
+      "commit_subject": "WIP: Fix refacto (return)",
+      "touched_focal_files": [
+        "centreonapi/webservice/configuration/host.py"
+      ],
+      "orig_fail_diag": "et('empty')\nE       TypeError: cannot unpack non-iterable NoneType object\n\ntests/test_hosts.py:83: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_hosts.py::TestHosts::test_hosts_not_exist - TypeError: cann...\n1 failed, 1 passed in 0.19s\n\n",
+      "candidate_outcomes": {
+        "deepseek-flash::B0_Standard_Validator": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "pack non-iterable NoneType object\n\ntests/test_hosts.py:88: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_hosts.py::TestHosts::test_hosts_not_exist - TypeError: cann...\n1 failed in 0.17s\n\n"
+        },
+        "deepseek-flash::B3_Plus_Structural_Guard": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "pack non-iterable NoneType object\n\ntests/test_hosts.py:88: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_hosts.py::TestHosts::test_hosts_not_exist - TypeError: cann...\n1 failed in 0.17s\n\n"
+        },
+        "deepseek-v4-pro::B3_Plus_Structural_Guard": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "pack non-iterable NoneType object\n\ntests/test_hosts.py:95: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_hosts.py::TestHosts::test_hosts_not_exist - TypeError: cann...\n1 failed in 0.18s\n\n"
+        }
+      },
+      "wall_sec": 3.31
+    },
+    "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_building_line::70d1752f91f6": {
+      "certified_real_bug": true,
+      "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_building_line",
+      "language": "python",
+      "commit_sha": "70d1752f91f67e1cf69e9f7356062ef7e710295a",
+      "commit_date": "2019-02-05",
+      "commit_subject": "WIP: Fix refacto (return)",
+      "touched_focal_files": [
+        "centreonapi/webservice/configuration/resourcecfg.py"
+      ],
+      "orig_fail_diag": ")\nE       TypeError: cannot unpack non-iterable ResourceCFG object\n\ntests/test_resourcecfg.py:81: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_resourcecfg.py::TestResourceCFG::test_resourcecfg_building_line\n1 failed, 1 passed in 0.17s\n\n",
+      "candidate_outcomes": {
+        "deepseek-flash::B3_Plus_Structural_Guard": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "terable ResourceCFG object\n\ntests/test_resourcecfg.py:89: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_resourcecfg.py::TestResourceCFG::test_resourcecfg_building_line\n1 failed in 0.16s\n\n"
+        },
+        "deepseek-v4-pro::B0_Standard_Validator": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "terable ResourceCFG object\n\ntests/test_resourcecfg.py:94: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_resourcecfg.py::TestResourceCFG::test_resourcecfg_building_line\n1 failed in 0.16s\n\n"
+        },
+        "deepseek-v4-pro::B3_Plus_Structural_Guard": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "terable ResourceCFG object\n\ntests/test_resourcecfg.py:97: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_resourcecfg.py::TestResourceCFG::test_resourcecfg_building_line\n1 failed in 0.16s\n\n"
+        },
+        "qwen3.7-plus::B3_Plus_Structural_Guard": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "terable ResourceCFG object\n\ntests/test_resourcecfg.py:86: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_resourcecfg.py::TestResourceCFG::test_resourcecfg_building_line\n1 failed in 0.16s\n\n"
+        }
+      },
+      "wall_sec": 3.84
+    },
+    "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_building_line::d8c5cd659f6f": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_delete::70d1752f91f6": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_delete::d8c5cd659f6f": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_get_one::70d1752f91f6": {
+      "certified_real_bug": true,
+      "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_get_one",
+      "language": "python",
+      "commit_sha": "70d1752f91f67e1cf69e9f7356062ef7e710295a",
+      "commit_date": "2019-02-05",
+      "commit_subject": "WIP: Fix refacto (return)",
+      "touched_focal_files": [
+        "centreonapi/webservice/configuration/resourcecfg.py"
+      ],
+      "orig_fail_diag": "SION$')\nE       TypeError: cannot unpack non-iterable ResourceCFG object\n\ntests/test_resourcecfg.py:70: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_resourcecfg.py::TestResourceCFG::test_resourcecfg_get_one\n1 failed, 1 passed in 0.19s\n\n",
+      "candidate_outcomes": {
+        "deepseek-flash::B0_Standard_Validator": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": " non-iterable ResourceCFG object\n\ntests/test_resourcecfg.py:83: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_resourcecfg.py::TestResourceCFG::test_resourcecfg_get_one\n1 failed in 0.17s\n\n"
+        },
+        "deepseek-flash::B3_Plus_Structural_Guard": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": " non-iterable ResourceCFG object\n\ntests/test_resourcecfg.py:78: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_resourcecfg.py::TestResourceCFG::test_resourcecfg_get_one\n1 failed in 0.17s\n\n"
+        },
+        "deepseek-v4-pro::B0_Standard_Validator": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": " non-iterable ResourceCFG object\n\ntests/test_resourcecfg.py:83: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_resourcecfg.py::TestResourceCFG::test_resourcecfg_get_one\n1 failed in 0.16s\n\n"
+        },
+        "deepseek-v4-pro::B3_Plus_Structural_Guard": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": " non-iterable ResourceCFG object\n\ntests/test_resourcecfg.py:82: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_resourcecfg.py::TestResourceCFG::test_resourcecfg_get_one\n1 failed in 0.16s\n\n"
+        },
+        "qwen3.7-plus::B3_Plus_Structural_Guard": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": " non-iterable ResourceCFG object\n\ntests/test_resourcecfg.py:75: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_resourcecfg.py::TestResourceCFG::test_resourcecfg_get_one\n1 failed in 0.16s\n\n"
+        }
+      },
+      "wall_sec": 4.63
+    },
+    "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_get_one::d8c5cd659f6f": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_not_exist::70d1752f91f6": {
+      "certified_real_bug": true,
+      "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_not_exist",
+      "language": "python",
+      "commit_sha": "70d1752f91f67e1cf69e9f7356062ef7e710295a",
+      "commit_date": "2019-02-05",
+      "commit_subject": "WIP: Fix refacto (return)",
+      "touched_focal_files": [
+        "centreonapi/webservice/configuration/resourcecfg.py"
+      ],
+      "orig_fail_diag": "     ValueError: Resource $empty$ not found\n\ncentreonapi/webservice/configuration/resourcecfg.py:62: ValueError\n=========================== short test summary info ============================\nFAILED tests/test_resourcecfg.py::TestResourceCFG::test_resourcecfg_not_exist\n1 failed, 1 passed in 0.16s\n\n",
+      "candidate_outcomes": {
+        "deepseek-flash::B0_Standard_Validator": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "und\n\ncentreonapi/webservice/configuration/resourcecfg.py:62: ValueError\n=========================== short test summary info ============================\nFAILED tests/test_resourcecfg.py::TestResourceCFG::test_resourcecfg_not_exist\n1 failed in 0.19s\n\n"
+        },
+        "deepseek-flash::B3_Plus_Structural_Guard": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "und\n\ncentreonapi/webservice/configuration/resourcecfg.py:62: ValueError\n=========================== short test summary info ============================\nFAILED tests/test_resourcecfg.py::TestResourceCFG::test_resourcecfg_not_exist\n1 failed in 0.17s\n\n"
+        },
+        "deepseek-flash::Ours_MuGuard_Flake": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "und\n\ncentreonapi/webservice/configuration/resourcecfg.py:62: ValueError\n=========================== short test summary info ============================\nFAILED tests/test_resourcecfg.py::TestResourceCFG::test_resourcecfg_not_exist\n1 failed in 0.16s\n\n"
+        },
+        "deepseek-v4-pro::B3_Plus_Structural_Guard": {
+          "compiled": true,
+          "passed_on_bug": false,
+          "outcome": "BUG_CAUGHT",
+          "diag": "und\n\ncentreonapi/webservice/configuration/resourcecfg.py:62: ValueError\n=========================== short test summary info ============================\nFAILED tests/test_resourcecfg.py::TestResourceCFG::test_resourcecfg_not_exist\n1 failed in 0.17s\n\n"
+        }
+      },
+      "wall_sec": 3.89
+    },
+    "py::crom::TestFactorySerialization.test_recursion::f5a53aa757be": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_not_exist::d8c5cd659f6f": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestFactorySerialization.test_recursion::519e528f16c2": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestFactorySerialization.test_recursion::a115c9ee00f5": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestFactorySerialization.test_recursion::618e510be598": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestFactorySerialization.test_string_list::f5a53aa757be": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestFactorySerialization.test_string_list::519e528f16c2": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestFactorySerialization.test_string_list::a115c9ee00f5": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestFactorySerialization.test_string_list::618e510be598": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestMagicMethods.test_not_multiple_instance::f5a53aa757be": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestMagicMethods.test_not_multiple_instance::519e528f16c2": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestMagicMethods.test_not_multiple_instance::a115c9ee00f5": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestMagicMethods.test_not_multiple_instance::618e510be598": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestMagicMethods.test_validate_multiplicity::f5a53aa757be": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestMagicMethods.test_validate_multiplicity::519e528f16c2": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestMagicMethods.test_validate_multiplicity::a115c9ee00f5": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestMagicMethods.test_validate_multiplicity::618e510be598": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestMagicMethods.test_validate_profile_off::f5a53aa757be": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestMagicMethods.test_validate_profile_off::519e528f16c2": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestMagicMethods.test_validate_profile_off::a115c9ee00f5": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestMagicMethods.test_validate_profile_off::618e510be598": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestPropertyCache.test_cache_hierarchy::f5a53aa757be": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestPropertyCache.test_cache_hierarchy::519e528f16c2": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestPropertyCache.test_cache_hierarchy::a115c9ee00f5": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::krllint::LowerOrMixedCaseBuiltInTestCase.test_rule_with_fix::7dcf75f00b24": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::crom::TestPropertyCache.test_cache_hierarchy::618e510be598": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::ucal::TestSyntax.test_function_ln::83551a40abb8": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::ucal::TestSyntax.test_function_ln::843610d0dd63": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::yamicache::test_class.test_utility::6b60289bba27": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "remoting::DiagnosedStreamCorruptionExceptionTest.exercise::85700ff99b1a": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "remoting::DiagnosedStreamCorruptionExceptionTest.exercise::e41b2e248ee7": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "remoting::DiagnosedStreamCorruptionExceptionTest.exercise::1f9e597ab6b1": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "visualee::DescriptionTest.testGenerateDescription::70443ca2e274": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "remoting::DiagnosedStreamCorruptionExceptionTest.exercise::b50a7812a6f7": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "visualee::DescriptionTest.testGenerateDescription2::70443ca2e274": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "visualee::GraphCreatorTest.testBuildJSONNode::70443ca2e274": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "visualee::GraphCreatorTest.testBuildJSONNodes::70443ca2e274": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "visualee::SourcecodeFilterTest.testIsOkExcludeFalse::70443ca2e274": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany::70443ca2e274": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "visualee::SourcecodeFilterTest.testIsOkIncludeTrue::70443ca2e274": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    }
+  }
+}

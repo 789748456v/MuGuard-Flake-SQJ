@@ -15,5 +15,5 @@ Top-25 & 72.4\% & 92.3\% & 79.5\% & 84.0\% & 93.5\% \\
 All & 100.0\% & 100.0\% & 100.0\% & 100.0\% & 99.0\% \\
 \bottomrule
 \end{tabular}
-\par\smallskip\parbox{0.96\textwidth}{\scriptsize\textit{Note:} Target-Only omits partner obligations $M_{\text{det}}(T_{\text{part}})$, capping recall at 99.0\% because four eroded patches weaken exclusively partner obligations.}
+\par\smallskip\parbox{0.96\textwidth}{\scriptsize\textit{Note:} Target-Only omits partner obligations $M_{\text{det}}(T_{\text{part}})$, capping recall at 99.0\% (four eroded patches weaken exclusively partner obligations). Executed live inside the $K=5$ loop on confirmatory Qwen 3.7 Plus, uniform Top-10 gating leaks 12/165 (7.27\%) eroded patches and yields 75.37\% SoundFix versus 79.31\% under full \textsc{MuGuard-Flake} (Table~S-5).}
 \end{table}

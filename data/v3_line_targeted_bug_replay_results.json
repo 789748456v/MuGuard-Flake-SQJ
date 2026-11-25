@@ -1,0 +1,77 @@
+{
+  "protocol_version": "3.0.0-real-bug-replay",
+  "evaluated": {
+    "Mapper::ComplexEntityTest.test::41ac70075238": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "Mapper::SqlHelperTest.testLogicDeleteSql::41ac70075238": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived::0da4a8287377": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator::31c8d571bf4a": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator::31c8d571bf4a": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "fastjson::WriteClassNameTest_Map.test_list::27ff9a8ef642": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "fastjson::WriteClassNameTest_Map.test_list::088b23437386": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "nacos::JacksonUtilsTest.testToJsonBytes::d52db5c81d39": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::Breathe::test_loading.test_loading::78bddd20bdc0": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::Breathe::test_loading.test_reloading::78bddd20bdc0": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_delete::6d8893fba50e": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "py::Breathe::test_merger.test_context_commands::4ebd40ea027c": {
+      "certified_real_bug": false,
+      "reason": "orig_test_still_passed_on_reverted_commit"
+    },
+    "visualee::DescriptionTest.testGenerateDescription2::0550d4896282": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "remoting::DiagnosedStreamCorruptionExceptionTest.exercise::81c283708975": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "visualee::GraphCreatorTest.testBuildJSONNode::316f0207bd70": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "visualee::GraphCreatorTest.testBuildJSONNodes::316f0207bd70": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany::0550d4896282": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    },
+    "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany::75c5d9427bf0": {
+      "certified_real_bug": false,
+      "reason": "reverted_prod_compile_fail"
+    }
+  }
+}

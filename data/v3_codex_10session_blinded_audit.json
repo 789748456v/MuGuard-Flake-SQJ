@@ -1,0 +1,1784 @@
+{
+  "protocol_version": "3.0.0-codex-10session-blinded-ensemble",
+  "auditor_cli": "codex-cli 0.153.4",
+  "auditor_model": "gpt-6-astra",
+  "auditor_reasoning_effort": "medium",
+  "num_independent_sessions": 10,
+  "total_blinded_adjudications": 2240,
+  "blinding_guarantees": "10 stateless (--ephemeral), read-only (-s read-only) OpenAI Codex sessions executed outside the repository (--skip-git-repo-check) with independent Fisher-Yates item-order permutations (seeds 20261101..20261110), zero access to repository files, strategy names, model identities, gate verdicts, PR merge statuses, Stage-1 labels, or peer sessions.",
+  "dimensions": {
+    "pr_53_five_class": {
+      "n_items": 53,
+      "n_sessions": 10,
+      "intra_ensemble_fleiss_kappa": 0.9945,
+      "unanimous_10of10_count": 52,
+      "unanimous_10of10_pct": 98.11,
+      "supermajority_8of10_count": 53,
+      "supermajority_8of10_pct": 100.0,
+      "mean_normalized_vote_entropy": 0.0038,
+      "stage1_vs_majority_consensus": {
+        "n": 53,
+        "agree": 43,
+        "raw_pct": 81.13,
+        "expected_pct": 37.31,
+        "kappa": 0.699
+      },
+      "stage1_vs_individual_sessions": {
+        "kappa_mean": 0.6954,
+        "kappa_sd": 0.0114,
+        "kappa_min": 0.663,
+        "kappa_max": 0.699,
+        "raw_pct_mean": 80.94,
+        "raw_pct_min": 79.25,
+        "raw_pct_max": 81.13,
+        "per_session_kappa": {
+          "session_01": 0.699,
+          "session_02": 0.699,
+          "session_03": 0.699,
+          "session_04": 0.699,
+          "session_05": 0.699,
+          "session_06": 0.699,
+          "session_07": 0.699,
+          "session_08": 0.699,
+          "session_09": 0.699,
+          "session_10": 0.663
+        }
+      },
+      "ensemble_majority_distribution": {
+        "CONTRACT_PRESERVING_FIX": 26,
+        "GENUINE_ORACLE_WEAKENING": 6,
+        "TEST_RESPONSIBILITY_SHIFT": 8,
+        "INSUFFICIENT_EVIDENCE": 10,
+        "LEGITIMATE_RELAXATION": 3
+      },
+      "boundary_or_disagreement_count": 10
+    },
+    "pr_43_legitimate_binary": {
+      "n_items": 43,
+      "n_sessions": 10,
+      "intra_ensemble_fleiss_kappa": 1.0,
+      "unanimous_10of10_count": 43,
+      "unanimous_10of10_pct": 100.0,
+      "supermajority_8of10_count": 43,
+      "supermajority_8of10_pct": 100.0,
+      "mean_normalized_vote_entropy": 0.0,
+      "stage1_vs_majority_consensus": {
+        "n": 43,
+        "agree": 33,
+        "raw_pct": 76.74,
+        "expected_pct": 64.2,
+        "kappa": 0.3505
+      },
+      "stage1_vs_individual_sessions": {
+        "kappa_mean": 0.3505,
+        "kappa_sd": 0.0,
+        "kappa_min": 0.3505,
+        "kappa_max": 0.3505,
+        "raw_pct_mean": 76.74,
+        "raw_pct_min": 76.74,
+        "raw_pct_max": 76.74,
+        "per_session_kappa": {
+          "session_01": 0.3505,
+          "session_02": 0.3505,
+          "session_03": 0.3505,
+          "session_04": 0.3505,
+          "session_05": 0.3505,
+          "session_06": 0.3505,
+          "session_07": 0.3505,
+          "session_08": 0.3505,
+          "session_09": 0.3505,
+          "session_10": 0.3505
+        }
+      },
+      "ensemble_majority_distribution": {
+        "LEGITIMATE": 29,
+        "NON_LEGITIMATE": 14
+      },
+      "boundary_or_disagreement_count": 10
+    },
+    "tax_60_primary_mechanism": {
+      "n_items": 60,
+      "n_sessions": 10,
+      "intra_ensemble_fleiss_kappa": 0.9756,
+      "unanimous_10of10_count": 56,
+      "unanimous_10of10_pct": 93.33,
+      "supermajority_8of10_count": 60,
+      "supermajority_8of10_pct": 100.0,
+      "mean_normalized_vote_entropy": 0.0141,
+      "stage1_vs_majority_consensus": {
+        "n": 60,
+        "agree": 52,
+        "raw_pct": 86.67,
+        "expected_pct": 24.53,
+        "kappa": 0.8233
+      },
+      "stage1_vs_individual_sessions": {
+        "kappa_mean": 0.815,
+        "kappa_sd": 0.0203,
+        "kappa_min": 0.7608,
+        "kappa_max": 0.8244,
+        "raw_pct_mean": 86.0,
+        "raw_pct_min": 81.67,
+        "raw_pct_max": 86.67,
+        "per_session_kappa": {
+          "session_01": 0.8013,
+          "session_02": 0.8233,
+          "session_03": 0.8233,
+          "session_04": 0.7608,
+          "session_05": 0.8233,
+          "session_06": 0.8244,
+          "session_07": 0.8233,
+          "session_08": 0.8233,
+          "session_09": 0.8233,
+          "session_10": 0.8233
+        }
+      },
+      "ensemble_majority_distribution": {
+        "M2_StateResetOrClobber": 8,
+        "M6_DelimiterOrFormatNormalization": 12,
+        "M4_SUTCallAlterationOrBypass": 13,
+        "M7_PreconditionOrSingletonSetupAlteration": 22,
+        "M1_PredicateProjectionOrRelaxation": 2,
+        "M5_PartnerOrSharedScopeEdit": 3
+      },
+      "boundary_or_disagreement_count": 8
+    },
+    "tax_55_primary_mechanism": {
+      "n_items": 55,
+      "n_sessions": 10,
+      "intra_ensemble_fleiss_kappa": 0.9729,
+      "unanimous_10of10_count": 51,
+      "unanimous_10of10_pct": 92.73,
+      "supermajority_8of10_count": 55,
+      "supermajority_8of10_pct": 100.0,
+      "mean_normalized_vote_entropy": 0.0154,
+      "stage1_vs_majority_consensus": {
+        "n": 55,
+        "agree": 47,
+        "raw_pct": 85.45,
+        "expected_pct": 25.92,
+        "kappa": 0.8037
+      },
+      "stage1_vs_individual_sessions": {
+        "kappa_mean": 0.7946,
+        "kappa_sd": 0.0222,
+        "kappa_min": 0.7353,
+        "kappa_max": 0.8055,
+        "raw_pct_mean": 84.72,
+        "raw_pct_min": 80.0,
+        "raw_pct_max": 85.45,
+        "per_session_kappa": {
+          "session_01": 0.7792,
+          "session_02": 0.8037,
+          "session_03": 0.8037,
+          "session_04": 0.7353,
+          "session_05": 0.8037,
+          "session_06": 0.8055,
+          "session_07": 0.8037,
+          "session_08": 0.8037,
+          "session_09": 0.8037,
+          "session_10": 0.8037
+        }
+      },
+      "ensemble_majority_distribution": {
+        "M2_StateResetOrClobber": 7,
+        "M4_SUTCallAlterationOrBypass": 13,
+        "M7_PreconditionOrSingletonSetupAlteration": 22,
+        "M1_PredicateProjectionOrRelaxation": 2,
+        "M6_DelimiterOrFormatNormalization": 8,
+        "M5_PartnerOrSharedScopeEdit": 3
+      },
+      "boundary_or_disagreement_count": 8
+    },
+    "tax_60_nonlegit_binary": {
+      "n_items": 60,
+      "n_sessions": 10,
+      "intra_ensemble_fleiss_kappa": 0.9074,
+      "unanimous_10of10_count": 59,
+      "unanimous_10of10_pct": 98.33,
+      "supermajority_8of10_count": 60,
+      "supermajority_8of10_pct": 100.0,
+      "mean_normalized_vote_entropy": 0.0078,
+      "stage1_vs_majority_consensus": {
+        "n": 60,
+        "agree": 56,
+        "raw_pct": 93.33,
+        "expected_pct": 93.5,
+        "kappa": -0.0256
+      },
+      "stage1_vs_individual_sessions": {
+        "kappa_mean": 0.0145,
+        "kappa_sd": 0.1267,
+        "kappa_min": -0.0256,
+        "kappa_max": 0.375,
+        "raw_pct_mean": 93.5,
+        "raw_pct_min": 93.33,
+        "raw_pct_max": 95.0,
+        "per_session_kappa": {
+          "session_01": -0.0256,
+          "session_02": -0.0256,
+          "session_03": -0.0256,
+          "session_04": -0.0256,
+          "session_05": -0.0256,
+          "session_06": 0.375,
+          "session_07": -0.0256,
+          "session_08": -0.0256,
+          "session_09": -0.0256,
+          "session_10": -0.0256
+        }
+      },
+      "ensemble_majority_distribution": {
+        "NON_LEGITIMATE_EROSION": 59,
+        "LEGITIMATE_ARTIFACT": 1
+      },
+      "boundary_or_disagreement_count": 4
+    },
+    "tax_60_semantic_severity_3class": {
+      "n_items": 60,
+      "n_sessions": 10,
+      "intra_ensemble_fleiss_kappa": 0.9909,
+      "unanimous_10of10_count": 59,
+      "unanimous_10of10_pct": 98.33,
+      "supermajority_8of10_count": 60,
+      "supermajority_8of10_pct": 100.0,
+      "mean_normalized_vote_entropy": 0.0049,
+      "stage1_vs_majority_consensus": {
+        "n": 60,
+        "agree": 26,
+        "raw_pct": 43.33,
+        "expected_pct": 32.58,
+        "kappa": 0.1595
+      },
+      "stage1_vs_individual_sessions": {
+        "kappa_mean": 0.1623,
+        "kappa_sd": 0.0089,
+        "kappa_min": 0.1595,
+        "kappa_max": 0.1875,
+        "raw_pct_mean": 43.5,
+        "raw_pct_min": 43.33,
+        "raw_pct_max": 45.0,
+        "per_session_kappa": {
+          "session_01": 0.1595,
+          "session_02": 0.1595,
+          "session_03": 0.1595,
+          "session_04": 0.1595,
+          "session_05": 0.1595,
+          "session_06": 0.1875,
+          "session_07": 0.1595,
+          "session_08": 0.1595,
+          "session_09": 0.1595,
+          "session_10": 0.1595
+        }
+      },
+      "ensemble_majority_distribution": {
+        "TEST_RESPONSIBILITY_SHIFT": 46,
+        "GENUINE_DEGRADATION": 13,
+        "LEGITIMATE_RELAXATION_ARTIFACT": 1
+      },
+      "boundary_or_disagreement_count": 34
+    },
+    "heldout_111_wsl_3class": {
+      "n_items": 111,
+      "n_sessions": 10,
+      "intra_ensemble_fleiss_kappa": 0.911,
+      "unanimous_10of10_count": 92,
+      "unanimous_10of10_pct": 82.88,
+      "supermajority_8of10_count": 105,
+      "supermajority_8of10_pct": 94.59,
+      "mean_normalized_vote_entropy": 0.0731,
+      "stage1_vs_majority_consensus": {
+        "n": 111,
+        "agree": 87,
+        "raw_pct": 78.38,
+        "expected_pct": 36.47,
+        "kappa": 0.6597
+      },
+      "stage1_vs_individual_sessions": {
+        "kappa_mean": 0.6316,
+        "kappa_sd": 0.0291,
+        "kappa_min": 0.568,
+        "kappa_max": 0.6606,
+        "raw_pct_mean": 76.4,
+        "raw_pct_min": 72.07,
+        "raw_pct_max": 78.38,
+        "per_session_kappa": {
+          "session_01": 0.6455,
+          "session_02": 0.6345,
+          "session_03": 0.6465,
+          "session_04": 0.568,
+          "session_05": 0.6465,
+          "session_06": 0.6487,
+          "session_07": 0.6606,
+          "session_08": 0.6495,
+          "session_09": 0.5947,
+          "session_10": 0.6215
+        }
+      },
+      "ensemble_majority_distribution": {
+        "GENUINE_ORACLE_WEAKENING": 32,
+        "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 25,
+        "TEST_RESPONSIBILITY_SHIFT": 54
+      },
+      "boundary_or_disagreement_count": 29
+    },
+    "heldout_111_harmful_ws_binary": {
+      "n_items": 111,
+      "n_sessions": 10,
+      "intra_ensemble_fleiss_kappa": 0.8604,
+      "unanimous_10of10_count": 95,
+      "unanimous_10of10_pct": 85.59,
+      "supermajority_8of10_count": 105,
+      "supermajority_8of10_pct": 94.59,
+      "mean_normalized_vote_entropy": 0.1032,
+      "stage1_vs_majority_consensus": {
+        "n": 111,
+        "agree": 95,
+        "raw_pct": 85.59,
+        "expected_pct": 63.12,
+        "kappa": 0.6092
+      },
+      "stage1_vs_individual_sessions": {
+        "kappa_mean": 0.5721,
+        "kappa_sd": 0.0484,
+        "kappa_min": 0.4691,
+        "kappa_max": 0.6293,
+        "raw_pct_mean": 83.78,
+        "raw_pct_min": 79.28,
+        "raw_pct_max": 86.49,
+        "per_session_kappa": {
+          "session_01": 0.6293,
+          "session_02": 0.5703,
+          "session_03": 0.5895,
+          "session_04": 0.4691,
+          "session_05": 0.5895,
+          "session_06": 0.6076,
+          "session_07": 0.6092,
+          "session_08": 0.5895,
+          "session_09": 0.5153,
+          "session_10": 0.5516
+        }
+      },
+      "ensemble_majority_distribution": {
+        "HARMFUL_EROSION_WS": 86,
+        "BENIGN_CANONICALIZATION": 25
+      },
+      "boundary_or_disagreement_count": 21
+    }
+  },
+  "downstream_conclusion_invariance_across_10_sessions": {
+    "pr_43_muguard_false_rejection_pct_range": [
+      10.34,
+      10.34
+    ],
+    "pr_43_muguard_false_rejection_pct_per_session": [
+      10.34,
+      10.34,
+      10.34,
+      10.34,
+      10.34,
+      10.34,
+      10.34,
+      10.34,
+      10.34,
+      10.34
+    ],
+    "pr_43_nonlegit_caught_per_session": [
+      "7/14",
+      "7/14",
+      "7/14",
+      "7/14",
+      "7/14",
+      "7/14",
+      "7/14",
+      "7/14",
+      "7/14",
+      "7/14"
+    ],
+    "tax_60_nonlegit_erosion_pct_range": [
+      96.67,
+      98.33
+    ],
+    "tax_60_nonlegit_erosion_pct_per_session": [
+      98.33,
+      98.33,
+      98.33,
+      98.33,
+      98.33,
+      96.67,
+      98.33,
+      98.33,
+      98.33,
+      98.33
+    ],
+    "heldout_111_harmful_WS_by_model_and_strategy": {
+      "deepseek-flash": {
+        "B0_Standard_Validator": {
+          "total_mext_loss": 14,
+          "majority_W": 5,
+          "majority_S": 8,
+          "majority_L": 1,
+          "harmful_WS_min_across_10_sessions": 12,
+          "harmful_WS_max_across_10_sessions": 13,
+          "harmful_WS_mean_across_10_sessions": 12.7
+        },
+        "B2_Prompt_Guard": {
+          "total_mext_loss": 17,
+          "majority_W": 1,
+          "majority_S": 10,
+          "majority_L": 6,
+          "harmful_WS_min_across_10_sessions": 9,
+          "harmful_WS_max_across_10_sessions": 12,
+          "harmful_WS_mean_across_10_sessions": 10.7
+        },
+        "B3_Static_AST_Guard": {
+          "total_mext_loss": 17,
+          "majority_W": 1,
+          "majority_S": 10,
+          "majority_L": 6,
+          "harmful_WS_min_across_10_sessions": 9,
+          "harmful_WS_max_across_10_sessions": 12,
+          "harmful_WS_mean_across_10_sessions": 10.7
+        },
+        "B3_Plus_Structural_Guard": {
+          "total_mext_loss": 15,
+          "majority_W": 1,
+          "majority_S": 10,
+          "majority_L": 4,
+          "harmful_WS_min_across_10_sessions": 9,
+          "harmful_WS_max_across_10_sessions": 12,
+          "harmful_WS_mean_across_10_sessions": 10.7
+        },
+        "B4_Scalar_Gate_Loop": {
+          "total_mext_loss": 5,
+          "majority_W": 0,
+          "majority_S": 1,
+          "majority_L": 4,
+          "harmful_WS_min_across_10_sessions": 1,
+          "harmful_WS_max_across_10_sessions": 3,
+          "harmful_WS_mean_across_10_sessions": 1.5
+        },
+        "Ours_MuGuard_Flake": {
+          "total_mext_loss": 7,
+          "majority_W": 1,
+          "majority_S": 1,
+          "majority_L": 5,
+          "harmful_WS_min_across_10_sessions": 2,
+          "harmful_WS_max_across_10_sessions": 4,
+          "harmful_WS_mean_across_10_sessions": 2.5
+        }
+      },
+      "deepseek-v4-pro": {
+        "B0_Standard_Validator": {
+          "total_mext_loss": 15,
+          "majority_W": 4,
+          "majority_S": 9,
+          "majority_L": 2,
+          "harmful_WS_min_across_10_sessions": 12,
+          "harmful_WS_max_across_10_sessions": 13,
+          "harmful_WS_mean_across_10_sessions": 12.5
+        },
+        "B2_Prompt_Guard": {
+          "total_mext_loss": 18,
+          "majority_W": 6,
+          "majority_S": 8,
+          "majority_L": 4,
+          "harmful_WS_min_across_10_sessions": 13,
+          "harmful_WS_max_across_10_sessions": 15,
+          "harmful_WS_mean_across_10_sessions": 13.9
+        },
+        "B3_Static_AST_Guard": {
+          "total_mext_loss": 18,
+          "majority_W": 6,
+          "majority_S": 8,
+          "majority_L": 4,
+          "harmful_WS_min_across_10_sessions": 13,
+          "harmful_WS_max_across_10_sessions": 15,
+          "harmful_WS_mean_across_10_sessions": 13.9
+        },
+        "B3_Plus_Structural_Guard": {
+          "total_mext_loss": 18,
+          "majority_W": 6,
+          "majority_S": 9,
+          "majority_L": 3,
+          "harmful_WS_min_across_10_sessions": 14,
+          "harmful_WS_max_across_10_sessions": 16,
+          "harmful_WS_mean_across_10_sessions": 14.9
+        },
+        "B4_Scalar_Gate_Loop": {
+          "total_mext_loss": 5,
+          "majority_W": 1,
+          "majority_S": 0,
+          "majority_L": 4,
+          "harmful_WS_min_across_10_sessions": 1,
+          "harmful_WS_max_across_10_sessions": 2,
+          "harmful_WS_mean_across_10_sessions": 1.1
+        },
+        "Ours_MuGuard_Flake": {
+          "total_mext_loss": 7,
+          "majority_W": 2,
+          "majority_S": 2,
+          "majority_L": 3,
+          "harmful_WS_min_across_10_sessions": 4,
+          "harmful_WS_max_across_10_sessions": 5,
+          "harmful_WS_mean_across_10_sessions": 4.1
+        }
+      },
+      "qwen3.7-plus": {
+        "B0_Standard_Validator": {
+          "total_mext_loss": 19,
+          "majority_W": 6,
+          "majority_S": 9,
+          "majority_L": 4,
+          "harmful_WS_min_across_10_sessions": 13,
+          "harmful_WS_max_across_10_sessions": 15,
+          "harmful_WS_mean_across_10_sessions": 14
+        },
+        "B2_Prompt_Guard": {
+          "total_mext_loss": 17,
+          "majority_W": 6,
+          "majority_S": 10,
+          "majority_L": 1,
+          "harmful_WS_min_across_10_sessions": 15,
+          "harmful_WS_max_across_10_sessions": 16,
+          "harmful_WS_mean_across_10_sessions": 15.5
+        },
+        "B3_Static_AST_Guard": {
+          "total_mext_loss": 17,
+          "majority_W": 6,
+          "majority_S": 10,
+          "majority_L": 1,
+          "harmful_WS_min_across_10_sessions": 15,
+          "harmful_WS_max_across_10_sessions": 16,
+          "harmful_WS_mean_across_10_sessions": 15.5
+        },
+        "B3_Plus_Structural_Guard": {
+          "total_mext_loss": 16,
+          "majority_W": 6,
+          "majority_S": 10,
+          "majority_L": 0,
+          "harmful_WS_min_across_10_sessions": 15,
+          "harmful_WS_max_across_10_sessions": 16,
+          "harmful_WS_mean_across_10_sessions": 15.5
+        },
+        "B4_Scalar_Gate_Loop": {
+          "total_mext_loss": 4,
+          "majority_W": 2,
+          "majority_S": 0,
+          "majority_L": 2,
+          "harmful_WS_min_across_10_sessions": 2,
+          "harmful_WS_max_across_10_sessions": 2,
+          "harmful_WS_mean_across_10_sessions": 2
+        },
+        "Ours_MuGuard_Flake": {
+          "total_mext_loss": 6,
+          "majority_W": 2,
+          "majority_S": 0,
+          "majority_L": 4,
+          "harmful_WS_min_across_10_sessions": 2,
+          "harmful_WS_max_across_10_sessions": 2,
+          "harmful_WS_mean_across_10_sessions": 2
+        }
+      }
+    }
+  },
+  "boundary_and_disagreement_ledger": {
+    "pr_53_five_class": [
+      {
+        "blind_id": "PR-005",
+        "stage1": "LEGITIMATE_RELAXATION",
+        "ensemble_majority": "GENUINE_ORACLE_WEAKENING",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "GENUINE_ORACLE_WEAKENING": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-037",
+        "stage1": "CONTRACT_PRESERVING_FIX",
+        "ensemble_majority": "GENUINE_ORACLE_WEAKENING",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "GENUINE_ORACLE_WEAKENING": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-044",
+        "stage1": "CONTRACT_PRESERVING_FIX",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-045",
+        "stage1": "CONTRACT_PRESERVING_FIX",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-046",
+        "stage1": "CONTRACT_PRESERVING_FIX",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-047",
+        "stage1": "CONTRACT_PRESERVING_FIX",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-048",
+        "stage1": "CONTRACT_PRESERVING_FIX",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-049",
+        "stage1": "CONTRACT_PRESERVING_FIX",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-050",
+        "stage1": "CONTRACT_PRESERVING_FIX",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-053",
+        "stage1": "CONTRACT_PRESERVING_FIX",
+        "ensemble_majority": "GENUINE_ORACLE_WEAKENING",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "GENUINE_ORACLE_WEAKENING": 10
+        },
+        "vote_entropy": -0.0
+      }
+    ],
+    "pr_43_legitimate_binary": [
+      {
+        "blind_id": "PR-005",
+        "stage1": "LEGITIMATE",
+        "ensemble_majority": "NON_LEGITIMATE",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "NON_LEGITIMATE": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-037",
+        "stage1": "LEGITIMATE",
+        "ensemble_majority": "NON_LEGITIMATE",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "NON_LEGITIMATE": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-044",
+        "stage1": "LEGITIMATE",
+        "ensemble_majority": "NON_LEGITIMATE",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "NON_LEGITIMATE": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-045",
+        "stage1": "LEGITIMATE",
+        "ensemble_majority": "NON_LEGITIMATE",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "NON_LEGITIMATE": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-046",
+        "stage1": "LEGITIMATE",
+        "ensemble_majority": "NON_LEGITIMATE",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "NON_LEGITIMATE": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-047",
+        "stage1": "LEGITIMATE",
+        "ensemble_majority": "NON_LEGITIMATE",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "NON_LEGITIMATE": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-048",
+        "stage1": "LEGITIMATE",
+        "ensemble_majority": "NON_LEGITIMATE",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "NON_LEGITIMATE": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-049",
+        "stage1": "LEGITIMATE",
+        "ensemble_majority": "NON_LEGITIMATE",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "NON_LEGITIMATE": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-050",
+        "stage1": "LEGITIMATE",
+        "ensemble_majority": "NON_LEGITIMATE",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "NON_LEGITIMATE": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "PR-053",
+        "stage1": "LEGITIMATE",
+        "ensemble_majority": "NON_LEGITIMATE",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "NON_LEGITIMATE": 10
+        },
+        "vote_entropy": -0.0
+      }
+    ],
+    "tax_60_primary_mechanism": [
+      {
+        "blind_id": "TAX-001",
+        "stage1": "M3_ControlFlowOrExceptionChange",
+        "ensemble_majority": "M2_StateResetOrClobber",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "M2_StateResetOrClobber": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-019",
+        "stage1": "M7_PreconditionOrSingletonSetupAlteration",
+        "ensemble_majority": "M2_StateResetOrClobber",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "M2_StateResetOrClobber": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-020",
+        "stage1": "M5_PartnerOrSharedScopeEdit",
+        "ensemble_majority": "M2_StateResetOrClobber",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "M2_StateResetOrClobber": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-021",
+        "stage1": "M7_PreconditionOrSingletonSetupAlteration",
+        "ensemble_majority": "M2_StateResetOrClobber",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "M2_StateResetOrClobber": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-045",
+        "stage1": "M6_DelimiterOrFormatNormalization",
+        "ensemble_majority": "M4_SUTCallAlterationOrBypass",
+        "majority_votes": "9/10",
+        "vote_counts": {
+          "M4_SUTCallAlterationOrBypass": 9,
+          "M6_DelimiterOrFormatNormalization": 1
+        },
+        "vote_entropy": 0.1671
+      },
+      {
+        "blind_id": "TAX-046",
+        "stage1": "M6_DelimiterOrFormatNormalization",
+        "ensemble_majority": "M4_SUTCallAlterationOrBypass",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "M4_SUTCallAlterationOrBypass": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-047",
+        "stage1": "M7_PreconditionOrSingletonSetupAlteration",
+        "ensemble_majority": "M4_SUTCallAlterationOrBypass",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "M4_SUTCallAlterationOrBypass": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-050",
+        "stage1": "M3_ControlFlowOrExceptionChange",
+        "ensemble_majority": "M4_SUTCallAlterationOrBypass",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "M4_SUTCallAlterationOrBypass": 10
+        },
+        "vote_entropy": -0.0
+      }
+    ],
+    "tax_60_nonlegit_binary": [
+      {
+        "blind_id": "TAX-003",
+        "stage1": "NON_LEGITIMATE_EROSION",
+        "ensemble_majority": "LEGITIMATE_ARTIFACT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "LEGITIMATE_ARTIFACT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-045",
+        "stage1": "LEGITIMATE_ARTIFACT",
+        "ensemble_majority": "NON_LEGITIMATE_EROSION",
+        "majority_votes": "9/10",
+        "vote_counts": {
+          "NON_LEGITIMATE_EROSION": 9,
+          "LEGITIMATE_ARTIFACT": 1
+        },
+        "vote_entropy": 0.469
+      },
+      {
+        "blind_id": "TAX-046",
+        "stage1": "LEGITIMATE_ARTIFACT",
+        "ensemble_majority": "NON_LEGITIMATE_EROSION",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "NON_LEGITIMATE_EROSION": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-057",
+        "stage1": "LEGITIMATE_ARTIFACT",
+        "ensemble_majority": "NON_LEGITIMATE_EROSION",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "NON_LEGITIMATE_EROSION": 10
+        },
+        "vote_entropy": -0.0
+      }
+    ],
+    "tax_60_semantic_severity_3class": [
+      {
+        "blind_id": "TAX-001",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-003",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "LEGITIMATE_RELAXATION_ARTIFACT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "LEGITIMATE_RELAXATION_ARTIFACT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-011",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-012",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-013",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-014",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-015",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-016",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-017",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-018",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-033",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-034",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-035",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-036",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-037",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-038",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-039",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-040",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-041",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-042",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-043",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-044",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-045",
+        "stage1": "LEGITIMATE_RELAXATION_ARTIFACT",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "9/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 9,
+          "LEGITIMATE_RELAXATION_ARTIFACT": 1
+        },
+        "vote_entropy": 0.2959
+      },
+      {
+        "blind_id": "TAX-046",
+        "stage1": "LEGITIMATE_RELAXATION_ARTIFACT",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-049",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-050",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-051",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-052",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-054",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-055",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-057",
+        "stage1": "LEGITIMATE_RELAXATION_ARTIFACT",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-058",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-059",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "TAX-060",
+        "stage1": "GENUINE_DEGRADATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      }
+    ],
+    "heldout_111_wsl_3class": [
+      {
+        "blind_id": "HO-003",
+        "stage1": "GENUINE_ORACLE_WEAKENING",
+        "ensemble_majority": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "majority_votes": "9/10",
+        "vote_counts": {
+          "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 9,
+          "GENUINE_ORACLE_WEAKENING": 1
+        },
+        "vote_entropy": 0.2959
+      },
+      {
+        "blind_id": "HO-004",
+        "stage1": "GENUINE_ORACLE_WEAKENING",
+        "ensemble_majority": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "majority_votes": "7/10",
+        "vote_counts": {
+          "GENUINE_ORACLE_WEAKENING": 3,
+          "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 7
+        },
+        "vote_entropy": 0.556
+      },
+      {
+        "blind_id": "HO-010",
+        "stage1": "GENUINE_ORACLE_WEAKENING",
+        "ensemble_majority": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "majority_votes": "8/10",
+        "vote_counts": {
+          "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 8,
+          "GENUINE_ORACLE_WEAKENING": 2
+        },
+        "vote_entropy": 0.4555
+      },
+      {
+        "blind_id": "HO-012",
+        "stage1": "TEST_RESPONSIBILITY_SHIFT",
+        "ensemble_majority": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-013",
+        "stage1": "TEST_RESPONSIBILITY_SHIFT",
+        "ensemble_majority": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-014",
+        "stage1": "TEST_RESPONSIBILITY_SHIFT",
+        "ensemble_majority": "GENUINE_ORACLE_WEAKENING",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "GENUINE_ORACLE_WEAKENING": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-044",
+        "stage1": "TEST_RESPONSIBILITY_SHIFT",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "7/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 7,
+          "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 3
+        },
+        "vote_entropy": 0.556
+      },
+      {
+        "blind_id": "HO-047",
+        "stage1": "TEST_RESPONSIBILITY_SHIFT",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "7/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 7,
+          "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 3
+        },
+        "vote_entropy": 0.556
+      },
+      {
+        "blind_id": "HO-048",
+        "stage1": "TEST_RESPONSIBILITY_SHIFT",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "5/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 5,
+          "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 5
+        },
+        "vote_entropy": 0.6309
+      },
+      {
+        "blind_id": "HO-050",
+        "stage1": "TEST_RESPONSIBILITY_SHIFT",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "7/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 7,
+          "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 3
+        },
+        "vote_entropy": 0.556
+      },
+      {
+        "blind_id": "HO-066",
+        "stage1": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "ensemble_majority": "GENUINE_ORACLE_WEAKENING",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "GENUINE_ORACLE_WEAKENING": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-070",
+        "stage1": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "9/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 9,
+          "GENUINE_ORACLE_WEAKENING": 1
+        },
+        "vote_entropy": 0.2959
+      },
+      {
+        "blind_id": "HO-071",
+        "stage1": "GENUINE_ORACLE_WEAKENING",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-072",
+        "stage1": "GENUINE_ORACLE_WEAKENING",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-073",
+        "stage1": "GENUINE_ORACLE_WEAKENING",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-075",
+        "stage1": "GENUINE_ORACLE_WEAKENING",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-078",
+        "stage1": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "ensemble_majority": "GENUINE_ORACLE_WEAKENING",
+        "majority_votes": "9/10",
+        "vote_counts": {
+          "GENUINE_ORACLE_WEAKENING": 9,
+          "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 1
+        },
+        "vote_entropy": 0.2959
+      },
+      {
+        "blind_id": "HO-079",
+        "stage1": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "ensemble_majority": "GENUINE_ORACLE_WEAKENING",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "GENUINE_ORACLE_WEAKENING": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-080",
+        "stage1": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "ensemble_majority": "GENUINE_ORACLE_WEAKENING",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "GENUINE_ORACLE_WEAKENING": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-081",
+        "stage1": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "ensemble_majority": "GENUINE_ORACLE_WEAKENING",
+        "majority_votes": "9/10",
+        "vote_counts": {
+          "GENUINE_ORACLE_WEAKENING": 9,
+          "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 1
+        },
+        "vote_entropy": 0.2959
+      },
+      {
+        "blind_id": "HO-083",
+        "stage1": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "ensemble_majority": "GENUINE_ORACLE_WEAKENING",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "GENUINE_ORACLE_WEAKENING": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-084",
+        "stage1": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "ensemble_majority": "GENUINE_ORACLE_WEAKENING",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "GENUINE_ORACLE_WEAKENING": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-085",
+        "stage1": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "ensemble_majority": "GENUINE_ORACLE_WEAKENING",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "GENUINE_ORACLE_WEAKENING": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-087",
+        "stage1": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "ensemble_majority": "GENUINE_ORACLE_WEAKENING",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "GENUINE_ORACLE_WEAKENING": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-097",
+        "stage1": "TEST_RESPONSIBILITY_SHIFT",
+        "ensemble_majority": "GENUINE_ORACLE_WEAKENING",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "GENUINE_ORACLE_WEAKENING": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-098",
+        "stage1": "TEST_RESPONSIBILITY_SHIFT",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "6/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 6,
+          "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 4
+        },
+        "vote_entropy": 0.6126
+      },
+      {
+        "blind_id": "HO-100",
+        "stage1": "TEST_RESPONSIBILITY_SHIFT",
+        "ensemble_majority": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-101",
+        "stage1": "GENUINE_ORACLE_WEAKENING",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-102",
+        "stage1": "GENUINE_ORACLE_WEAKENING",
+        "ensemble_majority": "TEST_RESPONSIBILITY_SHIFT",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "TEST_RESPONSIBILITY_SHIFT": 10
+        },
+        "vote_entropy": -0.0
+      }
+    ],
+    "heldout_111_harmful_ws_binary": [
+      {
+        "blind_id": "HO-003",
+        "stage1": "HARMFUL_EROSION_WS",
+        "ensemble_majority": "BENIGN_CANONICALIZATION",
+        "majority_votes": "9/10",
+        "vote_counts": {
+          "BENIGN_CANONICALIZATION": 9,
+          "HARMFUL_EROSION_WS": 1
+        },
+        "vote_entropy": 0.469
+      },
+      {
+        "blind_id": "HO-004",
+        "stage1": "HARMFUL_EROSION_WS",
+        "ensemble_majority": "BENIGN_CANONICALIZATION",
+        "majority_votes": "7/10",
+        "vote_counts": {
+          "HARMFUL_EROSION_WS": 3,
+          "BENIGN_CANONICALIZATION": 7
+        },
+        "vote_entropy": 0.8813
+      },
+      {
+        "blind_id": "HO-010",
+        "stage1": "HARMFUL_EROSION_WS",
+        "ensemble_majority": "BENIGN_CANONICALIZATION",
+        "majority_votes": "8/10",
+        "vote_counts": {
+          "BENIGN_CANONICALIZATION": 8,
+          "HARMFUL_EROSION_WS": 2
+        },
+        "vote_entropy": 0.7219
+      },
+      {
+        "blind_id": "HO-012",
+        "stage1": "HARMFUL_EROSION_WS",
+        "ensemble_majority": "BENIGN_CANONICALIZATION",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "BENIGN_CANONICALIZATION": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-013",
+        "stage1": "HARMFUL_EROSION_WS",
+        "ensemble_majority": "BENIGN_CANONICALIZATION",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "BENIGN_CANONICALIZATION": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-044",
+        "stage1": "HARMFUL_EROSION_WS",
+        "ensemble_majority": "HARMFUL_EROSION_WS",
+        "majority_votes": "7/10",
+        "vote_counts": {
+          "HARMFUL_EROSION_WS": 7,
+          "BENIGN_CANONICALIZATION": 3
+        },
+        "vote_entropy": 0.8813
+      },
+      {
+        "blind_id": "HO-047",
+        "stage1": "HARMFUL_EROSION_WS",
+        "ensemble_majority": "HARMFUL_EROSION_WS",
+        "majority_votes": "7/10",
+        "vote_counts": {
+          "HARMFUL_EROSION_WS": 7,
+          "BENIGN_CANONICALIZATION": 3
+        },
+        "vote_entropy": 0.8813
+      },
+      {
+        "blind_id": "HO-048",
+        "stage1": "HARMFUL_EROSION_WS",
+        "ensemble_majority": "HARMFUL_EROSION_WS",
+        "majority_votes": "5/10",
+        "vote_counts": {
+          "HARMFUL_EROSION_WS": 5,
+          "BENIGN_CANONICALIZATION": 5
+        },
+        "vote_entropy": 1.0
+      },
+      {
+        "blind_id": "HO-050",
+        "stage1": "HARMFUL_EROSION_WS",
+        "ensemble_majority": "HARMFUL_EROSION_WS",
+        "majority_votes": "7/10",
+        "vote_counts": {
+          "HARMFUL_EROSION_WS": 7,
+          "BENIGN_CANONICALIZATION": 3
+        },
+        "vote_entropy": 0.8813
+      },
+      {
+        "blind_id": "HO-066",
+        "stage1": "BENIGN_CANONICALIZATION",
+        "ensemble_majority": "HARMFUL_EROSION_WS",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "HARMFUL_EROSION_WS": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-070",
+        "stage1": "BENIGN_CANONICALIZATION",
+        "ensemble_majority": "HARMFUL_EROSION_WS",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "HARMFUL_EROSION_WS": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-078",
+        "stage1": "BENIGN_CANONICALIZATION",
+        "ensemble_majority": "HARMFUL_EROSION_WS",
+        "majority_votes": "9/10",
+        "vote_counts": {
+          "HARMFUL_EROSION_WS": 9,
+          "BENIGN_CANONICALIZATION": 1
+        },
+        "vote_entropy": 0.469
+      },
+      {
+        "blind_id": "HO-079",
+        "stage1": "BENIGN_CANONICALIZATION",
+        "ensemble_majority": "HARMFUL_EROSION_WS",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "HARMFUL_EROSION_WS": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-080",
+        "stage1": "BENIGN_CANONICALIZATION",
+        "ensemble_majority": "HARMFUL_EROSION_WS",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "HARMFUL_EROSION_WS": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-081",
+        "stage1": "BENIGN_CANONICALIZATION",
+        "ensemble_majority": "HARMFUL_EROSION_WS",
+        "majority_votes": "9/10",
+        "vote_counts": {
+          "HARMFUL_EROSION_WS": 9,
+          "BENIGN_CANONICALIZATION": 1
+        },
+        "vote_entropy": 0.469
+      },
+      {
+        "blind_id": "HO-083",
+        "stage1": "BENIGN_CANONICALIZATION",
+        "ensemble_majority": "HARMFUL_EROSION_WS",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "HARMFUL_EROSION_WS": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-084",
+        "stage1": "BENIGN_CANONICALIZATION",
+        "ensemble_majority": "HARMFUL_EROSION_WS",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "HARMFUL_EROSION_WS": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-085",
+        "stage1": "BENIGN_CANONICALIZATION",
+        "ensemble_majority": "HARMFUL_EROSION_WS",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "HARMFUL_EROSION_WS": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-087",
+        "stage1": "BENIGN_CANONICALIZATION",
+        "ensemble_majority": "HARMFUL_EROSION_WS",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "HARMFUL_EROSION_WS": 10
+        },
+        "vote_entropy": -0.0
+      },
+      {
+        "blind_id": "HO-098",
+        "stage1": "HARMFUL_EROSION_WS",
+        "ensemble_majority": "HARMFUL_EROSION_WS",
+        "majority_votes": "6/10",
+        "vote_counts": {
+          "HARMFUL_EROSION_WS": 6,
+          "BENIGN_CANONICALIZATION": 4
+        },
+        "vote_entropy": 0.971
+      },
+      {
+        "blind_id": "HO-100",
+        "stage1": "HARMFUL_EROSION_WS",
+        "ensemble_majority": "BENIGN_CANONICALIZATION",
+        "majority_votes": "10/10",
+        "vote_counts": {
+          "BENIGN_CANONICALIZATION": 10
+        },
+        "vote_entropy": -0.0
+      }
+    ]
+  }
+}

@@ -12,16 +12,16 @@ Offline Pre-Comp.\ ($3\times M_{\text{focal}}$) & Java Default Mutators & 110 & 
 Offline Pre-Comp.\ ($3\times M_{\text{focal}}$) & Java Default+$M_{\text{ext}}$ & 110 & 39.39 & [22.39, 85.91] & 154.49 \\
 Offline Pre-Comp.\ ($3\times M_{\text{focal}}$) & Python Baseline Pool & 93 & 37.10 & [23.46, 46.69] & 60.75 \\
 \midrule
-In-Loop Uncached (Java) & Compile & 960 & 4.07 & [2.47, 7.75] & 9.32 \\
-In-Loop Uncached (Java) & Stability Reruns ($W^+$) & 891 & 4.21 & [1.95, 8.41] & 9.77 \\
-In-Loop Uncached (Java) & Target Gate ($M_{\text{det}}$) & 716 & 9.51 & [6.16, 14.36] & 16.56 \\
+In-Loop Uncached (Java) & Compile & 999 & 4.06 & [2.43, 7.66] & 9.30 \\
+In-Loop Uncached (Java) & Stability Reruns ($W^+$) & 924 & 4.20 & [1.93, 8.43] & 9.79 \\
+In-Loop Uncached (Java) & Target Gate ($M_{\text{det}}$) & 722 & 9.53 & [6.17, 14.39] & 16.71 \\
 In-Loop Uncached (Java) & Partner Gate ($M_{\text{det}}$) & 140 & 5.58 & [4.71, 5.90] & 6.34 \\
 \midrule
-In-Loop Uncached (Python) & Syntax Check & 219 & 0.01 & [0.01, 0.01] & 0.01 \\
-In-Loop Uncached (Python) & Stability Reruns ($W^+$) & 669 & 1.00 & [0.95, 1.29] & 1.45 \\
-In-Loop Uncached (Python) & Target Gate ($M_{\text{det}}$) & 495 & 3.72 & [2.64, 6.88] & 9.88 \\
-In-Loop Uncached (Python) & Partner Gate ($M_{\text{det}}$) & 148 & 2.12 & [1.22, 2.98] & 4.57 \\
+In-Loop Uncached (Python) & Syntax Check & 221 & 0.01 & [0.01, 0.01] & 0.01 \\
+In-Loop Uncached (Python) & Stability Reruns ($W^+$) & 724 & 0.99 & [0.94, 1.23] & 1.45 \\
+In-Loop Uncached (Python) & Target Gate ($M_{\text{det}}$) & 499 & 3.72 & [2.65, 6.88] & 9.89 \\
+In-Loop Uncached (Python) & Partner Gate ($M_{\text{det}}$) & 150 & 2.12 & [1.11, 2.97] & 4.55 \\
 \bottomrule
 \end{tabular}
-\par\smallskip\parbox{0.96\textwidth}{\scriptsize\textit{Note:} Python in-loop gating replays only frozen killed obligations $M_{\text{det}}$ (median 14 mutants) under standalone $e_{\text{iso}}$, explaining its $3.3\times$ speedup relative to single-run full $M_{\text{focal}}$ baseline sweeps (12.29\,s in Table~\ref{tab:benchmark}; $3\times$ = 37.10\,s). Java PIT instruments covered classes per run, keeping baseline (10.21\,s) and in-loop (9.51\,s) medians close.}
+\par\smallskip\parbox{0.96\textwidth}{\scriptsize\textit{Note:} Python in-loop gating replays only frozen $M_{\text{det}}$ (median 14 mutants) under $e_{\text{iso}}$, running $3.3\times$ faster than full $M_{\text{focal}}$ sweeps. For baseline comparison, dynamic Coverage Gate takes 2.09\,s median in Java and 1.18\,s in Python, whereas cross-vendor LLM-Judge calls take 20.89\,s median.}
 \end{table}

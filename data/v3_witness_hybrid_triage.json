@@ -1,0 +1,2590 @@
+{
+  "protocol_version": "3.0.0-witness-hybrid-triage",
+  "pr_9_muguard_rejected_triage": {
+    "qwen3.7-plus": {
+      "legit_false_rej_after_witness_triage": "0/39 (0.00%)",
+      "legit_resolved_of_8": "8/8",
+      "nacos_weakening_still_caught": "1/1"
+    },
+    "glm-5": {
+      "legit_false_rej_after_witness_triage": "5/39 (12.82%)",
+      "legit_resolved_of_8": "3/8",
+      "nacos_weakening_still_caught": "1/1"
+    }
+  },
+  "tax_60_erosion_recognition": {
+    "total_60": 60,
+    "diff_only_detected": 17,
+    "diff_only_pct": 28.33,
+    "with_witness_detected": 52,
+    "with_witness_pct": 86.67,
+    "lift_pp": 58.33,
+    "nonlegit_n": 60,
+    "nonlegit_diff_only_pct": 28.33,
+    "nonlegit_with_witness_pct": 86.67
+  },
+  "pr_details": {
+    "visualee::DescriptionTest.testGenerateDescription2": {
+      "glm-5": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The candidate patched test allows production-code mutants to survive that the original test killed, demonstrating measurable loss of fault-detection power.",
+        "repair_guidance": "Preserve the original test's assertions and production code invocations; if fixing order-dependence, add proper test isolation via @Before/@After cleanup or use independent test instances without weakening or removing any verification logic.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 16.208,
+        "prompt_tokens": 2268,
+        "completion_tokens": 1083,
+        "cached": false
+      },
+      "qwen3.7-plus": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The candidate patch is identical to the original test (empty diff), meaning no fault-detection oracle was weakened, shifted, or altered by the patch.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 25.012,
+        "prompt_tokens": 2442,
+        "completion_tokens": 1480,
+        "cached": false
+      }
+    },
+    "visualee::DescriptionTest.testGenerateDescription": {
+      "qwen3.7-plus": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patched test is completely identical to the original test (empty diff), meaning no oracle weakening, assertion relaxation, or responsibility shift was introduced; any mutant survival is an artifact of the original test's flakiness or equivalent mutants, not the patch.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 24.789,
+        "prompt_tokens": 1042,
+        "completion_tokens": 1466,
+        "cached": false
+      },
+      "glm-5": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The candidate patch is identical to the original test (empty diff), failing to address the OD-victim flakiness caused by shared singleton state in DependencyContainer, resulting in mutants surviving due to uncontrolled test state pollution rather than legitimate canonicalization.",
+        "repair_guidance": "Add proper test isolation by clearing DependencyContainer before test execution (e.g., DependencyContainer.getInstance().clear() in @Before or at test start) to ensure deterministic state and restore fault-detection power.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 28.728,
+        "prompt_tokens": 972,
+        "completion_tokens": 2189,
+        "cached": false
+      }
+    },
+    "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany": {
+      "qwen3.7-plus": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patched test is character-for-character identical to the original test, meaning no assertions were weakened or shifted; any surviving mutants are purely an artifact of the test's inherent order-dependency (OD-victim) flakiness rather than a loss of fault-detection power.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 28.904,
+        "prompt_tokens": 1176,
+        "completion_tokens": 1736,
+        "cached": false
+      },
+      "glm-5": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 2,
+        "reason": "No visible changes in the diff; tests are identical with all original assertions preserved, though the empty diff with mutant survival suggests possible external fixture isolation changes not captured in the target test view.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 30.755,
+        "prompt_tokens": 1110,
+        "completion_tokens": 2354,
+        "cached": false
+      }
+    },
+    "fastjson::WriteClassNameTest_Map.test_list": {
+      "qwen3.7-plus": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch resolves non-deterministic map iteration order by applying deterministic key sorting (MapSortField) and updating the expected string to match, preserving all structural and content assertions without weakening the oracle.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 15.318,
+        "prompt_tokens": 1188,
+        "completion_tokens": 888,
+        "cached": false
+      },
+      "glm-5": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 2,
+        "reason": "The patch replaces jsonObject.toJSONString() with JSON.toJSONString(jsonObject, SerializerFeature.MapSortField), bypassing the natural serialization order logic that the original test was checking, allowing ordering-related mutants to survive.",
+        "repair_guidance": "Instead of forcing sorted serialization, parse the JSON into a JSONObject and verify the presence and values of keys individually using jsonObject.containsKey() and jsonObject.get(), or use a JSON comparison library that ignores key order while still verifying all key-value pairs.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 29.066,
+        "prompt_tokens": 1069,
+        "completion_tokens": 2185,
+        "cached": false
+      }
+    },
+    "fastjson::JSONPParseTest3.test_f": {
+      "qwen3.7-plus": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch resolves non-deterministic map iteration order by explicitly enabling field sorting during serialization, preserving the exact string equality check and all escaping invariants.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 12.512,
+        "prompt_tokens": 1087,
+        "completion_tokens": 711,
+        "cached": false
+      },
+      "glm-5": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 2,
+        "reason": "The patch adds SerializerFeature.MapSortField to production code invocation, changing the actual serialization behavior being tested rather than just canonicalizing the assertion; surviving mutants confirm the test now exercises a different code path and misses faults in the original unsorted serialization logic.",
+        "repair_guidance": "Keep the original SerializerFeature.BrowserSecure call unchanged; instead, parse the output JSON string into a structured object (e.g., JSONObject) and assert on the presence and values of keys 'id' and 'name' independently of order, or use JSONAssert/contains checks that ignore key ordering.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 28.866,
+        "prompt_tokens": 1023,
+        "completion_tokens": 2210,
+        "cached": false
+      }
+    },
+    "fastjson::WriteDuplicateType.test_dupType": {
+      "qwen3.7-plus": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch accommodates non-deterministic JSON key ordering by allowing two valid string representations of the exact same JSON object, preserving all structural and value invariants without weakening the fault-detection oracle.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 22.141,
+        "prompt_tokens": 1168,
+        "completion_tokens": 1302,
+        "cached": false
+      },
+      "glm-5": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch weakens the exact equality assertion into an OR condition accepting two different key orderings, and surviving mutants confirm that production fault-detection capability is lost.",
+        "repair_guidance": "Parse the JSON output into a structured object (e.g., JSONObject) and verify the presence and values of required keys programmatically, or canonicalize the JSON by sorting keys before string comparison, rather than accepting multiple possible outputs.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 30.066,
+        "prompt_tokens": 1076,
+        "completion_tokens": 2177,
+        "cached": false
+      }
+    },
+    "visualee::GraphCreatorTest.testBuildJSONNodes": {
+      "qwen3.7-plus": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patched test is completely identical to the original test, preserving all fault-detection invariants without any modifications; surviving mutants are artifacts of the mutation testing environment rather than test changes.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 21.648,
+        "prompt_tokens": 821,
+        "completion_tokens": 1294,
+        "cached": false
+      },
+      "glm-5": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The original and patched tests are identical (empty diff with no modifications), so no fault-detection erosion can be introduced by a non-existent change.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 17.981,
+        "prompt_tokens": 769,
+        "completion_tokens": 1351,
+        "cached": false
+      }
+    },
+    "nacos::JacksonUtilsTest.testToJsonBytes": {
+      "glm-5": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch weakens exact JSON equality assertions into partial substring contains() checks, allowing mutants that alter JSON structure, add extra fields, or corrupt output format to survive as long as the substrings are present.",
+        "repair_guidance": "Keep the LinkedHashMap change for deterministic ordering, but restore the exact assertEquals assertion to preserve complete JSON structure verification.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 10.316,
+        "prompt_tokens": 1425,
+        "completion_tokens": 720,
+        "cached": false
+      },
+      "qwen3.7-plus": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch unnecessarily weakens the exact JSON string equality assertion into partial substring checks, even though switching to LinkedHashMap already guarantees deterministic field ordering and would have allowed the original exact match to remain.",
+        "repair_guidance": "Retain the exact string equality assertion (Assert.assertEquals) since the switch to LinkedHashMap already guarantees deterministic JSON key ordering.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 13.782,
+        "prompt_tokens": 1543,
+        "completion_tokens": 788,
+        "cached": false
+      }
+    },
+    "avro::TestReflect.testAnnotationMultiAvroMeta": {
+      "glm-5": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "reason": "The original test verified the JSON serialization output of the schema generation against a known-good string, while the patched test only compares Schema object equality, silently dropping verification of the JSON serialization/deserialization path and allowing mutants in that code to survive.",
+        "repair_guidance": "Parse the expected JSON string into a Schema object using Schema.parse() and compare against the generated schema, or canonicalize both JSON strings (sorted keys) before string comparison to handle ordering nondeterminism while preserving the serialization verification.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 16.468,
+        "prompt_tokens": 1030,
+        "completion_tokens": 1300,
+        "cached": false
+      },
+      "qwen3.7-plus": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch replaces the exact JSON string serialization assertion with a logical Schema object equality check, completely dropping verification of the schema's JSON serialization output and custom property ordering.",
+        "repair_guidance": "Parse both the expected and actual JSON strings into order-independent JSON objects (e.g., using Jackson's JsonNode) and compare them, preserving the serialization check while eliminating map iteration order flakiness.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 29.816,
+        "prompt_tokens": 1091,
+        "completion_tokens": 1768,
+        "cached": false
+      }
+    },
+    "visualee::GraphCreatorTest.testBuildJSONNode": {
+      "qwen3.7-plus": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The candidate patch is completely identical to the original test, introducing no changes to the assertions or test logic, thereby preserving all fault-detection invariants.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 22.555,
+        "prompt_tokens": 927,
+        "completion_tokens": 1334,
+        "cached": false
+      },
+      "glm-5": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The diff is empty - no changes were made to the test, so no fault-detection capability was lost; the surviving mutants reflect the unresolved OD-victim flakiness, not erosion.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 29.746,
+        "prompt_tokens": 869,
+        "completion_tokens": 2358,
+        "cached": false
+      }
+    }
+  },
+  "tax_details": {
+    "TAX-003": {
+      "meta": {
+        "unique_patch_key": "Mapper::1764748e::Mapper::SqlHelperTest.testLogicDeleteSql::a9d5f408c74469a3e4",
+        "sample_id": "Mapper::SqlHelperTest.testLogicDeleteSql",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": true,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_mechanism": null,
+        "stage1_severity": null
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch canonicalizes the order of unordered SQL fragments (`<if>` blocks and `<set>` items) to resolve flakiness caused by non-deterministic reflection or collection iteration, while preserving exact content checks and structural invariants like trailing commas.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 18.671,
+        "prompt_tokens": 2219,
+        "completion_tokens": 1087,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch replaces exact string equality with regex extraction, comma-splitting, and sorting, which normalizes away ordering and formatting differences caused by Config mutations (e.g., style, wrap keywords, annotation flags), allowing mutants that alter field generation order or formatting to survive.",
+        "repair_guidance": "To fix the iteration/order dependence without weakening the oracle, sort the underlying field definitions (e.g., by field name) in the test fixture or production code before generation, or use a deterministic ordering mechanism, rather than parsing and sorting the generated SQL string output.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 36.493,
+        "prompt_tokens": 2544,
+        "completion_tokens": 2215,
+        "cached": false
+      }
+    },
+    "TAX-004": {
+      "meta": {
+        "unique_patch_key": "avro::bfbd2d11::avro::TestReflect.testAnnotationMultiAvroMeta::75643ac2d6e95afa5f",
+        "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch replaces a string-based JSON comparison (via the check helper) with semantic Schema object comparison, which preserves all fault-detection invariants (record name, namespace, fields, metadata annotations) while eliminating non-deterministic field ordering in JSON serialization.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 22.42,
+        "prompt_tokens": 845,
+        "completion_tokens": 1618,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "reason": "The original test compared JSON string output (exercising toJson/toString/getName), but the patched test compares Schema objects via equals(), which bypasses the JSON serialization code paths where all 6 surviving mutants reside.",
+        "repair_guidance": "If flakiness is due to JSON key ordering, canonicalize both JSON strings (e.g., parse and re-serialize with sorted keys) before string comparison, rather than switching to Schema object equality which drops coverage of toJson/toString/getName.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 17.171,
+        "prompt_tokens": 1112,
+        "completion_tokens": 1402,
+        "cached": false
+      }
+    },
+    "TAX-005": {
+      "meta": {
+        "unique_patch_key": "avro::bfbd2d11::avro::TestReflect.testAnnotationMultiAvroMeta::e12ee95b45f36738c2",
+        "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch replaces a string-based JSON comparison (via the check method, which was likely flaky due to field ordering differences in JSON output) with Schema object equality comparison, which semantically validates all the same properties (record name, namespace, fields, and custom metadata K:V, L:W, X:Y, A:B) while eliminating nondeterminism from JSON field ordering.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 16.78,
+        "prompt_tokens": 862,
+        "completion_tokens": 1228,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The original test compared JSON string representations (exercising toJson/toString/getName serialization paths), while the patched test compares Schema objects via equals(), bypassing those production code paths and allowing serialization-related mutants to survive.",
+        "repair_guidance": "Restore JSON string comparison for the actual schema output (e.g., assertEquals(expectedJson, actual.toString()) or similar) to ensure toJson/toString/getName code paths remain tested, while addressing the original flakiness cause if it was ordering-related by normalizing JSON key order.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 13.014,
+        "prompt_tokens": 1129,
+        "completion_tokens": 959,
+        "cached": false
+      }
+    },
+    "TAX-001": {
+      "meta": {
+        "unique_patch_key": "Breathe::4600818e::py::Breathe::test_loading.test_reloading::d19c07c9e0837b52c4",
+        "sample_id": "py::Breathe::test_loading.test_reloading",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M5_PartnerOrSharedScopeEdit",
+        "stage1_mechanism": "M3_ControlFlowOrExceptionChange",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "",
+        "confidence": 1,
+        "reason": "I need to analyze this more carefully.\n\nLooking at the original test:\n1. It writes a file with a \"parsnip\" command\n2. Calls `engine.mimic(\"rebuild everything test\")` to trigger a rebuild\n3. Tests that \"parsnip\" works and \"apple\" fails\n4. Asserts `len(Breathe.modules) == 1`\n\nThe patched test adds:\n1.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 31.427,
+        "prompt_tokens": 1395,
+        "completion_tokens": 2520,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "reason": "The patched test replaces the original reload mechanism (triggered via engine.mimic('rebuild everything test')) with a direct Breathe.load_modules(modules) call using a hardcoded modules dict, bypassing the reload_modules code path entirely and allowing mutants in master.reload_modules to survive.",
+        "repair_guidance": "Remove the explicit Breathe.load_modules(modules) call and restore reliance on engine.mimic('rebuild everything test') to trigger the reload; keep only the state cleanup (Breathe.modules = [], Breathe.core_commands = []) in try/finally for isolation.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 11.49,
+        "prompt_tokens": 1622,
+        "completion_tokens": 883,
+        "cached": false
+      }
+    },
+    "TAX-002": {
+      "meta": {
+        "unique_patch_key": "Mapper::1764748e::Mapper::ComplexEntityTest.test::143a20434dd97fc1ad",
+        "sample_id": "Mapper::ComplexEntityTest.test",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": true,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_mechanism": null,
+        "stage1_severity": null
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 2,
+        "reason": "The patch converts exact-order string matching and index-based ResultMapping access into sorted/set-based comparisons, removing the ability to detect bugs that change the order of SQL columns, WHERE clauses, or ResultMappings.",
+        "repair_guidance": "Fix the production code to produce deterministic ordering (e.g., use LinkedHashMap instead of HashMap, or sort before generating), then keep the original exact-match assertions; alternatively, if order truly doesn't matter, document this as intentional and use a deterministic sort key in assertions rather than relying on production order.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 36.258,
+        "prompt_tokens": 2471,
+        "completion_tokens": 2558,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch replaces an exact SQL string assertion with a lenient component-based check that only verifies presence of columns and if-clauses in any order, losing the ability to detect production bugs in SQL formatting, keyword wrapping, and structural correctness that the original exact-match assertion would catch.",
+        "repair_guidance": "Preserve exact SQL structure validation while handling non-deterministic ordering: build the expected SQL dynamically by extracting actual column/if-clause order from production output and comparing against expected sets, or use a structured comparison that verifies exact format of each component (spacing, keywords, delimiters) while allowing order-independent matching of unordered elements.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 29.112,
+        "prompt_tokens": 2775,
+        "completion_tokens": 2220,
+        "cached": false
+      }
+    },
+    "TAX-006": {
+      "meta": {
+        "unique_patch_key": "avro::bfbd2d11::avro::TestReflect.testAvroDoc::40e548b8a056317c2b",
+        "sample_id": "avro::TestReflect.testAvroDoc",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "",
+        "confidence": 1,
+        "reason": "EROSION_DETECTED** if field ordering is part of the Avro schema contract that should be tested.\n\nLet me think about this more carefully. In Avro:\n- Schema field order matters for schema resolution (reading data written with an older schema)\n- However, when generating a schema from a Java class via r",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 57.213,
+        "prompt_tokens": 2302,
+        "completion_tokens": 5120,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "reason": "The patch replaces JSON string comparison (which exercises Schema.toString()/toJson() serialization) with structural Schema object comparison, completely bypassing the serialization code paths where all 6 surviving mutants reside.",
+        "repair_guidance": "To fix flakiness while preserving serialization testing, call actual.toString() or actual.toJson(), parse both expected and actual JSON strings into Schema objects, then compare structurally—this ensures toString()/toJson() are still invoked and tested.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 16.414,
+        "prompt_tokens": 2569,
+        "completion_tokens": 1251,
+        "cached": false
+      }
+    },
+    "TAX-007": {
+      "meta": {
+        "unique_patch_key": "avro::bfbd2d11::avro::TestReflect.testAvroDoc::799958a124e58eb552",
+        "sample_id": "avro::TestReflect.testAvroDoc",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "reason": "The patch replaces the original exact JSON string comparison (which validates schema serialization, field ordering, and default value formatting) with individual property checks on the internal Schema object, completely dropping the fault-detection coverage for the JSON output generation.",
+        "repair_guidance": "Parse the expected JSON string into a Schema object and compare it against the generated Schema using Schema.equals(), or sort the fields deterministically before generating the JSON string to preserve the serialization check while fixing the flakiness.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 37.126,
+        "prompt_tokens": 1561,
+        "completion_tokens": 2195,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "reason": "The patch replaces the exact JSON string serialization check with in-memory object property assertions, completely dropping fault detection for the `Schema.toString()` and `Schema.toJson()` serialization logic.",
+        "repair_guidance": "Use a JSON comparison library or parse both actual and expected strings into a canonical JSON object to assert equality, preserving the serialization check while avoiding flakiness from key ordering.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 22.859,
+        "prompt_tokens": 1841,
+        "completion_tokens": 1349,
+        "cached": false
+      }
+    },
+    "TAX-008": {
+      "meta": {
+        "unique_patch_key": "avro::bfbd2d11::avro::TestReflect.testMultipleFieldAliases::f69d3c24382459d297",
+        "sample_id": "avro::TestReflect.testMultipleFieldAliases",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch replaces a flaky JSON string comparison with a deterministic logical object equality check and an explicit alias set comparison, preserving the full schema validation while eliminating serialization non-determinism.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 18.631,
+        "prompt_tokens": 966,
+        "completion_tokens": 1092,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "reason": "The patch replaces the original JSON string serialization check with in-memory Schema object equality, completely dropping the verification of the schema's JSON output behavior which the surviving mutant exploits.",
+        "repair_guidance": "Retain the JSON string comparison (e.g., assertEquals(expectedSchema.toString(), actualSchema.toString(true))) and fix flakiness by canonicalizing the JSON output (e.g., sorting keys or using a deterministic JSON parser) rather than dropping the serialization check.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 26.694,
+        "prompt_tokens": 1091,
+        "completion_tokens": 1604,
+        "cached": false
+      }
+    },
+    "TAX-009": {
+      "meta": {
+        "unique_patch_key": "avro::bfbd2d11::avro::TestReflect.testRecord::5d49c8f101bf848e1f",
+        "sample_id": "avro::TestReflect.testRecord",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "",
+        "confidence": 1,
+        "reason": "Looking at this test change, I need to analyze whether the patched version preserves the original test's fault-detection capabilities.\n\n**Original Test Analysis:**\n- Uses a `check()` method that compares the schema generated from `R.class` against an expected JSON string\n- The JSON string specifies:",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 31.632,
+        "prompt_tokens": 931,
+        "completion_tokens": 2453,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "reason": "The original test verified JSON serialization of schemas via toString()/toJson() by comparing against an expected JSON string; the patched test bypasses serialization entirely by checking only in-memory Schema object properties, allowing all JSON serialization mutants to survive.",
+        "repair_guidance": "Restore the JSON serialization check by parsing both expected and actual JSON into structured objects for comparison (ignoring field order), or canonicalize the JSON output before comparison, rather than eliminating the serialization verification entirely.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 12.856,
+        "prompt_tokens": 1197,
+        "completion_tokens": 1119,
+        "cached": false
+      }
+    },
+    "TAX-010": {
+      "meta": {
+        "unique_patch_key": "avro::bfbd2d11::avro::TestReflect.testRecord::c6194410fbad1767d4",
+        "sample_id": "avro::TestReflect.testRecord",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 2,
+        "reason": "The patch replaces a comprehensive schema equality check (via the original `check` method) with selective property assertions that only verify type, name, namespace, field names, and field schemas—potentially missing field default values, documentation, aliases, and other Schema.Field metadata that the original check would have validated.",
+        "repair_guidance": "Preserve full schema equality comparison by normalizing field order in both schemas before comparison (e.g., create helper to rebuild schemas with sorted fields) and use Schema.equals() rather than breaking into partial assertions.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 18.654,
+        "prompt_tokens": 1022,
+        "completion_tokens": 1522,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patched test replaces a JSON string comparison (which exercises toString/toJson code paths and compares against an immutable literal) with property-by-property comparisons that never call toString/toJson, and uses self-referential getName() comparisons where both sides are equally affected by the mutation.",
+        "repair_guidance": "Preserve the original check() method call that compares schema.toString() against the literal JSON string; if field ordering is non-deterministic, parse both JSON strings into canonical form (e.g., sorted JSON tree) before comparison rather than comparing individual properties.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 20.376,
+        "prompt_tokens": 1289,
+        "completion_tokens": 1651,
+        "cached": false
+      }
+    },
+    "TAX-011": {
+      "meta": {
+        "unique_patch_key": "centreon-sdk-python::9f207d54::py::centreon-sdk-python::TestCommands.test_command_list::8f86bd2ba9b133a24e",
+        "sample_id": "py::centreon-sdk-python::TestCommands.test_command_list",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds authentication setup and mocking but preserves the exact same production method call and exact equality assertion on the returned object's ID, maintaining the original fault-detection oracle.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 27.739,
+        "prompt_tokens": 1703,
+        "completion_tokens": 1668,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "reason": "The patch explicitly calls webservice.auth() in the test setup, pre-populating the auth token and shifting authentication responsibility from the production code's call_clapi method to the test fixture, which masks the negated conditional mutant at L85.",
+        "repair_guidance": "Remove the manual webservice.auth() call from the test setup and instead ensure the centreon_con fixture provides a properly isolated, pre-authenticated instance to fix the order-dependence without bypassing the production authentication check.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 36.119,
+        "prompt_tokens": 1858,
+        "completion_tokens": 2193,
+        "cached": false
+      }
+    },
+    "TAX-012": {
+      "meta": {
+        "unique_patch_key": "centreon-sdk-python::9f207d54::py::centreon-sdk-python::TestCommands.test_command_not_exist::2e1919a18f09fccfc0",
+        "sample_id": "py::centreon-sdk-python::TestCommands.test_command_not_exist",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch fixes order-dependence by explicitly setting up the required authentication state for the Webservice singleton locally, preserving the original assertion and production code path without weakening the oracle.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 35.257,
+        "prompt_tokens": 1644,
+        "completion_tokens": 2134,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 2,
+        "reason": "The patch explicitly authenticates a new Webservice singleton instance before the test action, altering the shared authentication state and bypassing the specific unauthenticated or state-dependent execution path in call_clapi that the original test used to detect the mutant.",
+        "repair_guidance": "Fix the order-dependency by ensuring the centreon_con fixture itself handles its own authentication setup deterministically, rather than manually authenticating a separate singleton instance inside the test body which shifts the preconditions.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 36.104,
+        "prompt_tokens": 1799,
+        "completion_tokens": 2193,
+        "cached": false
+      }
+    },
+    "TAX-013": {
+      "meta": {
+        "unique_patch_key": "centreon-sdk-python::9f207d54::py::centreon-sdk-python::TestCommands.test_command_not_exist::6d39a69c0f54381b94",
+        "sample_id": "py::centreon-sdk-python::TestCommands.test_command_not_exist",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds a missing mock for the authentication endpoint to make the test self-contained and fix order-dependent flakiness, without altering the production code under test or the final assertion.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 25.269,
+        "prompt_tokens": 1576,
+        "completion_tokens": 1523,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 2,
+        "reason": "By adding the authenticate mock, the patch changes the authentication precondition (auth_token is now set), which allows the negated authentication check mutants to bypass the API call and still return the expected `state == False`, thereby weakening the test's ability to detect faults in the authentication logic.",
+        "repair_guidance": "Ensure the test explicitly asserts that the authentication state is correct or that the API call was actually attempted (e.g., using responses.assert_call_count), so that negated authentication conditions cannot silently bypass the production logic while still satisfying the final state assertion.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 36.747,
+        "prompt_tokens": 1731,
+        "completion_tokens": 2215,
+        "cached": false
+      }
+    },
+    "TAX-014": {
+      "meta": {
+        "unique_patch_key": "centreon-sdk-python::9f207d54::py::centreon-sdk-python::TestHosts.test_hosts_list::ff8ea3ad2dd4c19a73",
+        "sample_id": "py::centreon-sdk-python::TestHosts.test_hosts_list",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds explicit authentication setup to isolate the test from order-dependent singleton state, preserving the original exact assertion on the production code's output.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 19.79,
+        "prompt_tokens": 1628,
+        "completion_tokens": 1172,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 2,
+        "reason": "The patch shifts authentication responsibility into the test body by manually invoking the Webservice singleton, which alters the execution path and state initialization such that production conditionals in call_clapi are no longer exercised or validated as they were when the fixture managed the lifecycle.",
+        "repair_guidance": "Fix the underlying fixture or test isolation mechanism to deterministically provide the authenticated Webservice instance without manually invoking production authentication logic inside the test body.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 37.175,
+        "prompt_tokens": 1783,
+        "completion_tokens": 2184,
+        "cached": false
+      }
+    },
+    "TAX-015": {
+      "meta": {
+        "unique_patch_key": "centreon-sdk-python::9f207d54::py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_building_line::052d0faf6486582f05",
+        "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_building_line",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds a missing authentication mock to isolate the test from partner test state leakage, preserving the exact original assertion and production behavior checks.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 17.625,
+        "prompt_tokens": 1652,
+        "completion_tokens": 1005,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 2,
+        "reason": "The patch adds a missing mock for the authentication prerequisite to ensure deterministic test execution, preserving the exact assertion and fault-detection oracle for the production code under test.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 30.501,
+        "prompt_tokens": 1807,
+        "completion_tokens": 1834,
+        "cached": false
+      }
+    },
+    "TAX-016": {
+      "meta": {
+        "unique_patch_key": "centreon-sdk-python::9f207d54::py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_building_line::c89ca7b6042229cc4d",
+        "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_building_line",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds proper test isolation by mocking the authentication endpoint, fixing order-dependent flakiness while preserving the original assertion and production call under test.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 13.384,
+        "prompt_tokens": 1507,
+        "completion_tokens": 911,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patched test adds an authentication mock that bypasses or alters the code path through call_clapi:L85, causing conditional-branch mutants that the original test killed to now survive.",
+        "repair_guidance": "Ensure the authentication mock does not short-circuit the production code path at call_clapi:L85; verify that the conditional logic under test is still exercised after authentication succeeds, or restructure the test to explicitly invoke the code path containing L85 regardless of authentication flow.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 13.497,
+        "prompt_tokens": 1656,
+        "completion_tokens": 952,
+        "cached": false
+      }
+    },
+    "TAX-017": {
+      "meta": {
+        "unique_patch_key": "centreon-sdk-python::9f207d54::py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_get_one::d4150750f0dcd8c3c5",
+        "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_get_one",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds an unused authentication setup and mock but preserves the exact same method call and exact equality assertion on the resource name, maintaining the original fault-detection oracle.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 24.945,
+        "prompt_tokens": 1697,
+        "completion_tokens": 1460,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 2,
+        "reason": "The patch shifts authentication responsibility to a disconnected dummy Webservice instance instead of properly authenticating the actual centreon_con fixture, altering the production code path in call_clapi and allowing mutants in the authentication check to survive.",
+        "repair_guidance": "Authenticate the actual centreon_con fixture directly (e.g., centreon_con.auth()) or ensure the fixture is initialized with a valid token, rather than creating and authenticating a separate dummy Webservice instance.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 37.03,
+        "prompt_tokens": 1852,
+        "completion_tokens": 2190,
+        "cached": false
+      }
+    },
+    "TAX-018": {
+      "meta": {
+        "unique_patch_key": "centreon-sdk-python::9f207d54::py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_get_one::e09669ebe0d65f201f",
+        "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_get_one",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds a missing authentication mock to ensure test isolation and prevent reliance on leaked state from previous tests, without altering the original assertion or the production code path being tested.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 30.099,
+        "prompt_tokens": 1645,
+        "completion_tokens": 1752,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 2,
+        "reason": "The patch resolves order-dependent brittleness by explicitly mocking the authentication endpoint required for fixture isolation, which inadvertently allows the negated auth-check mutant to survive by absorbing the redundant auth() call that previously caused an unmocked network failure.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 35.639,
+        "prompt_tokens": 1800,
+        "completion_tokens": 2152,
+        "cached": false
+      }
+    },
+    "TAX-019": {
+      "meta": {
+        "unique_patch_key": "cloud-slang::48923570::cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted::726893d90e13f64979",
+        "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "",
+        "confidence": 1,
+        "reason": "verdict: EROSION_DETECTED\ncategory: GENUINE_ORACLE_WEAKENING\nconfidence: 2\nreason: The patch resets the EncryptionProvider's encryptor field to an empty AtomicReference, which may bypass the real encryption/decryption logic that the test is supposed to verify, potentially allowing the test to pass w",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 31.887,
+        "prompt_tokens": 900,
+        "completion_tokens": 2179,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch uses reflection to reset EncryptionProvider's internal encryptor field to an empty AtomicReference, which bypasses normal initialization logic and causes the conditional in EncryptionProvider.create to no longer be properly exercised, allowing the negated-conditional mutant to survive.",
+        "repair_guidance": "Instead of reflection-based internal state manipulation, use proper test isolation via @Before/@After methods to reset EncryptionProvider state through its public API, or use dependency injection to provide a fresh encryptor instance for each test.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 10.607,
+        "prompt_tokens": 1010,
+        "completion_tokens": 838,
+        "cached": false
+      }
+    },
+    "TAX-020": {
+      "meta": {
+        "unique_patch_key": "cloud-slang::48923570::cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted::a1e6ecf8ad057ae479",
+        "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M5_PartnerOrSharedScopeEdit",
+        "stage1_mechanism": "M5_PartnerOrSharedScopeEdit",
+        "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch resolves order-dependency flakiness by resetting shared static state (the cached encryptor) before the target test and after the partner test, preserving all original assertions and fault-detection invariants without mocking or weakening checks.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 27.289,
+        "prompt_tokens": 1293,
+        "completion_tokens": 1639,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch uses reflection to manually reset a static cache to an empty state, bypassing normal Spring context initialization and altering the execution path so that the mutated conditional in EncryptionProvider is no longer properly exercised or its effect is masked.",
+        "repair_guidance": "Use proper test isolation mechanisms like @DirtiesContext or a dedicated @BeforeEach/@AfterEach setup to reset the Spring context and static state deterministically without bypassing production initialization logic.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 36.077,
+        "prompt_tokens": 1407,
+        "completion_tokens": 2187,
+        "cached": false
+      }
+    },
+    "TAX-021": {
+      "meta": {
+        "unique_patch_key": "cloud-slang::48923570::cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt::1f1b98e495b88af355",
+        "sample_id": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds deterministic state isolation by resetting the shared static encryptor field before the test, preserving all original assertions including the exact expected encrypted string and encrypt/decrypt verification sequence.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 13.219,
+        "prompt_tokens": 967,
+        "completion_tokens": 882,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch resets the encryptor field to an empty AtomicReference, which bypasses proper initialization of the encryption provider, allowing a negated conditional in EncryptionProvider.create to survive that the original test correctly killed.",
+        "repair_guidance": "Instead of resetting to an empty AtomicReference, properly re-initialize the encryptor with a valid EncryptionProvider instance (e.g., via EncryptionProvider.init() or the appropriate setup method) to ensure the real encryption logic is exercised while still isolating from polluted state.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 12.026,
+        "prompt_tokens": 1077,
+        "completion_tokens": 855,
+        "cached": false
+      }
+    },
+    "TAX-022": {
+      "meta": {
+        "unique_patch_key": "commons-lang::7c32e527::commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::583d968be271316fe1",
+        "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": false,
+        "auto_mechanism": "M1_PredicateProjectionOrRelaxation",
+        "stage1_mechanism": "M1_PredicateProjectionOrRelaxation",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch weakens exact string equality into partial substring checks, losing verification of field ordering, exact formatting/indentation, comma placement after fields, and structural completeness of the toString output.",
+        "repair_guidance": "If field ordering is the source of flakiness, use a deterministic ordering assertion (e.g., regex with ordered groups or verify each field appears in correct sequence) rather than unordered contains checks; preserve exact formatting verification for the doubleArray content and overall structure.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 12.505,
+        "prompt_tokens": 1086,
+        "completion_tokens": 753,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch replaces exact string equality with partial substring contains() checks, losing verification of indentation, field separators, field order, and exact formatting—allowing mutants that break resetIndent, setFieldSeparator, and appendDetail to survive.",
+        "repair_guidance": "Restore exact string comparison; if flakiness stems from non-deterministic field ordering, parse the output into a structured form (e.g., extract fields into a map) and verify each field's presence and value while still checking indentation/formatting invariants, or sort expected/actual field lines before comparison.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 16.561,
+        "prompt_tokens": 1398,
+        "completion_tokens": 1188,
+        "cached": false
+      }
+    },
+    "TAX-023": {
+      "meta": {
+        "unique_patch_key": "commons-lang::7c32e527::commons-lang::MultilineRecursiveToStringStyleTest.stringArray::b114e51990c480e64b",
+        "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.stringArray",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch weakens exact string equality into a set-based comparison of normalized lines, losing structural integrity of nested fields (stringArray's multi-line content is flattened into independent parts) and exact formatting verification (commas and indentation are stripped).",
+        "repair_guidance": "Instead of splitting by separator which breaks nested structures, extract only top-level field lines (lines starting with exactly two spaces followed by a field name), sort those while preserving their exact formatting including nested content, then compare the sorted lists.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 29.721,
+        "prompt_tokens": 1517,
+        "completion_tokens": 2194,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch sorts fields and strips trailing commas, which eliminates verification of field order and field separator placement—the surviving mutants in appendEnd and removeLastFieldSeparator prove that bugs in separator handling now go undetected.",
+        "repair_guidance": "If field order is non-deterministic, sort only the field names for comparison but preserve and verify the exact formatting of each field including commas and separators; alternatively, use a deterministic test fixture that produces stable ordering.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 9.572,
+        "prompt_tokens": 1776,
+        "completion_tokens": 659,
+        "cached": false
+      }
+    },
+    "TAX-024": {
+      "meta": {
+        "unique_patch_key": "commons-lang::7c32e527::commons-lang::ReflectionToStringBuilderSummaryTest.testSummary::89f887e27fa72434ce",
+        "sample_id": "commons-lang::ReflectionToStringBuilderSummaryTest.testSummary",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch deterministically sorts reflection field output to handle non-deterministic field ordering while preserving exact equality checks on all field names, values, and overall format.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 29.388,
+        "prompt_tokens": 718,
+        "completion_tokens": 2127,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch uses split(\",\") which silently drops trailing empty strings, allowing a trailing comma bug (from removeLastFieldSeparator not being called) to pass undetected since \"[a,b,]\" and \"[a,b]\" produce identical sorted results after split normalizes away the empty trailing element.",
+        "repair_guidance": "Use split(\",\", -1) to preserve trailing empty strings, or validate the raw output structure before canonicalization to ensure proper termination without trailing delimiters.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 19.257,
+        "prompt_tokens": 986,
+        "completion_tokens": 1637,
+        "cached": false
+      }
+    },
+    "TAX-025": {
+      "meta": {
+        "unique_patch_key": "commons-lang::7c32e527::commons-lang::ReflectionToStringBuilderSummaryTest.testSummary::a106d1b56a7703280f",
+        "sample_id": "commons-lang::ReflectionToStringBuilderSummaryTest.testSummary",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch weakens the exact string format and field order assertions by stripping the first and last characters and sorting the comma-separated fields, thereby failing to detect changes in the builder's output brackets, delimiters, or field ordering.",
+        "repair_guidance": "Preserve the exact string format assertion including brackets and delimiters, and resolve field order nondeterminism by using a deterministic reflection field ordering or a custom style that sorts fields, rather than stripping format characters and sorting the output.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 29.905,
+        "prompt_tokens": 778,
+        "completion_tokens": 1807,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch uses `split(\",\")` which silently drops trailing empty tokens, causing the test to miss mutations that fail to remove the trailing field separator before the closing bracket.",
+        "repair_guidance": "Use `split(\",\", -1)` to preserve trailing empty tokens, or assert the exact unmodified string to retain the original fault-detection power over formatting and boundary characters.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 35.9,
+        "prompt_tokens": 1061,
+        "completion_tokens": 2181,
+        "cached": false
+      }
+    },
+    "TAX-026": {
+      "meta": {
+        "unique_patch_key": "commons-lang::7c32e527::commons-lang::ToStringBuilderTest.testInheritedReflectionStatics::056ac6b7416c33301d",
+        "sample_id": "commons-lang::ToStringBuilderTest.testInheritedReflectionStatics",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 2,
+        "reason": "The patch weakens exact string equality assertions into unordered HashMap key-value comparisons, losing verification of field ordering and exact output format (delimiter structure, trailing content) that the original test enforced.",
+        "repair_guidance": "Parse the output into a list of key-value pairs, sort them deterministically by key, and compare the reconstructed canonical string; this preserves format verification while eliminating ordering nondeterminism.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 33.755,
+        "prompt_tokens": 2052,
+        "completion_tokens": 2173,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch replaces exact string equality with HashMap-based key-value comparison, which loses the ability to detect incorrect field separator handling (trailing commas) and field ordering—exactly the behaviors the surviving mutants in appendEnd/removeLastFieldSeparator affect.",
+        "repair_guidance": "To fix flakiness without losing fault detection, sort the expected and actual field strings deterministically (e.g., extract fields, sort them, reassemble) while still verifying the complete format including brackets and separators; or use LinkedHashMap to preserve order and verify the full string structure.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 17.173,
+        "prompt_tokens": 2311,
+        "completion_tokens": 1358,
+        "cached": false
+      }
+    },
+    "TAX-027": {
+      "meta": {
+        "unique_patch_key": "commons-lang::7c32e527::commons-lang::ToStringBuilderTest.testInheritedReflectionStatics::1a4cf52bda652fa4a9",
+        "sample_id": "commons-lang::ToStringBuilderTest.testInheritedReflectionStatics",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": false,
+        "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The normalization function sorts field=value pairs to handle non-deterministic reflection field ordering while preserving exact verification of all field names, values, and completeness of the output.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 25.226,
+        "prompt_tokens": 1722,
+        "completion_tokens": 1955,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "",
+        "confidence": 1,
+        "reason": ".\n\nWait, let me reconsider. The mutants are specifically about:\n1. `appendEnd` - which handles the end of the toString\n2. `removeLastFieldSeparator` - which removes the trailing separator\n\nThese are about the STRUCTURE of the output, not just the order. The fact that these mutants survive means the ",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 59.843,
+        "prompt_tokens": 1981,
+        "completion_tokens": 5120,
+        "cached": false
+      }
+    },
+    "TAX-028": {
+      "meta": {
+        "unique_patch_key": "commons-lang::7c32e527::commons-lang::ToStringBuilderTest.testInheritedReflectionStatics::1f071c6d2e9fc2cf84",
+        "sample_id": "commons-lang::ToStringBuilderTest.testInheritedReflectionStatics",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": false,
+        "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 2,
+        "reason": "The patch weakens exact string equality to a sorted field comparison, losing verification of output format structure (brackets, base string prefix) and field ordering semantics that the original test explicitly validated.",
+        "repair_guidance": "If field order is non-deterministic, preserve format checks by asserting the output starts with baseStr + '[' and ends with ']', then verify sorted field contents; this maintains structural validation while handling ordering non-determinism.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 29.662,
+        "prompt_tokens": 1824,
+        "completion_tokens": 2183,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch normalizes output by sorting fields and using split/join, which silently drops detection of trailing separator bugs (removeLastFieldSeparator) and appendEnd formatting issues that the original exact-string comparison would catch.",
+        "repair_guidance": "If field ordering is non-deterministic, verify each expected field exists via contains() checks AND add explicit assertions that the output has no trailing commas (e.g., assertFalse(result.endsWith(\",\"))) and properly starts/ends with brackets, preserving format validation while allowing order flexibility.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 13.295,
+        "prompt_tokens": 2083,
+        "completion_tokens": 981,
+        "cached": false
+      }
+    },
+    "TAX-029": {
+      "meta": {
+        "unique_patch_key": "commons-lang::7c32e527::commons-lang::ToStringBuilderTest.testInheritedReflectionStatics::50b73899e4e8a4b53e",
+        "sample_id": "commons-lang::ToStringBuilderTest.testInheritedReflectionStatics",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": true,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_mechanism": null,
+        "stage1_severity": null
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch canonicalizes the field order in the reflection output to eliminate flakiness caused by non-deterministic JVM reflection ordering, while preserving the exact set of fields and values checked by the original oracle.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 20.594,
+        "prompt_tokens": 2177,
+        "completion_tokens": 1220,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The `normalize` function uses `split(\",\")` which silently drops trailing empty tokens, masking mutants that fail to remove the last field separator and leaving trailing commas undetected.",
+        "repair_guidance": "Use `split(\",\", -1)` to preserve trailing empty tokens during parsing, or assert the exact string format directly to ensure trailing separators are not silently dropped.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 29.761,
+        "prompt_tokens": 2450,
+        "completion_tokens": 1779,
+        "cached": false
+      }
+    },
+    "TAX-030": {
+      "meta": {
+        "unique_patch_key": "commons-lang::7c32e527::commons-lang::ToStringBuilderTest.testReflectionHierarchy::66c3b176efd7343334",
+        "sample_id": "commons-lang::ToStringBuilderTest.testReflectionHierarchy",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": false,
+        "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 2,
+        "reason": "The patch weakens exact string equality into set-based field comparison, losing verification of field ordering which the original test explicitly checked.",
+        "repair_guidance": "If field order is non-deterministic by design, document this in the production code and use a deterministic sorting strategy in the production code itself (e.g., sort fields alphabetically before output) rather than weakening the test assertion.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 31.967,
+        "prompt_tokens": 2384,
+        "completion_tokens": 2498,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch replaces exact string equality with a sorted field-set comparison using split(\",\"), which silently discards trailing empty tokens (Java's split() drops them by default), allowing mutants in appendEnd and removeLastFieldSeparator to survive—bugs that would produce malformed output with trailing separators or incorrect end formatting.",
+        "repair_guidance": "If field ordering is non-deterministic, use split(\",\", -1) to preserve trailing empty strings, or compare sorted fields while also asserting the exact character-level format of separators and brackets (e.g., verify no trailing comma before closing bracket via regex or substring check).",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 23.547,
+        "prompt_tokens": 2643,
+        "completion_tokens": 1782,
+        "cached": false
+      }
+    },
+    "TAX-031": {
+      "meta": {
+        "unique_patch_key": "commons-lang::7c32e527::commons-lang::ToStringBuilderTest.testReflectionHierarchyArrayList::d6b967ba4e6217b81b",
+        "sample_id": "commons-lang::ToStringBuilderTest.testReflectionHierarchyArrayList",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": false,
+        "auto_mechanism": "M1_PredicateProjectionOrRelaxation",
+        "stage1_mechanism": "M1_PredicateProjectionOrRelaxation",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch weakens exact string equality verification into partial substring checks, losing the ability to detect incorrect field ordering, missing delimiters, or unexpected content between fields in the reflection output.",
+        "repair_guidance": "Instead of weakening assertions, canonicalize the output by sorting field names before comparison, or use a JSON parser to extract and verify fields in a deterministic order while preserving completeness checks.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 14.906,
+        "prompt_tokens": 1251,
+        "completion_tokens": 1088,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch replaces exact string equality with partial substring containment checks, allowing mutants that remove field separators/end markers to survive since the substrings remain present even when formatting structure is broken.",
+        "repair_guidance": "Restore exact equality assertion for toStringWithTransients; if JVM-specific variation is the flakiness root cause, normalize the output via deterministic ordering or regex-based validation that still verifies proper field separator placement.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 12.661,
+        "prompt_tokens": 1414,
+        "completion_tokens": 983,
+        "cached": false
+      }
+    },
+    "TAX-032": {
+      "meta": {
+        "unique_patch_key": "commons-lang::7c32e527::commons-lang::ToStringBuilderTest.testSimpleReflectionStatics::cef55a51881343112c",
+        "sample_id": "commons-lang::ToStringBuilderTest.testSimpleReflectionStatics",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": true,
+        "passes_b3_plus": false,
+        "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_mechanism": null,
+        "stage1_severity": null
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch canonicalizes the order of reflection fields to eliminate nondeterminism caused by Java's unordered `getDeclaredFields()`, preserving the exact check for field names and values without weakening the fault-detection oracle.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 30.618,
+        "prompt_tokens": 1717,
+        "completion_tokens": 1870,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch's use of `String.split(\",\")` drops trailing empty tokens, silently masking missing trailing separator bugs (e.g., in `removeLastFieldSeparator`) that the original exact-match oracle would have caught.",
+        "repair_guidance": "Use `split(\",\", -1)` to preserve trailing empty tokens, or validate the exact separator structure before sorting fields.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 26.759,
+        "prompt_tokens": 1990,
+        "completion_tokens": 1610,
+        "cached": false
+      }
+    },
+    "TAX-033": {
+      "meta": {
+        "unique_patch_key": "crom::98bb6be4::py::crom::TestFactorySerialization.test_recursion::394204d7ee5c2e22ba",
+        "sample_id": "py::crom::TestFactorySerialization.test_recursion",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds deterministic fixture isolation by explicitly setting module-level factory configuration before the test, resolving order-dependence without altering the recursion fault-detection oracle.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 17.784,
+        "prompt_tokens": 660,
+        "completion_tokens": 1030,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch disables automatic ID assignment (`auto_assign_id = False`), which bypasses the `generate_id` function during serialization, allowing mutants in that function to survive because the mutated code is no longer executed.",
+        "repair_guidance": "Remove the `auto_assign_id = False` configuration or explicitly invoke `generate_id` to ensure the mutated code paths remain exercised by the test.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 20.415,
+        "prompt_tokens": 888,
+        "completion_tokens": 1209,
+        "cached": false
+      }
+    },
+    "TAX-034": {
+      "meta": {
+        "unique_patch_key": "crom::98bb6be4::py::crom::TestFactorySerialization.test_recursion::72636f4d4f966d2cbc",
+        "sample_id": "py::crom::TestFactorySerialization.test_recursion",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 2,
+        "reason": "The patch hardcodes global factory settings to mask order-dependency, altering the preconditions and potentially bypassing the default serialization branch where the recursion check is actually exercised, while also failing to restore shared state for subsequent tests.",
+        "repair_guidance": "Use a test fixture, context manager, or setUp/tearDown to temporarily override and restore the global factory settings, ensuring the test exercises the default production code path without leaking state.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 39.809,
+        "prompt_tokens": 660,
+        "completion_tokens": 2184,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch disables auto_assign_id, bypassing the generate_id production branch that the original test exercised, allowing mutants in ID generation to survive.",
+        "repair_guidance": "Reset the global model.factory state to its default values before the test instead of disabling the auto_assign_id feature, ensuring the generate_id branch remains exercised.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 29.386,
+        "prompt_tokens": 888,
+        "completion_tokens": 1765,
+        "cached": false
+      }
+    },
+    "TAX-035": {
+      "meta": {
+        "unique_patch_key": "crom::98bb6be4::py::crom::TestFactorySerialization.test_recursion::fde91b770c5bcc9212",
+        "sample_id": "py::crom::TestFactorySerialization.test_recursion",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 2,
+        "reason": "The patch modifies global factory configuration (auto_assign_id, auto_id_type) before testing recursion handling, potentially masking bugs where recursion handling fails under the default or other configurations.",
+        "repair_guidance": "Save the original values of auto_assign_id and auto_id_type before the test, set desired deterministic values, run the test, then restore original values; or add a separate test case for each configuration variant to ensure recursion handling works in all cases.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 30.53,
+        "prompt_tokens": 621,
+        "completion_tokens": 2111,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch modifies factory configuration (auto_assign_id, auto_id_type) which changes the code paths exercised during serialization, allowing generate_id mutants to survive that the original test killed.",
+        "repair_guidance": "Save and restore the original factory configuration values at test start/end using try/finally or addCleanup, rather than unconditionally setting them to specific values that bypass the generate_id code paths under test.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 16.275,
+        "prompt_tokens": 765,
+        "completion_tokens": 1305,
+        "cached": false
+      }
+    },
+    "TAX-036": {
+      "meta": {
+        "unique_patch_key": "crom::98bb6be4::py::crom::TestMagicMethods.test_not_multiple_instance::09fddb238f39dc9399",
+        "sample_id": "py::crom::TestMagicMethods.test_not_multiple_instance",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds deterministic factory configuration and resets shared global state before object creation to prevent test-order dependency flakiness, without altering any of the original assertions or fault-detection invariants.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 23.938,
+        "prompt_tokens": 955,
+        "completion_tokens": 1433,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch disables `auto_assign_id`, bypassing the `generate_id` production logic that was previously exercised, causing mutants in that function to survive.",
+        "repair_guidance": "Instead of disabling `auto_assign_id`, mock or stub the ID generation to return a deterministic value, or explicitly assert the generated ID to maintain coverage of `generate_id`.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 33.482,
+        "prompt_tokens": 1183,
+        "completion_tokens": 2022,
+        "cached": false
+      }
+    },
+    "TAX-037": {
+      "meta": {
+        "unique_patch_key": "crom::98bb6be4::py::crom::TestMagicMethods.test_not_multiple_instance::128e31dee9efb12634",
+        "sample_id": "py::crom::TestMagicMethods.test_not_multiple_instance",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds deterministic factory configuration to prevent state leakage from other tests, preserving all original assertions and fault-detection invariants.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 18.944,
+        "prompt_tokens": 928,
+        "completion_tokens": 1111,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch sets auto_assign_id=False, which prevents generate_id from being invoked during Person instantiation, causing all mutants in generate_id to survive undetected since the function is no longer exercised by the test.",
+        "repair_guidance": "Resolve the order-dependent flakiness by properly isolating factory state (e.g., saving/restoring factory settings in setUp/tearDown) or using deterministic ID fixtures, without disabling auto_assign_id so that generate_id remains exercised and its mutants remain detectable.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 28.694,
+        "prompt_tokens": 1156,
+        "completion_tokens": 1672,
+        "cached": false
+      }
+    },
+    "TAX-038": {
+      "meta": {
+        "unique_patch_key": "crom::98bb6be4::py::crom::TestMagicMethods.test_not_multiple_instance::491a829a3fba7124a8",
+        "sample_id": "py::crom::TestMagicMethods.test_not_multiple_instance",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds clean fixture isolation by resetting shared singleton state polluted by a previous test, preserving all original assertions and fault-detection invariants without weakening the oracle.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 16.2,
+        "prompt_tokens": 959,
+        "completion_tokens": 931,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 2,
+        "reason": "The patch resets `model.factory.auto_assign_id = False`, which bypasses the `generate_id` code path entirely; mutants in `generate_id` (L267, L283) that the original test killed now survive because that function is no longer exercised during this test.",
+        "repair_guidance": "Preserve the original exercised code paths by either restoring `auto_assign_id` to the value that triggers `generate_id` (e.g., True) after the reset, or explicitly invoke `generate_id` within the test so its mutants remain detectable.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 37.594,
+        "prompt_tokens": 1187,
+        "completion_tokens": 2220,
+        "cached": false
+      }
+    },
+    "TAX-039": {
+      "meta": {
+        "unique_patch_key": "crom::98bb6be4::py::crom::TestMagicMethods.test_validate_multiplicity::b381c9c28be4c95975",
+        "sample_id": "py::crom::TestMagicMethods.test_validate_multiplicity",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch only adds deterministic factory configuration to disable auto-generated IDs, preserving all original assertions and fault-detection invariants without weakening the oracle.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 15.146,
+        "prompt_tokens": 767,
+        "completion_tokens": 884,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 2,
+        "reason": "The patch disables auto ID assignment (auto_assign_id = False), which prevents the test from exercising the generate_id code path entirely, allowing mutants in that function to survive that the original test killed.",
+        "repair_guidance": "Instead of disabling ID generation, mock or patch the UUID/random source to return deterministic values so generate_id is still exercised without introducing nondeterminism.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 28.848,
+        "prompt_tokens": 995,
+        "completion_tokens": 1744,
+        "cached": false
+      }
+    },
+    "TAX-040": {
+      "meta": {
+        "unique_patch_key": "crom::98bb6be4::py::crom::TestMagicMethods.test_validate_multiplicity::fffd43cdf08aa45db3",
+        "sample_id": "py::crom::TestMagicMethods.test_validate_multiplicity",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds deterministic factory state configuration to isolate the test from side effects of other tests (e.g., preventing a 'broken' auto_id_type from leaking), preserving all original assertions and fault-detection invariants.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 22.91,
+        "prompt_tokens": 1082,
+        "completion_tokens": 1371,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch disables the `auto_assign_id` feature flag, bypassing the `generate_id` production call and causing its mutants to survive by no longer exercising that code path.",
+        "repair_guidance": "Keep `auto_assign_id` enabled and fix the underlying nondeterminism in `generate_id` (e.g., by mocking the random/UUID source or using a deterministic test-only ID generator) to preserve coverage of the ID generation logic.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 36.397,
+        "prompt_tokens": 1310,
+        "completion_tokens": 2193,
+        "cached": false
+      }
+    },
+    "TAX-041": {
+      "meta": {
+        "unique_patch_key": "crom::98bb6be4::py::crom::TestMagicMethods.test_validate_profile_off::172bb085c812cd7769",
+        "sample_id": "py::crom::TestMagicMethods.test_validate_profile_off",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds deterministic global state setup to prevent order-dependence without altering the original assertions or the production behaviors being tested.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 14.937,
+        "prompt_tokens": 737,
+        "completion_tokens": 863,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch disables `auto_assign_id`, bypassing the `generate_id` production call that was previously exercised during object instantiation, allowing mutants in that method to survive.",
+        "repair_guidance": "Reset the global state or random seed used by `generate_id` to eliminate order-dependence without disabling the `auto_assign_id` feature.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 28.985,
+        "prompt_tokens": 965,
+        "completion_tokens": 1737,
+        "cached": false
+      }
+    },
+    "TAX-042": {
+      "meta": {
+        "unique_patch_key": "crom::98bb6be4::py::crom::TestMagicMethods.test_validate_profile_off::4ce5341d62817af730",
+        "sample_id": "py::crom::TestMagicMethods.test_validate_profile_off",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds deterministic configuration settings (auto_assign_id=False, auto_id_type='int') to isolate the test from shared state pollution, while preserving all original assertions that verify ProfileError is raised when validate_profile=True.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 10.793,
+        "prompt_tokens": 699,
+        "completion_tokens": 692,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 2,
+        "reason": "The patch adds `auto_assign_id = False` which bypasses the `generate_id` production code path that the original test exercised, allowing 5 mutants in generate_id to survive that were previously killed.",
+        "repair_guidance": "Instead of disabling auto_assign_id entirely, set deterministic auto_id_type and reset factory state in a teardown; or ensure separate dedicated tests exist for generate_id that kill these mutants before weakening this test's coverage.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 30.556,
+        "prompt_tokens": 915,
+        "completion_tokens": 2182,
+        "cached": false
+      }
+    },
+    "TAX-043": {
+      "meta": {
+        "unique_patch_key": "crom::98bb6be4::py::crom::TestPropertyCache.test_cache_hierarchy::0e100a031882eb1839",
+        "sample_id": "py::crom::TestPropertyCache.test_cache_hierarchy",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch disables a side-effecting auto-ID assignment flag to eliminate nondeterminism without altering the original assertions or fault-detection invariants.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 15.091,
+        "prompt_tokens": 632,
+        "completion_tokens": 870,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "reason": "The patch sets auto_assign_id=False, which prevents generate_id from being invoked during HumanMadeObject construction, thereby eliminating the test's ability to detect faults in generate_id (all 5 surviving mutants reside in that function).",
+        "repair_guidance": "Fix the flakiness by isolating or resetting the factory state (e.g., saving/restoring auto_assign_id or clearing caches) without disabling the generate_id code path, so the original fault-detection over generate_id is preserved.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 20.603,
+        "prompt_tokens": 860,
+        "completion_tokens": 1221,
+        "cached": false
+      }
+    },
+    "TAX-044": {
+      "meta": {
+        "unique_patch_key": "fastjson::e05e9c5e::fastjson::WriteClassNameTest_Map.test_list::95091f2224d0cdaf43",
+        "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch replaces a flaky string-based assertion with a structurally equivalent Map-based assertion, preserving the exact data validation while eliminating nondeterministic serialization order.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 20.459,
+        "prompt_tokens": 1318,
+        "completion_tokens": 1209,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "reason": "The patch replaces the exact string serialization check of the parsed JSONObject with a structural Map equality check, entirely removing the test's execution of JSONObject.toJSONString() and allowing serialization mutants to survive.",
+        "repair_guidance": "Retain the call to jsonObject.toJSONString() but use a JSON-aware assertion or canonicalize the output string to handle non-deterministic key ordering without dropping the serialization check.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 35.934,
+        "prompt_tokens": 1631,
+        "completion_tokens": 2171,
+        "cached": false
+      }
+    },
+    "TAX-045": {
+      "meta": {
+        "unique_patch_key": "hippo4j::5e285ba5::hippo4j::ContentUtilTest.assertGetPoolContent::609aea3eb6037ac7bb",
+        "sample_id": "hippo4j::ContentUtilTest.assertGetPoolContent",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_severity": "LEGITIMATE_RELAXATION_ARTIFACT"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch replaces exact string equality with semantic JSON comparison via Map equality, which correctly handles non-deterministic key ordering in JSON serialization while preserving all key-value pair verification.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 20.465,
+        "prompt_tokens": 1235,
+        "completion_tokens": 1332,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 2,
+        "reason": "The patch replaces exact string equality with semantic JSON comparison via Map equality, which is a legitimate canonicalization for JSON output that handles nondeterministic key ordering while preserving verification of all key-value pairs.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 31.737,
+        "prompt_tokens": 1344,
+        "completion_tokens": 2134,
+        "cached": false
+      }
+    },
+    "TAX-046": {
+      "meta": {
+        "unique_patch_key": "hippo4j::5e285ba5::hippo4j::ContentUtilTest.assertGetPoolContent::6a4ab34c9fb15493f4",
+        "sample_id": "hippo4j::ContentUtilTest.assertGetPoolContent",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_severity": "LEGITIMATE_RELAXATION_ARTIFACT"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch replaces brittle exact string matching with structural JSON comparison using Jackson's JsonNode, which correctly canonicalizes the output to eliminate non-deterministic key-ordering flakiness while preserving all semantic fault-detection invariants.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 14.843,
+        "prompt_tokens": 1419,
+        "completion_tokens": 861,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch replaces exact string equality with Jackson's JsonNode.equals(), which ignores JSON key ordering and whitespace differences, thereby weakening the oracle and allowing mutants that alter serialization order/format to survive.",
+        "repair_guidance": "To fix flakiness without weakening the oracle, sort the JSON keys deterministically before serialization in the production code, or use a canonicalization method that preserves exact string equality while ignoring only non-deterministic key ordering without dropping structural/formatting checks.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 35.894,
+        "prompt_tokens": 1532,
+        "completion_tokens": 2192,
+        "cached": false
+      }
+    },
+    "TAX-047": {
+      "meta": {
+        "unique_patch_key": "http-request::2d62a3e9::http-request::HttpRequestTest.headWithMappedQueryParams::8a9092ff1d2c16c0e8",
+        "sample_id": "http-request::HttpRequestTest.headWithMappedQueryParams",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M5_PartnerOrSharedScopeEdit",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds clean fixture isolation by resetting the shared ConnectionFactory state to its default before the test runs, preventing cross-test pollution without altering any assertions or production behavior checks.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 17.474,
+        "prompt_tokens": 1474,
+        "completion_tokens": 1021,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "reason": "The patch hardcodes a test-defined anonymous ConnectionFactory instead of restoring the actual production default, bypassing the real default factory and causing mutants in the production default factory to survive.",
+        "repair_guidance": "Restore the original default ConnectionFactory by saving it before modification or using the library's built-in reset mechanism (e.g., passing null or a specific reset method) instead of redefining a duplicate anonymous class in the test.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 36.105,
+        "prompt_tokens": 1611,
+        "completion_tokens": 2186,
+        "cached": false
+      }
+    },
+    "TAX-048": {
+      "meta": {
+        "unique_patch_key": "karate::c496f976::karate::JsEngineTest.testObjectsWithinFunction::710b9762beaf6ee498",
+        "sample_id": "karate::JsEngineTest.testObjectsWithinFunction",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "U_UnclassifiedAutomated",
+        "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+        "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch canonicalizes the non-deterministic iteration order of the Java HashMap by converting the returned list of entries back into a Map for order-independent comparison, preserving the core fault-detection of key-value extraction without asserting an inherently flaky sequence.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 28.667,
+        "prompt_tokens": 1013,
+        "completion_tokens": 1723,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 2,
+        "reason": "The patch shifts the assertion from comparing the JS engine's output against a JSON string representation to comparing reconstructed Map objects, thereby bypassing and eliminating test coverage of Match's string parsing logic (parseIfJsonOrXmlString).",
+        "repair_guidance": "Sort the list of entries by key before assertion, or use a JSON-aware order-independent matching method, so the original string-based oracle and its coverage of Match.parseIfJsonOrXmlString are preserved.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 35.956,
+        "prompt_tokens": 1254,
+        "completion_tokens": 2186,
+        "cached": false
+      }
+    },
+    "TAX-049": {
+      "meta": {
+        "unique_patch_key": "pysllo::8bc4d17f::py::pysllo::test_propagation_logger.test_forcing_level_by_dict::acd105a3a1a0c8937a",
+        "sample_id": "py::pysllo::test_propagation_logger.test_forcing_level_by_dict",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds a state reset at the beginning of the test to ensure clean fixture isolation, preventing order-dependent state leakage from previous tests without altering any assertions or production behavior checks.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 18.633,
+        "prompt_tokens": 832,
+        "completion_tokens": 1098,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 2,
+        "reason": "The added `propagation_logger.force_level(logging.INFO)` call sets a persistent forced level that interacts with the subsequent dict-based `force_level(levels)`, causing `getEffectiveLevel`'s internal logic (conditionals and return value) to be bypassed or masked, so mutations in that method no longer affect the test outcome.",
+        "repair_guidance": "Replace `propagation_logger.force_level(logging.INFO)` with a true state reset (e.g., `propagation_logger.force_level({})` or a dedicated clear method) that clears residual forced-level state without introducing a new persistent forced level that masks `getEffectiveLevel` behavior.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 35.222,
+        "prompt_tokens": 1013,
+        "completion_tokens": 2140,
+        "cached": false
+      }
+    },
+    "TAX-050": {
+      "meta": {
+        "unique_patch_key": "remoting::abf0455a::remoting::DiagnosedStreamCorruptionExceptionTest.exercise::4e1525d9b38a8bb223",
+        "sample_id": "remoting::DiagnosedStreamCorruptionExceptionTest.exercise",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M3_ControlFlowOrExceptionChange",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch introduces classloader and system property isolation before test execution to resolve order-dependence, preserving the exact production call and verification logic without weakening the fault-detection oracle.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 25.689,
+        "prompt_tokens": 1821,
+        "completion_tokens": 1524,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "reason": "The custom ClassLoader reads raw .class bytes via getResourceAsStream and calls defineClass, which bypasses the mutation testing framework's classloader instrumentation, causing the test to execute unmutated production code and letting all mutants survive.",
+        "repair_guidance": "Avoid custom ClassLoaders that read raw class bytes; instead, isolate the test using standard JVM forking (e.g., Surefire forkCount) or properly delegate to the parent ClassLoader to preserve mutation instrumentation.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 36.129,
+        "prompt_tokens": 2109,
+        "completion_tokens": 2194,
+        "cached": false
+      }
+    },
+    "TAX-051": {
+      "meta": {
+        "unique_patch_key": "shardingsphere-elasticjob::b022898e::shardingsphere-elasticjob::ElectionListenerManagerTest.assertLeaderElectionWhenRemoveLeaderInstancePathWithAvailableServerButJobInstanceIsShutdown::144612f75d15f68c92",
+        "sample_id": "shardingsphere-elasticjob::ElectionListenerManagerTest.assertLeaderElectionWhenRemoveLeaderInstancePathWithAvailableServerButJobInstanceIsShutdown",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds necessary test isolation by explicitly shutting down the job instance in the shared registry to satisfy the test's intended precondition, without altering the original assertion or weakening the fault-detection oracle.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 19.147,
+        "prompt_tokens": 832,
+        "completion_tokens": 1131,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 2,
+        "reason": "The patch calls JobRegistry.shutdown() which likely deregisters the job or alters the registry state such that the production code bypasses the isShutdown() check entirely, causing the NegateConditionalsMutant on isShutdown to survive because the specific branch is no longer exercised.",
+        "repair_guidance": "Instead of calling JobRegistry.getInstance().shutdown() which may deregister the job and bypass the target branch, use reflection or a dedicated test-only registry setter to explicitly set the internal shutdown flag to true without removing the job registration.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 36.416,
+        "prompt_tokens": 948,
+        "completion_tokens": 2200,
+        "cached": false
+      }
+    },
+    "TAX-052": {
+      "meta": {
+        "unique_patch_key": "shardingsphere-elasticjob::b022898e::shardingsphere-elasticjob::ShutdownListenerManagerTest.assertIsShutdownAlready::4ccf11019be136ce1d",
+        "sample_id": "shardingsphere-elasticjob::ShutdownListenerManagerTest.assertIsShutdownAlready",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds explicit fixture setup to ensure the job is deterministically in a shutdown state, resolving order dependency without altering the original verification oracle.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 22.465,
+        "prompt_tokens": 715,
+        "completion_tokens": 1342,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 2,
+        "reason": "The patch adds an explicit `JobRegistry.getInstance().shutdown(\"test_job\")` precondition to fix flakiness, but this causes the surviving mutant in `JobRegistry.isShutdown` (negated conditional) to go undetected—indicating the test's assertion (`verify(schedulerFacade, times(0)).shutdownInstance()`) no longer exercises the `isShutdown` branch sensitively, likely because the explicit shutdown state ",
+        "repair_guidance": "Add an explicit assertion or verification that directly observes the `isShutdown` state or its effect (e.g., verify a side-effect that only occurs when `isShutdown` returns the correct value), rather than relying solely on the negative check `times(0)` which is invariant under the negated conditional when the job is pre-shutdown.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 37.511,
+        "prompt_tokens": 831,
+        "completion_tokens": 2279,
+        "cached": false
+      }
+    },
+    "TAX-053": {
+      "meta": {
+        "unique_patch_key": "ucal::df0ccbc5::py::ucal::TestSyntax.test_function_ln::1310fa6d0e1c5a1245",
+        "sample_id": "py::ucal::TestSyntax.test_function_ln",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The original test verifies exact string output format ('1', '0'), but the patched test converts to float and only checks numeric value, silently accepting any float-parseable representation (e.g., '1.0', '1.000', '0.00') and losing verification of the output format specification.",
+        "repair_guidance": "If flakiness stems from non-deterministic output format, use assertIn(result, ['1', '1.0']) to explicitly accept known valid formats, or fix the production code to produce deterministic output rather than silently weakening the assertion.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 16.785,
+        "prompt_tokens": 699,
+        "completion_tokens": 1295,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch weakens exact string equality checks ('1', '0') into float conversions, allowing any string parseable as 1.0/0.0 to pass and losing detection of string-formatting bugs in __str__ that the original test caught.",
+        "repair_guidance": "If flakiness stems from floating-point representation variance, use assertAlmostEqual on the parsed float while ALSO checking the string format (e.g., assertRegex for expected digit pattern), or investigate and fix the root cause of non-deterministic string output in production code.",
+        "parse_ok": true,
+        "judge_model": "glm-5",
+        "latency_sec": 14.175,
+        "prompt_tokens": 815,
+        "completion_tokens": 985,
+        "cached": false
+      }
+    },
+    "TAX-054": {
+      "meta": {
+        "unique_patch_key": "visualee::88732d9d::visualee::DescriptionTest.testGenerateDescription2::01795a52c371cbdcc6",
+        "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": false,
+        "auto_mechanism": "M5_PartnerOrSharedScopeEdit",
+        "stage1_mechanism": "M5_PartnerOrSharedScopeEdit",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds deterministic shared state cleanup (FilterContainer.clear()) before the test and in a finally block for the partner test, isolating the test from order-dependent pollution without altering any assertions or production code under test.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 17.504,
+        "prompt_tokens": 2548,
+        "completion_tokens": 1020,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 2,
+        "reason": "The patch clears shared FilterContainer state at the start of the target test, which inadvertently removes a precondition (leaked filter) that the original test implicitly relied on to exercise specific Examiner production branches, causing those mutants to survive.",
+        "repair_guidance": "Instead of blindly clearing the FilterContainer, explicitly set up the exact filter preconditions required by testGenerateDescription2 within the test itself to deterministically exercise the intended Examiner branches without relying on order-dependent leaked state.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 36.392,
+        "prompt_tokens": 2752,
+        "completion_tokens": 2197,
+        "cached": false
+      }
+    },
+    "TAX-055": {
+      "meta": {
+        "unique_patch_key": "visualee::88732d9d::visualee::DescriptionTest.testGenerateDescription::c6dc10ee94336a2b86",
+        "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M5_PartnerOrSharedScopeEdit",
+        "stage1_mechanism": "M5_PartnerOrSharedScopeEdit",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch introduces proper shared state cleanup in a partner test's finally block without modifying any assertions or weakening the fault-detection oracle in the target test.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 24.2,
+        "prompt_tokens": 1216,
+        "completion_tokens": 1446,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "EROSION_DETECTED",
+        "category": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "reason": "The patch alters a partner test to clear shared singleton state (FilterContainer), which inadvertently removes the leaked state the target test implicitly relied upon to detect the JavaSource.equals mutant, thereby dropping the fault-detection check.",
+        "repair_guidance": "Move the FilterContainer.getInstance().clear() setup/teardown into the target test itself (or a shared @Before/@After method) and ensure the target test explicitly sets up any required FilterContainer state so it does not rely on leaked state from other tests to kill production mutants.",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 36.413,
+        "prompt_tokens": 1388,
+        "completion_tokens": 2209,
+        "cached": false
+      }
+    },
+    "TAX-056": {
+      "meta": {
+        "unique_patch_key": "visualee::88732d9d::visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany::3815b1ebe9810591c4",
+        "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": true,
+        "passes_b3_plus": false,
+        "auto_mechanism": "M2_StateResetOrClobber",
+        "stage1_mechanism": null,
+        "stage1_severity": null
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds clean fixture isolation by clearing a global FilterContainer before the test, which removes nondeterminism from shared state without altering any assertions or production behavior under test.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 12.421,
+        "prompt_tokens": 1156,
+        "completion_tokens": 730,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 2,
+        "reason": "The patch solely adds deterministic fixture isolation by clearing the global FilterContainer singleton before test execution, which is a legitimate cleanup to resolve order-dependent flakiness without altering the test's assertions or production fault-detection invariants.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 35.488,
+        "prompt_tokens": 1378,
+        "completion_tokens": 2149,
+        "cached": false
+      }
+    },
+    "TAX-057": {
+      "meta": {
+        "unique_patch_key": "visualee::88732d9d::visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany::72f47b58048b3dc520",
+        "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": false,
+        "auto_mechanism": "M2_StateResetOrClobber",
+        "stage1_mechanism": "M2_StateResetOrClobber",
+        "stage1_severity": "LEGITIMATE_RELAXATION_ARTIFACT"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds clean fixture isolation by clearing shared singleton containers before the test, resolving order-dependent flakiness without altering any assertions or production behavior checks.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 15.221,
+        "prompt_tokens": 1168,
+        "completion_tokens": 895,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 2,
+        "reason": "The patch adds standard fixture isolation (clearing shared singleton containers) to resolve order-dependence without altering any assertions; the surviving mutants reveal that the original test's fault-detection for those specific lines was an illusion caused by test pollution rather than a genuine oracle check.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 35.723,
+        "prompt_tokens": 1446,
+        "completion_tokens": 2158,
+        "cached": false
+      }
+    },
+    "TAX-058": {
+      "meta": {
+        "unique_patch_key": "visualee::88732d9d::visualee::SourcecodeFilterTest.testIsOkExcludeFalse::f9bf06e28801175f98",
+        "sample_id": "visualee::SourcecodeFilterTest.testIsOkExcludeFalse",
+        "language": "java",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": false,
+        "auto_mechanism": "M5_PartnerOrSharedScopeEdit",
+        "stage1_mechanism": "M5_PartnerOrSharedScopeEdit",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch introduces clean fixture isolation by clearing the shared singleton state before and after the test, resolving order-dependent flakiness without modifying the assertions or the production behavior under test.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 17.094,
+        "prompt_tokens": 1014,
+        "completion_tokens": 990,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds standard fixture isolation (clearing shared state before and after the test) to resolve order-dependency flakiness without altering the original assertion or weakening the fault-detection oracle over the production `isOk` logic.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 35.514,
+        "prompt_tokens": 1139,
+        "completion_tokens": 2145,
+        "cached": false
+      }
+    },
+    "TAX-059": {
+      "meta": {
+        "unique_patch_key": "yamicache::1109d08b::py::yamicache::test_class.test_utility::d215bd83494620110e",
+        "sample_id": "py::yamicache::test_class.test_utility",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M2_StateResetOrClobber",
+        "stage1_mechanism": "M2_StateResetOrClobber",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds clean fixture isolation by clearing the shared cache state before the test actions, preventing order-dependent state leakage without altering or weakening any original assertions.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 13.685,
+        "prompt_tokens": 909,
+        "completion_tokens": 786,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch solely adds clean fixture isolation (`c.clear()`) before the test setup to resolve order-dependent flakiness, leaving all original assertions and fault-detection invariants completely unchanged.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 35.27,
+        "prompt_tokens": 1029,
+        "completion_tokens": 2142,
+        "cached": false
+      }
+    },
+    "TAX-060": {
+      "meta": {
+        "unique_patch_key": "yamicache::1109d08b::py::yamicache::test_class.test_utility::e807f39df16aec7ea9",
+        "sample_id": "py::yamicache::test_class.test_utility",
+        "language": "python",
+        "is_active_replacement_for_stale_v2": false,
+        "passes_b3_plus": true,
+        "auto_mechanism": "M2_StateResetOrClobber",
+        "stage1_mechanism": "M2_StateResetOrClobber",
+        "stage1_severity": "GENUINE_DEGRADATION"
+      },
+      "no_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds `c.clear()` at the beginning of the test to ensure clean fixture isolation before setup, removing order-dependent nondeterminism without altering any assertions or production fault-detection invariants.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 14.149,
+        "prompt_tokens": 907,
+        "completion_tokens": 812,
+        "cached": true
+      },
+      "with_witness": {
+        "verdict": "SAFE_PASS",
+        "category": "LEGITIMATE_CANONICALIZATION",
+        "confidence": 3,
+        "reason": "The patch adds a clean fixture isolation step (`c.clear()`) before the test actions to prevent state leakage from previous tests, which is a standard and safe way to resolve order-dependent flakiness without weakening any production fault-detection invariants.",
+        "repair_guidance": "",
+        "parse_ok": true,
+        "judge_model": "qwen3.7-plus",
+        "latency_sec": 32.479,
+        "prompt_tokens": 1027,
+        "completion_tokens": 1949,
+        "cached": false
+      }
+    }
+  }
+}

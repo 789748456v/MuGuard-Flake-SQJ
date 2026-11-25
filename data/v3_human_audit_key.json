@@ -1,0 +1,2541 @@
+{
+  "protocol_version": "3.0.0-human-dual-rater-blinded",
+  "note": "PRIVATE MAPPING KEY — DO NOT SHARE WITH HUMAN RATERS BEFORE CODING COMPLETES.",
+  "pr_53": {
+    "PR-001": {
+      "sample_id": "JsonRpc4J::ConnectionTests.testNotificationSending",
+      "pr_url": "https://github.com/EliasStar/JsonRpc4J/pull/8",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-002": {
+      "sample_id": "Sentinel::TracerTest.setExceptionsToIgnore",
+      "pr_url": "https://github.com/alibaba/Sentinel/pull/1859",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-003": {
+      "sample_id": "Sentinel::TracerTest.setExceptionsToTrace",
+      "pr_url": "https://github.com/alibaba/Sentinel/pull/1859",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-004": {
+      "sample_id": "apollo::ReleaseMessageServiceWithCacheTest.testWhenHasReleaseMsgAndHasRepeatMsg",
+      "pr_url": "https://github.com/apolloconfig/apollo/pull/2918",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-005": {
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl",
+      "pr_url": "https://github.com/apolloconfig/apollo/pull/4095",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "LEGITIMATE_RELAXATION"
+    },
+    "PR-006": {
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces",
+      "pr_url": "https://github.com/apolloconfig/apollo/pull/4095",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "PR-007": {
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "pr_url": "https://github.com/apache/avro/pull/2012",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": false,
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "PR-008": {
+      "sample_id": "commons-collections::CollectionUtilsTest.getFromMap",
+      "pr_url": "https://github.com/apache/commons-collections/pull/200",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "PR-009": {
+      "sample_id": "dropwizard::JacksonTest.objectMapperSerializesNullValues",
+      "pr_url": "https://github.com/dropwizard/dropwizard/pull/3284",
+      "idoft_status": "InspiredAFix",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": null,
+      "pr_full_gate_accepts": null,
+      "stage1_label": "INSUFFICIENT_EVIDENCE"
+    },
+    "PR-010": {
+      "sample_id": "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator",
+      "pr_url": "https://github.com/dropwizard/dropwizard/pull/3284",
+      "idoft_status": "InspiredAFix",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": null,
+      "pr_full_gate_accepts": null,
+      "stage1_label": "INSUFFICIENT_EVIDENCE"
+    },
+    "PR-011": {
+      "sample_id": "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator",
+      "pr_url": "https://github.com/dropwizard/dropwizard/pull/3284",
+      "idoft_status": "InspiredAFix",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": null,
+      "pr_full_gate_accepts": null,
+      "stage1_label": "INSUFFICIENT_EVIDENCE"
+    },
+    "PR-012": {
+      "sample_id": "dropwizard::JsonHealthResponseProviderTest.shouldHandleMultipleHealthStateViewsCorrectly",
+      "pr_url": "https://github.com/dropwizard/dropwizard/pull/6134",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-013": {
+      "sample_id": "fastjson::Issue1480.test_for_issue",
+      "pr_url": "https://github.com/alibaba/fastjson/pull/3025",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-014": {
+      "sample_id": "fastjson::Issue1780_JSONObject.test_for_issue",
+      "pr_url": "https://github.com/alibaba/fastjson/pull/3483",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": false,
+      "pr_full_gate_accepts": null,
+      "stage1_label": "INSUFFICIENT_EVIDENCE"
+    },
+    "PR-015": {
+      "sample_id": "fastjson::Issue1780_Module.test_for_issue",
+      "pr_url": "https://github.com/alibaba/fastjson/pull/3483",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": false,
+      "pr_full_gate_accepts": null,
+      "stage1_label": "INSUFFICIENT_EVIDENCE"
+    },
+    "PR-016": {
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "pr_url": "https://github.com/alibaba/fastjson/pull/3011",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": false,
+      "stage1_label": "LEGITIMATE_RELAXATION"
+    },
+    "PR-017": {
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "pr_url": "https://github.com/alibaba/fastjson/pull/3571",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": false,
+      "stage1_label": "LEGITIMATE_RELAXATION"
+    },
+    "PR-018": {
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "pr_url": "https://github.com/alibaba/fastjson/pull/3533",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": false,
+      "stage1_label": "LEGITIMATE_RELAXATION"
+    },
+    "PR-019": {
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType2",
+      "pr_url": "https://github.com/alibaba/fastjson/pull/2996",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-020": {
+      "sample_id": "feign::TypesResolveReturnTypeTest.overrideOverridingConcreteCollectionGenericFourthLevel",
+      "pr_url": "https://github.com/OpenFeign/feign/pull/1525",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-021": {
+      "sample_id": "gora::DefaultFactoryTest.testCreateFilter_list_2",
+      "pr_url": "https://github.com/apache/gora/pull/295",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-022": {
+      "sample_id": "http-request::HttpRequestTest.headWithMappedQueryParams",
+      "pr_url": "https://github.com/kevinsawicki/http-request/pull/151",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-023": {
+      "sample_id": "http-request::HttpRequestTest.headWithVaragsQueryParams",
+      "pr_url": "https://github.com/kevinsawicki/http-request/pull/151",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-024": {
+      "sample_id": "http-request::HttpRequestTest.postWithEscapedMappedQueryParams",
+      "pr_url": "https://github.com/kevinsawicki/http-request/pull/151",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-025": {
+      "sample_id": "http-request::HttpRequestTest.postWithEscapedVarargsQueryParams",
+      "pr_url": "https://github.com/kevinsawicki/http-request/pull/151",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-026": {
+      "sample_id": "http-request::HttpRequestTest.postWithMappedQueryParams",
+      "pr_url": "https://github.com/kevinsawicki/http-request/pull/151",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-027": {
+      "sample_id": "http-request::HttpRequestTest.postWithNumericQueryParams",
+      "pr_url": "https://github.com/kevinsawicki/http-request/pull/151",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-028": {
+      "sample_id": "http-request::HttpRequestTest.postWithVaragsQueryParams",
+      "pr_url": "https://github.com/kevinsawicki/http-request/pull/151",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-029": {
+      "sample_id": "http-request::HttpRequestTest.putWithEscapedMappedQueryParams",
+      "pr_url": "https://github.com/kevinsawicki/http-request/pull/151",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-030": {
+      "sample_id": "http-request::HttpRequestTest.putWithEscapedVarargsQueryParams",
+      "pr_url": "https://github.com/kevinsawicki/http-request/pull/151",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-031": {
+      "sample_id": "http-request::HttpRequestTest.putWithMappedQueryParams",
+      "pr_url": "https://github.com/kevinsawicki/http-request/pull/151",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-032": {
+      "sample_id": "http-request::HttpRequestTest.putWithVarargsQueryParams",
+      "pr_url": "https://github.com/kevinsawicki/http-request/pull/151",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-033": {
+      "sample_id": "http-request::HttpRequestTest.singleSslSocketFactory",
+      "pr_url": "https://github.com/kevinsawicki/http-request/pull/151",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-034": {
+      "sample_id": "http-request::HttpRequestTest.singleVerifier",
+      "pr_url": "https://github.com/kevinsawicki/http-request/pull/151",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-035": {
+      "sample_id": "http-request::HttpRequestTest.verifierAccepts",
+      "pr_url": "https://github.com/kevinsawicki/http-request/pull/151",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-036": {
+      "sample_id": "incubator-hugegraph-toolchain::IndexLabelTest.testIndexLabelV49",
+      "pr_url": "https://github.com/apache/incubator-hugegraph-toolchain/pull/398",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-037": {
+      "sample_id": "jersey::DisposableSupplierTest.testDisposeComposedObjectWithPerLookupFields",
+      "pr_url": "https://github.com/eclipse-ee4j/jersey/pull/5775",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-038": {
+      "sample_id": "karate::JsEngineTest.testObjectsWithinFunction",
+      "pr_url": "https://github.com/karatelabs/karate/pull/2458",
+      "idoft_status": "DeveloperWontFix",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-039": {
+      "sample_id": "koryphe::StringJoinTest.shouldJoinIterableOfStringsWithDelimiter",
+      "pr_url": "https://github.com/gchq/koryphe/pull/319",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": null,
+      "pr_full_gate_accepts": null,
+      "stage1_label": "INSUFFICIENT_EVIDENCE"
+    },
+    "PR-040": {
+      "sample_id": "nacos::JacksonUtilsTest.testToJsonBytes",
+      "pr_url": "https://github.com/alibaba/nacos/pull/9505",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": false,
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "PR-041": {
+      "sample_id": "retrofit::JaxbConverterFactoryTest.userSuppliedJaxbContext",
+      "pr_url": "https://github.com/square/retrofit/pull/3295",
+      "idoft_status": "Rejected",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": null,
+      "pr_full_gate_accepts": null,
+      "stage1_label": "INSUFFICIENT_EVIDENCE"
+    },
+    "PR-042": {
+      "sample_id": "retrofit::JaxbConverterFactoryTest.xmlRequestBody",
+      "pr_url": "https://github.com/square/retrofit/pull/3295",
+      "idoft_status": "Rejected",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": null,
+      "pr_full_gate_accepts": null,
+      "stage1_label": "INSUFFICIENT_EVIDENCE"
+    },
+    "PR-043": {
+      "sample_id": "shardingsphere-elasticjob::ShutdownListenerManagerTest.assertIsShutdownAlready",
+      "pr_url": "https://github.com/apache/shardingsphere-elasticjob/pull/592",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-044": {
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "pr_url": "https://github.com/Thomas-S-B/visualee/pull/8",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": false,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-045": {
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "pr_url": "https://github.com/Thomas-S-B/visualee/pull/8",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": false,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-046": {
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "pr_url": "https://github.com/Thomas-S-B/visualee/pull/8",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": false,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-047": {
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "pr_url": "https://github.com/Thomas-S-B/visualee/pull/8",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": false,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-048": {
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "pr_url": "https://github.com/Thomas-S-B/visualee/pull/8",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": false,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-049": {
+      "sample_id": "visualee::SourcecodeFilterTest.testIsOkExcludeFalse",
+      "pr_url": "https://github.com/Thomas-S-B/visualee/pull/8",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-050": {
+      "sample_id": "visualee::SourcecodeFilterTest.testIsOkIncludeTrue",
+      "pr_url": "https://github.com/Thomas-S-B/visualee/pull/8",
+      "idoft_status": "Opened",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    },
+    "PR-051": {
+      "sample_id": "vjtools::JsonMapperTest.jsonp",
+      "pr_url": "https://github.com/vipshop/vjtools/pull/168",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": null,
+      "pr_full_gate_accepts": null,
+      "stage1_label": "INSUFFICIENT_EVIDENCE"
+    },
+    "PR-052": {
+      "sample_id": "vjtools::JsonMapperTest.threeTypeMappers",
+      "pr_url": "https://github.com/vipshop/vjtools/pull/168",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": null,
+      "pr_full_gate_accepts": null,
+      "stage1_label": "INSUFFICIENT_EVIDENCE"
+    },
+    "PR-053": {
+      "sample_id": "zerocode::BasicHttpClientTest.createRequestBuilder",
+      "pr_url": "https://github.com/authorjapps/zerocode/pull/732",
+      "idoft_status": "Accepted",
+      "pr_scope_type": "TEST_ONLY_PR",
+      "w_plus_passed": true,
+      "pr_full_gate_accepts": true,
+      "stage1_label": "CONTRACT_PRESERVING_FIX"
+    }
+  },
+  "tax_60": {
+    "TAX-001": {
+      "unique_patch_key": "Breathe::4600818e::py::Breathe::test_loading.test_reloading::d19c07c9e0837b52c4",
+      "sample_id": "py::Breathe::test_loading.test_reloading",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M5_PartnerOrSharedScopeEdit",
+      "stage1_mechanism": "M3_ControlFlowOrExceptionChange",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-002": {
+      "unique_patch_key": "Mapper::1764748e::Mapper::ComplexEntityTest.test::143a20434dd97fc1ad",
+      "sample_id": "Mapper::ComplexEntityTest.test",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": true,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-003": {
+      "unique_patch_key": "Mapper::1764748e::Mapper::SqlHelperTest.testLogicDeleteSql::a9d5f408c74469a3e4",
+      "sample_id": "Mapper::SqlHelperTest.testLogicDeleteSql",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": true,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-004": {
+      "unique_patch_key": "avro::bfbd2d11::avro::TestReflect.testAnnotationMultiAvroMeta::75643ac2d6e95afa5f",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "TAX-005": {
+      "unique_patch_key": "avro::bfbd2d11::avro::TestReflect.testAnnotationMultiAvroMeta::e12ee95b45f36738c2",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "TAX-006": {
+      "unique_patch_key": "avro::bfbd2d11::avro::TestReflect.testAvroDoc::40e548b8a056317c2b",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "TAX-007": {
+      "unique_patch_key": "avro::bfbd2d11::avro::TestReflect.testAvroDoc::799958a124e58eb552",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "TAX-008": {
+      "unique_patch_key": "avro::bfbd2d11::avro::TestReflect.testMultipleFieldAliases::f69d3c24382459d297",
+      "sample_id": "avro::TestReflect.testMultipleFieldAliases",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "TAX-009": {
+      "unique_patch_key": "avro::bfbd2d11::avro::TestReflect.testRecord::5d49c8f101bf848e1f",
+      "sample_id": "avro::TestReflect.testRecord",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "TAX-010": {
+      "unique_patch_key": "avro::bfbd2d11::avro::TestReflect.testRecord::c6194410fbad1767d4",
+      "sample_id": "avro::TestReflect.testRecord",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "TAX-011": {
+      "unique_patch_key": "centreon-sdk-python::9f207d54::py::centreon-sdk-python::TestCommands.test_command_list::8f86bd2ba9b133a24e",
+      "sample_id": "py::centreon-sdk-python::TestCommands.test_command_list",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-012": {
+      "unique_patch_key": "centreon-sdk-python::9f207d54::py::centreon-sdk-python::TestCommands.test_command_not_exist::2e1919a18f09fccfc0",
+      "sample_id": "py::centreon-sdk-python::TestCommands.test_command_not_exist",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-013": {
+      "unique_patch_key": "centreon-sdk-python::9f207d54::py::centreon-sdk-python::TestCommands.test_command_not_exist::6d39a69c0f54381b94",
+      "sample_id": "py::centreon-sdk-python::TestCommands.test_command_not_exist",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-014": {
+      "unique_patch_key": "centreon-sdk-python::9f207d54::py::centreon-sdk-python::TestHosts.test_hosts_list::ff8ea3ad2dd4c19a73",
+      "sample_id": "py::centreon-sdk-python::TestHosts.test_hosts_list",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-015": {
+      "unique_patch_key": "centreon-sdk-python::9f207d54::py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_building_line::052d0faf6486582f05",
+      "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_building_line",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-016": {
+      "unique_patch_key": "centreon-sdk-python::9f207d54::py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_building_line::c89ca7b6042229cc4d",
+      "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_building_line",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-017": {
+      "unique_patch_key": "centreon-sdk-python::9f207d54::py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_get_one::d4150750f0dcd8c3c5",
+      "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_get_one",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-018": {
+      "unique_patch_key": "centreon-sdk-python::9f207d54::py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_get_one::e09669ebe0d65f201f",
+      "sample_id": "py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_get_one",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-019": {
+      "unique_patch_key": "cloud-slang::48923570::cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted::726893d90e13f64979",
+      "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "TAX-020": {
+      "unique_patch_key": "cloud-slang::48923570::cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted::a1e6ecf8ad057ae479",
+      "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M5_PartnerOrSharedScopeEdit",
+      "stage1_mechanism": "M5_PartnerOrSharedScopeEdit",
+      "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "TAX-021": {
+      "unique_patch_key": "cloud-slang::48923570::cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt::1f1b98e495b88af355",
+      "sample_id": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "TAX-022": {
+      "unique_patch_key": "commons-lang::7c32e527::commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::583d968be271316fe1",
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": false,
+      "auto_mechanism": "M1_PredicateProjectionOrRelaxation",
+      "stage1_mechanism": "M1_PredicateProjectionOrRelaxation",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-023": {
+      "unique_patch_key": "commons-lang::7c32e527::commons-lang::MultilineRecursiveToStringStyleTest.stringArray::b114e51990c480e64b",
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.stringArray",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-024": {
+      "unique_patch_key": "commons-lang::7c32e527::commons-lang::ReflectionToStringBuilderSummaryTest.testSummary::89f887e27fa72434ce",
+      "sample_id": "commons-lang::ReflectionToStringBuilderSummaryTest.testSummary",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-025": {
+      "unique_patch_key": "commons-lang::7c32e527::commons-lang::ReflectionToStringBuilderSummaryTest.testSummary::a106d1b56a7703280f",
+      "sample_id": "commons-lang::ReflectionToStringBuilderSummaryTest.testSummary",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-026": {
+      "unique_patch_key": "commons-lang::7c32e527::commons-lang::ToStringBuilderTest.testInheritedReflectionStatics::056ac6b7416c33301d",
+      "sample_id": "commons-lang::ToStringBuilderTest.testInheritedReflectionStatics",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-027": {
+      "unique_patch_key": "commons-lang::7c32e527::commons-lang::ToStringBuilderTest.testInheritedReflectionStatics::1a4cf52bda652fa4a9",
+      "sample_id": "commons-lang::ToStringBuilderTest.testInheritedReflectionStatics",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": false,
+      "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-028": {
+      "unique_patch_key": "commons-lang::7c32e527::commons-lang::ToStringBuilderTest.testInheritedReflectionStatics::1f071c6d2e9fc2cf84",
+      "sample_id": "commons-lang::ToStringBuilderTest.testInheritedReflectionStatics",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": false,
+      "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-029": {
+      "unique_patch_key": "commons-lang::7c32e527::commons-lang::ToStringBuilderTest.testInheritedReflectionStatics::50b73899e4e8a4b53e",
+      "sample_id": "commons-lang::ToStringBuilderTest.testInheritedReflectionStatics",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": true,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-030": {
+      "unique_patch_key": "commons-lang::7c32e527::commons-lang::ToStringBuilderTest.testReflectionHierarchy::66c3b176efd7343334",
+      "sample_id": "commons-lang::ToStringBuilderTest.testReflectionHierarchy",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": false,
+      "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-031": {
+      "unique_patch_key": "commons-lang::7c32e527::commons-lang::ToStringBuilderTest.testReflectionHierarchyArrayList::d6b967ba4e6217b81b",
+      "sample_id": "commons-lang::ToStringBuilderTest.testReflectionHierarchyArrayList",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": false,
+      "auto_mechanism": "M1_PredicateProjectionOrRelaxation",
+      "stage1_mechanism": "M1_PredicateProjectionOrRelaxation",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-032": {
+      "unique_patch_key": "commons-lang::7c32e527::commons-lang::ToStringBuilderTest.testSimpleReflectionStatics::cef55a51881343112c",
+      "sample_id": "commons-lang::ToStringBuilderTest.testSimpleReflectionStatics",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": true,
+      "passes_b3_plus": false,
+      "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-033": {
+      "unique_patch_key": "crom::98bb6be4::py::crom::TestFactorySerialization.test_recursion::394204d7ee5c2e22ba",
+      "sample_id": "py::crom::TestFactorySerialization.test_recursion",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-034": {
+      "unique_patch_key": "crom::98bb6be4::py::crom::TestFactorySerialization.test_recursion::72636f4d4f966d2cbc",
+      "sample_id": "py::crom::TestFactorySerialization.test_recursion",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-035": {
+      "unique_patch_key": "crom::98bb6be4::py::crom::TestFactorySerialization.test_recursion::fde91b770c5bcc9212",
+      "sample_id": "py::crom::TestFactorySerialization.test_recursion",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-036": {
+      "unique_patch_key": "crom::98bb6be4::py::crom::TestMagicMethods.test_not_multiple_instance::09fddb238f39dc9399",
+      "sample_id": "py::crom::TestMagicMethods.test_not_multiple_instance",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-037": {
+      "unique_patch_key": "crom::98bb6be4::py::crom::TestMagicMethods.test_not_multiple_instance::128e31dee9efb12634",
+      "sample_id": "py::crom::TestMagicMethods.test_not_multiple_instance",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-038": {
+      "unique_patch_key": "crom::98bb6be4::py::crom::TestMagicMethods.test_not_multiple_instance::491a829a3fba7124a8",
+      "sample_id": "py::crom::TestMagicMethods.test_not_multiple_instance",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-039": {
+      "unique_patch_key": "crom::98bb6be4::py::crom::TestMagicMethods.test_validate_multiplicity::b381c9c28be4c95975",
+      "sample_id": "py::crom::TestMagicMethods.test_validate_multiplicity",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-040": {
+      "unique_patch_key": "crom::98bb6be4::py::crom::TestMagicMethods.test_validate_multiplicity::fffd43cdf08aa45db3",
+      "sample_id": "py::crom::TestMagicMethods.test_validate_multiplicity",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-041": {
+      "unique_patch_key": "crom::98bb6be4::py::crom::TestMagicMethods.test_validate_profile_off::172bb085c812cd7769",
+      "sample_id": "py::crom::TestMagicMethods.test_validate_profile_off",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-042": {
+      "unique_patch_key": "crom::98bb6be4::py::crom::TestMagicMethods.test_validate_profile_off::4ce5341d62817af730",
+      "sample_id": "py::crom::TestMagicMethods.test_validate_profile_off",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-043": {
+      "unique_patch_key": "crom::98bb6be4::py::crom::TestPropertyCache.test_cache_hierarchy::0e100a031882eb1839",
+      "sample_id": "py::crom::TestPropertyCache.test_cache_hierarchy",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-044": {
+      "unique_patch_key": "fastjson::e05e9c5e::fastjson::WriteClassNameTest_Map.test_list::95091f2224d0cdaf43",
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-045": {
+      "unique_patch_key": "hippo4j::5e285ba5::hippo4j::ContentUtilTest.assertGetPoolContent::609aea3eb6037ac7bb",
+      "sample_id": "hippo4j::ContentUtilTest.assertGetPoolContent",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_severity": "LEGITIMATE_RELAXATION_ARTIFACT"
+    },
+    "TAX-046": {
+      "unique_patch_key": "hippo4j::5e285ba5::hippo4j::ContentUtilTest.assertGetPoolContent::6a4ab34c9fb15493f4",
+      "sample_id": "hippo4j::ContentUtilTest.assertGetPoolContent",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_severity": "LEGITIMATE_RELAXATION_ARTIFACT"
+    },
+    "TAX-047": {
+      "unique_patch_key": "http-request::2d62a3e9::http-request::HttpRequestTest.headWithMappedQueryParams::8a9092ff1d2c16c0e8",
+      "sample_id": "http-request::HttpRequestTest.headWithMappedQueryParams",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M5_PartnerOrSharedScopeEdit",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "TAX-048": {
+      "unique_patch_key": "karate::c496f976::karate::JsEngineTest.testObjectsWithinFunction::710b9762beaf6ee498",
+      "sample_id": "karate::JsEngineTest.testObjectsWithinFunction",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "U_UnclassifiedAutomated",
+      "stage1_mechanism": "M4_SUTCallAlterationOrBypass",
+      "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "TAX-049": {
+      "unique_patch_key": "pysllo::8bc4d17f::py::pysllo::test_propagation_logger.test_forcing_level_by_dict::acd105a3a1a0c8937a",
+      "sample_id": "py::pysllo::test_propagation_logger.test_forcing_level_by_dict",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-050": {
+      "unique_patch_key": "remoting::abf0455a::remoting::DiagnosedStreamCorruptionExceptionTest.exercise::4e1525d9b38a8bb223",
+      "sample_id": "remoting::DiagnosedStreamCorruptionExceptionTest.exercise",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M3_ControlFlowOrExceptionChange",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-051": {
+      "unique_patch_key": "shardingsphere-elasticjob::b022898e::shardingsphere-elasticjob::ElectionListenerManagerTest.assertLeaderElectionWhenRemoveLeaderInstancePathWithAvailableServerButJobInstanceIsShutdown::144612f75d15f68c92",
+      "sample_id": "shardingsphere-elasticjob::ElectionListenerManagerTest.assertLeaderElectionWhenRemoveLeaderInstancePathWithAvailableServerButJobInstanceIsShutdown",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-052": {
+      "unique_patch_key": "shardingsphere-elasticjob::b022898e::shardingsphere-elasticjob::ShutdownListenerManagerTest.assertIsShutdownAlready::4ccf11019be136ce1d",
+      "sample_id": "shardingsphere-elasticjob::ShutdownListenerManagerTest.assertIsShutdownAlready",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_mechanism": "M7_PreconditionOrSingletonSetupAlteration",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-053": {
+      "unique_patch_key": "ucal::df0ccbc5::py::ucal::TestSyntax.test_function_ln::1310fa6d0e1c5a1245",
+      "sample_id": "py::ucal::TestSyntax.test_function_ln",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_mechanism": "M6_DelimiterOrFormatNormalization",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-054": {
+      "unique_patch_key": "visualee::88732d9d::visualee::DescriptionTest.testGenerateDescription2::01795a52c371cbdcc6",
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription2",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": false,
+      "auto_mechanism": "M5_PartnerOrSharedScopeEdit",
+      "stage1_mechanism": "M5_PartnerOrSharedScopeEdit",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-055": {
+      "unique_patch_key": "visualee::88732d9d::visualee::DescriptionTest.testGenerateDescription::c6dc10ee94336a2b86",
+      "sample_id": "visualee::DescriptionTest.testGenerateDescription",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M5_PartnerOrSharedScopeEdit",
+      "stage1_mechanism": "M5_PartnerOrSharedScopeEdit",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-056": {
+      "unique_patch_key": "visualee::88732d9d::visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany::3815b1ebe9810591c4",
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": true,
+      "passes_b3_plus": false,
+      "auto_mechanism": "M2_StateResetOrClobber",
+      "stage1_mechanism": "M2_StateResetOrClobber",
+      "stage1_severity": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "TAX-057": {
+      "unique_patch_key": "visualee::88732d9d::visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany::72f47b58048b3dc520",
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": false,
+      "auto_mechanism": "M2_StateResetOrClobber",
+      "stage1_mechanism": "M2_StateResetOrClobber",
+      "stage1_severity": "LEGITIMATE_RELAXATION_ARTIFACT"
+    },
+    "TAX-058": {
+      "unique_patch_key": "visualee::88732d9d::visualee::SourcecodeFilterTest.testIsOkExcludeFalse::f9bf06e28801175f98",
+      "sample_id": "visualee::SourcecodeFilterTest.testIsOkExcludeFalse",
+      "language": "java",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": false,
+      "auto_mechanism": "M5_PartnerOrSharedScopeEdit",
+      "stage1_mechanism": "M5_PartnerOrSharedScopeEdit",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-059": {
+      "unique_patch_key": "yamicache::1109d08b::py::yamicache::test_class.test_utility::d215bd83494620110e",
+      "sample_id": "py::yamicache::test_class.test_utility",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M2_StateResetOrClobber",
+      "stage1_mechanism": "M2_StateResetOrClobber",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    },
+    "TAX-060": {
+      "unique_patch_key": "yamicache::1109d08b::py::yamicache::test_class.test_utility::e807f39df16aec7ea9",
+      "sample_id": "py::yamicache::test_class.test_utility",
+      "language": "python",
+      "is_active_replacement_for_stale_v2": false,
+      "passes_b3_plus": true,
+      "auto_mechanism": "M2_StateResetOrClobber",
+      "stage1_mechanism": "M2_StateResetOrClobber",
+      "stage1_severity": "GENUINE_DEGRADATION"
+    }
+  },
+  "ho_all": {
+    "HO-001": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::14cccf4040d745d715",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-002": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::498814ea2fd309e8c5",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-003": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::70e9dff70f4cdb4b94",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-004": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::8e1893b55562ef6a9b",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-005": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::d789b84790b1d8969e",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-006": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::0f546249e79bd98029",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-007": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::3547d6c14b9a40896d",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-008": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::4e8ec67ab86c3cb3a1",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-009": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::593ee964a256e48316",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-010": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::9cee016bec04c11531",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-011": {
+      "cand_key": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::af16c3df21b10e2b35",
+      "sample_id": "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-012": {
+      "cand_key": "aries-cdi::MapsTest.checkMerge_1::b09ec62ed59f95795f",
+      "sample_id": "aries-cdi::MapsTest.checkMerge_1",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-013": {
+      "cand_key": "aries-cdi::MapsTest.checkMerge_1::de777d644c74e615e7",
+      "sample_id": "aries-cdi::MapsTest.checkMerge_1",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-014": {
+      "cand_key": "aries-cdi::MapsTest.checkMerge_1::f14250a6134cd3326c",
+      "sample_id": "aries-cdi::MapsTest.checkMerge_1",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-015": {
+      "cand_key": "avro::TestReflect.testAnnotationMultiAvroMeta::53bfbbef45b6705951",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "language": "java",
+      "strategies_accepting": [
+        "B4_Scalar_Gate_Loop"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-016": {
+      "cand_key": "avro::TestReflect.testAnnotationMultiAvroMeta::5626de3786fd4fdaf3",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator",
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash",
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-017": {
+      "cand_key": "avro::TestReflect.testAnnotationMultiAvroMeta::6fea9f0b34ed07a82c",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-018": {
+      "cand_key": "avro::TestReflect.testAnnotationMultiAvroMeta::75643ac2d6e95afa5f",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-019": {
+      "cand_key": "avro::TestReflect.testAnnotationMultiAvroMeta::819b283b4d57865195",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "language": "java",
+      "strategies_accepting": [
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-020": {
+      "cand_key": "avro::TestReflect.testAnnotationMultiAvroMeta::bcf35f8530f74535c0",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-021": {
+      "cand_key": "avro::TestReflect.testAnnotationMultiAvroMeta::e12ee95b45f36738c2",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "language": "java",
+      "strategies_accepting": [
+        "B3_Plus_Structural_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-022": {
+      "cand_key": "avro::TestReflect.testAnnotationMultiAvroMeta::ef16d5589749e0b021",
+      "sample_id": "avro::TestReflect.testAnnotationMultiAvroMeta",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-023": {
+      "cand_key": "avro::TestReflect.testAvroDoc::280619f4b6266af977",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-024": {
+      "cand_key": "avro::TestReflect.testAvroDoc::40e548b8a056317c2b",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-025": {
+      "cand_key": "avro::TestReflect.testAvroDoc::42ffb3b584accadd08",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-026": {
+      "cand_key": "avro::TestReflect.testAvroDoc::680314d7e7681d0b12",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-027": {
+      "cand_key": "avro::TestReflect.testAvroDoc::799958a124e58eb552",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-028": {
+      "cand_key": "avro::TestReflect.testAvroDoc::87cf76d958fadc2bce",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-029": {
+      "cand_key": "avro::TestReflect.testAvroDoc::b1f935455f9dccefbd",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "language": "java",
+      "strategies_accepting": [
+        "B4_Scalar_Gate_Loop"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-030": {
+      "cand_key": "avro::TestReflect.testAvroDoc::c54ac58b5dd24ca520",
+      "sample_id": "avro::TestReflect.testAvroDoc",
+      "language": "java",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-031": {
+      "cand_key": "avro::TestReflect.testMultipleFieldAliases::0ff8e7243bb926b04b",
+      "sample_id": "avro::TestReflect.testMultipleFieldAliases",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-032": {
+      "cand_key": "avro::TestReflect.testMultipleFieldAliases::270e1d548954aad98a",
+      "sample_id": "avro::TestReflect.testMultipleFieldAliases",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-033": {
+      "cand_key": "avro::TestReflect.testMultipleFieldAliases::2c0b68ae4e91cd4a11",
+      "sample_id": "avro::TestReflect.testMultipleFieldAliases",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-034": {
+      "cand_key": "avro::TestReflect.testMultipleFieldAliases::e9d178b0c1eb8567ae",
+      "sample_id": "avro::TestReflect.testMultipleFieldAliases",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator",
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash",
+        "deepseek-v4-pro",
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-035": {
+      "cand_key": "avro::TestReflect.testRecord::007641d1089a59d887",
+      "sample_id": "avro::TestReflect.testRecord",
+      "language": "java",
+      "strategies_accepting": [
+        "B3_Plus_Structural_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-036": {
+      "cand_key": "avro::TestReflect.testRecord::01d923eda0ad3018b1",
+      "sample_id": "avro::TestReflect.testRecord",
+      "language": "java",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-037": {
+      "cand_key": "avro::TestReflect.testRecord::13c9eb07dbefd854f5",
+      "sample_id": "avro::TestReflect.testRecord",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-038": {
+      "cand_key": "avro::TestReflect.testRecord::810c9aabe40887b485",
+      "sample_id": "avro::TestReflect.testRecord",
+      "language": "java",
+      "strategies_accepting": [
+        "B4_Scalar_Gate_Loop"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-039": {
+      "cand_key": "avro::TestReflect.testRecord::a87247228fe6b50932",
+      "sample_id": "avro::TestReflect.testRecord",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-040": {
+      "cand_key": "avro::TestReflect.testRecord::c6194410fbad1767d4",
+      "sample_id": "avro::TestReflect.testRecord",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-041": {
+      "cand_key": "avro::TestReflect.testRecord::c863d0dbd12f9f5efd",
+      "sample_id": "avro::TestReflect.testRecord",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-042": {
+      "cand_key": "avro::TestReflect.testRecord::cc7905c5f8e2ef96e0",
+      "sample_id": "avro::TestReflect.testRecord",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Static_AST_Guard",
+        "B4_Scalar_Gate_Loop",
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-043": {
+      "cand_key": "avro::TestReflect.testRecord::e58787fb56c81c510e",
+      "sample_id": "avro::TestReflect.testRecord",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-044": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValue::7faeed7d53481d61e5",
+      "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValue",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator",
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro",
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-045": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValue::ed2642147b5d7269a8",
+      "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValue",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-046": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted::726893d90e13f64979",
+      "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-047": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted::a1e6ecf8ad057ae479",
+      "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-048": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted::ab954a1b7af089c1cb",
+      "sample_id": "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-049": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt::16908e20364c205100",
+      "sample_id": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-050": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt::1f1b98e495b88af355",
+      "sample_id": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-051": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt::81cb23c30197262b18",
+      "sample_id": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-052": {
+      "cand_key": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt::bbb114afdc8331f436",
+      "sample_id": "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-053": {
+      "cand_key": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::583d968be271316fe1",
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-054": {
+      "cand_key": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::d81119fd7dac6fd857",
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-055": {
+      "cand_key": "commons-lang::MultilineRecursiveToStringStyleTest.noArray::0b796954323b0b7cb9",
+      "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.noArray",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-056": {
+      "cand_key": "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator::4f552ea6827230dbc1",
+      "sample_id": "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-057": {
+      "cand_key": "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator::80befda902ab8924ff",
+      "sample_id": "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-058": {
+      "cand_key": "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator::f7baab3008f13d12b6",
+      "sample_id": "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-059": {
+      "cand_key": "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator::10404b8729d217d07c",
+      "sample_id": "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-060": {
+      "cand_key": "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator::ac9f65339a8250193b",
+      "sample_id": "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-061": {
+      "cand_key": "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator::ba3205452adb374dcf",
+      "sample_id": "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-062": {
+      "cand_key": "fastjson::JSONPParseTest3.test_f::3f1d691f26618dc911",
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-063": {
+      "cand_key": "fastjson::JSONPParseTest3.test_f::5d5cf38bf861840453",
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-064": {
+      "cand_key": "fastjson::JSONPParseTest3.test_f::66acc9daa24fe1db58",
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-065": {
+      "cand_key": "fastjson::JSONPParseTest3.test_f::7421d596122535d5e0",
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "language": "java",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-066": {
+      "cand_key": "fastjson::JSONPParseTest3.test_f::8489ed70d0ef3b9d9f",
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-067": {
+      "cand_key": "fastjson::JSONPParseTest3.test_f::c34d90c8caca3aac22",
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "language": "java",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-068": {
+      "cand_key": "fastjson::JSONPParseTest3.test_f::e0524eea17f28e48b8",
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-069": {
+      "cand_key": "fastjson::JSONPParseTest3.test_f::e2d0463d5f2280dda3",
+      "sample_id": "fastjson::JSONPParseTest3.test_f",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-070": {
+      "cand_key": "fastjson::WriteClassNameTest_Map.test_list::1456b44a73e04488e5",
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-071": {
+      "cand_key": "fastjson::WriteClassNameTest_Map.test_list::1fb12e9c0eca6fbbcf",
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-072": {
+      "cand_key": "fastjson::WriteClassNameTest_Map.test_list::35ba56749a46aa220e",
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator",
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-073": {
+      "cand_key": "fastjson::WriteClassNameTest_Map.test_list::95091f2224d0cdaf43",
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "language": "java",
+      "strategies_accepting": [
+        "B3_Plus_Structural_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-074": {
+      "cand_key": "fastjson::WriteClassNameTest_Map.test_list::caa73e686ab02e8aea",
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-075": {
+      "cand_key": "fastjson::WriteClassNameTest_Map.test_list::ff9a3c5756ca921481",
+      "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-076": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::0710031a7673a1af23",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-077": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::0c77c5cc6f7ead37e2",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-078": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::469d818695cb098223",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "language": "java",
+      "strategies_accepting": [
+        "B3_Plus_Structural_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-079": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::845b923f66e1ba9b78",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "language": "java",
+      "strategies_accepting": [
+        "B3_Plus_Structural_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-080": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::9927bb25d773b02773",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-081": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::ab879d52b4e7b9b453",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-082": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::b049007d4d79c3fea4",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "language": "java",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-083": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::b3b8b8a27a8c2d6709",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-084": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::dd3103d7de31754ad2",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "language": "java",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-085": {
+      "cand_key": "fastjson::WriteDuplicateType.test_dupType::de702f861d611612dc",
+      "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-086": {
+      "cand_key": "hippo4j::ContentUtilTest.assertGetPoolContent::609aea3eb6037ac7bb",
+      "sample_id": "hippo4j::ContentUtilTest.assertGetPoolContent",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-087": {
+      "cand_key": "hippo4j::ContentUtilTest.assertGetPoolContent::7f9f1e652ba6068b86",
+      "sample_id": "hippo4j::ContentUtilTest.assertGetPoolContent",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-088": {
+      "cand_key": "hippo4j::ContentUtilTest.assertGetPoolContent::89b282d50fed91bba7",
+      "sample_id": "hippo4j::ContentUtilTest.assertGetPoolContent",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    },
+    "HO-089": {
+      "cand_key": "http-request::HttpRequestTest.headWithMappedQueryParams::34bf0d464320900856",
+      "sample_id": "http-request::HttpRequestTest.headWithMappedQueryParams",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-090": {
+      "cand_key": "http-request::HttpRequestTest.headWithMappedQueryParams::8a9092ff1d2c16c0e8",
+      "sample_id": "http-request::HttpRequestTest.headWithMappedQueryParams",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-091": {
+      "cand_key": "http-request::HttpRequestTest.headWithVaragsQueryParams::b103216ad1124b4bc2",
+      "sample_id": "http-request::HttpRequestTest.headWithVaragsQueryParams",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-092": {
+      "cand_key": "http-request::HttpRequestTest.postWithEscapedMappedQueryParams::836c34090a3bc6bb5a",
+      "sample_id": "http-request::HttpRequestTest.postWithEscapedMappedQueryParams",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-093": {
+      "cand_key": "http-request::HttpRequestTest.postWithEscapedVarargsQueryParams::34139f5045ae5c5c7f",
+      "sample_id": "http-request::HttpRequestTest.postWithEscapedVarargsQueryParams",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-094": {
+      "cand_key": "http-request::HttpRequestTest.postWithNumericQueryParams::e60fe15e87ccffa082",
+      "sample_id": "http-request::HttpRequestTest.postWithNumericQueryParams",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-095": {
+      "cand_key": "http-request::HttpRequestTest.singleSslSocketFactory::fb12554db5dea9474c",
+      "sample_id": "http-request::HttpRequestTest.singleSslSocketFactory",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash",
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-096": {
+      "cand_key": "http-request::HttpRequestTest.singleVerifier::6d2af44a3f8a343871",
+      "sample_id": "http-request::HttpRequestTest.singleVerifier",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-097": {
+      "cand_key": "karate::JsEngineTest.testObjectsWithinFunction::710b9762beaf6ee498",
+      "sample_id": "karate::JsEngineTest.testObjectsWithinFunction",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-098": {
+      "cand_key": "nacos::JacksonUtilsTest.testToJsonBytes::d9402df2f84bfd2e19",
+      "sample_id": "nacos::JacksonUtilsTest.testToJsonBytes",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-099": {
+      "cand_key": "nacos::JacksonUtilsTest.testToJsonBytes::e5172251c65c9dbf10",
+      "sample_id": "nacos::JacksonUtilsTest.testToJsonBytes",
+      "language": "java",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-100": {
+      "cand_key": "openhtmltopdf::Slf4JLoggerTest.testLogger::3c890264dd36de7677",
+      "sample_id": "openhtmltopdf::Slf4JLoggerTest.testLogger",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-101": {
+      "cand_key": "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations::50c5f6c341166d647b",
+      "sample_id": "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-102": {
+      "cand_key": "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations::c2f3d77ef06635f646",
+      "sample_id": "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-103": {
+      "cand_key": "py::Breathe::test_command_context.test_manual_context_noccr::128a7a2377ceda6ec6",
+      "sample_id": "py::Breathe::test_command_context.test_manual_context_noccr",
+      "language": "python",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Plus_Structural_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-104": {
+      "cand_key": "py::Breathe::test_command_context.test_manual_context_noccr::99a4dea1d6f24533db",
+      "sample_id": "py::Breathe::test_command_context.test_manual_context_noccr",
+      "language": "python",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-105": {
+      "cand_key": "py::Breathe::test_command_context.test_manual_context_noccr::e088b7b09e158b1f1f",
+      "sample_id": "py::Breathe::test_command_context.test_manual_context_noccr",
+      "language": "python",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-106": {
+      "cand_key": "py::Breathe::test_command_context.test_manual_context_noccr::f0cc98dad7d6c2b52c",
+      "sample_id": "py::Breathe::test_command_context.test_manual_context_noccr",
+      "language": "python",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-107": {
+      "cand_key": "py::krllint::LowerOrMixedCaseBuiltInTestCase.test_rule_without_fix::674713cc0db79de714",
+      "sample_id": "py::krllint::LowerOrMixedCaseBuiltInTestCase.test_rule_without_fix",
+      "language": "python",
+      "strategies_accepting": [
+        "B0_Standard_Validator"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "GENUINE_ORACLE_WEAKENING"
+    },
+    "HO-108": {
+      "cand_key": "visualee::GraphCreatorTest.testBuildJSONNode::3df29bab4ab8c79741",
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "language": "java",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-flash"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-109": {
+      "cand_key": "visualee::GraphCreatorTest.testBuildJSONNode::833166dd7f1c5849cd",
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNode",
+      "language": "java",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-110": {
+      "cand_key": "visualee::GraphCreatorTest.testBuildJSONNodes::4c4d40f3fc25f927bd",
+      "sample_id": "visualee::GraphCreatorTest.testBuildJSONNodes",
+      "language": "java",
+      "strategies_accepting": [
+        "Ours_MuGuard_Flake"
+      ],
+      "models_accepting": [
+        "deepseek-v4-pro"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    },
+    "HO-111": {
+      "cand_key": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany::f13458808371e60d6b",
+      "sample_id": "visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany",
+      "language": "java",
+      "strategies_accepting": [
+        "B2_Prompt_Guard",
+        "B3_Static_AST_Guard"
+      ],
+      "models_accepting": [
+        "qwen3.7-plus"
+      ],
+      "stage1_label": "TEST_RESPONSIBILITY_SHIFT"
+    }
+  }
+}

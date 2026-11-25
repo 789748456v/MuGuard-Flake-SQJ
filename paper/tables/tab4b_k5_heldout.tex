@@ -1,34 +1,36 @@
 \begin{table}[t]
 \centering
 \scriptsize
-\setlength{\tabcolsep}{1.9pt}
-\caption{Post-freeze held-out validation over fixed cohort $E$ ($|E| = \BenchMExtSamples$, with API-incomplete runs scored $0$). Column W/S/L decomposes $M_{\text{ext}}$ losses into Weakening, Responsibility Shift, and Legitimate Canonicalization.}
+\setlength{\tabcolsep}{1.6pt}
+\caption{Post-freeze held-out validation over fixed cohort $E$ ($|E| = \BenchMExtSamples$, zero API omissions across all backbones). Column W/S/L decomposes $M_{\text{ext}}$ losses into Weakening, Responsibility Shift, and Legitimate Canonicalization.}
 \label{tab:k5_heldout}
 \begin{tabular}{llrrrrrr}
 \toprule
-Model (Inc.) & Strategy & Acc.\ in $E$ & $M_{\text{ext}}$ Loss & W/S/L & Mean Ret. & Strict $Y_s$ & Stress $Y_s$ \\
+Model ($|E|$) & Strategy & Acc.\ in $E$ & $M_{\text{ext}}$ Loss & W/S/L & Mean Ret. & Strict $Y_s$ & Stress $Y_s$ \\
 \midrule
-DS-Flash (1) & Unconstrained & 173 (97.74\%) & 14 (8.09\%) & 4/8/2 & 0.9701 & 145 (81.92\%) & 157 (88.70\%) \\
- & Prompt Guard & 173 (97.74\%) & 17 (9.83\%) & --- & 0.9735 & 140 (79.10\%) & 155 (87.57\%) \\
- & Syntactic Guard & 173 (97.74\%) & 17 (9.83\%) & --- & 0.9735 & 140 (79.10\%) & 155 (87.57\%) \\
+DS-Flash (177) & Unconstrained & 173 (97.74\%) & 14 (8.09\%) & 4/8/2 & 0.9701 & 145 (81.92\%) & 157 (88.70\%) \\
+ & Prompt Guard & 173 (97.74\%) & 17 (9.83\%) & 3/10/4 & 0.9735 & 140 (79.10\%) & 155 (87.57\%) \\
+ & Syntactic Guard & 173 (97.74\%) & 17 (9.83\%) & 3/10/4 & 0.9735 & 140 (79.10\%) & 155 (87.57\%) \\
  & Structural Guard & 171 (96.61\%) & 15 (8.77\%) & 3/9/3 & 0.9821 & 140 (79.10\%) & 155 (87.57\%) \\
  & Scalar Gate & 148 (83.62\%) & 5 (3.38\%) & 2/1/2 & 0.9924 & 127 (71.75\%) & 142 (80.23\%) \\
  & \textbf{MuGuard-Flake} & 158 (89.27\%) & \textbf{7 (4.43\%)} & \textbf{2/1/4} & 0.9948 & \textbf{135 (76.27\%)} & \textbf{150 (84.75\%)} \\
 \midrule
-DS-V4-Pro (13) & Unconstrained & 157 (88.70\%) & 15 (9.55\%) & 3/9/3 & 0.9577 & 128 (72.32\%) & 138 (77.97\%) \\
- & Prompt Guard & 155 (87.57\%) & 18 (11.61\%) & --- & 0.9760 & 125 (70.62\%) & 136 (76.84\%) \\
- & Syntactic Guard & 159 (89.83\%) & 18 (11.32\%) & --- & 0.9766 & 129 (72.88\%) & 140 (79.10\%) \\
- & Structural Guard & 159 (89.83\%) & 18 (11.32\%) & 6/9/3 & 0.9729 & 129 (72.88\%) & 140 (79.10\%) \\
- & Scalar Gate & 135 (76.27\%) & 5 (3.70\%) & 2/0/3 & 0.9953 & 118 (66.67\%) & 129 (72.88\%) \\
- & \textbf{MuGuard-Flake} & 145 (81.92\%) & \textbf{7 (4.83\%)} & \textbf{3/2/2} & 0.9938 & \textbf{126 (71.19\%)} & \textbf{137 (77.40\%)} \\
+DS-V4-Pro (177) & Unconstrained & 165 (93.22\%) & 16 (9.70\%) & 3/10/3 & 0.9550 & 133 (75.14\%) & 145 (81.92\%) \\
+ & Prompt Guard & 159 (89.83\%) & 18 (11.32\%) & 6/8/4 & 0.9766 & 128 (72.32\%) & 140 (79.10\%) \\
+ & Syntactic Guard & 162 (91.53\%) & 18 (11.11\%) & 6/8/4 & 0.9771 & 132 (74.58\%) & 143 (80.79\%) \\
+ & Structural Guard & 162 (91.53\%) & 18 (11.11\%) & 6/9/3 & 0.9734 & 132 (74.58\%) & 143 (80.79\%) \\
+ & Scalar Gate & 137 (77.40\%) & 5 (3.65\%) & 2/0/3 & 0.9954 & 119 (67.23\%) & 131 (74.01\%) \\
+ & \textbf{MuGuard-Flake} & 147 (83.05\%) & \textbf{7 (4.76\%)} & \textbf{3/2/2} & 0.9939 & \textbf{127 (71.75\%)} & \textbf{139 (78.53\%)} \\
 \midrule
-Qwen3.7+ (0) & Unconstrained & 163 (92.09\%) & 19 (11.66\%) & 7/9/3 & 0.9592 & 128 (72.32\%) & 138 (77.97\%) \\
- & Prompt Guard & 163 (92.09\%) [u=1] & 17 (10.49\%) & --- & 0.9620 & 130 (73.45\%) & 144 (81.36\%) \\
- & Syntactic Guard & 161 (90.96\%) & 17 (10.56\%) & --- & 0.9618 & 129 (72.88\%) & 143 (80.79\%) \\
+Qwen3.7+ (177) & Unconstrained & 163 (92.09\%) & 19 (11.66\%) & 7/9/3 & 0.9592 & 128 (72.32\%) & 138 (77.97\%) \\
+ & Prompt Guard & 163 (92.09\%) [u=1] & 17 (10.49\%) & 6/8/3 & 0.9620 & 130 (73.45\%) & 144 (81.36\%) \\
+ & Syntactic Guard & 161 (90.96\%) & 17 (10.56\%) & 6/8/3 & 0.9618 & 129 (72.88\%) & 143 (80.79\%) \\
  & Structural Guard & 158 (89.27\%) & 16 (10.13\%) & 6/8/2 & 0.9592 & 127 (71.75\%) & 141 (79.66\%) \\
+ & Coverage Gate$^{\dagger}$ & 151 (89.35\%) [u=1] & 13 (8.67\%) & 6/5/2 & 0.9779 & 122 (72.19\%) & 136 (80.47\%) \\
+ & LLM-Judge Gate & 149 (84.18\%) [u=1] & 10 (6.76\%) & 4/4/2 & 0.9908 & 122 (68.93\%) & 134 (75.71\%) \\
  & Scalar Gate & 140 (79.10\%) [u=1] & 4 (2.88\%) & 2/0/2 & 0.9969 & 119 (67.23\%) & 134 (75.71\%) \\
  & \textbf{MuGuard-Flake} & 147 (83.05\%) [u=1] & \textbf{6 (4.11\%)} & \textbf{2/0/4} & 0.9934 & \textbf{124 (70.06\%)} & \textbf{139 (78.53\%)} \\
 \bottomrule
 \end{tabular}
-\par\smallskip\parbox{0.97\textwidth}{\scriptsize\textit{Note:} Inc.\ counts API 16k-token-cap omissions inside $E$ (scored $0$ in Fixed $Y_s$). Marker $[u=1]$ denotes one unresolved held-out probe timeout (3 total across rows), excluded from the resolved $M_{\text{ext}}$ Loss denominator ($\text{Acc.} - u$) and scored $0$ in Fixed $Y_s$.}
+\par\smallskip\parbox{0.97\textwidth}{\scriptsize\textit{Note:} Marker $[u=1]$ denotes one unresolved held-out probe timeout, excluded from the conditional $M_{\text{ext}}$ Loss denominator ($\text{Acc.} - u$) and scored $0$ in Fixed $Y_s$. $^{\dagger}$Coverage Gate evaluated over matched $|E_{\text{cov}}|=169$.}
 \end{table}

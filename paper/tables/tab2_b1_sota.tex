@@ -1,16 +1,20 @@
 \begin{table}[t]
 \centering
-\footnotesize
+\scriptsize
 \setlength{\tabcolsep}{3.0pt}
-\caption{Audit of official upstream passing patches from \textsc{FlakyDoctor} and partner-matched \textsc{iPFlakies} artifacts under unified attribution. Bold marks silent oracle erosion among $W^+$-passing fixes.}
+\caption{Audit of official upstream passing patches from \textsc{FlakyDoctor} and partner-matched \textsc{iPFlakies} artifacts alongside matched-cohort \textsc{MuGuard-Flake} results on confirmatory Qwen 3.7 Plus.}
 \label{tab:b1_sota}
 \begin{tabular}{lrrrrrrr}
 \toprule
-Historical Artifact Cohort & Avail. & Mism. & Comp. & Pass@$W^+$ & Eroded & Leak ($W^+$) & SoundFix \\
+Artifact or Matched Cohort & Avail. & Mism. & Comp. & Pass@$W^+$ & Eroded & Leak ($W^+$) & SoundFix \\
 \midrule
 FlakyDoctor GPT-4 (official pass) & 75 & 20 & 38 & 33 (44.00\%) & \textbf{9} & \textbf{27.27\%} & 24 (32.00\%) \\
 FlakyDoctor Magicoder (official pass) & 13 & 6 & 4 & 4 (30.77\%) & \textbf{0} & \textbf{0.00\%} & 4 (30.77\%) \\
 iPFlakies (partner-matched) & 77 & 0 & 60 & 42 (54.55\%) & \textbf{10} & \textbf{23.81\%} & 32 (41.56\%) \\
+\midrule
+\textbf{MuGuard-Flake} on FD-GPT cohort & 75 & 0 & 75 & 69 (92.00\%) & \textbf{0} & \textbf{0.00\%} & \textbf{69 (92.00\%)} \\
+\textbf{MuGuard-Flake} on iPFlakies cohort & 77 & 0 & 77 & 54 (70.13\%) & \textbf{0} & \textbf{0.00\%} & \textbf{54 (70.13\%)} \\
 \bottomrule
 \end{tabular}
+\par\smallskip\parbox{0.96\textwidth}{\scriptsize\textit{Note:} Across all three multi-round backbones, \textsc{MuGuard-Flake} reaches 92.0\%--94.7\% SoundFix on the FlakyDoctor GPT-4 cohort and 70.1\%--85.7\% on the partner-matched iPFlakies cohort with 0\% leaked erosion (full breakdown in Online Resource~1, Table~S-1).}
 \end{table}

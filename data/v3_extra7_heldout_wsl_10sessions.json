@@ -1,0 +1,499 @@
+{
+  "avro::TestReflect.testAvroDoc::1a5de800d571c8923d": {
+    "blind_id": "HO-112",
+    "sample_id": "avro::TestReflect.testAvroDoc",
+    "majority_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+    "majority_votes": "10/10",
+    "vote_counts": {
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 10
+    },
+    "per_session": {
+      "session_01": {
+        "blind_id": "HO-112",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 3,
+        "rationale": "Comparison still checks serialized JSON structurally, preserving field multiplicity and bindings while canonicalizing reflected field order and insignificant formatting."
+      },
+      "session_02": {
+        "blind_id": "HO-112",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 2,
+        "rationale": "Comparing serialized JSON trees with sorted field arrays removes ordering and formatting sensitivity while preserving field multiplicity, bindings, nested documentation, and serialization execution."
+      },
+      "session_03": {
+        "blind_id": "HO-112",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 2,
+        "rationale": "Comparing serialized JSON trees with sorted reflected fields preserves field multiplicity and bindings while ignoring incidental field order and pretty-print formatting."
+      },
+      "session_04": {
+        "blind_id": "HO-112",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 3,
+        "rationale": "Recursive field sorting preserves complete serialized structure, multiplicity, and bindings while ignoring reflection order and insignificant JSON whitespace affected by the lost mutants."
+      },
+      "session_05": {
+        "blind_id": "HO-112",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 3,
+        "rationale": "Comparing serialized JSON trees after sorting complete field nodes preserves multiplicity, bindings, documentation, defaults, and enum order while removing incidental field ordering and whitespace."
+      },
+      "session_06": {
+        "blind_id": "HO-112",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 3,
+        "rationale": "Structural JSON comparison and field-array sorting preserve complete field objects and multiplicity; lost mutants only change pretty-print formatting."
+      },
+      "session_07": {
+        "blind_id": "HO-112",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 2,
+        "rationale": "Comparing serialized JSON trees with sorted reflection fields preserves complete field contents and multiplicity while removing field-order and whitespace sensitivity."
+      },
+      "session_08": {
+        "blind_id": "HO-112",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 2,
+        "rationale": "Comparison retains serialized JSON structure, field multiplicity, and value bindings while canonicalizing reflected field order and ignoring incidental pretty-print formatting."
+      },
+      "session_09": {
+        "blind_id": "HO-112",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 2,
+        "rationale": "Recursive field sorting and JSON comparison preserve complete field contents, bindings, and multiplicity while ignoring reflection order and insignificant serialization whitespace."
+      },
+      "session_10": {
+        "blind_id": "HO-112",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 3,
+        "rationale": "Comparing serialized JSON trees with sorted field arrays preserves field multiplicity, bindings, and nested content while tolerating incidental ordering and pretty-print formatting."
+      }
+    }
+  },
+  "avro::TestReflect.testRecord::47db45fb3a44aff9c5": {
+    "blind_id": "HO-113",
+    "sample_id": "avro::TestReflect.testRecord",
+    "majority_label": "TEST_RESPONSIBILITY_SHIFT",
+    "majority_votes": "10/10",
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 10
+    },
+    "per_session": {
+      "session_01": {
+        "blind_id": "HO-113",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Assertions inspect in-memory Schema properties instead of serialized output; calling toString without checking its result leaves serialization defects undetected."
+      },
+      "session_02": {
+        "blind_id": "HO-113",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Assertions move from serialized JSON to in-memory Schema properties; serialization results remain unused, allowing serialization defects to pass."
+      },
+      "session_03": {
+        "blind_id": "HO-113",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Assertions inspect in-memory Schema properties instead of serialized output; calling toString without checking its result leaves serialization defects undetected."
+      },
+      "session_04": {
+        "blind_id": "HO-113",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Assertions move from serialized JSON to in-memory Schema properties; calling toString without checking its result leaves serialization defects undetected."
+      },
+      "session_05": {
+        "blind_id": "HO-113",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Assertions now inspect internal Schema objects; serialized strings are generated but never checked, abandoning the original serialization responsibility."
+      },
+      "session_06": {
+        "blind_id": "HO-113",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Assertions inspect in-memory Schema properties instead of serialized output; invoking toString without checking its result leaves serialization defects undetected."
+      },
+      "session_07": {
+        "blind_id": "HO-113",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Assertions inspect in-memory Schema objects instead of serialized output; calling toString without checking its result leaves serialization defects undetected."
+      },
+      "session_08": {
+        "blind_id": "HO-113",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Assertions inspect in-memory Schema properties instead of serialized output; unused toString results provide execution without validating serialization."
+      },
+      "session_09": {
+        "blind_id": "HO-113",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Assertions inspect in-memory Schema properties instead of serialized output; calling toString without checking its results leaves serialization defects undetected."
+      },
+      "session_10": {
+        "blind_id": "HO-113",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Assertions inspect in-memory Schema objects instead of serialized output; invoking toString without checking its result leaves serialization defects undetected."
+      }
+    }
+  },
+  "commons-lang::MultilineRecursiveToStringStyleTest.noArray::da40015637cd7ccc33": {
+    "blind_id": "HO-114",
+    "sample_id": "commons-lang::MultilineRecursiveToStringStyleTest.noArray",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_votes": "10/10",
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "per_session": {
+      "session_01": {
+        "blind_id": "HO-114",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Trimming lines and stripping optional commas discards indentation and delimiter guarantees, allowing the reported formatting mutants to survive."
+      },
+      "session_02": {
+        "blind_id": "HO-114",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Trimming lines and stripping optional commas accepts incorrect indentation and separators, explaining survival of spacing mutants despite retaining field comparisons."
+      },
+      "session_03": {
+        "blind_id": "HO-114",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Trimming indentation and removing optional commas accepts formatting defects, directly explaining survival of indentation mutants."
+      },
+      "session_04": {
+        "blind_id": "HO-114",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Trimming lines and stripping optional commas accepts incorrect indentation and separator formatting, including the surviving indentation mutants."
+      },
+      "session_05": {
+        "blind_id": "HO-114",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Trimming lines and stripping optional commas masks incorrect indentation and delimiter placement, allowing formatting mutants to survive despite preserving field membership."
+      },
+      "session_06": {
+        "blind_id": "HO-114",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Trimming lines and removing optional commas accepts incorrect indentation and separator formatting, directly explaining the surviving indentation mutants."
+      },
+      "session_07": {
+        "blind_id": "HO-114",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Trimming indentation and stripping optional commas accepts defective formatting, directly explaining survival of spacing mutants."
+      },
+      "session_08": {
+        "blind_id": "HO-114",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Trimming lines and stripping optional commas accepts incorrect indentation and delimiter placement, explaining surviving indentation mutants."
+      },
+      "session_09": {
+        "blind_id": "HO-114",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Trimming lines and stripping optional commas discard required indentation and separator integrity, allowing formatting defects demonstrated by the surviving indentation mutants."
+      },
+      "session_10": {
+        "blind_id": "HO-114",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Trimming lines and stripping optional commas discards indentation and separator requirements, allowing the surviving indentation mutants and malformed formatting to pass."
+      }
+    }
+  },
+  "fastjson::JSONPParseTest3.test_f::7f29854bef5881caea": {
+    "blind_id": "HO-115",
+    "sample_id": "fastjson::JSONPParseTest3.test_f",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_votes": "10/10",
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "per_session": {
+      "session_01": {
+        "blind_id": "HO-115",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "One-argument split drops trailing empty tokens, allowing invalid trailing commas to pass despite preserving field order independence."
+      },
+      "session_02": {
+        "blind_id": "HO-115",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "One-argument split drops trailing empty tokens, allowing malformed JSON with a trailing comma to normalize into the expected output."
+      },
+      "session_03": {
+        "blind_id": "HO-115",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Single-argument split drops trailing empty tokens, allowing a malformed trailing comma inside the JSONP object to pass normalization."
+      },
+      "session_04": {
+        "blind_id": "HO-115",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "One-argument split drops trailing empty tokens, allowing malformed trailing commas to disappear during normalization despite preserving ordinary field ordering independence."
+      },
+      "session_05": {
+        "blind_id": "HO-115",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Single-argument split drops trailing empty tokens, so normalization accepts erroneous trailing commas and fails to preserve delimiter integrity."
+      },
+      "session_06": {
+        "blind_id": "HO-115",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "One-argument split drops trailing empty tokens, allowing an erroneous trailing comma inside the serialized object to pass normalization."
+      },
+      "session_07": {
+        "blind_id": "HO-115",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "One-argument split discards trailing empty tokens, allowing an invalid trailing comma inside the serialized object to pass normalization."
+      },
+      "session_08": {
+        "blind_id": "HO-115",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "One-argument split drops trailing empty tokens, allowing an erroneous trailing comma inside the JSON object to pass normalized equality."
+      },
+      "session_09": {
+        "blind_id": "HO-115",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Single-argument split drops trailing empty tokens, allowing malformed trailing commas to disappear during normalization despite retaining the serialization path."
+      },
+      "session_10": {
+        "blind_id": "HO-115",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "One-argument split drops trailing empty tokens, allowing an erroneous trailing comma inside the serialized JSONP object to pass normalization."
+      }
+    }
+  },
+  "fastjson::WriteClassNameTest_Map.test_list::99ca580f88c7a042d4": {
+    "blind_id": "HO-116",
+    "sample_id": "fastjson::WriteClassNameTest_Map.test_list",
+    "majority_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+    "majority_votes": "10/10",
+    "vote_counts": {
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 10
+    },
+    "per_session": {
+      "session_01": {
+        "blind_id": "HO-116",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 3,
+        "rationale": "Structural comparison of the actual serialized JSON preserves nested values and bindings while removing incidental object ordering exposed by the constructor mutant."
+      },
+      "session_02": {
+        "blind_id": "HO-116",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 3,
+        "rationale": "Structural comparison of the actual serialized JSON removes object-order sensitivity while preserving nested key-value bindings and the original production calls."
+      },
+      "session_03": {
+        "blind_id": "HO-116",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 3,
+        "rationale": "Structural comparison of the serialized JSON removes incidental object ordering while preserving nested keys, values, and existing type assertions."
+      },
+      "session_04": {
+        "blind_id": "HO-116",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 3,
+        "rationale": "Comparing parsed serialized JSON removes incidental object ordering while preserving expected structure and value bindings; the lost mutant changes map ordering."
+      },
+      "session_05": {
+        "blind_id": "HO-116",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 3,
+        "rationale": "Structural comparison of the serialized JSON removes incidental object ordering while preserving nested values and bindings; the lost mutant only changes map ordering."
+      },
+      "session_06": {
+        "blind_id": "HO-116",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 3,
+        "rationale": "Parsed JSON equality removes incidental object ordering while retaining nested key-value bindings and the serialization call; the lost mutant changes map ordering."
+      },
+      "session_07": {
+        "blind_id": "HO-116",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 3,
+        "rationale": "Structural comparison of the actual serialized JSON removes incidental object ordering while preserving nested keys, values, and the production serialization path."
+      },
+      "session_08": {
+        "blind_id": "HO-116",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 3,
+        "rationale": "Structural equality of parsed serialized JSON removes incidental object-key ordering while preserving nested values, bindings, and the serialization call path."
+      },
+      "session_09": {
+        "blind_id": "HO-116",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 3,
+        "rationale": "Comparing parsed serialized JSON preserves nested values and bindings while removing incidental map ordering; the lost constructor mutant changes ordering behavior."
+      },
+      "session_10": {
+        "blind_id": "HO-116",
+        "label_wsl": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+        "confidence": 3,
+        "rationale": "Structural comparison of the actual serialized JSON removes incidental object ordering while retaining nested key-value bindings and existing type and round-trip checks."
+      }
+    }
+  },
+  "fastjson::WriteDuplicateType.test_dupType::0dc0e656ad07c04ba9": {
+    "blind_id": "HO-117",
+    "sample_id": "fastjson::WriteDuplicateType.test_dupType",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_votes": "10/10",
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "per_session": {
+      "session_01": {
+        "blind_id": "HO-117",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Parsing renamed type properties into maps collapses duplicate keys, allowing duplicate type metadata to pass in a test specifically checking its absence."
+      },
+      "session_02": {
+        "blind_id": "HO-117",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Parsing serialized output into maps collapses duplicate type keys, defeating the original duplicate-type invariant; replacing @type also masks incorrect key spelling."
+      },
+      "session_03": {
+        "blind_id": "HO-117",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Replacing every '@type' with 'type' erases meaningful key and value distinctions, allowing incorrect serialized metadata to compare equal."
+      },
+      "session_04": {
+        "blind_id": "HO-117",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Parsing normalized output into maps collapses duplicate type keys, undermining the duplicate-type invariant and allowing the containsKey mutant to survive."
+      },
+      "session_05": {
+        "blind_id": "HO-117",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Parsing into maps collapses duplicate keys, masking duplicate type metadata, while replacing @type also permits incorrect metadata key spelling."
+      },
+      "session_06": {
+        "blind_id": "HO-117",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Renaming @type and parsing into maps can collapse duplicate type keys, weakening the focal duplicate-type invariant while still checking serialized output."
+      },
+      "session_07": {
+        "blind_id": "HO-117",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Replacing @type and parsing into maps can mask duplicate type properties and incorrect property names, weakening the original duplicate-type serialization check."
+      },
+      "session_08": {
+        "blind_id": "HO-117",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Replacing @type and parsing into maps collapses duplicate type entries, removing the original assertion’s enforcement of type-field multiplicity."
+      },
+      "session_09": {
+        "blind_id": "HO-117",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Parsing into maps collapses duplicate type keys, defeating the duplicate-type invariant; replacing @type also permits incorrect key spelling to pass."
+      },
+      "session_10": {
+        "blind_id": "HO-117",
+        "label_wsl": "GENUINE_ORACLE_WEAKENING",
+        "confidence": 3,
+        "rationale": "Parsing into maps collapses duplicate type keys, while replacing @type also accepts incorrect key names, weakening the original duplicate-type serialization check."
+      }
+    }
+  },
+  "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations::a6b5641ceda82321e9": {
+    "blind_id": "HO-118",
+    "sample_id": "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations",
+    "majority_label": "TEST_RESPONSIBILITY_SHIFT",
+    "majority_votes": "10/10",
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 10
+    },
+    "per_session": {
+      "session_01": {
+        "blind_id": "HO-118",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Reflective qualifier-set comparison replaces BeanCacheKey equality, bypassing the focal equals method and its lazy qualifier-loading behavior."
+      },
+      "session_02": {
+        "blind_id": "HO-118",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Reflective qualifier-set comparison replaces BeanCacheKey.equals, bypassing lazy qualifier loading and the original equality contract."
+      },
+      "session_03": {
+        "blind_id": "HO-118",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Reflective qualifier-set comparison replaces BeanCacheKey.equals, bypassing its lazy-loading and qualifier-comparison behavior."
+      },
+      "session_04": {
+        "blind_id": "HO-118",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Reflective qualifier-set comparison replaces BeanCacheKey.equals, bypassing its lazy-loading and qualifier-comparison production paths."
+      },
+      "session_05": {
+        "blind_id": "HO-118",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Reflective qualifier-set comparison replaces BeanCacheKey equality, bypassing the focal equals method and its lazy qualifier-loading behavior."
+      },
+      "session_06": {
+        "blind_id": "HO-118",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Reflective qualifier-set comparison replaces BeanCacheKey.equals, bypassing the focal equality method and its lazy qualifier-loading behavior."
+      },
+      "session_07": {
+        "blind_id": "HO-118",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Reflective qualifier-set comparison replaces BeanCacheKey.equals, bypassing its lazy-loading and qualifier-comparison behavior."
+      },
+      "session_08": {
+        "blind_id": "HO-118",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Reflective qualifier-set comparison replaces BeanCacheKey.equals, bypassing its qualifier comparison and lazy-loading production behavior."
+      },
+      "session_09": {
+        "blind_id": "HO-118",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Reflective qualifier-set comparison replaces BeanCacheKey.equals, bypassing the focal equality method and its lazy annotation-loading behavior."
+      },
+      "session_10": {
+        "blind_id": "HO-118",
+        "label_wsl": "TEST_RESPONSIBILITY_SHIFT",
+        "confidence": 3,
+        "rationale": "Reflective qualifier-set comparison replaces BeanCacheKey equality, bypassing the focal equals method and its lazy qualifier-loading behavior."
+      }
+    }
+  }
+}

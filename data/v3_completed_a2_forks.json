@@ -1,0 +1,410 @@
+{
+  "protocol_version": "3.0.0-a2-gap-completion",
+  "cases": {
+    "deepseek-flash::visualee::GraphCreatorTest.testBuildJSONNode": {
+      "branch_mode": "A2_MisleadingLocation",
+      "initial_feedback_meta": {
+        "mode": "A2_MisleadingLocation",
+        "shown_count": 3,
+        "char_len": 2280,
+        "approx_tokens": 600
+      },
+      "recovered": false,
+      "recovery_round": null,
+      "post_fork_rounds_used": 4,
+      "terminal_decision": "ABSTAIN_EROSION",
+      "final_candidate": null,
+      "final_eval": null,
+      "post_rounds": [
+        {
+          "round": 2,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 3,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 4,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 5,
+          "decision": "ABSTAIN_EROSION"
+        }
+      ]
+    },
+    "deepseek-v4-pro::visualee::DescriptionTest.testGenerateDescription": {
+      "branch_mode": "A2_MisleadingLocation",
+      "initial_feedback_meta": {
+        "mode": "A2_MisleadingLocation",
+        "shown_count": 1,
+        "char_len": 1185,
+        "approx_tokens": 312
+      },
+      "recovered": false,
+      "recovery_round": null,
+      "post_fork_rounds_used": 4,
+      "terminal_decision": "ABSTAIN_EROSION",
+      "final_candidate": null,
+      "final_eval": null,
+      "post_rounds": [
+        {
+          "round": 2,
+          "decision": "COMPILE_RETRY"
+        },
+        {
+          "round": 3,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 4,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 5,
+          "decision": "ABSTAIN_EROSION"
+        }
+      ]
+    },
+    "deepseek-v4-pro::visualee::DescriptionTest.testGenerateDescription2": {
+      "branch_mode": "A2_MisleadingLocation",
+      "initial_feedback_meta": {
+        "mode": "A2_MisleadingLocation",
+        "shown_count": 3,
+        "char_len": 2247,
+        "approx_tokens": 591
+      },
+      "recovered": false,
+      "recovery_round": null,
+      "post_fork_rounds_used": 4,
+      "terminal_decision": "ABSTAIN_EROSION",
+      "final_candidate": null,
+      "final_eval": null,
+      "post_rounds": [
+        {
+          "round": 2,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 3,
+          "decision": "COMPILE_RETRY"
+        },
+        {
+          "round": 4,
+          "decision": "UNSTABLE_RETRY"
+        },
+        {
+          "round": 5,
+          "decision": "ABSTAIN_EROSION"
+        }
+      ]
+    },
+    "deepseek-v4-pro::visualee::GraphCreatorTest.testBuildJSONNodes": {
+      "branch_mode": "A2_MisleadingLocation",
+      "initial_feedback_meta": {
+        "mode": "A2_MisleadingLocation",
+        "shown_count": 3,
+        "char_len": 2379,
+        "approx_tokens": 626
+      },
+      "recovered": false,
+      "recovery_round": null,
+      "post_fork_rounds_used": 4,
+      "terminal_decision": "ABSTAIN_EROSION",
+      "final_candidate": null,
+      "final_eval": null,
+      "post_rounds": [
+        {
+          "round": 2,
+          "decision": "UNSTABLE_RETRY"
+        },
+        {
+          "round": 3,
+          "decision": "COMPILE_RETRY"
+        },
+        {
+          "round": 4,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 5,
+          "decision": "ABSTAIN_EROSION"
+        }
+      ]
+    },
+    "deepseek-v4-pro::visualee::JPAExaminerTest.testFindAndSetAttributesManyToMany": {
+      "branch_mode": "A2_MisleadingLocation",
+      "initial_feedback_meta": {
+        "mode": "A2_MisleadingLocation",
+        "shown_count": 4,
+        "char_len": 2781,
+        "approx_tokens": 732
+      },
+      "recovered": false,
+      "recovery_round": null,
+      "post_fork_rounds_used": 4,
+      "terminal_decision": "ABSTAIN_EROSION",
+      "final_candidate": null,
+      "final_eval": null,
+      "post_rounds": [
+        {
+          "round": 2,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 3,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 4,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 5,
+          "decision": "ABSTAIN_EROSION"
+        }
+      ]
+    },
+    "deepseek-v4-pro::fastjson::WriteClassNameTest_Map.test_list": {
+      "branch_mode": "A2_MisleadingLocation",
+      "initial_feedback_meta": {
+        "mode": "A2_MisleadingLocation",
+        "shown_count": 4,
+        "char_len": 2518,
+        "approx_tokens": 663
+      },
+      "recovered": false,
+      "recovery_round": null,
+      "post_fork_rounds_used": 4,
+      "terminal_decision": "ABSTAIN_EROSION",
+      "final_candidate": null,
+      "final_eval": null,
+      "post_rounds": [
+        {
+          "round": 2,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 3,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 4,
+          "decision": "COMPILE_RETRY"
+        },
+        {
+          "round": 5,
+          "decision": "ABSTAIN_EROSION"
+        }
+      ]
+    },
+    "deepseek-v4-pro::py::centreon-sdk-python::TestResourceCFG.test_resourcecfg_not_exist": {
+      "branch_mode": "A2_MisleadingLocation",
+      "initial_feedback_meta": {
+        "mode": "A2_MisleadingLocation",
+        "shown_count": 2,
+        "char_len": 1627,
+        "approx_tokens": 428
+      },
+      "recovered": false,
+      "recovery_round": null,
+      "post_fork_rounds_used": 1,
+      "terminal_decision": "SANITY_REJECT_FINAL",
+      "final_candidate": null,
+      "final_eval": null,
+      "post_rounds": [
+        {
+          "round": 5,
+          "decision": "SANITY_REJECT_FINAL"
+        }
+      ]
+    },
+    "deepseek-v4-pro::visualee::GraphCreatorTest.testBuildJSONNode": {
+      "branch_mode": "A2_MisleadingLocation",
+      "initial_feedback_meta": {
+        "mode": "A2_MisleadingLocation",
+        "shown_count": 3,
+        "char_len": 2280,
+        "approx_tokens": 600
+      },
+      "recovered": false,
+      "recovery_round": null,
+      "post_fork_rounds_used": 4,
+      "terminal_decision": "ABSTAIN_COMPILE",
+      "final_candidate": null,
+      "final_eval": null,
+      "post_rounds": [
+        {
+          "round": 2,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 3,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 4,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 5,
+          "decision": "ABSTAIN_COMPILE"
+        }
+      ]
+    },
+    "deepseek-v4-pro::aismessages::NMEAMessageHandlerTest.canHandleUnfragmentedMessageReceived": {
+      "branch_mode": "A2_MisleadingLocation",
+      "initial_feedback_meta": {
+        "mode": "A2_MisleadingLocation",
+        "shown_count": 1,
+        "char_len": 1190,
+        "approx_tokens": 313
+      },
+      "recovered": false,
+      "recovery_round": null,
+      "post_fork_rounds_used": 3,
+      "terminal_decision": "ABSTAIN_UNSTABLE",
+      "final_candidate": null,
+      "final_eval": null,
+      "post_rounds": [
+        {
+          "round": 3,
+          "decision": "UNSTABLE_RETRY"
+        },
+        {
+          "round": 4,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 5,
+          "decision": "ABSTAIN_UNSTABLE"
+        }
+      ]
+    },
+    "deepseek-v4-pro::commons-lang::ToStringBuilderTest.testInheritedReflectionStatics": {
+      "branch_mode": "A2_MisleadingLocation",
+      "initial_feedback_meta": {
+        "mode": "A2_MisleadingLocation",
+        "shown_count": 4,
+        "char_len": 3272,
+        "approx_tokens": 861
+      },
+      "recovered": false,
+      "recovery_round": null,
+      "post_fork_rounds_used": 4,
+      "terminal_decision": "ABSTAIN_EROSION",
+      "final_candidate": null,
+      "final_eval": null,
+      "post_rounds": [
+        {
+          "round": 2,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 3,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 4,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 5,
+          "decision": "ABSTAIN_EROSION"
+        }
+      ]
+    },
+    "deepseek-flash::shardingsphere-elasticjob::ShutdownListenerManagerTest.assertIsShutdownAlready": {
+      "branch_mode": "A2_MisleadingLocation",
+      "initial_feedback_meta": {
+        "mode": "A2_MisleadingLocation",
+        "shown_count": 1,
+        "char_len": 1335,
+        "approx_tokens": 351
+      },
+      "recovered": false,
+      "recovery_round": null,
+      "post_fork_rounds_used": 4,
+      "terminal_decision": "ABSTAIN_EROSION",
+      "final_candidate": null,
+      "final_eval": null,
+      "post_rounds": [
+        {
+          "round": 2,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 3,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 4,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 5,
+          "decision": "ABSTAIN_EROSION"
+        }
+      ]
+    },
+    "deepseek-v4-pro::py::centreon-sdk-python::TestCommands.test_command_not_exist": {
+      "branch_mode": "A2_MisleadingLocation",
+      "initial_feedback_meta": {
+        "mode": "A2_MisleadingLocation",
+        "shown_count": 2,
+        "char_len": 1627,
+        "approx_tokens": 428
+      },
+      "recovered": false,
+      "recovery_round": null,
+      "post_fork_rounds_used": 2,
+      "terminal_decision": "SANITY_REJECT_FINAL",
+      "final_candidate": null,
+      "final_eval": null,
+      "post_rounds": [
+        {
+          "round": 4,
+          "decision": "SANITY_REJECT_RETRY"
+        },
+        {
+          "round": 5,
+          "decision": "SANITY_REJECT_FINAL"
+        }
+      ]
+    },
+    "deepseek-v4-pro::Mapper::ComplexEntityTest.test": {
+      "branch_mode": "A2_MisleadingLocation",
+      "initial_feedback_meta": {
+        "mode": "A2_MisleadingLocation",
+        "shown_count": 4,
+        "char_len": 2554,
+        "approx_tokens": 672
+      },
+      "recovered": false,
+      "recovery_round": null,
+      "post_fork_rounds_used": 4,
+      "terminal_decision": "ABSTAIN_EROSION",
+      "final_candidate": null,
+      "final_eval": null,
+      "post_rounds": [
+        {
+          "round": 2,
+          "decision": "COMPILE_RETRY"
+        },
+        {
+          "round": 3,
+          "decision": "EROSION_RETRY"
+        },
+        {
+          "round": 4,
+          "decision": "COMPILE_RETRY"
+        },
+        {
+          "round": 5,
+          "decision": "ABSTAIN_EROSION"
+        }
+      ]
+    }
+  }
+}

@@ -20,6 +20,7 @@
 \usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
 
 \emergencystretch=2em
+\setcounter{topnumber}{1}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
@@ -51,7 +52,7 @@
 }
 \lstset{style=sqjcode}
 
-% Auto-generated quantitative macros from data/v2_study_summary_metrics.json (2.3.0-certified)
+% Auto-generated quantitative macros from data/v3_study_summary_metrics.json (3.0.0-certified)
 \input{generated_macros.tex}
 
 \title{\textbf{Stabilization via Oracle Erosion: An Empirical Audit and Local Mutation Gate for Flaky Test Repair}}
@@ -69,7 +70,7 @@
 \maketitle
 
 \begin{abstract}
-Automated flaky test repair tools increasingly combine context localization with large language models to remove intermittent continuous integration failures. However, nearly every pipeline accepts a candidate patch once it compiles, passes rerun schedules, and keeps its assertion statements. Because test repair edits the test oracle and fixture themselves, optimizing solely for green runs invites \emph{Stabilization via Oracle Erosion}. Eroded tests turn permanently green while losing their ability to catch future production faults. We audit 203 flaky Java and Python tests, comparing historical repair artifacts, developer pull requests, and five modern language models. Roughly one in five to one in four stabilization-passing patches from prior tools and unconstrained models silently drops baseline fault-detection obligations. Even a strengthened structural static guard fails to block over four-fifths of eroded patches because semantic shifts evade syntax checks. We introduce \textsc{MuGuard-Flake}, a fail-closed local mutation gate that verifies modified tests and their shared-state partners before merging a repair. It eliminates erosion during repair, raises operational sound-fix yield, and cuts unseen fault-detection loss among accepted patches by 45\% to 65\%, running in seconds per candidate. Strict gating is not free: conservative abstention leaves overall end-to-end held-out yield statistically inconclusive and rejects 20.5\% of legitimate developer pull requests. In a controlled feedback comparison, concrete surviving-mutant witnesses recover far more eroded repairs than bare numeric counts (71\% versus 43\%).
+Automated flaky test repair tools increasingly combine context localization with large language models to remove intermittent continuous integration failures. Nearly every pipeline, however, accepts a candidate patch once it compiles, passes rerun schedules, and keeps its assertion statements. Because test repair edits the test oracle and fixture themselves, optimizing solely for green runs invites \emph{Stabilization via Oracle Erosion}: repaired tests turn permanently green while losing their ability to catch future production faults. Across 203 flaky Java and Python tests spanning historical repair tools, developer pull requests, and five modern language models, roughly one in five to one in four stabilization-passing patches silently drops baseline fault-detection obligations. Static syntax rules, line and branch coverage gates, and cross-vendor language-model judges still miss over two-thirds of eroded patches because upstream behavioral shifts preserve assertion syntax and code execution. We introduce \textsc{MuGuard-Flake}, a fail-closed local mutation gate that verifies modified tests and their shared-state partners in seconds per candidate. \textsc{MuGuard-Flake} eliminates in-loop erosion across all five models, raises operational sound-fix yield substantially over static, coverage, and model-judge gates, and cuts unseen fault loss among accepted patches by two-fifths to two-thirds. During repair retries, localized surviving-mutant witnesses also recover far more eroded drafts than numeric counts (71\% versus 43\%). Strict conservation carries explicit trade-offs: conservative abstention leaves unconditional held-out yield statistically inconclusive and rejects 20.5\% of legitimate developer pull requests, though witness-guided triage eliminates those false rejections.
 \end{abstract}
 
 \medskip
