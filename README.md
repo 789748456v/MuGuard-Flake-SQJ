@@ -2,7 +2,7 @@
 
 Official replication package (`3.0.0-certified`), complete five-model benchmark artifacts, ten-session stateless blinded cross-vendor ensemble reliability archive, supplementary empirical tables (`ONLINE_RESOURCE_1.md`), and automated verification suite for the manuscript submitted to *Software Quality Journal* (Springer Nature).
 
-**Authors:** Zhijie Li¹ · Ketong Liu¹ · Shaoyang Xu¹ · Shibo Meng¹ · Feiran Gao² · Yuli Zhao¹\*  
+**Authors:** Zhijie Li¹ · Shaoyang Xu¹ · Ketong Liu¹ · Shibo Meng¹ · Feiran Gao² · Yuli Zhao¹\*  
 ¹ Software College, Northeastern University, Shenyang 110169, China  
 ² School of Computer Science and Technology, Beijing Institute of Technology, Beijing 100081, China  
 \* Corresponding author: `zhaoyl@swc.neu.edu.cn`
@@ -143,7 +143,7 @@ If you use this benchmark, replication package, or **MuGuard-Flake**, please cit
 
 ```bibtex
 @article{li2026muguardflake,
-  author  = {Li, Zhijie and Liu, Ketong and Xu, Shaoyang and Meng, Shibo and Gao, Feiran and Zhao, Yuli},
+  author  = {Li, Zhijie and Xu, Shaoyang and Liu, Ketong and Meng, Shibo and Gao, Feiran and Zhao, Yuli},
   title   = {Stabilization via Oracle Erosion: An Empirical Audit and Local Mutation Gate for Flaky Test Repair},
   journal = {Software Quality Journal},
   year    = {2026},

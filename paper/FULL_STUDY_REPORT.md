@@ -1,7 +1,7 @@
 # FT-1 (`3.0.0-certified`) 最终发表级全链路实证与投稿包总报告
 
 - **论文题目**：*Stabilization via Oracle Erosion: An Empirical Audit and Local Mutation Gate for Flaky Test Repair*
-- **作者信息**：李智杰¹、刘柯彤¹、徐绍洋¹、孟士博¹、高斐然²、赵玉丽¹*（通讯作者，`zhaoyl@swc.neu.edu.cn`）；¹东北大学软件学院，²北京理工大学计算机学院
+- **作者信息**：李智杰¹、徐绍洋¹、刘柯彤¹、孟士博¹、高斐然²、赵玉丽¹*（通讯作者，`zhaoyl@swc.neu.edu.cn`）；¹东北大学软件学院，²北京理工大学计算机学院
 - **目标期刊**：*Software Quality Journal* (SQJ, Springer Nature)
 - **最终稿件规格**：主 PDF `33` 页、主文约 `10,950` 词、`62` 篇全部正文中引用的已核实参考文献、`12` 张主表（全部 $\ge 7.5\text{pt}$）、`4` 张多面板矢量图、单段非结构化摘要（`234` 词）、在线补充材料 `ONLINE_RESOURCE_1.md`（`Tables S-1..S-6`）；46 项 SQJ 行文与跨工件门禁 **`46/46 PASS`（`FAIL=0, WARN=0`）**
 - **全量零缺失矩阵**：`5` 个异构模型全部完成 **`203/203`（`100%`）** 有效测试评估；`4` 个同前缀见证消融分支全部完成 **`129/129`（`100%`）**；`8` 种门禁策略覆盖静态规则、动态焦点行覆盖门禁（JaCoCo + `coverage.py`）、基于完整测试 diff 的跨厂商独立大模型裁判门禁（`LLM-Judge`）及标量/见证局部变异门禁

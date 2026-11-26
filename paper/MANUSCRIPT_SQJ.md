@@ -1,6 +1,6 @@
 # Stabilization via Oracle Erosion: An Empirical Audit and Local Mutation Gate for Flaky Test Repair
 
-**Authors:** Zhijie Li¹ (`lizhijie@mails.neu.edu.cn`), Ketong Liu¹ (`liuketong@mails.neu.edu.cn`), Shaoyang Xu¹ (`xusy3@mails.neu.edu.cn`), Shibo Meng¹ (`mengsb1@mails.neu.edu.cn`), Feiran Gao² (`3120260997@bit.edu.cn`), and Yuli Zhao¹* (`zhaoyl@swc.neu.edu.cn`, Corresponding Author)  
+**Authors:** Zhijie Li¹ (`lizhijie@mails.neu.edu.cn`), Shaoyang Xu¹ (`xusy3@mails.neu.edu.cn`), Ketong Liu¹ (`liuketong@mails.neu.edu.cn`), Shibo Meng¹ (`mengsb1@mails.neu.edu.cn`), Feiran Gao² (`3120260997@bit.edu.cn`), and Yuli Zhao¹* (`zhaoyl@swc.neu.edu.cn`, Corresponding Author)  
 **Affiliations:** ¹Software College, Northeastern University, Shenyang, China; ²School of Computer Science and Technology, Beijing Institute of Technology, Beijing, China  
 **Target Venue:** *Software Quality Journal* (Springer Nature)  
 **Certified Protocol & Submission PDF:** `3.0.0-certified` (`paper/main.pdf`, 33 pages; supplementary tables in `ONLINE_RESOURCE_1.md`)

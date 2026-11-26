@@ -46,7 +46,7 @@ def build_v2_manuscript_md(S: Dict[str, Any]) -> str:
     lines: List[str] = [
         "# Stabilization via Oracle Erosion: An Empirical Audit and Local Mutation Gate for Flaky Test Repair",
         "",
-        "**Authors:** Zhijie Li¹ (`lizhijie@mails.neu.edu.cn`), Ketong Liu¹ (`liuketong@mails.neu.edu.cn`), Shaoyang Xu¹ (`xusy3@mails.neu.edu.cn`), Shibo Meng¹ (`mengsb1@mails.neu.edu.cn`), Feiran Gao² (`3120260997@bit.edu.cn`), and Yuli Zhao¹* (`zhaoyl@swc.neu.edu.cn`, Corresponding Author)  ",
+        "**Authors:** Zhijie Li¹ (`lizhijie@mails.neu.edu.cn`), Shaoyang Xu¹ (`xusy3@mails.neu.edu.cn`), Ketong Liu¹ (`liuketong@mails.neu.edu.cn`), Shibo Meng¹ (`mengsb1@mails.neu.edu.cn`), Feiran Gao² (`3120260997@bit.edu.cn`), and Yuli Zhao¹* (`zhaoyl@swc.neu.edu.cn`, Corresponding Author)  ",
         "**Affiliations:** ¹Software College, Northeastern University, Shenyang, China; ²School of Computer Science and Technology, Beijing Institute of Technology, Beijing, China  ",
         "**Target Venue:** *Software Quality Journal* (Springer Nature)  ",
         f"**Frozen Evaluation Protocol:** `{S['harness_version']}` (`SHA-256: {S['exec_benchmark_sha256'][:16]}`)",
@@ -191,7 +191,7 @@ def build_v2_chinese_report(S: Dict[str, Any]) -> str:
         f"# FT-1 (`{S['harness_version']}`) 经 Codex 对抗审计重构与全链路核验后的实证与投稿包总报告",
         "",
         "- **论文题目**：*Stabilization via Oracle Erosion: An Empirical Audit and Local Mutation Gate for Flaky Test Repair*",
-        "- **作者信息**：李智杰¹ (`lizhijie@mails.neu.edu.cn`)、刘柯彤¹ (`liuketong@mails.neu.edu.cn`)、徐绍洋¹ (`xusy3@mails.neu.edu.cn`)、孟士博¹ (`mengsb1@mails.neu.edu.cn`)、高斐然² (`3120260997@bit.edu.cn`)、赵玉丽¹*（通讯作者，`zhaoyl@swc.neu.edu.cn`）；¹东北大学软件学院，²北京理工大学计算机学院",
+        "- **作者信息**：李智杰¹ (`lizhijie@mails.neu.edu.cn`)、徐绍洋¹ (`xusy3@mails.neu.edu.cn`)、刘柯彤¹ (`liuketong@mails.neu.edu.cn`)、孟士博¹ (`mengsb1@mails.neu.edu.cn`)、高斐然² (`3120260997@bit.edu.cn`)、赵玉丽¹*（通讯作者，`zhaoyl@swc.neu.edu.cn`）；¹东北大学软件学院，²北京理工大学计算机学院",
         "- **目标期刊**：*Software Quality Journal* (SQJ, Springer Nature)",
         f"- **协议版本与冻结摘要**：`{S['harness_version']}`（执行基准 SHA-256 前缀：`{S['exec_benchmark_sha256'][:16]}`）",
         f"- **队列与留出故障覆盖**：原始尝试队列 **`N_init = {b['initial_attempted_count']}`** $\\to$ 严格节点/阶段归因有效队列 **`N = {b['eligible_count']}`**（跨 **`{b['distinct_projects']}`** 个开源仓库：Java `{b['java_eligible']}` 例 / Python `{b['python_eligible']}` 例；共 `{b['total_target_m_det']:,}` 个目标 `3/3` 义务、`{b['total_partner_m_det']:,}` 个伴随 `3/3` 义务，以及 **`{b['total_m_ext_obligations']:,}`** 个未暴露给门禁与反馈的冻结外部留出故障 $M_{{\\text{{ext}}}}$）",
