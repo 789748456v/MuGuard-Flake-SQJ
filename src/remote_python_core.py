@@ -63,7 +63,13 @@ def run_py_docker(
         t0 = time.time()
         try:
             p = subprocess.run(cmd, capture_output=True, text=True, errors="replace", timeout=timeout)
-            return p.returncode, (p.stdout + "\n" + p.stderr), (time.time() - t0)
+            out_s = p.stdout + "\n" + p.stderr
+            try:
+                import remote_core as _rc
+                _rc.record_subproc_result(p.returncode, out_s, "run_py_docker")
+            except Exception:
+                pass
+            return p.returncode, out_s, (time.time() - t0)
         except subprocess.TimeoutExpired:
             subprocess.run(["docker", "rm", "-f", cname], capture_output=True)
             return 124, f"TIMEOUT after {timeout}s", (time.time() - t0)
@@ -327,7 +333,7 @@ def check_py_stability_w_plus(
     rc_code, out, _ = run_py_docker(proj_dir, bash_cmd, timeout=75)
     if rc_code == 0 and "PY_W_PLUS_ALL_OK" in out:
         return True, "Passed standalone, partner->target, and target->partner", (time.time() - t0)
-    return False, out[-1400:], (time.time() - t0)
+    return False, f"[rc={rc_code}]\n{out[-1400:]}", (time.time() - t0)
 
 
 def trace_covered_focal_lines(

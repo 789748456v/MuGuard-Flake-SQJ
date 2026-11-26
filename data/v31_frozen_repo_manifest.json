@@ -1,0 +1,548 @@
+{
+  "schema_version": "v31-frozen-repo-manifest-1.0",
+  "repo_count": 74,
+  "repos": {
+    "/root/sqj_work/FT1/projects/08eab301c869c227d8721da0e9b9bd3d2029d458/jackrabbit-oak": {
+      "proj_dir": "/root/sqj_work/FT1/projects/08eab301c869c227d8721da0e9b9bd3d2029d458/jackrabbit-oak",
+      "project_name": "jackrabbit-oak",
+      "language": "java",
+      "frozen_sha": "08eab301c869c227d8721da0e9b9bd3d2029d458",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/0ac96e1602baf1f516c3c614f13523adb2992e69/nacos": {
+      "proj_dir": "/root/sqj_work/FT1/projects/0ac96e1602baf1f516c3c614f13523adb2992e69/nacos",
+      "project_name": "nacos",
+      "language": "java",
+      "frozen_sha": "0ac96e1602baf1f516c3c614f13523adb2992e69",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/1764748eedb2f320a0d1c43cb4f928c4ccb1f2f5/Mapper": {
+      "proj_dir": "/root/sqj_work/FT1/projects/1764748eedb2f320a0d1c43cb4f928c4ccb1f2f5/Mapper",
+      "project_name": "Mapper",
+      "language": "java",
+      "frozen_sha": "1764748eedb2f320a0d1c43cb4f928c4ccb1f2f5",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/1b39afdec269266b91fe258dd4abe3bcf91aadcb/aries-cdi": {
+      "proj_dir": "/root/sqj_work/FT1/projects/1b39afdec269266b91fe258dd4abe3bcf91aadcb/aries-cdi",
+      "project_name": "aries-cdi",
+      "language": "java",
+      "frozen_sha": "1b39afdec269266b91fe258dd4abe3bcf91aadcb",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/1c47673eb9511d3eff0d0901012a69d7a0148cdc/incubator-hugegraph-toolchain": {
+      "proj_dir": "/root/sqj_work/FT1/projects/1c47673eb9511d3eff0d0901012a69d7a0148cdc/incubator-hugegraph-toolchain",
+      "project_name": "incubator-hugegraph-toolchain",
+      "language": "java",
+      "frozen_sha": "1c47673eb9511d3eff0d0901012a69d7a0148cdc",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/24062ad9b314da0fb44ccb941dcfd3da46a91fb7/apollo": {
+      "proj_dir": "/root/sqj_work/FT1/projects/24062ad9b314da0fb44ccb941dcfd3da46a91fb7/apollo",
+      "project_name": "apollo",
+      "language": "java",
+      "frozen_sha": "24062ad9b314da0fb44ccb941dcfd3da46a91fb7",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/2d62a3e9da726942a93cf16b6e91c0187e6c0136/http-request": {
+      "proj_dir": "/root/sqj_work/FT1/projects/2d62a3e9da726942a93cf16b6e91c0187e6c0136/http-request",
+      "project_name": "http-request",
+      "language": "java",
+      "frozen_sha": "2d62a3e9da726942a93cf16b6e91c0187e6c0136",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/36c63c3e24145e04405d7620524b23cf9b5b5849/koryphe": {
+      "proj_dir": "/root/sqj_work/FT1/projects/36c63c3e24145e04405d7620524b23cf9b5b5849/koryphe",
+      "project_name": "koryphe",
+      "language": "java",
+      "frozen_sha": "36c63c3e24145e04405d7620524b23cf9b5b5849",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/3777209fc76800175df3962213ca1febe57edca6/incubator-shenyu": {
+      "proj_dir": "/root/sqj_work/FT1/projects/3777209fc76800175df3962213ca1febe57edca6/incubator-shenyu",
+      "project_name": "incubator-shenyu",
+      "language": "java",
+      "frozen_sha": "3777209fc76800175df3962213ca1febe57edca6",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/424af4bb7285b806d3e3efe5020cd3e440e0a4ff/openwebbeans": {
+      "proj_dir": "/root/sqj_work/FT1/projects/424af4bb7285b806d3e3efe5020cd3e440e0a4ff/openwebbeans",
+      "project_name": "openwebbeans",
+      "language": "java",
+      "frozen_sha": "424af4bb7285b806d3e3efe5020cd3e440e0a4ff",
+      "approved_modified_files": {
+        "webbeans-impl/pom.xml": {
+          "sha256": "ea0a2f2384eb017f29928f126b859a9451d5caa4518957eacdbba781431c35a9",
+          "backup_rel": "a6e4f277800798c3/webbeans-impl/pom.xml",
+          "diff_preview": "diff --git a/webbeans-impl/pom.xml b/webbeans-impl/pom.xml\nindex a198f1cac..07a91898f 100644\n--- a/webbeans-impl/pom.xml\n+++ b/webbeans-impl/pom.xml\n@@ -88,7 +88,7 @@\n             additionally create a jar with all the test classes for use\n             in the TCK module\n         -->\n-        <plugins>\n+        <plugins><plugin><groupId>org.pitest</groupId><artifactId>pitest-maven</artifactId><version>1.9.11</version></plugin>\n             <plugin>\n                 <groupId>org.apache.maven.plugins</groupId>\n                 <artifactId>maven-jar-plugin</artifactId>\n"
+        }
+      }
+    },
+    "/root/sqj_work/FT1/projects/48923570780dd096e0cf17ef657b6b1fdc50dc31/cloud-slang": {
+      "proj_dir": "/root/sqj_work/FT1/projects/48923570780dd096e0cf17ef657b6b1fdc50dc31/cloud-slang",
+      "project_name": "cloud-slang",
+      "language": "java",
+      "frozen_sha": "48923570780dd096e0cf17ef657b6b1fdc50dc31",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/4a0612fab7b3a55e3e11d485233b063006d03b0f/openhtmltopdf": {
+      "proj_dir": "/root/sqj_work/FT1/projects/4a0612fab7b3a55e3e11d485233b063006d03b0f/openhtmltopdf",
+      "project_name": "openhtmltopdf",
+      "language": "java",
+      "frozen_sha": "4a0612fab7b3a55e3e11d485233b063006d03b0f",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/5523fd0d427ba0f66c3e110c2de6347edadcd125/Sentinel": {
+      "proj_dir": "/root/sqj_work/FT1/projects/5523fd0d427ba0f66c3e110c2de6347edadcd125/Sentinel",
+      "project_name": "Sentinel",
+      "language": "java",
+      "frozen_sha": "5523fd0d427ba0f66c3e110c2de6347edadcd125",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/5c6d6fd471ea1fab59f0df2dd31e0b936806780d/fastjson": {
+      "proj_dir": "/root/sqj_work/FT1/projects/5c6d6fd471ea1fab59f0df2dd31e0b936806780d/fastjson",
+      "project_name": "fastjson",
+      "language": "java",
+      "frozen_sha": "5c6d6fd471ea1fab59f0df2dd31e0b936806780d",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/5e285ba5b47266d7dcede64aefae00fbe0c9c4ae/hippo4j": {
+      "proj_dir": "/root/sqj_work/FT1/projects/5e285ba5b47266d7dcede64aefae00fbe0c9c4ae/hippo4j",
+      "project_name": "hippo4j",
+      "language": "java",
+      "frozen_sha": "5e285ba5b47266d7dcede64aefae00fbe0c9c4ae",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/5eb9905e58ecffce907ec3ee092ccee8383ca9ce/feign": {
+      "proj_dir": "/root/sqj_work/FT1/projects/5eb9905e58ecffce907ec3ee092ccee8383ca9ce/feign",
+      "project_name": "feign",
+      "language": "java",
+      "frozen_sha": "5eb9905e58ecffce907ec3ee092ccee8383ca9ce",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/60c743da35913d72f37f2d79afa90ad2bf73cb89/vjtools": {
+      "proj_dir": "/root/sqj_work/FT1/projects/60c743da35913d72f37f2d79afa90ad2bf73cb89/vjtools",
+      "project_name": "vjtools",
+      "language": "java",
+      "frozen_sha": "60c743da35913d72f37f2d79afa90ad2bf73cb89",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/616ed866460ca909cb30a4eafb786c6040218ae8/dropwizard": {
+      "proj_dir": "/root/sqj_work/FT1/projects/616ed866460ca909cb30a4eafb786c6040218ae8/dropwizard",
+      "project_name": "dropwizard",
+      "language": "java",
+      "frozen_sha": "616ed866460ca909cb30a4eafb786c6040218ae8",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/6c6b06c916b969352a6757ba7025cc78055fa87a/gora": {
+      "proj_dir": "/root/sqj_work/FT1/projects/6c6b06c916b969352a6757ba7025cc78055fa87a/gora",
+      "project_name": "gora",
+      "language": "java",
+      "frozen_sha": "6c6b06c916b969352a6757ba7025cc78055fa87a",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/6d7f58389e86efa4f44cc8906a7d1963b7f208b9/JsonRpc4J": {
+      "proj_dir": "/root/sqj_work/FT1/projects/6d7f58389e86efa4f44cc8906a7d1963b7f208b9/JsonRpc4J",
+      "project_name": "JsonRpc4J",
+      "language": "java",
+      "frozen_sha": "6d7f58389e86efa4f44cc8906a7d1963b7f208b9",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/6ef5f20eaff6a8bad3713b4aee6a482cdbd6e256/zerocode": {
+      "proj_dir": "/root/sqj_work/FT1/projects/6ef5f20eaff6a8bad3713b4aee6a482cdbd6e256/zerocode",
+      "project_name": "zerocode",
+      "language": "java",
+      "frozen_sha": "6ef5f20eaff6a8bad3713b4aee6a482cdbd6e256",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/7b0c4c708b6bb9a6da3d5737bcad1857ade8a931/aismessages": {
+      "proj_dir": "/root/sqj_work/FT1/projects/7b0c4c708b6bb9a6da3d5737bcad1857ade8a931/aismessages",
+      "project_name": "aismessages",
+      "language": "java",
+      "frozen_sha": "7b0c4c708b6bb9a6da3d5737bcad1857ade8a931",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/7c32e527651a8a235d1b78b2f5d3f53d5e9bb6cb/commons-lang": {
+      "proj_dir": "/root/sqj_work/FT1/projects/7c32e527651a8a235d1b78b2f5d3f53d5e9bb6cb/commons-lang",
+      "project_name": "commons-lang",
+      "language": "java",
+      "frozen_sha": "7c32e527651a8a235d1b78b2f5d3f53d5e9bb6cb",
+      "approved_modified_files": {
+        "pom.xml": {
+          "sha256": "95059784d5c5a67044715b150e585149ae0566012f29ef6ed44dcab255b48b11",
+          "backup_rel": "0f030c47d88bb27b/pom.xml",
+          "diff_preview": "diff --git a/pom.xml b/pom.xml\nindex e4d683ec7..68b2d1d80 100644\n--- a/pom.xml\n+++ b/pom.xml\n@@ -654,7 +654,7 @@\n         </plugin>\n       </plugins>\n     </pluginManagement>\n-    <plugins>\n+    <plugins><plugin><groupId>org.pitest</groupId><artifactId>pitest-maven</artifactId><version>1.7.4</version><dependencies><dependency><groupId>org.pitest</groupId><artifactId>pitest-junit5-plugin</artifactId><version>0.15</version></dependency></dependencies></plugin>\n       <plugin>\n         <artifactId>maven-javadoc-plugin</artifactId>\n         <configuration>\n"
+        }
+      }
+    },
+    "/root/sqj_work/FT1/projects/8105415f9a6356de774c8ffe6ab5dfa77934b69f/jersey": {
+      "proj_dir": "/root/sqj_work/FT1/projects/8105415f9a6356de774c8ffe6ab5dfa77934b69f/jersey",
+      "project_name": "jersey",
+      "language": "java",
+      "frozen_sha": "8105415f9a6356de774c8ffe6ab5dfa77934b69f",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/81e3a7ec0492148724da4512fcefcb47ba82894a/commons-collections": {
+      "proj_dir": "/root/sqj_work/FT1/projects/81e3a7ec0492148724da4512fcefcb47ba82894a/commons-collections",
+      "project_name": "commons-collections",
+      "language": "java",
+      "frozen_sha": "81e3a7ec0492148724da4512fcefcb47ba82894a",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/88732d9dbe5031dad9c9f85a4c4b35e5f1551f95/visualee": {
+      "proj_dir": "/root/sqj_work/FT1/projects/88732d9dbe5031dad9c9f85a4c4b35e5f1551f95/visualee",
+      "project_name": "visualee",
+      "language": "java",
+      "frozen_sha": "88732d9dbe5031dad9c9f85a4c4b35e5f1551f95",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/8c93b59dbc57841959f5237cb141ce0b3c18b778/retrofit": {
+      "proj_dir": "/root/sqj_work/FT1/projects/8c93b59dbc57841959f5237cb141ce0b3c18b778/retrofit",
+      "project_name": "retrofit",
+      "language": "java",
+      "frozen_sha": "8c93b59dbc57841959f5237cb141ce0b3c18b778",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/abf0455a68ad6c52a57e912bb89d51f883f77542/remoting": {
+      "proj_dir": "/root/sqj_work/FT1/projects/abf0455a68ad6c52a57e912bb89d51f883f77542/remoting",
+      "project_name": "remoting",
+      "language": "java",
+      "frozen_sha": "abf0455a68ad6c52a57e912bb89d51f883f77542",
+      "approved_modified_files": {
+        "pom.xml": {
+          "sha256": "dffcd732be0533862788dad4cc2440a440b5969600bf060a4c3b280154fdd122",
+          "backup_rel": "5c7ea321421b4e2a/pom.xml",
+          "diff_preview": "diff --git a/pom.xml b/pom.xml\nindex 8461eedc..48b49e11 100644\n--- a/pom.xml\n+++ b/pom.xml\n@@ -204,7 +204,7 @@ THE SOFTWARE.\n         </includes>\n       </resource>\n     </resources>\n-    <plugins>\n+    <plugins><plugin><groupId>org.pitest</groupId><artifactId>pitest-maven</artifactId><version>1.9.11</version></plugin>\n       <plugin>\n         <groupId>org.apache.maven.plugins</groupId>\n         <artifactId>maven-pmd-plugin</artifactId>\n"
+        }
+      }
+    },
+    "/root/sqj_work/FT1/projects/af0003847db9ba822f67d4f1dceb8de3fe63250a/marine-api": {
+      "proj_dir": "/root/sqj_work/FT1/projects/af0003847db9ba822f67d4f1dceb8de3fe63250a/marine-api",
+      "project_name": "marine-api",
+      "language": "java",
+      "frozen_sha": "af0003847db9ba822f67d4f1dceb8de3fe63250a",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/b022898ef1b8c984e17efb2a422ee45f6b13e46e/shardingsphere-elasticjob": {
+      "proj_dir": "/root/sqj_work/FT1/projects/b022898ef1b8c984e17efb2a422ee45f6b13e46e/shardingsphere-elasticjob",
+      "project_name": "shardingsphere-elasticjob",
+      "language": "java",
+      "frozen_sha": "b022898ef1b8c984e17efb2a422ee45f6b13e46e",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/bdfcaff0c1a702c3ecb44adf46d609a3f0e86c5e/shardingsphere-elasticjob": {
+      "proj_dir": "/root/sqj_work/FT1/projects/bdfcaff0c1a702c3ecb44adf46d609a3f0e86c5e/shardingsphere-elasticjob",
+      "project_name": "shardingsphere-elasticjob",
+      "language": "java",
+      "frozen_sha": "bdfcaff0c1a702c3ecb44adf46d609a3f0e86c5e",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/bfbd2d115aec576545b0673e876a652806b41986/avro": {
+      "proj_dir": "/root/sqj_work/FT1/projects/bfbd2d115aec576545b0673e876a652806b41986/avro",
+      "project_name": "avro",
+      "language": "java",
+      "frozen_sha": "bfbd2d115aec576545b0673e876a652806b41986",
+      "approved_modified_files": {
+        "lang/java/avro/pom.xml": {
+          "sha256": "15d430794ccad6a1f5cdd75f6adf7864da8f6ea6603ba0de19676f00111fded7",
+          "backup_rel": "a5a2198c7d6a0504/lang/java/avro/pom.xml",
+          "diff_preview": "diff --git a/lang/java/avro/pom.xml b/lang/java/avro/pom.xml\nindex 001597faa..e5e45ad7a 100644\n--- a/lang/java/avro/pom.xml\n+++ b/lang/java/avro/pom.xml\n@@ -55,7 +55,7 @@\n         </includes>\n       </resource>\n     </resources>\n-    <plugins>\n+    <plugins><plugin><groupId>org.pitest</groupId><artifactId>pitest-maven</artifactId><version>1.15.2</version></plugin>\n       <plugin>\n         <groupId>org.apache.maven.plugins</groupId>\n         <artifactId>maven-jar-plugin</artifactId>\n"
+        }
+      }
+    },
+    "/root/sqj_work/FT1/projects/c496f976d1c12d3e3c0ee6ec229c09355bee8e7e/karate": {
+      "proj_dir": "/root/sqj_work/FT1/projects/c496f976d1c12d3e3c0ee6ec229c09355bee8e7e/karate",
+      "project_name": "karate",
+      "language": "java",
+      "frozen_sha": "c496f976d1c12d3e3c0ee6ec229c09355bee8e7e",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/d28019640ac3eb6ac167dd0dc582adac7656226e/jetcache": {
+      "proj_dir": "/root/sqj_work/FT1/projects/d28019640ac3eb6ac167dd0dc582adac7656226e/jetcache",
+      "project_name": "jetcache",
+      "language": "java",
+      "frozen_sha": "d28019640ac3eb6ac167dd0dc582adac7656226e",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/dbda72ce198a8dd766c30c591d63d726d2a28a7c/jnr-posix": {
+      "proj_dir": "/root/sqj_work/FT1/projects/dbda72ce198a8dd766c30c591d63d726d2a28a7c/jnr-posix",
+      "project_name": "jnr-posix",
+      "language": "java",
+      "frozen_sha": "dbda72ce198a8dd766c30c591d63d726d2a28a7c",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/df39fdeed1d14f7b014a22db59b06bfd4e562edd/dropwizard": {
+      "proj_dir": "/root/sqj_work/FT1/projects/df39fdeed1d14f7b014a22db59b06bfd4e562edd/dropwizard",
+      "project_name": "dropwizard",
+      "language": "java",
+      "frozen_sha": "df39fdeed1d14f7b014a22db59b06bfd4e562edd",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/e05e9c5e4be580691cc55a59f3256595393203a1/fastjson": {
+      "proj_dir": "/root/sqj_work/FT1/projects/e05e9c5e4be580691cc55a59f3256595393203a1/fastjson",
+      "project_name": "fastjson",
+      "language": "java",
+      "frozen_sha": "e05e9c5e4be580691cc55a59f3256595393203a1",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/e35ce8c013327b91d034b62d53eece055fa64970/apollo": {
+      "proj_dir": "/root/sqj_work/FT1/projects/e35ce8c013327b91d034b62d53eece055fa64970/apollo",
+      "project_name": "apollo",
+      "language": "java",
+      "frozen_sha": "e35ce8c013327b91d034b62d53eece055fa64970",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/e8d89c9eb0929dda304174729c9c69fb29f448eb/spring-ws": {
+      "proj_dir": "/root/sqj_work/FT1/projects/e8d89c9eb0929dda304174729c9c69fb29f448eb/spring-ws",
+      "project_name": "spring-ws",
+      "language": "java",
+      "frozen_sha": "e8d89c9eb0929dda304174729c9c69fb29f448eb",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/projects/ed6f8a49948c09a21bfeb7bc38b4f24141795e38/Algorithms": {
+      "proj_dir": "/root/sqj_work/FT1/projects/ed6f8a49948c09a21bfeb7bc38b4f24141795e38/Algorithms",
+      "project_name": "Algorithms",
+      "language": "java",
+      "frozen_sha": "ed6f8a49948c09a21bfeb7bc38b4f24141795e38",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/001d5ff03d_py-autodoc": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/001d5ff03d_py-autodoc",
+      "project_name": "py-autodoc",
+      "language": "python",
+      "frozen_sha": "001d5ff03d41a5d714075eb08e666c413d50f0ac",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/0fda32e783_riemann": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/0fda32e783_riemann",
+      "project_name": "riemann",
+      "language": "python",
+      "frozen_sha": "0fda32e783487572c869aaabc6af7adba01cbd00",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/1109d08b18_yamicache": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/1109d08b18_yamicache",
+      "project_name": "yamicache",
+      "language": "python",
+      "frozen_sha": "1109d08b18be94bdee55e113309f7be29f25d840",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/1d3dc13001_ljson": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/1d3dc13001_ljson",
+      "project_name": "ljson",
+      "language": "python",
+      "frozen_sha": "1d3dc13001d9d2f61bcfbf9d5c5b16d44fb8076e",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/261eeefd50_nodal": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/261eeefd50_nodal",
+      "project_name": "nodal",
+      "language": "python",
+      "frozen_sha": "261eeefd50298765c5722c5f7da72e6f2927bd3e",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/2bf905f340_easy_python_requirements": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/2bf905f340_easy_python_requirements",
+      "project_name": "easy_python_requirements",
+      "language": "python",
+      "frozen_sha": "2bf905f34065637cbc781d17d8e5806892fb66d5",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/2f9376cdae_krllint": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/2f9376cdae_krllint",
+      "project_name": "krllint",
+      "language": "python",
+      "frozen_sha": "2f9376cdae14c201364d9c31b4c19a8ff2f708d2",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/4600818e24_Breathe": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/4600818e24_Breathe",
+      "project_name": "Breathe",
+      "language": "python",
+      "frozen_sha": "4600818e24f4156cd7bb8cc0f43886b27323968e",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/6c3ef3926e_pyatlasclient": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/6c3ef3926e_pyatlasclient",
+      "project_name": "pyatlasclient",
+      "language": "python",
+      "frozen_sha": "6c3ef3926eef059f00730b6bcc1a1787f6bbcd9c",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/6d09ca1557_api-python": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/6d09ca1557_api-python",
+      "project_name": "api-python",
+      "language": "python",
+      "frozen_sha": "6d09ca1557da0af893f008f7302801f12afc2d46",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/724df0c634_pytm": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/724df0c634_pytm",
+      "project_name": "pytm",
+      "language": "python",
+      "frozen_sha": "724df0c6346706e9c3678bee11e23d9609d8fa4c",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/7a520c4f8a_fooof": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/7a520c4f8a_fooof",
+      "project_name": "fooof",
+      "language": "python",
+      "frozen_sha": "7a520c4f8ac3a44f4f18dc025b5e5d40049c9f2b",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/7c619be755_stowage": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/7c619be755_stowage",
+      "project_name": "stowage",
+      "language": "python",
+      "frozen_sha": "7c619be755b9b73fd202367bcf9014472f318834",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/8646f54faf_skillful": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/8646f54faf_skillful",
+      "project_name": "skillful",
+      "language": "python",
+      "frozen_sha": "8646f54faf62cb63f165f7699b8ace5b4a08233c",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/881f0ea8af_NestedDictionary": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/881f0ea8af_NestedDictionary",
+      "project_name": "NestedDictionary",
+      "language": "python",
+      "frozen_sha": "881f0ea8af36a60fcd1b9d7a84b1aec4cd7072b2",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/886d7de0e7_parse_it": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/886d7de0e7_parse_it",
+      "project_name": "parse_it",
+      "language": "python",
+      "frozen_sha": "886d7de0e74e67edc136411a5220e35c1149e743",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/8bc4d17f9a_pysllo": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/8bc4d17f9a_pysllo",
+      "project_name": "pysllo",
+      "language": "python",
+      "frozen_sha": "8bc4d17f9a668e9aff3c77f688f0c06ed2e7686b",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/913e6a60fc_pythondi": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/913e6a60fc_pythondi",
+      "project_name": "pythondi",
+      "language": "python",
+      "frozen_sha": "913e6a60fc5d02c3db385ad322f970ecec36969b",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/98bb6be4e3_crom": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/98bb6be4e3_crom",
+      "project_name": "crom",
+      "language": "python",
+      "frozen_sha": "98bb6be4e32b4c81eb7e0b5e841a915b015abaf0",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/9961553a06_lithoxyl": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/9961553a06_lithoxyl",
+      "project_name": "lithoxyl",
+      "language": "python",
+      "frozen_sha": "9961553a065a1ad8bb7a2407fe74f2cfd6c79a20",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/9a217a54f4_PySyncDroid": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/9a217a54f4_PySyncDroid",
+      "project_name": "PySyncDroid",
+      "language": "python",
+      "frozen_sha": "9a217a54f4286af8e7505c184eb2a6775f52d815",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/9f207d5458_centreon-sdk-python": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/9f207d5458_centreon-sdk-python",
+      "project_name": "centreon-sdk-python",
+      "language": "python",
+      "frozen_sha": "9f207d5458afc3304e24f16988069467b19eab81",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/b631e60bd4_multiindex": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/b631e60bd4_multiindex",
+      "project_name": "multiindex",
+      "language": "python",
+      "frozen_sha": "b631e60bd47558eca9067a0dc87f0e713cddc6f2",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/b8df27efc3_tornado-swirl": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/b8df27efc3_tornado-swirl",
+      "project_name": "tornado-swirl",
+      "language": "python",
+      "frozen_sha": "b8df27efc3d7fd0dce0f0290767c94ac2e747311",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/ba4d7050b3_feature_engine": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/ba4d7050b3_feature_engine",
+      "project_name": "feature_engine",
+      "language": "python",
+      "frozen_sha": "ba4d7050b3923d620c1773b66cd4c51ed24498dd",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/be3f450667_autoyaml": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/be3f450667_autoyaml",
+      "project_name": "autoyaml",
+      "language": "python",
+      "frozen_sha": "be3f450667bcca477683e63bcc49c67c5d170855",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/c53fabbc16_logx": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/c53fabbc16_logx",
+      "project_name": "logx",
+      "language": "python",
+      "frozen_sha": "c53fabbc160fb8d70fa878684ea36f0c22fd5caa",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/c7521fc4a5_json-storage-manager": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/c7521fc4a5_json-storage-manager",
+      "project_name": "json-storage-manager",
+      "language": "python",
+      "frozen_sha": "c7521fc4a576cf23a8c2454106bed6fb8c951b8d",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/cb56b75f51_LabIFSC": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/cb56b75f51_LabIFSC",
+      "project_name": "LabIFSC",
+      "language": "python",
+      "frozen_sha": "cb56b75f51eb54680d0b81f4c87aa0234538a2a8",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/df0ccbc5f8_ucal": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/df0ccbc5f8_ucal",
+      "project_name": "ucal",
+      "language": "python",
+      "frozen_sha": "df0ccbc5f8af54fc69df56191bd810481a17b0e3",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/e18bb8cf98_pydbvolve": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/e18bb8cf98_pydbvolve",
+      "project_name": "pydbvolve",
+      "language": "python",
+      "frozen_sha": "e18bb8cf98997c52de0cf30a8e106c480ba0bb57",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/e81c3a0f54_PyGraph": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/e81c3a0f54_PyGraph",
+      "project_name": "PyGraph",
+      "language": "python",
+      "frozen_sha": "e81c3a0f543f5bfcda1a603c6dcecde13d582c57",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/ebc670a4b1_bottle-neck": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/ebc670a4b1_bottle-neck",
+      "project_name": "bottle-neck",
+      "language": "python",
+      "frozen_sha": "ebc670a4b178255473d68e9b4122ba04e38f4810",
+      "approved_modified_files": {}
+    },
+    "/root/sqj_work/FT1/py_projects/fb5cd313dc_alphanum_code": {
+      "proj_dir": "/root/sqj_work/FT1/py_projects/fb5cd313dc_alphanum_code",
+      "project_name": "alphanum_code",
+      "language": "python",
+      "frozen_sha": "fb5cd313dc41f046aac01ff01d6e1561d17894a6",
+      "approved_modified_files": {}
+    }
+  }
+}

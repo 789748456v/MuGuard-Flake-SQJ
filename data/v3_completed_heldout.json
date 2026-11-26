@@ -254,11 +254,11 @@
         "w_plus_heldout_passed_strict": true,
         "w_plus_heldout_passed_target_stress": true
       },
-      "w_plus_heldout_sec": 29.2,
+      "w_plus_heldout_sec": 26.9,
       "m_ext_applicable": true,
       "m_ext_runner_ok": true,
       "m_ext_eval_ok": true,
-      "m_ext_sec": 8.8,
+      "m_ext_sec": 7.48,
       "op_value_flow_total": 25,
       "op_value_flow_killed": 7,
       "op_value_flow_unknown": 0,
@@ -337,6 +337,86 @@
           "line": 110,
           "desc": "removed conditional - replaced equality check with true",
           "status": "NO_COVERAGE"
+        },
+        {
+          "id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L114:InlineConstantMutator:123:Substituted 1 with 0",
+          "exact_id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L114:InlineConstantMutator:idx=123:blk=29:Substituted 1 with 0",
+          "mutator": "InlineConstantMutator",
+          "line": 114,
+          "desc": "Substituted 1 with 0",
+          "status": "NO_COVERAGE"
+        },
+        {
+          "id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L114:RemoveConditionalMutator_EQUAL_ELSE:122:removed conditional - replaced equality check with false",
+          "exact_id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L114:RemoveConditionalMutator_EQUAL_ELSE:idx=122:blk=28:removed conditional - replaced equality check with false",
+          "mutator": "RemoveConditionalMutator_EQUAL_ELSE",
+          "line": 114,
+          "desc": "removed conditional - replaced equality check with false",
+          "status": "NO_COVERAGE"
+        },
+        {
+          "id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L114:RemoveConditionalMutator_EQUAL_IF:111:removed conditional - replaced equality check with true",
+          "exact_id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L114:RemoveConditionalMutator_EQUAL_IF:idx=111:blk=25:removed conditional - replaced equality check with true",
+          "mutator": "RemoveConditionalMutator_EQUAL_IF",
+          "line": 114,
+          "desc": "removed conditional - replaced equality check with true",
+          "status": "NO_COVERAGE"
+        },
+        {
+          "id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L87:RemoveConditionalMutator_EQUAL_ELSE:14:removed conditional - replaced equality check with false",
+          "exact_id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L87:RemoveConditionalMutator_EQUAL_ELSE:idx=14:blk=2:removed conditional - replaced equality check with false",
+          "mutator": "RemoveConditionalMutator_EQUAL_ELSE",
+          "line": 87,
+          "desc": "removed conditional - replaced equality check with false",
+          "status": "NO_COVERAGE"
+        },
+        {
+          "id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L87:RemoveConditionalMutator_EQUAL_IF:19:removed conditional - replaced equality check with true",
+          "exact_id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L87:RemoveConditionalMutator_EQUAL_IF:idx=19:blk=5:removed conditional - replaced equality check with true",
+          "mutator": "RemoveConditionalMutator_EQUAL_IF",
+          "line": 87,
+          "desc": "removed conditional - replaced equality check with true",
+          "status": "NO_COVERAGE"
+        },
+        {
+          "id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L94:InlineConstantMutator:40:Substituted 0 with 1",
+          "exact_id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L94:InlineConstantMutator:idx=40:blk=9:Substituted 0 with 1",
+          "mutator": "InlineConstantMutator",
+          "line": 94,
+          "desc": "Substituted 0 with 1",
+          "status": "NO_COVERAGE"
+        },
+        {
+          "id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L94:RemoveConditionalMutator_EQUAL_IF:35:removed conditional - replaced equality check with true",
+          "exact_id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L94:RemoveConditionalMutator_EQUAL_IF:idx=35:blk=7:removed conditional - replaced equality check with true",
+          "mutator": "RemoveConditionalMutator_EQUAL_IF",
+          "line": 94,
+          "desc": "removed conditional - replaced equality check with true",
+          "status": "NO_COVERAGE"
+        },
+        {
+          "id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L94:RemoveConditionalMutator_EQUAL_IF:45:removed conditional - replaced equality check with true",
+          "exact_id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L94:RemoveConditionalMutator_EQUAL_IF:idx=45:blk=10:removed conditional - replaced equality check with true",
+          "mutator": "RemoveConditionalMutator_EQUAL_IF",
+          "line": 94,
+          "desc": "removed conditional - replaced equality check with true",
+          "status": "NO_COVERAGE"
+        },
+        {
+          "id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L98:RemoveConditionalMutator_EQUAL_IF:58:removed conditional - replaced equality check with true",
+          "exact_id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L98:RemoveConditionalMutator_EQUAL_IF:idx=58:blk=13:removed conditional - replaced equality check with true",
+          "mutator": "RemoveConditionalMutator_EQUAL_IF",
+          "line": 98,
+          "desc": "removed conditional - replaced equality check with true",
+          "status": "NO_COVERAGE"
+        },
+        {
+          "id": "org.apache.webbeans.container.BeanCacheKey::qualifierArrayEquals([Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;)Z:L147:RemoveConditionalMutator_EQUAL_ELSE:14:removed conditional - replaced equality check with false",
+          "exact_id": "org.apache.webbeans.container.BeanCacheKey::qualifierArrayEquals([Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;)Z:L147:RemoveConditionalMutator_EQUAL_ELSE:idx=14:blk=2:removed conditional - replaced equality check with false",
+          "mutator": "RemoveConditionalMutator_EQUAL_ELSE",
+          "line": 147,
+          "desc": "removed conditional - replaced equality check with false",
+          "status": "NO_COVERAGE"
         }
       ],
       "lost_call_mutants": [
@@ -403,9 +483,43 @@
           "line": 87,
           "desc": "removed call to java/lang/Object::getClass",
           "status": "NO_COVERAGE"
+        },
+        {
+          "id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L98:NonVoidMethodCallMutator:57:removed call to java/lang/Object::equals",
+          "exact_id": "org.apache.webbeans.container.BeanCacheKey::equals(Ljava/lang/Object;)Z:L98:NonVoidMethodCallMutator:idx=57:blk=12:removed call to java/lang/Object::equals",
+          "mutator": "NonVoidMethodCallMutator",
+          "line": 98,
+          "desc": "removed call to java/lang/Object::equals",
+          "status": "NO_COVERAGE"
+        },
+        {
+          "id": "org.apache.webbeans.container.BeanCacheKey::qualifierArrayEquals([Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;)Z:L160:NonVoidMethodCallMutator:73:removed call to org/apache/webbeans/container/BeanCacheKey$LazyAnnotatedTypes::access$300",
+          "exact_id": "org.apache.webbeans.container.BeanCacheKey::qualifierArrayEquals([Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;)Z:L160:NonVoidMethodCallMutator:idx=73:blk=13:removed call to org/apache/webbeans/container/BeanCacheKey$LazyAnnotatedTypes::access$300",
+          "mutator": "NonVoidMethodCallMutator",
+          "line": 160,
+          "desc": "removed call to org/apache/webbeans/container/BeanCacheKey$LazyAnnotatedTypes::access$300",
+          "status": "NO_COVERAGE"
+        },
+        {
+          "id": "org.apache.webbeans.container.BeanCacheKey::qualifierArrayEquals([Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;)Z:L160:NonVoidMethodCallMutator:78:removed call to org/apache/webbeans/container/BeanCacheKey::qualifierEquals",
+          "exact_id": "org.apache.webbeans.container.BeanCacheKey::qualifierArrayEquals([Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;)Z:L160:NonVoidMethodCallMutator:idx=78:blk=14:removed call to org/apache/webbeans/container/BeanCacheKey::qualifierEquals",
+          "mutator": "NonVoidMethodCallMutator",
+          "line": 160,
+          "desc": "removed call to org/apache/webbeans/container/BeanCacheKey::qualifierEquals",
+          "status": "NO_COVERAGE"
+        },
+        {
+          "id": "org.apache.webbeans.container.BeanCacheKey::qualifierEquals(Ljavax/enterprise/inject/spi/AnnotatedType;Ljava/lang/annotation/Annotation;Ljava/lang/annotation/Annotation;)Z:L233:NonVoidMethodCallMutator:9:removed call to org/apache/webbeans/util/AnnotationUtil::isCdiAnnotationEqual",
+          "exact_id": "org.apache.webbeans.container.BeanCacheKey::qualifierEquals(Ljavax/enterprise/inject/spi/AnnotatedType;Ljava/lang/annotation/Annotation;Ljava/lang/annotation/Annotation;)Z:L233:NonVoidMethodCallMutator:idx=9:blk=1:removed call to org/apache/webbeans/util/AnnotationUtil::isCdiAnnotationEqual",
+          "mutator": "NonVoidMethodCallMutator",
+          "line": 233,
+          "desc": "removed call to org/apache/webbeans/util/AnnotationUtil::isCdiAnnotationEqual",
+          "status": "NO_COVERAGE"
         }
       ],
-      "total_sec": 44.7
+      "total_sec": 40.18,
+      "_pre_restored_files": null,
+      "_provenance": "v31_safe_eval:a095f2db575f026d"
     },
     "remoting::ClassFilterTest.transport_nio::d326b54f7d57ecaffe": {
       "harness_version": "2.3.0-certified",

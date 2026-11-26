@@ -61,6 +61,7 @@ PR_DIFF_CACHE_DIR = os.path.join(FULL_DIR, "pr_diff_cache")
 DOCKER_SEM = threading.Semaphore(3)
 PROJ_LOCKS: Dict[str, threading.Lock] = defaultdict(threading.Lock)
 SAVE_LOCK = threading.Lock()
+LAST_PY_MUT_DIAG: Dict[int, Tuple[int, str]] = {}
 
 PIT_DEFAULT_MUTATOR_CLASSES = {
     "ConditionalsBoundaryMutator",
@@ -163,8 +164,10 @@ def run_attributed_java_pit(
 ) -> Tuple[bool, List[Dict[str, Any]], float, str]:
     mod_dir = proj_dir if mod_rel in ("", ".") else os.path.join(proj_dir, mod_rel)
     pom_path = os.path.join(mod_dir, "pom.xml")
-    orig_test_src = open(test_file_path, encoding="utf-8", errors="replace").read()
-    orig_pom_src = open(pom_path, encoding="utf-8", errors="replace").read()
+    orig_test_b = open(test_file_path, "rb").read()
+    orig_pom_b = open(pom_path, "rb").read()
+    orig_test_src = orig_test_b.decode("utf-8", errors="replace")
+    orig_pom_src = orig_pom_b.decode("utf-8", errors="replace")
     cls_backups = rc.backup_class_files(mod_dir, test_fqcn)
 
     pit_ver, j5_ver = pit_pair
@@ -189,12 +192,14 @@ def run_attributed_java_pit(
                 f"-Dthreads=3 -DfailWhenNoMutations=false",
                 timeout=timeout,
             )
+        if rc.detect_infra_failure(rc_c, out) or rc_c != 0 or "BUILD SUCCESS" not in out:
+            return False, [], round(dt, 2), f"[rc={rc_c}]\n{out[-1100:]}"
         if not os.path.exists(mxml_path) or os.path.getsize(mxml_path) == 0:
-            return False, [], round(dt, 2), out[-800:]
+            return False, [], round(dt, 2), f"[rc={rc_c}]\n{out[-1100:]}"
         try:
             root = ET.parse(mxml_path).getroot()
         except ET.ParseError:
-            return False, [], round(dt, 2), out[-800:]
+            return False, [], round(dt, 2), f"[rc={rc_c}]\n{out[-1100:]}"
         muts: List[Dict[str, Any]] = []
         for m_el in root.findall("mutation"):
             st = m_el.attrib.get("status", "")
@@ -231,8 +236,8 @@ def run_attributed_java_pit(
             muts.append(m_obj)
         return True, muts, round(dt, 2), out[-400:]
     finally:
-        open(test_file_path, "w", encoding="utf-8").write(orig_test_src)
-        open(pom_path, "w", encoding="utf-8").write(orig_pom_src)
+        open(test_file_path, "wb").write(orig_test_b)
+        open(pom_path, "wb").write(orig_pom_b)
         rc.restore_class_files(mod_dir, test_fqcn, cls_backups)
 
 
@@ -708,7 +713,7 @@ def check_java_w_plus_heldout_detailed(
             if not ok_seed:
                 sched_report["w_plus_heldout_passed_strict"] = False
                 sched_report["w_plus_heldout_passed_target_stress"] = False
-                return False, f"Heldout NonDex seed {seed} failed", round(time.time() - t0, 2), sched_report
+                return False, f"Heldout NonDex seed {seed} failed [rc={rc_c}]: {out[-700:]}", round(time.time() - t0, 2), sched_report
         sched_report["w_plus_heldout_passed_strict"] = True
         sched_report["w_plus_heldout_passed_target_stress"] = True
         return True, "Passed 5 held-out NonDex seeds (910001..910005)", round(time.time() - t0, 2), sched_report
@@ -798,8 +803,8 @@ def check_java_w_plus_heldout_detailed(
                         sched_report,
                     )
                 fail_hdr = next((ln for ln in out.splitlines() if "HELDOUT_JAVA_FAIL::" in ln), "HELDOUT_JAVA_FAIL")
-                diag = fail_hdr + (" | " + " ; ".join(fail_detail_lines[:2]) if fail_detail_lines else " | " + out[-260:].replace("\n", " "))
-                return False, diag[:500], round(time.time() - t0, 2), sched_report
+                diag = f"[rc={rc_c}] " + fail_hdr + (" | " + " ; ".join(fail_detail_lines[:2]) if fail_detail_lines else " | " + out[-350:].replace("\n", " "))
+                return False, diag[:600], round(time.time() - t0, 2), sched_report
             finally:
                 for fn in os.listdir(tclasses):
                     if fn.startswith(("FT1OrderRunner", "FT1HeldoutRepeatedRunner")):
@@ -825,7 +830,7 @@ def check_java_w_plus_heldout_detailed(
                 if not ok_o:
                     sched_report["w_plus_heldout_passed_strict"] = False
                     sched_report["w_plus_heldout_passed_target_stress"] = False
-                    return False, f"Surefire heldout `{lbl}` failed", round(time.time() - t0, 2), sched_report
+                    return False, f"Surefire heldout `{lbl}` failed [rc={rc_c}]: {out[-700:]}", round(time.time() - t0, 2), sched_report
             sched_report["w_plus_heldout_passed_strict"] = True
             sched_report["w_plus_heldout_passed_target_stress"] = True
             return True, "Passed held-out Java OD Surefire schedules", round(time.time() - t0, 2), sched_report
@@ -868,6 +873,7 @@ def run_attributed_py_mut(
                 "python3 .ft1_v2_mut_runner.py .ft1_v2_mut_spec.json",
                 timeout=timeout,
             )
+        LAST_PY_MUT_DIAG[threading.get_ident()] = (rc_c, f"[rc={rc_c}]\n{out[-1200:]}")
         s_tag, e_tag = "===FT1_PY_V2_MUT_START===", "===FT1_PY_V2_MUT_END==="
         if rc_c == 0 and s_tag in out and e_tag in out:
             pay = json.loads(out.split(s_tag, 1)[1].split(e_tag, 1)[0].strip())
@@ -1114,8 +1120,8 @@ def check_py_w_plus_heldout_detailed(
     if rc_c != 0 or "HELDOUT_PY_BASE_DONE" not in out:
         sched_report["w_plus_heldout_passed_strict"] = False
         sched_report["w_plus_heldout_passed_target_stress"] = False
-        diag = next((ln for ln in out.splitlines() if "HELDOUT_PY_FAIL::" in ln), out[-350:].strip())
-        return False, diag[:450], round(time.time() - t0, 2), sched_report
+        diag = next((ln for ln in out.splitlines() if "HELDOUT_PY_FAIL::" in ln), out[-450:].strip())
+        return False, f"[rc={rc_c}] {diag}"[:600], round(time.time() - t0, 2), sched_report
 
     if not has_partner:
         sched_report["w_plus_heldout_passed_strict"] = True

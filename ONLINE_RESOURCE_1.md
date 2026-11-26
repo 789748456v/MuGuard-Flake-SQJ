@@ -1,4 +1,4 @@
-# Online Resource 1: Supplementary Empirical Tables (Tables S-1 to S-6)
+# Online Resource 1: Supplementary Empirical Tables (Tables S-1 to S-9)
 
 Companion supplementary tables for *Stabilization via Oracle Erosion: An Empirical Audit and Local Mutation Gate for Flaky Test Repair* (*Software Quality Journal*).
 
@@ -17,7 +17,7 @@ Companion supplementary tables for *Stabilization via Oracle Erosion: An Empiric
 | Held-Out $M_{\text{ext}}$-Loss Patches (3-class $W/S/L$, base 111) | 111 | **0.9110** | 82.9% (94.6%) | 0.0731 | 78.4% (0.6597) | 0.5680–0.6606 |
 | Held-Out $M_{\text{ext}}$-Loss Patches (Harmful $W+S$ vs. Benign $L$) | 111 | **0.8604** | 85.6% (94.6%) | 0.1032 | 85.6% (0.6092) | 0.4691–0.6293 |
 
-*Note*: All 7 additional held-out $M_{\text{ext}}$-loss patches introduced by gap-completed runs and dynamic/LLM-judge baselines (`HO-112`..`HO-118`) achieved `10/10` (`100%`) unanimous ensemble agreement.
+*Note*: All 7 additional held-out $M_{\text{ext}}$-loss patches introduced by gap-completed runs and dynamic/LLM-judge baselines (`HO-112`..`HO-118`) achieved `10/10` (`100%`) unanimous ensemble agreement. The `46` newly encountered held-out $M_{\text{ext}}$-loss patches in the same-model SOTA campaign (`HO-SOTA-001`..`HO-SOTA-046`, `460` stateless Codex adjudications) achieved `37/46` (`80.4%`) unanimous `10/10` agreement and `42/46` (`91.3%`) `>=8/10` supermajority agreement (`0` unadjudicated items).
 
 ### Part B: Matched-Cohort Head-to-Head Comparison Against Historical SOTA Tools Across All Three Multi-Round Backbones
 
@@ -95,6 +95,8 @@ Deduplicating all `38` held-out Python mutant keys shared across sibling tests i
 | Scalar Gate | 75.37% | 79.80% (+4.43) | 0 $\to$ **0 (0.00%)** | 67.23% $\to$ 70.06% | 75.71% $\to$ 78.53% |
 | **MuGuard-Flake** | **79.31%** | **85.22% (+5.91)** | **0 $\to$ 0 (0.00%)** | **70.06% $\to$ 72.88%** | **78.53% $\to$ 81.36%** |
 
+*Note*: `Table S-4` re-executes only the 24 Qwen 3.7 Plus Python tests whose Round-1 output failed syntax parsing due to class-method indentation (out of 35 across all three backbones) while preserving all other cached trajectories from the main Qwen 3.7 Plus campaign. In `Table S-7`, `S4_MuGuard_Flake` applies deterministic Python method re-indentation uniformly across every round of all 93 Python tests in a fresh end-to-end SOTA run, yielding `167/203 (82.27%)` SoundFix.
+
 ---
 
 ## Table S-5: Live Online `Top-10` Subset Gate vs. Full `MuGuard-Flake` on Confirmatory Qwen 3.7 Plus (`N=203, |E|=177`)
@@ -115,3 +117,63 @@ Deduplicating all `38` held-out Python mutant keys shared across sibling tests i
 | Reproduces failure on $T_{\text{orig}}$ under $e_0$ | 7 | 0 | 7 (4.2%) | Coarse return-value break (`centreon-sdk-python` commit `70d1752f91`), caught by all candidate patches |
 
 *Finding*: Because real historical bug commits in evolving repositories rarely isolate fine-grained relational or delimiter invariants covered by a single flaky test without breaking compilation, disjoint held-out mutation pools ($M_{\text{ext}}$) remain indispensable for non-circular sensitivity evaluation.
+
+---
+
+## Table S-7: Complete Same-Model, $W^+$-Standardized SOTA Head-to-Head Breakdown and Clustered Inference (`N = 203, |E| = 177`, Confirmatory Qwen 3.7 Plus)
+
+### Part A: Operational SoundFix% and In-Loop Leaked Erosion by Language and Flaky Subtype
+
+| End-to-End Adaptation | Java All (`n=110`) SF% (Leak) | Python All (`n=93`) SF% (Leak) | Java ID (`n=61`) SF% | Java OD (`n=49`) SF% | Py OD-Victim (`n=60`) SF% | Py OD-Brittle (`n=33`) SF% | Total (`N=203`) SF% (Leak%) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| `FlakyFix`-style ($K=1$) | 25/110 (22.7%, er=6) | 10/93 (10.8%, er=4) | 20/61 (32.8%) | 5/49 (10.2%) | 8/60 (13.3%) | 2/33 (6.1%) | **35/203 (17.24%, leak=21.28%)** |
+| `FlakyFix`-style ($K=5$) | 44/110 (40.0%, er=24) | 24/93 (25.8%, er=29) | 35/61 (57.4%) | 9/49 (18.4%) | 18/60 (30.0%) | 6/33 (18.2%) | **68/203 (33.50%, leak=43.09%)** |
+| `FlakyDoctor`-style ($K=5$) | 72/110 (65.5%, er=31) | 62/93 (66.7%, er=21) | 39/61 (63.9%) | 33/49 (67.3%) | 43/60 (71.7%) | 19/33 (57.6%) | **134/203 (66.01%, leak=26.53%)** |
+| `FlakyGuard`-style ($K=5$) | 71/110 (64.5%, er=28) | 59/93 (63.4%, er=27) | 41/61 (67.2%) | 30/49 (61.2%) | 41/60 (68.3%) | 18/33 (54.5%) | **130/203 (64.04%, leak=29.26%)** |
+| **`MuGuard-Flake` ($K=5$)** | 95/110 (86.4%, er=0) | 72/93 (77.4%, er=0) | 54/61 (88.5%) | 41/49 (83.7%) | 44/60 (73.3%) | 28/33 (84.8%) | **167/203 (82.27%, leak=0.00%)** |
+| **`FlakyGuard + MuGuard` ($K=5$)** | 88/110 (80.0%, er=0) | 79/93 (84.9%, er=0) | 54/61 (88.5%) | 34/49 (69.4%) | 48/60 (80.0%) | 31/33 (93.9%) | **167/203 (82.27%, leak=0.00%)** |
+
+### Part B: Primary Tier-A Conditional Harmful (`W+S`) Held-Out Loss Inference and Secondary Paired Endpoints (`20,000` Repository Resamples)
+
+| Contrast (`Ours` Minus Baseline) | Tier-A Harmful Loss $\Delta$ [95% Boot CI] (pp) | Studentized $p$ ($p_{\text{Holm}, m=4}$) | Operational SoundFix $\Delta$ [95% CI] ($p_{\text{cluster}}$) | Strict $Y_s$ $\Delta$ [95% CI] ($p_{\text{cluster}}$) | Full $Y_s$ $\Delta$ [95% CI] ($p_{\text{cluster}}$) |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| `MuGuard-Flake` $-$ `FlakyFix`-style ($K=1$) | -20.97 [-40.51, -5.18] | 0.1452 (**0.2652**) | +65.02 [+53.55, +75.81] (<0.0001) | +53.67 [+40.54, +66.12] (<0.0001) | +56.50 [+42.70, +69.28] (<0.0001) |
+| `MuGuard-Flake` $-$ `FlakyFix`-style ($K=5$) | -23.20 [-33.32, -13.76] | 0.0004 (**0.0016**) | +48.77 [+36.54, +60.49] (<0.0001) | +31.64 [+17.37, +46.84] (<0.0001) | +44.07 [+29.93, +57.38] (<0.0001) |
+| `MuGuard-Flake` $-$ `FlakyDoctor`-style ($K=5$) | -7.45 [-14.72, -2.04] | 0.0884 (**0.2652**) | +16.26 [+8.04, +24.73] (0.0005) | -6.78 [-15.23, +1.69] (0.1822) | +9.04 [+2.47, +15.86] (0.0191) |
+| `MuGuard-Flake` $-$ `FlakyGuard`-style ($K=5$) | -6.86 [-14.05, -1.56] | 0.1058 (**0.2652**) | +18.23 [+7.82, +28.65] (0.0025) | -1.13 [-10.30, +8.88] (0.9090) | +14.12 [+5.36, +23.86] (0.0035) |
+| `FlakyGuard + MuGuard` $-$ `FlakyFix`-style ($K=1$) | -19.40 [-37.53, -4.07] | 0.1310 (**0.2500**) | +65.02 [+52.13, +76.79] (<0.0001) | +51.98 [+38.46, +65.04] (<0.0001) | +54.80 [+40.76, +67.86] (<0.0001) |
+| `FlakyGuard + MuGuard` $-$ `FlakyFix`-style ($K=5$) | -21.63 [-30.73, -12.34] | 0.0003 (**0.0012**) | +48.77 [+35.71, +60.91] (<0.0001) | +29.94 [+17.68, +44.25] (<0.0001) | +42.37 [+28.49, +55.84] (<0.0001) |
+| `FlakyGuard + MuGuard` $-$ `FlakyDoctor`-style ($K=5$) | -5.87 [-11.98, -0.66] | 0.0694 (**0.2082**) | +16.26 [+6.25, +26.29] (0.0054) | -8.47 [-17.92, +0.63] (0.1217) | +7.34 [-2.37, +16.47] (0.1842) |
+| `FlakyGuard + MuGuard` $-$ `FlakyGuard`-style ($K=5$) | -5.29 [-11.54, -0.75] | 0.1250 (**0.2500**) | +18.23 [+8.65, +27.75] (0.0001) | -2.82 [-9.62, +3.90] (0.5469) | +12.43 [+4.86, +20.71] (0.0020) |
+
+*Analysis Lock & Label Provenance Disclosure*: The analysis plan (`PREREG_v31_SOTA_HEAD2HEAD.md`) was locked as an interim-informed specification after `82/203` in-loop sample trajectories had completed and prior to running `--mode heldout` on the SOTA campaign. Across the 6 arms in `|E| = 177`, `77` accepted loss records matched candidate fingerprints already adjudicated in our frozen historical 10-session Codex ensemble ledger, and all `46` newly encountered loss patches were adjudicated under the identical 10-session stateless order-permuted Codex rubric (`gpt-6-astra`, blinded model adjudication).
+
+---
+
+## Table S-8: Adaptation and Protocol Standardization Matrix for Same-Model SOTA Baselines vs. Original Publications
+
+| System Adaptation | Original Upstream Publication | Preserved Core Mechanism in Our Adaptation | Standardized Deviations for Fair Same-Container Comparison |
+| :--- | :--- | :--- | :--- |
+| `FlakyFix`-style ($K=1$ & $K=5$) | Fatima et al., *IEEE TSE* 2024 (`Codex` / `GPT-3.5`, Java) | Test-code-only input (zero focal production code or partner test edits); 2-step prediction of 13 root-cause repair categories followed by 2 same-language, out-of-benchmark few-shot exemplars (`52` verified zero-overlap exemplars); single-pass $K=1$ plus budget-matched $K=5$ execution-feedback extension. | Executed on `Qwen 3.7 Plus` (`temperature=0.0`) instead of fine-tuned/legacy OpenAI `Codex`; extended to Python OD tests under target-test-only editing; validated under unified $W^+$ schedules and deterministic Python method re-indentation. |
+| `FlakyDoctor`-style ($K=5$) | Chen & Jabbarvand, *ISSTA* 2024 (`GPT-4` / `Magicoder`, Java ID & OD) | Neurosymbolic failure localization stack, target + OD partner test code, surrounding class headers, reactive Java import-collision `Stitching`, and 3-identical-substantive-error early termination within $K=5$ rounds. | Executed on `Qwen 3.7 Plus` (`temperature=0.0`); extended to Python OD victim/brittle tests with pytest failure localization and deterministic re-indentation; uses containerized `W+` (`5` NonDex seeds / `3` OD schedules) rather than whole-module `NonDex` sweeps. |
+| `FlakyGuard`-style ($K=5$) | Li et al., *ASE* 2025 Distinguished Paper (`GPT-4o`, Uber Java/Kotlin) | Pruned Dynamic Call Graph (`DCG`) over baseline-executed same-repository production functions (`mean 50.7` nodes, strictly `M_ext`-free), LLM-guided BFS selection of $F \le 5$ focal production functions (`mean 4.62`), structured `<thought>` (`Root Cause`, `Explanation`, `Fixing Plan`), accumulated failed-attempt `Reflection` history, and single-sided $W^+$ acceptance. | Executed on `Qwen 3.7 Plus` (`temperature=0.0`); DCG built from `JaCoCo`/`coverage.py` executed lines + AST call edges (using `m_det`-only lines on 7 `argLine`-conflicted Java tests) rather than Uber's internal JVM agent; validated with benchmark $W^+$ schedules instead of 1,000 internal Bazel reruns. |
+| `FlakyGuard + MuGuard` ($K=5$) | Hybrid Package (This Paper) | Shares 100% of `FlakyGuard`-style's Round-1..$r_0$ prompt prefix and $F \le 5$ DCG focal production functions; accepts identical patch at $r_0$ whenever `gate_safe == True`. | Intercepts $W^+$-passing drafts that erode $\mathcal{O}_{\text{joint}}$ or modify uncovered partner scope at $r_0$, appending contract rules and up to 4 localized surviving-mutant witnesses into `FlakyGuard`'s `Reflection` loop for rounds $r_0+1 \dots 5$ (abstaining fail-closed at round 5). |
+
+---
+
+## Table S-9: Offline Focal-Aware Cross-Vendor `LLM-Judge` Audit (`F <= 5` Executed Focal Production Functions Provided)
+
+| Cohort / Patch Edit Mechanism | Evaluated $n$ | Diff-Only Judge Bypass% (`Table 5`) | Focal-Aware Judge Detected | Focal-Aware Judge Missed (Bypass%) | Median Judge Time (s) |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Predicate Projection or Relaxation | 10 | 30.0% | 7 | **3 (30.0%)** | --- |
+| State Reset or Post-Act Clobber | 26 | 100.0% | 0 | **26 (100.0%)** | --- |
+| Focal Call Alteration or Bypass | 52 | 75.0% | 20 | **32 (61.5%)** | --- |
+| Partner or Shared-Scope Side-Effect | 53 | 92.5% | 2 | **51 (96.2%)** | --- |
+| Delimiter or Format Normalization | 112 | 57.1% | 41 | **71 (63.4%)** | --- |
+| Precondition or Singleton Setup Shift | 120 | 92.5% | 3 | **117 (97.5%)** | --- |
+| Unclassified Residual | 27 | 74.1% | 4 | **23 (85.2%)** | --- |
+| *Java Subtotal* | *277* | *---* | *70* | *207 (74.73%)* | *---* |
+| *Python Subtotal* | *123* | *---* | *7* | *116 (94.31%)* | *---* |
+| **Total Eroded Patches** | **400** | **78.00%** | **77** | **323 (80.75%)** | **24.03 s** |
+
+*Developer PR False-Rejection Check (`43` $W^+$-Passing Test-Only Instances)*: Providing the same $F \le 5$ focal production functions to the cross-vendor judge yields `3/39 (7.69%)` false rejections on legitimate fixes (`3/3` weakenings caught) under Qwen 3.7 Plus and `2/39 (5.13%)` false rejections (`3/3` weakenings caught) under Zhipu GLM-5. Even with focal production source code in prompt context, static LLM inspection still misses **over four-fifths (`80.75%`)** of eroded patches because preconditions, partner state, and post-execution string splits alter runtime fault propagation without obvious local assertion contradictions.

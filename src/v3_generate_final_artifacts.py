@@ -456,6 +456,11 @@ def main() -> None:
     k1_lj = load_json("v3_k1_llm_judge_screening.json")
     py_ind = load_json("v3_python_indent_ablation.json")
     c10 = load_json("v3_codex_10session_blinded_audit.json")
+    sota_stat = load_json("v31_sota_statistical_summary.json")
+    sota_raw = load_json("v31_sota_qwen3.7-plus.json")["results"]
+    sota_extra_wsl = load_json("v31_sota_extra_wsl_10sessions.json")
+    fa_judge = load_json("v3_focal_aware_llm_judge.json")
+    dcg_ctx = load_json("v3_flakyguard_dcg_context.json")
 
     S = dict(S_v2)
     S["harness_version"] = "3.0.0-certified"
@@ -464,8 +469,20 @@ def main() -> None:
     S["latency_and_abstentions"] = lat_v3
     S["qwen_extra_baselines_k5"] = {"B5_Coverage_Gate": b5_sum, "B6_LLM_Judge_Gate": b6_sum}
     S["codex_10session_blinded_audit"] = {k: v for k, v in c10.items() if k != "boundary_and_disagreement_ledger"}
+    S["sota_same_model_qwen37"] = sota_stat
+    S["focal_aware_llm_judge"] = {
+        k: fa_judge[k] for k in ("protocol_version", "focal_context_source", "pr_43_summary", "eroded_400_summary")
+    }
 
     # Hard verification assertions
+    assert sota_stat.get("complete_cohort") is True and sota_stat.get("n_tests") == 203 and sota_stat.get("E") == 177, "Incomplete v3.1 SOTA cohort!"
+    assert len(sota_raw) == 203 and len(dcg_ctx.get("samples", {})) >= 203, "Missing SOTA raw records or DCG contexts!"
+    for arm_k, arm_v in sota_stat["arms"].items():
+        if arm_k in ("S4_MuGuard_Flake", "S5_FlakyGuard_Plus_MuGuard"):
+            assert arm_v["leaked_eroded"] == 0, f"{arm_k} leaked_eroded != 0"
+        ho_v = arm_v["heldout"]
+        assert ho_v["W"] + ho_v["S"] + ho_v["L"] == ho_v["loss_any"], f"{arm_k} has unadjudicated SOTA held-out losses!"
+    assert fa_judge["eroded_400_summary"]["total_evaluated"] == 400, "Focal-aware LLM judge missing 400-patch audit!"
     for m_name, m_obj in k5_v3.items():
         assert m_obj["n_eligible"] == 203, f"{m_name} n_eligible={m_obj['n_eligible']} != 203"
         for sk, sv in m_obj["strategies"].items():
@@ -580,6 +597,10 @@ def main() -> None:
     pa1 = ab["primary_mechanism_A3_vs_A1"]
     pa2 = ab["secondary_stress_A3_vs_A2"]
     eq1 = ab["equal_model_weighted_A3_vs_A1"]
+    sa = sota_stat["arms"]
+    fa_er = fa_judge["eroded_400_summary"]
+    fa_pr_q = fa_judge["pr_43_summary"]["qwen3.7-plus"]
+    fa_pr_g = fa_judge["pr_43_summary"]["glm-5"]
     macros.extend([
         f"\\newcommand{{\\ForkTotal}}{{{ab['n_forks']}}}",
         f"\\newcommand{{\\ForkTotalATwo}}{{{ab['n_forks_with_A2']}}}",
@@ -590,6 +611,27 @@ def main() -> None:
         f"\\newcommand{{\\ForkAThreePct}}{{{ab['arms']['A3_TrueWitness']['recovery_pct']:.2f}\\%}}",
         f"\\newcommand{{\\ForkDiffAThreeVsAOne}}{{{pa1['diff_test_weighted_pp']:+.2f}}}",
         f"\\newcommand{{\\ForkDiffAThreeVsATwo}}{{{pa2['diff_test_weighted_pp']:+.2f}}}",
+        f"\\newcommand{{\\SotaFFOneLeakPct}}{{{sa['S1_FlakyFix_K1']['leak_pct_of_w_plus']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaFFOneSoundPct}}{{{sa['S1_FlakyFix_K1']['sound_fix_pct']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaFFOneHarmPct}}{{{sa['S1_FlakyFix_K1']['heldout']['conditional_harmful_pct']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaFFFiveLeakPct}}{{{sa['S1b_FlakyFix_K5']['leak_pct_of_w_plus']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaFFFiveSoundPct}}{{{sa['S1b_FlakyFix_K5']['sound_fix_pct']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaFFFiveHarmPct}}{{{sa['S1b_FlakyFix_K5']['heldout']['conditional_harmful_pct']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaFDLeakPct}}{{{sa['S2_FlakyDoctor']['leak_pct_of_w_plus']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaFDSoundPct}}{{{sa['S2_FlakyDoctor']['sound_fix_pct']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaFDHarmPct}}{{{sa['S2_FlakyDoctor']['heldout']['conditional_harmful_pct']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaFGLeakPct}}{{{sa['S3_FlakyGuard']['leak_pct_of_w_plus']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaFGSoundPct}}{{{sa['S3_FlakyGuard']['sound_fix_pct']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaFGHarmPct}}{{{sa['S3_FlakyGuard']['heldout']['conditional_harmful_pct']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaMGSoundPct}}{{{sa['S4_MuGuard_Flake']['sound_fix_pct']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaMGHarmPct}}{{{sa['S4_MuGuard_Flake']['heldout']['conditional_harmful_pct']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaMGStrictYsPct}}{{{sa['S4_MuGuard_Flake']['heldout']['strict_ys_pct']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaFGMGSoundPct}}{{{sa['S5_FlakyGuard_Plus_MuGuard']['sound_fix_pct']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaFGMGHarmPct}}{{{sa['S5_FlakyGuard_Plus_MuGuard']['heldout']['conditional_harmful_pct']:.1f}\\%}}",
+        f"\\newcommand{{\\SotaFGMGStrictYsPct}}{{{sa['S5_FlakyGuard_Plus_MuGuard']['heldout']['strict_ys_pct']:.1f}\\%}}",
+        f"\\newcommand{{\\FocalJudgeBypassPct}}{{{fa_er['bypass_rate_pct']:.1f}\\%}}",
+        f"\\newcommand{{\\FocalJudgePRFalseRejQwenPct}}{{{fa_pr_q['legit_false_rej_pct']:.1f}\\%}}",
+        f"\\newcommand{{\\FocalJudgePRFalseRejGlmPct}}{{{fa_pr_g['legit_false_rej_pct']:.1f}\\%}}",
     ])
     (PAPER_DIR / "generated_macros.tex").write_text("\n".join(macros) + "\n", encoding="utf-8")
 
@@ -656,14 +698,16 @@ def main() -> None:
     ipf_rates = [_matched_sf(m_n, ipf_77_sids)[2] for m_n in ("deepseek-flash", "deepseek-v4-pro", "qwen3.7-plus")]
 
     t2 = [
-        "\\begin{table}[t]",
+        "\\begin{table*}[t]",
         "\\centering",
         "\\scriptsize",
-        "\\setlength{\\tabcolsep}{3.0pt}",
-        "\\caption{Audit of official upstream passing patches from \\textsc{FlakyDoctor} and partner-matched \\textsc{iPFlakies} artifacts alongside matched-cohort \\textsc{MuGuard-Flake} results on confirmatory Qwen 3.7 Plus.}",
+        "\\caption{Oracle erosion and sound-fix yield across official upstream passing artifacts in Panel~A and same-model, $W^+$-standardized Qwen 3.7 Plus adaptations in Panel~B ($N=\\BenchEligible$, $|E|=\\BenchMExtSamples$ held-out tests).}",
         "\\label{tab:b1_sota}",
+        "\\setlength{\\tabcolsep}{2.8pt}",
         "\\begin{tabular}{lrrrrrrr}",
         "\\toprule",
+        "\\multicolumn{8}{@{}l}{\\textbf{Panel A: Official Upstream Passing Artifacts and Matched-Cohort Replay}} \\\\",
+        "\\midrule",
         "Artifact or Matched Cohort & Avail. & Mism. & Comp. & Pass@$W^+$ & Eroded & Leak ($W^+$) & SoundFix \\\\",
         "\\midrule",
     ]
@@ -681,12 +725,52 @@ def main() -> None:
         )
     t2.extend([
         "\\midrule",
-        f"\\textbf{{MuGuard-Flake}} on FD-GPT cohort & {gpt_n} & 0 & {gpt_n} & {gpt_q_cnt} ({gpt_q_pct:.2f}\\%) & \\textbf{{0}} & \\textbf{{0.00\\%}} & \\textbf{{{gpt_q_cnt} ({gpt_q_pct:.2f}\\%)}} \\\\",
-        f"\\textbf{{MuGuard-Flake}} on iPFlakies cohort & {ipf_n} & 0 & {ipf_n} & {ipf77_q_sf} ({ipf77_q_pct:.2f}\\%) & \\textbf{{0}} & \\textbf{{0.00\\%}} & \\textbf{{{ipf77_q_sf} ({ipf77_q_pct:.2f}\\%)}} \\\\",
+        f"\\textbf{{MuGuard-Flake}} on FD-GPT cohort & {gpt_n} & 0 & {gpt_n} & {gpt_q_cnt} ({gpt_q_pct:.2f}\\%) & \\textbf{{0}} & \\textbf{{0.00\\%}}$^{{\\ddagger}}$ & \\textbf{{{gpt_q_cnt} ({gpt_q_pct:.2f}\\%)}} \\\\",
+        f"\\textbf{{MuGuard-Flake}} on iPFlakies cohort & {ipf_n} & 0 & {ipf_n} & {ipf77_q_sf} ({ipf77_q_pct:.2f}\\%) & \\textbf{{0}} & \\textbf{{0.00\\%}}$^{{\\ddagger}}$ & \\textbf{{{ipf77_q_sf} ({ipf77_q_pct:.2f}\\%)}} \\\\",
         "\\bottomrule",
         "\\end{tabular}",
-        f"\\par\\smallskip\\parbox{{0.96\\textwidth}}{{\\scriptsize\\textit{{Note:}} Across all three multi-round backbones, \\textsc{{MuGuard-Flake}} reaches {min(gpt_rates):.1f}\\%--{max(gpt_rates):.1f}\\% SoundFix on the FlakyDoctor GPT-4 cohort and {min(ipf_rates):.1f}\\%--{max(ipf_rates):.1f}\\% on the partner-matched iPFlakies cohort with 0\\% leaked erosion (full breakdown in Online Resource~1, Table~S-1).}}",
-        "\\end{table}",
+        "\\par\\smallskip",
+        "\\setlength{\\tabcolsep}{0.95pt}",
+        "\\begin{tabular}{lrrrrrrr}",
+        "\\toprule",
+        "\\multicolumn{8}{@{}l}{\\textbf{Panel B: Same-Model, $W^+$-Standardized Adaptations on Qwen 3.7 Plus ($N=203$, $|E|=177$)}} \\\\",
+        "\\midrule",
+        "Adaptation & Pass@$W^+$ & Leak ($W^+$) & SoundFix & Prim.\\,(f,u) & Harmful [W/S/L] & Strict $Y_s$ & Full $Y_s$ \\\\",
+        "\\midrule",
+    ])
+    for s_key, s_disp, is_ours in [
+        ("S1_FlakyFix_K1", "FlakyFix-style ($K{=}1$)", False),
+        ("S1b_FlakyFix_K5", "FlakyFix-style ($K{=}5$)", False),
+        ("S2_FlakyDoctor", "FlakyDoctor-style", False),
+        ("S3_FlakyGuard", "FlakyGuard-style", False),
+        ("S4_MuGuard_Flake", "\\textbf{MuGuard-Flake}", True),
+        ("S5_FlakyGuard_Plus_MuGuard", "\\textbf{FlakyGuard+MuGuard}", True),
+    ]:
+        ar = sa[s_key]
+        ho_s = ar["heldout"]
+        lk_cell = "0\\,(0.0\\%)$^{\\ddagger}$" if is_ours else f"\\textbf{{{ar['leaked_eroded']}\\,({ar['leak_pct_of_w_plus']:.1f}\\%)}}"
+        sf_cell = f"{ar['sound_fix']}\\,({ar['sound_fix_pct']:.1f}\\%)"
+        hm_cell = f"{ho_s['conditional_harmful_pct']:.1f}\\%\\,[{ho_s['W']}/{ho_s['S']}/{ho_s['L']}]"
+        sy_cell = f"{ho_s['strict_ys']}\\,({ho_s['strict_ys_pct']:.1f}\\%)"
+        fy_cell = f"{ho_s['full_ys']}\\,({ho_s['full_ys_pct']:.1f}\\%)"
+        if is_ours:
+            sf_cell = f"\\textbf{{{sf_cell}}}"
+            hm_cell = f"\\textbf{{{hm_cell}}}"
+            fy_cell = f"\\textbf{{{fy_cell}}}"
+        if s_key == "S4_MuGuard_Flake":
+            t2.append("\\midrule")
+        t2.append(
+            f"{s_disp} & {ar['w_plus']}\\,({100.0*ar['w_plus']/ar['n']:.1f}\\%) & {lk_cell} & {sf_cell} & "
+            f"{ho_s['primary_population']}\\,({ho_s['heldout_w_plus_fail']},{ho_s['unknown_mutation']}) & "
+            f"{hm_cell} & {sy_cell} & {fy_cell} \\\\"
+        )
+    pi_s4 = sota_stat["primary_inference"]["S4_MuGuard_Flake"]
+    pi_s5 = sota_stat["primary_inference"]["S5_FlakyGuard_Plus_MuGuard"]
+    t2.extend([
+        "\\bottomrule",
+        "\\end{tabular}",
+        f"\\par\\smallskip\\parbox{{0.97\\textwidth}}{{\\scriptsize\\textit{{Note:}} Panel~A multi-backbone matched rates span {min(gpt_rates):.1f}\\%--{max(gpt_rates):.1f}\\% on the FlakyDoctor GPT-4 cohort and {min(ipf_rates):.1f}\\%--{max(ipf_rates):.1f}\\% on the iPFlakies cohort (Table~S-1). In Panel~B, all six arms share identical Qwen 3.7 Plus decoding, Docker containers, deterministic Python method re-indentation, and $K=5$ budgets except single-pass FlakyFix-style $K=1$ (adaptation deviations in Table~S-8). Column Prim.\\,(f,u) gives accepted patches in $E$ passing strict $W^+_{{\\text{{heldout}}}}$ with zero indeterminate mutants ($f$ = strict $W^+_{{\\text{{heldout}}}}$ failures, $u$ = indeterminate mutation timeouts, zero unadjudicated losses). $^{{\\ddagger}}$Zero in-loop $M_{{\\text{{det}}}}$ leakage holds by gate construction. On conditional harmful (W+S) unseen loss, two-sided null-centered studentized cluster-bootstrap Holm ($m=4$) tests are significant against FlakyFix-style $K=5$ ($p_{{\\text{{Holm}}}}={pi_s4['S1b_FlakyFix_K5']['p_holm_m4']:.4f}$ and ${pi_s5['S1b_FlakyFix_K5']['p_holm_m4']:.4f}$) and directionally lower without reaching significance against FlakyFix-style $K=1$, FlakyDoctor-style, and FlakyGuard-style ($p_{{\\text{{Holm}}}}=0.21\\text{{--}}0.27$; full statistics in Table~S-7).}}",
+        "\\end{table*}",
     ])
     (TBL_DIR / "tab2_b1_sota.tex").write_text("\n".join(t2) + "\n", encoding="utf-8")
 
@@ -789,7 +873,7 @@ def main() -> None:
         f"\\textbf{{Total Eroded Patches (Bypass\\%)}} & \\textbf{{{tax['unique_eroded_patches']}}} & \\textbf{{{tax['unique_patches_bypassing_B3_Plus']} ({100.0*tax['unique_patches_bypassing_B3_Plus']/tax['unique_eroded_patches']:.1f}\\%)}} & \\textbf{{{lj_er['judge_missed_leaked']} ({lj_er['bypass_rate_pct']:.1f}\\%)}} & \\textbf{{{cg_er['cov_missed_bypassed']}/{cg_er['evaluated_ran']} ({cg_er['cov_bypass_pct']:.1f}\\%)}} & \\textbf{{60}} \\\\",
         "\\bottomrule",
         "\\end{tabular}",
-        f"\\par\\smallskip\\parbox{{0.97\\textwidth}}{{\\scriptsize\\textit{{Note:}} Syntactic Guard is bypassed by {tax['unique_patches_bypassing_B3']}/{tax['unique_eroded_patches']} ({100.0*tax['unique_patches_bypassing_B3']/tax['unique_eroded_patches']:.1f}\\%) patches; \\textsc{{MuGuard-Flake}} intercepts all {tax['unique_eroded_patches']}/{tax['unique_eroded_patches']} (0\\% bypass) by definition. $^{{\\dagger}}$Dynamic focal line Coverage Gate (JaCoCo + \\texttt{{coverage.py}}) evaluated on {cg_er['evaluated_ran']}/{tax['unique_eroded_patches']} patches with clean baseline coverage ({cg_er_blk_note}).}}",
+        f"\\par\\smallskip\\parbox{{0.97\\textwidth}}{{\\scriptsize\\textit{{Note:}} Syntactic Guard is bypassed by {tax['unique_patches_bypassing_B3']}/{tax['unique_eroded_patches']} ({100.0*tax['unique_patches_bypassing_B3']/tax['unique_eroded_patches']:.1f}\\%) patches; \\textsc{{MuGuard-Flake}} intercepts all {tax['unique_eroded_patches']}/{tax['unique_eroded_patches']} (0\\% bypass) by definition. Supplying up to five dynamically executed focal production functions to the cross-vendor LLM-Judge still leaves {fa_er['judge_missed_leaked']}/{fa_er['total_evaluated']} ({fa_er['bypass_rate_pct']:.1f}\\%) eroded patches undetected (Table~S-9). $^{{\\dagger}}$Dynamic focal line Coverage Gate (JaCoCo + \\texttt{{coverage.py}}) evaluated on {cg_er['evaluated_ran']}/{tax['unique_eroded_patches']} patches with clean baseline coverage ({cg_er_blk_note}).}}",
         "\\end{table}",
     ])
     (TBL_DIR / "tab7_taxonomy_codebook.tex").write_text("\n".join(t7) + "\n", encoding="utf-8")
@@ -1203,7 +1287,7 @@ def main() -> None:
     d_c10 = c10["dimensions"]
     inv_c10 = c10["downstream_conclusion_invariance_across_10_sessions"]["heldout_111_harmful_WS_by_model_and_strategy"]
     or_lines = [
-        "# Online Resource 1: Supplementary Empirical Tables (Tables S-1 to S-6)",
+        "# Online Resource 1: Supplementary Empirical Tables (Tables S-1 to S-9)",
         "",
         "Companion supplementary tables for *Stabilization via Oracle Erosion: An Empirical Audit and Local Mutation Gate for Flaky Test Repair* (*Software Quality Journal*).",
         "",
@@ -1238,7 +1322,7 @@ def main() -> None:
     qw_loss = k5["qwen3.7-plus"]["strategies"]["Ours_MuGuard_Flake"]["heldout_external"]["heldout_m_ext_loss_among_accepted"]
     or_lines.extend([
         "",
-        "*Note*: All 7 additional held-out $M_{\\text{ext}}$-loss patches introduced by gap-completed runs and dynamic/LLM-judge baselines (`HO-112`..`HO-118`) achieved `10/10` (`100%`) unanimous ensemble agreement.",
+        f"*Note*: All 7 additional held-out $M_{{\\text{{ext}}}}$-loss patches introduced by gap-completed runs and dynamic/LLM-judge baselines (`HO-112`..`HO-118`) achieved `10/10` (`100%`) unanimous ensemble agreement. The `{len(sota_extra_wsl)}` newly encountered held-out $M_{{\\text{{ext}}}}$-loss patches in the same-model SOTA campaign (`HO-SOTA-001`..`HO-SOTA-{len(sota_extra_wsl):03d}`, `{len(sota_extra_wsl)*10}` stateless Codex adjudications) achieved `{sum(1 for v in sota_extra_wsl.values() if v['majority_count_of_10']==10)}/{len(sota_extra_wsl)}` (`{100.0*sum(1 for v in sota_extra_wsl.values() if v['majority_count_of_10']==10)/max(1,len(sota_extra_wsl)):.1f}%`) unanimous `10/10` agreement and `{sum(1 for v in sota_extra_wsl.values() if v['majority_count_of_10']>=8)}/{len(sota_extra_wsl)}` (`{100.0*sum(1 for v in sota_extra_wsl.values() if v['majority_count_of_10']>=8)/max(1,len(sota_extra_wsl)):.1f}%`) `>=8/10` supermajority agreement (`0` unadjudicated items).",
         "",
         "### Part B: Matched-Cohort Head-to-Head Comparison Against Historical SOTA Tools Across All Three Multi-Round Backbones",
         "",
@@ -1339,6 +1423,8 @@ def main() -> None:
         "| Scalar Gate | 75.37% | 79.80% (+4.43) | 0 $\\to$ **0 (0.00%)** | 67.23% $\\to$ 70.06% | 75.71% $\\to$ 78.53% |",
         "| **MuGuard-Flake** | **79.31%** | **85.22% (+5.91)** | **0 $\\to$ 0 (0.00%)** | **70.06% $\\to$ 72.88%** | **78.53% $\\to$ 81.36%** |",
         "",
+        "*Note*: `Table S-4` re-executes only the 24 Qwen 3.7 Plus Python tests whose Round-1 output failed syntax parsing due to class-method indentation (out of 35 across all three backbones) while preserving all other cached trajectories from the main Qwen 3.7 Plus campaign. In `Table S-7`, `S4_MuGuard_Flake` applies deterministic Python method re-indentation uniformly across every round of all 93 Python tests in a fresh end-to-end SOTA run, yielding `167/203 (82.27%)` SoundFix.",
+        "",
         "---",
         "",
         "## Table S-5: Live Online `Top-10` Subset Gate vs. Full `MuGuard-Flake` on Confirmatory Qwen 3.7 Plus (`N=203, |E|=177`)",
@@ -1380,8 +1466,128 @@ def main() -> None:
         "",
         "*Finding*: Because real historical bug commits in evolving repositories rarely isolate fine-grained relational or delimiter invariants covered by a single flaky test without breaking compilation, disjoint held-out mutation pools ($M_{\\text{ext}}$) remain indispensable for non-circular sensitivity evaluation.",
     ])
+
+    # =========================================================================
+    # Tables S-7, S-8, S-9 (v3.1 Same-Model SOTA Head-to-Head, Deviations, & Focal-Aware Judge)
+    # =========================================================================
+    n_jid_tot = sum(1 for r in sota_raw if samples_by_id[r["sample_id"]]["language"] == "java" and samples_by_id[r["sample_id"]]["test_type"] == "ID")
+    n_jod_tot = sum(1 for r in sota_raw if samples_by_id[r["sample_id"]]["language"] == "java" and samples_by_id[r["sample_id"]]["test_type"] == "OD")
+    n_pv_tot = sum(1 for r in sota_raw if samples_by_id[r["sample_id"]]["language"] == "python" and samples_by_id[r["sample_id"]].get("od_subtype") == "OD-victim")
+    n_pb_tot = sum(1 for r in sota_raw if samples_by_id[r["sample_id"]]["language"] == "python" and samples_by_id[r["sample_id"]].get("od_subtype") == "OD-brittle")
+    or_lines.extend([
+        "",
+        "---",
+        "",
+        "## Table S-7: Complete Same-Model, $W^+$-Standardized SOTA Head-to-Head Breakdown and Clustered Inference (`N = 203, |E| = 177`, Confirmatory Qwen 3.7 Plus)",
+        "",
+        "### Part A: Operational SoundFix% and In-Loop Leaked Erosion by Language and Flaky Subtype",
+        "",
+        f"| End-to-End Adaptation | Java All (`n={n_jid_tot+n_jod_tot}`) SF% (Leak) | Python All (`n={n_pv_tot+n_pb_tot}`) SF% (Leak) | Java ID (`n={n_jid_tot}`) SF% | Java OD (`n={n_jod_tot}`) SF% | Py OD-Victim (`n={n_pv_tot}`) SF% | Py OD-Brittle (`n={n_pb_tot}`) SF% | Total (`N=203`) SF% (Leak%) |",
+        "| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |",
+    ])
+    sota_arm_names = [
+        ("S1_FlakyFix_K1", "`FlakyFix`-style ($K=1$)"),
+        ("S1b_FlakyFix_K5", "`FlakyFix`-style ($K=5$)"),
+        ("S2_FlakyDoctor", "`FlakyDoctor`-style ($K=5$)"),
+        ("S3_FlakyGuard", "`FlakyGuard`-style ($K=5$)"),
+        ("S4_MuGuard_Flake", "**`MuGuard-Flake` ($K=5$)**"),
+        ("S5_FlakyGuard_Plus_MuGuard", "**`FlakyGuard + MuGuard` ($K=5$)**"),
+    ]
+    for ak_s, albl_s in sota_arm_names:
+        def _sub_stats(pred):
+            sub = [r for r in sota_raw if pred(samples_by_id[r["sample_id"]])]
+            sf_c = sum(1 for r in sub if r["strategies"][ak_s].get("sound_fix"))
+            er_c = sum(1 for r in sub if r["strategies"][ak_s].get("eroded"))
+            return len(sub), sf_c, er_c, (100.0 * sf_c / max(1, len(sub)))
+
+        nj, sfj, erj, pj = _sub_stats(lambda s: s["language"] == "java")
+        np_, sfp, erp, pp = _sub_stats(lambda s: s["language"] == "python")
+        n_jid, sf_jid, _, p_jid = _sub_stats(lambda s: s["language"] == "java" and s["test_type"] == "ID")
+        n_jod, sf_jod, _, p_jod = _sub_stats(lambda s: s["language"] == "java" and s["test_type"] == "OD")
+        n_pv, sf_pv, _, p_pv = _sub_stats(lambda s: s["language"] == "python" and s.get("od_subtype") == "OD-victim")
+        n_pb, sf_pb, _, p_pb = _sub_stats(lambda s: s["language"] == "python" and s.get("od_subtype") == "OD-brittle")
+        ar_tot = sota_stat["arms"][ak_s]
+        or_lines.append(
+            f"| {albl_s} | {sfj}/{nj} ({pj:.1f}%, er={erj}) | {sfp}/{np_} ({pp:.1f}%, er={erp}) | "
+            f"{sf_jid}/{n_jid} ({p_jid:.1f}%) | {sf_jod}/{n_jod} ({p_jod:.1f}%) | {sf_pv}/{n_pv} ({p_pv:.1f}%) | "
+            f"{sf_pb}/{n_pb} ({p_pb:.1f}%) | **{ar_tot['sound_fix']}/203 ({ar_tot['sound_fix_pct']:.2f}%, leak={ar_tot['leak_pct_of_w_plus']:.2f}%)** |"
+        )
+
+    or_lines.extend([
+        "",
+        "### Part B: Primary Tier-A Conditional Harmful (`W+S`) Held-Out Loss Inference and Secondary Paired Endpoints (`20,000` Repository Resamples)",
+        "",
+        "| Contrast (`Ours` Minus Baseline) | Tier-A Harmful Loss $\\Delta$ [95% Boot CI] (pp) | Studentized $p$ ($p_{\\text{Holm}, m=4}$) | Operational SoundFix $\\Delta$ [95% CI] ($p_{\\text{cluster}}$) | Strict $Y_s$ $\\Delta$ [95% CI] ($p_{\\text{cluster}}$) | Full $Y_s$ $\\Delta$ [95% CI] ($p_{\\text{cluster}}$) |",
+        "| :--- | :---: | :---: | :---: | :---: | :---: |",
+    ])
+    for ours_k, ours_lbl in [("S4_MuGuard_Flake", "`MuGuard-Flake`"), ("S5_FlakyGuard_Plus_MuGuard", "`FlakyGuard + MuGuard`")]:
+        for bk, blbl in [
+            ("S1_FlakyFix_K1", "`FlakyFix`-style ($K=1$)"),
+            ("S1b_FlakyFix_K5", "`FlakyFix`-style ($K=5$)"),
+            ("S2_FlakyDoctor", "`FlakyDoctor`-style ($K=5$)"),
+            ("S3_FlakyGuard", "`FlakyGuard`-style ($K=5$)"),
+        ]:
+            pr_i = sota_stat["primary_inference"][ours_k][bk]
+            sc_i = sota_stat["secondary_inference"][ours_k][bk]
+            sf_i, sy_i, fy_i = sc_i["sound_fix"], sc_i["strict_ys"], sc_i["full_ys"]
+            or_lines.append(
+                f"| {ours_lbl} $-$ {blbl} | {pr_i['diff_pp']:+.2f} [{pr_i['ci95_pp'][0]:+.2f}, {pr_i['ci95_pp'][1]:+.2f}] | "
+                f"{fpval_bare(pr_i['p_studentized_bootstrap'])} (**{fpval_bare(pr_i['p_holm_m4'])}**) | "
+                f"{fdiff_ci(sf_i, False)} ({fpval_bare(sf_i['p_cluster_signflip'])}) | "
+                f"{fdiff_ci(sy_i, False)} ({fpval_bare(sy_i['p_cluster_signflip'])}) | "
+                f"{fdiff_ci(fy_i, False)} ({fpval_bare(fy_i['p_cluster_signflip'])}) |"
+            )
+
+    or_lines.extend([
+        "",
+        f"*Analysis Lock & Label Provenance Disclosure*: The analysis plan (`PREREG_v31_SOTA_HEAD2HEAD.md`) was locked as an interim-informed specification after `82/203` in-loop sample trajectories had completed and prior to running `--mode heldout` on the SOTA campaign. Across the 6 arms in `|E| = 177`, `{sota_stat['accepted_records_with_reused_labels']}` accepted loss records matched candidate fingerprints already adjudicated in our frozen historical 10-session Codex ensemble ledger, and all `{sota_stat['new_losses_adjudicated']}` newly encountered loss patches were adjudicated under the identical 10-session stateless order-permuted Codex rubric (`gpt-6-astra`, blinded model adjudication).",
+        "",
+        "---",
+        "",
+        "## Table S-8: Adaptation and Protocol Standardization Matrix for Same-Model SOTA Baselines vs. Original Publications",
+        "",
+        "| System Adaptation | Original Upstream Publication | Preserved Core Mechanism in Our Adaptation | Standardized Deviations for Fair Same-Container Comparison |",
+        "| :--- | :--- | :--- | :--- |",
+        "| `FlakyFix`-style ($K=1$ & $K=5$) | Fatima et al., *IEEE TSE* 2024 (`Codex` / `GPT-3.5`, Java) | Test-code-only input (zero focal production code or partner test edits); 2-step prediction of 13 root-cause repair categories followed by 2 same-language, out-of-benchmark few-shot exemplars (`52` verified zero-overlap exemplars); single-pass $K=1$ plus budget-matched $K=5$ execution-feedback extension. | Executed on `Qwen 3.7 Plus` (`temperature=0.0`) instead of fine-tuned/legacy OpenAI `Codex`; extended to Python OD tests under target-test-only editing; validated under unified $W^+$ schedules and deterministic Python method re-indentation. |",
+        "| `FlakyDoctor`-style ($K=5$) | Chen & Jabbarvand, *ISSTA* 2024 (`GPT-4` / `Magicoder`, Java ID & OD) | Neurosymbolic failure localization stack, target + OD partner test code, surrounding class headers, reactive Java import-collision `Stitching`, and 3-identical-substantive-error early termination within $K=5$ rounds. | Executed on `Qwen 3.7 Plus` (`temperature=0.0`); extended to Python OD victim/brittle tests with pytest failure localization and deterministic re-indentation; uses containerized `W+` (`5` NonDex seeds / `3` OD schedules) rather than whole-module `NonDex` sweeps. |",
+        "| `FlakyGuard`-style ($K=5$) | Li et al., *ASE* 2025 Distinguished Paper (`GPT-4o`, Uber Java/Kotlin) | Pruned Dynamic Call Graph (`DCG`) over baseline-executed same-repository production functions (`mean 50.7` nodes, strictly `M_ext`-free), LLM-guided BFS selection of $F \\le 5$ focal production functions (`mean 4.62`), structured `<thought>` (`Root Cause`, `Explanation`, `Fixing Plan`), accumulated failed-attempt `Reflection` history, and single-sided $W^+$ acceptance. | Executed on `Qwen 3.7 Plus` (`temperature=0.0`); DCG built from `JaCoCo`/`coverage.py` executed lines + AST call edges (using `m_det`-only lines on 7 `argLine`-conflicted Java tests) rather than Uber's internal JVM agent; validated with benchmark $W^+$ schedules instead of 1,000 internal Bazel reruns. |",
+        "| `FlakyGuard + MuGuard` ($K=5$) | Hybrid Package (This Paper) | Shares 100% of `FlakyGuard`-style's Round-1..$r_0$ prompt prefix and $F \\le 5$ DCG focal production functions; accepts identical patch at $r_0$ whenever `gate_safe == True`. | Intercepts $W^+$-passing drafts that erode $\\mathcal{O}_{\\text{joint}}$ or modify uncovered partner scope at $r_0$, appending contract rules and up to 4 localized surviving-mutant witnesses into `FlakyGuard`'s `Reflection` loop for rounds $r_0+1 \\dots 5$ (abstaining fail-closed at round 5). |",
+        "",
+        "---",
+        "",
+        "## Table S-9: Offline Focal-Aware Cross-Vendor `LLM-Judge` Audit (`F <= 5` Executed Focal Production Functions Provided)",
+        "",
+        "| Cohort / Patch Edit Mechanism | Evaluated $n$ | Diff-Only Judge Bypass% (`Table 5`) | Focal-Aware Judge Detected | Focal-Aware Judge Missed (Bypass%) | Median Judge Time (s) |",
+        "| :--- | :---: | :---: | :---: | :---: | :---: |",
+    ])
+    for mk, mlbl in [
+        ("M1_PredicateProjectionOrRelaxation", "Predicate Projection or Relaxation"),
+        ("M2_StateResetOrClobber", "State Reset or Post-Act Clobber"),
+        ("M4_SUTCallAlterationOrBypass", "Focal Call Alteration or Bypass"),
+        ("M5_PartnerOrSharedScopeEdit", "Partner or Shared-Scope Side-Effect"),
+        ("M6_DelimiterOrFormatNormalization", "Delimiter or Format Normalization"),
+        ("M7_PreconditionOrSingletonSetupAlteration", "Precondition or Singleton Setup Shift"),
+        ("U_UnclassifiedAutomated", "Unclassified Residual"),
+    ]:
+        d_diff = lj_m.get(mk) or {}
+        d_fa = fa_er["by_mechanism"].get(mk) or {}
+        tot_m = d_fa.get("total", pm_c.get(mk, 0))
+        diff_bp = 100.0 * d_diff.get("judge_missed", 0) / max(1, tot_m)
+        or_lines.append(
+            f"| {mlbl} | {tot_m} | {diff_bp:.1f}% | {d_fa.get('judge_detected', 0)} | "
+            f"**{d_fa.get('judge_missed', 0)} ({d_fa.get('bypass_pct', 0.0):.1f}%)** | --- |"
+        )
+    fa_j = fa_er["by_language"]["java"]
+    fa_p = fa_er["by_language"]["python"]
+    or_lines.extend([
+        f"| *Java Subtotal* | *{fa_j['total']}* | *---* | *{fa_j['judge_detected']}* | *{fa_j['judge_missed']} ({fa_j['bypass_pct']:.2f}%)* | *---* |",
+        f"| *Python Subtotal* | *{fa_p['total']}* | *---* | *{fa_p['judge_detected']}* | *{fa_p['judge_missed']} ({fa_p['bypass_pct']:.2f}%)* | *---* |",
+        f"| **Total Eroded Patches** | **{fa_er['total_evaluated']}** | **{lj_er['bypass_rate_pct']:.2f}%** | **{fa_er['judge_detected']}** | **{fa_er['judge_missed_leaked']} ({fa_er['bypass_rate_pct']:.2f}%)** | **{fa_er['median_judge_sec']:.2f} s** |",
+        "",
+        f"*Developer PR False-Rejection Check (`43` $W^+$-Passing Test-Only Instances)*: Providing the same $F \\le 5$ focal production functions to the cross-vendor judge yields `{fa_pr_q['legit_false_rej']} ({fa_pr_q['legit_false_rej_pct']:.2f}%)` false rejections on legitimate fixes (`{fa_pr_q['weakening_caught']}` weakenings caught) under Qwen 3.7 Plus and `{fa_pr_g['legit_false_rej']} ({fa_pr_g['legit_false_rej_pct']:.2f}%)` false rejections (`{fa_pr_g['weakening_caught']}` weakenings caught) under Zhipu GLM-5. Even with focal production source code in prompt context, static LLM inspection still misses **over four-fifths (`{fa_er['bypass_rate_pct']:.2f}%`)** of eroded patches because preconditions, partner state, and post-execution string splits alter runtime fault propagation without obvious local assertion contradictions.",
+    ])
     (FT1_ROOT / "ONLINE_RESOURCE_1.md").write_text("\n".join(or_lines) + "\n", encoding="utf-8")
-    print("[V3.0 GENERATE PASS] All v3.0 summary metrics, macros, 12 tables, 4 multi-panel figures, and ONLINE_RESOURCE_1.md generated and verified!")
+    print("[V3.1 GENERATE PASS] All summary metrics, macros, 12 tables, 4 multi-panel figures, and ONLINE_RESOURCE_1.md (Tables S-1..S-9) generated and verified!")
 
 
 if __name__ == "__main__":

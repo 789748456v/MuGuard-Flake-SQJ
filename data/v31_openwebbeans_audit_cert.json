@@ -1,0 +1,18 @@
+{
+  "schema_version": "v31-openwebbeans-audit-cert-1.0",
+  "sample_id": "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations",
+  "project_name": "openwebbeans",
+  "dirty_file_mtime": "2026-11-25 12:15:52.975917600 +0800",
+  "dirty_scope": "Method body of testEquals2Annotations() in webbeans-impl/src/test/java/org/apache/webbeans/test/annotation/binding/BeanCacheKeyUnitTest.java (plus setup pitest-maven plugin in webbeans-impl/pom.xml)",
+  "v2_and_b5_b6_predate_contamination": true,
+  "latest_v2_or_b5_b6_mtime": "2026-11-24 21:06:46 +0800",
+  "restored_to_frozen_sha": true,
+  "clean_recompile_verified": true,
+  "clean_baseline_cov_lines": 89,
+  "baseline_cov_identical_to_v3_baseline_coverage": true,
+  "clean_raw_dcg_nodes": 12,
+  "raw_dcg_identical_to_v31_cache": true,
+  "mext_only_lines_in_old_dcg": 0,
+  "safe_eval_required_for_inloop_and_heldout": true,
+  "audit_verified_clean_for_scheduling": true
+}

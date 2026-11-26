@@ -8039,7 +8039,7 @@
       "cov_ran": true,
       "cov_safe": false,
       "cov_eroded": true,
-      "scope_kind": "SHARED_FIXTURE_OR_HELPER_MODIFIED",
+      "scope_kind": "TARGET_ONLY",
       "affects_partner_or_shared": false,
       "base_lines_total": 89,
       "lost_lines_count": 33,
@@ -8121,11 +8121,11 @@
           "source_slice": "   L120:         {\n   L121:             synchronized (this)\n   L122:             {\n>> L123:                 if (lazyAnnotatedTypes == null)\n   L124:                 {\n   L125:                     if (qualifier != null)\n   L126:                     {"
         }
       ],
-      "compile_sec": 8.763,
-      "target_cov_sec": 1.55,
+      "compile_sec": 5.651,
+      "target_cov_sec": 1.41,
       "partner_cov_sec": 0.0,
-      "cov_sec": 1.55,
-      "wall_sec": 10.318
+      "cov_sec": 1.41,
+      "wall_sec": 7.065
     },
     "aries-cdi::1b39afde::aries-cdi::MapsTest.checkMerge_1::de777d644c74e615e7": {
       "compiled": true,
@@ -11915,7 +11915,7 @@
       "cov_ran": true,
       "cov_safe": false,
       "cov_eroded": true,
-      "scope_kind": "SHARED_FIXTURE_OR_HELPER_MODIFIED",
+      "scope_kind": "TARGET_ONLY",
       "affects_partner_or_shared": false,
       "base_lines_total": 89,
       "lost_lines_count": 33,
@@ -11997,11 +11997,11 @@
           "source_slice": "   L120:         {\n   L121:             synchronized (this)\n   L122:             {\n>> L123:                 if (lazyAnnotatedTypes == null)\n   L124:                 {\n   L125:                     if (qualifier != null)\n   L126:                     {"
         }
       ],
-      "compile_sec": 6.758,
-      "target_cov_sec": 1.709,
+      "compile_sec": 5.691,
+      "target_cov_sec": 1.418,
       "partner_cov_sec": 0.0,
-      "cov_sec": 1.709,
-      "wall_sec": 8.47
+      "cov_sec": 1.418,
+      "wall_sec": 7.111
     },
     "aries-cdi::1b39afde::aries-cdi::MapsTest.checkMerge_1::b09ec62ed59f95795f": {
       "compiled": true,
@@ -12055,7 +12055,7 @@
       "cov_ran": true,
       "cov_safe": false,
       "cov_eroded": true,
-      "scope_kind": "SHARED_FIXTURE_OR_HELPER_MODIFIED",
+      "scope_kind": "TARGET_ONLY",
       "affects_partner_or_shared": false,
       "base_lines_total": 89,
       "lost_lines_count": 33,
@@ -12137,11 +12137,11 @@
           "source_slice": "   L120:         {\n   L121:             synchronized (this)\n   L122:             {\n>> L123:                 if (lazyAnnotatedTypes == null)\n   L124:                 {\n   L125:                     if (qualifier != null)\n   L126:                     {"
         }
       ],
-      "compile_sec": 7.203,
-      "target_cov_sec": 1.55,
+      "compile_sec": 5.714,
+      "target_cov_sec": 1.417,
       "partner_cov_sec": 0.0,
-      "cov_sec": 1.55,
-      "wall_sec": 8.759
+      "cov_sec": 1.417,
+      "wall_sec": 7.134
     },
     "avro::bfbd2d11::avro::TestReflect.testRecord::13c9eb07dbefd854f5": {
       "compiled": true,

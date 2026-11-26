@@ -1,0 +1,1069 @@
+{
+  "JsonRpc4J::ConnectionTests.testNotificationSending::ecc219e0107a2a7e13": {
+    "blind_id": "HO-SOTA-001",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "d18f1d10a8adc6dff83cb5095e06e7949a554053f6f592c852cd01f09ca07e11"
+  },
+  "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::79bc9f3567ac0e6bd6": {
+    "blind_id": "HO-SOTA-002",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "0802987cb68e4cf434e753a31de1587d77f0adefadcdff6c523348a48f51c36f"
+  },
+  "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrl::b42baa4ac727f0f586": {
+    "blind_id": "HO-SOTA-003",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "ae4dc215291aa71ee98fbb8fea4f8a963c347c83dfaa1b2e4f3a24ae50e90006"
+  },
+  "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::1ac3cd8889ddf9fa4b": {
+    "blind_id": "HO-SOTA-004",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "8730b45887f5200234e46c885e4f00d57f37e539625dd4fc766cdc2897f09562"
+  },
+  "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::4e6a3196fd9bdd7b60": {
+    "blind_id": "HO-SOTA-005",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "7d276a622755a6027a85b25dce02a6d579d9df3b88ecfe0609b6f154a6158cf6"
+  },
+  "apollo::RemoteConfigLongPollServiceTest.testAssembleLongPollRefreshUrlWithMultipleNamespaces::6025d47e25f0bbddf4": {
+    "blind_id": "HO-SOTA-006",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "14e10624a5f940b5f72631ff24bbcc1fe8ac2d34c4335f4031dd95d3cc4507aa"
+  },
+  "aries-cdi::MapsTest.checkMerge_1::5b02291b536142a0ef": {
+    "blind_id": "HO-SOTA-007",
+    "majority_label": "TEST_RESPONSIBILITY_SHIFT",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 10
+    },
+    "session_votes": [
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "d3cc676e305ca2e6814fb5650802118eda93caa9af72cd1990da7e7fc3b60f4e"
+  },
+  "avro::TestReflect.testAnnotationMultiAvroMeta::40a83a40f24051c8b4": {
+    "blind_id": "HO-SOTA-008",
+    "majority_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+    "majority_count_of_10": 7,
+    "normalized_vote_entropy": 0.556,
+    "vote_counts": {
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 7,
+      "GENUINE_ORACLE_WEAKENING": 3
+    },
+    "session_votes": [
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "GENUINE_ORACLE_WEAKENING",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "GENUINE_ORACLE_WEAKENING",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "GENUINE_ORACLE_WEAKENING",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "cbfbbfbc536672559cd1c1c4a154d040f9837a7dc22356cc3f051570dadc4cab"
+  },
+  "avro::TestReflect.testAnnotationMultiAvroMeta::e9adaea8eb3601a7ef": {
+    "blind_id": "HO-SOTA-009",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "136845d9f3622975c3c68057f7e879778fa163b2e19dfa6ba89b7295a36f4543"
+  },
+  "avro::TestReflect.testAvroDoc::111a190951c6b467ef": {
+    "blind_id": "HO-SOTA-010",
+    "majority_label": "TEST_RESPONSIBILITY_SHIFT",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 10
+    },
+    "session_votes": [
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "fe4a3044a82b37f72a65b7f9d6c0474da23443d0036eb6c455592c473c059550"
+  },
+  "avro::TestReflect.testAvroDoc::3e5c7bb46e56d207bb": {
+    "blind_id": "HO-SOTA-011",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 6,
+    "normalized_vote_entropy": 0.6126,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 6,
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 4
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "3ee05f2fb94792bc8ac03fe391b45aba540f486e5eccb43e47aad9b98db02195"
+  },
+  "avro::TestReflect.testAvroDoc::4595db1b1389b0494e": {
+    "blind_id": "HO-SOTA-012",
+    "majority_label": "TEST_RESPONSIBILITY_SHIFT",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 10
+    },
+    "session_votes": [
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "28ae67b13781fa639fb361777d92fd7c6b67f50ebce9e845a473d74c7870999a"
+  },
+  "avro::TestReflect.testAvroDoc::6fb02ac696c0446952": {
+    "blind_id": "HO-SOTA-013",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "d77901410e57a236366f14c68028a0359493a855c6a401b4d7ae162d6d669a00"
+  },
+  "avro::TestReflect.testAvroDoc::ab4ffafca086f95da7": {
+    "blind_id": "HO-SOTA-014",
+    "majority_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+    "majority_count_of_10": 7,
+    "normalized_vote_entropy": 0.556,
+    "vote_counts": {
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 7,
+      "GENUINE_ORACLE_WEAKENING": 3
+    },
+    "session_votes": [
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "GENUINE_ORACLE_WEAKENING",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "6feb20cc958d5c2605e5193a47fc9d4071d2c19a2ed3778e2bab990665eac5e5"
+  },
+  "avro::TestReflect.testMultipleFieldAliases::6dfa99ba7119f51182": {
+    "blind_id": "HO-SOTA-015",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "f2d2a41672b9f858ba8518375e2ea285ba1bdf590b41b8f74a9af3000319ee83"
+  },
+  "avro::TestReflect.testMultipleFieldAliases::ebe9b1122a797e0da0": {
+    "blind_id": "HO-SOTA-016",
+    "majority_label": "TEST_RESPONSIBILITY_SHIFT",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 10
+    },
+    "session_votes": [
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "8e4a1cea63271780d34f8cfef7a6832bd21ba671f876914361ab47d09d9fc59a"
+  },
+  "avro::TestReflect.testRecord::40ad2ef12a4702948b": {
+    "blind_id": "HO-SOTA-017",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 9,
+    "normalized_vote_entropy": 0.2959,
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 1,
+      "GENUINE_ORACLE_WEAKENING": 9
+    },
+    "session_votes": [
+      "TEST_RESPONSIBILITY_SHIFT",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "52a37d92cc5aa5d0d695ccad760c6d64ef03911c3529187d72988765da787997"
+  },
+  "avro::TestReflect.testRecord::7539523c7e6281f6be": {
+    "blind_id": "HO-SOTA-018",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "dbd8163ea72f0280ad03a7acf42513f8c873881743e41fe96e084a497ff22287"
+  },
+  "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValue::6fb2f6df62fd01fc9e": {
+    "blind_id": "HO-SOTA-019",
+    "majority_label": "TEST_RESPONSIBILITY_SHIFT",
+    "majority_count_of_10": 8,
+    "normalized_vote_entropy": 0.4555,
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 8,
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 2
+    },
+    "session_votes": [
+      "TEST_RESPONSIBILITY_SHIFT",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "f6a640f4ee57782aaa5997ed4a8d8284a9c08948524dfbc57d8378987300415d"
+  },
+  "cloud-slang::SensitiveValueTest.testEncryptedStringSensitiveValuePreEncrypted::c774e86dd6a890b46e": {
+    "blind_id": "HO-SOTA-020",
+    "majority_label": "TEST_RESPONSIBILITY_SHIFT",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 10
+    },
+    "session_votes": [
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "06d832b521addf488273d32ba5afe3e0787d22afa41c42594c9f07d5d5d368e8"
+  },
+  "cloud-slang::SensitiveValueTest.testSensitiveValueEncryptDecrypt::6fcda4dbceea878846": {
+    "blind_id": "HO-SOTA-021",
+    "majority_label": "TEST_RESPONSIBILITY_SHIFT",
+    "majority_count_of_10": 9,
+    "normalized_vote_entropy": 0.2959,
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 9,
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 1
+    },
+    "session_votes": [
+      "TEST_RESPONSIBILITY_SHIFT",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "4c7da1c2d26cd45881002c4109ca515b450a6076ac29f46ffaf1d3eb41019061"
+  },
+  "commons-lang::HashCodeBuilderTest.testReflectionHierarchyHashCode::dffe5e96d3f37714fc": {
+    "blind_id": "HO-SOTA-022",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "25565089f5d9fae6e9c3ed4dde6090e711b6defe9559e3d109be8c769008d67a"
+  },
+  "commons-lang::MultilineRecursiveToStringStyleTest.doubleArray::4b323600f85da1711d": {
+    "blind_id": "HO-SOTA-023",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "ad7a754da1bafe1dd4d0df5486ad45e23ba660f694fa096dea5bd66149a03c67"
+  },
+  "commons-lang::MultilineRecursiveToStringStyleTest.noArray::3738eca769181342e3": {
+    "blind_id": "HO-SOTA-024",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "f34e2a811c51ed09d90a3adb6871dbc6bddb98c0551005e7539874c50fc2674c"
+  },
+  "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator::171eab54a22f5a871a": {
+    "blind_id": "HO-SOTA-025",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "311aef2b594083502f24176eefe342ff2b840d75aeca6de9ec1919462f07bb0e"
+  },
+  "dropwizard::JsonFormatterTest.testPrettyPrintNoLineSeparator::b5d16b47da878a82d9": {
+    "blind_id": "HO-SOTA-026",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "f3de8fa53de804e077c9cd5bb80b04679d46c9d9b9708ce878a3990a19272078"
+  },
+  "dropwizard::JsonFormatterTest.testPrettyPrintWithLineSeparator::f46acf9efc49e29446": {
+    "blind_id": "HO-SOTA-027",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "cca15301f7e31029928fc828cfcca40466a7298dd0a4abedff2b6a8b588a4628"
+  },
+  "fastjson::JSONPParseTest3.test_f::199896be5c94fd270f": {
+    "blind_id": "HO-SOTA-028",
+    "majority_label": "TEST_RESPONSIBILITY_SHIFT",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 10
+    },
+    "session_votes": [
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "00830078de4ef9bfcd88ba9e7669188bd4315ac4e3169f4ad548ab66a38ca2ce"
+  },
+  "fastjson::JSONPParseTest3.test_f::77c8a544a406cb9ce6": {
+    "blind_id": "HO-SOTA-029",
+    "majority_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 10
+    },
+    "session_votes": [
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "ef0bae1dcd02bab4c2b8b8c4cb14e21b052b6553f94bace5e6a7d6a521a1f9d0"
+  },
+  "fastjson::WriteClassNameTest_Map.test_list::592a349a22b22f90cc": {
+    "blind_id": "HO-SOTA-030",
+    "majority_label": "TEST_RESPONSIBILITY_SHIFT",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 10
+    },
+    "session_votes": [
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "73f500e70db6c2cca7800110acd7a25cfd98d4a1cb1899c10f154319a275b013"
+  },
+  "fastjson::WriteClassNameTest_Map.test_list::8a666a2d9c10dac3c8": {
+    "blind_id": "HO-SOTA-031",
+    "majority_label": "TEST_RESPONSIBILITY_SHIFT",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 10
+    },
+    "session_votes": [
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "fad7ad3d633aaf40e823b89f1fb8ff2de2f900a8d6acc2d87e0f410be87d7676"
+  },
+  "fastjson::WriteDuplicateType.test_dupType::13f700dd81917878e8": {
+    "blind_id": "HO-SOTA-032",
+    "majority_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 10
+    },
+    "session_votes": [
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "7c5a10b13f91c9fb06b3ba78c54063f30b4d8373696da687839429af6de9a756"
+  },
+  "fastjson::WriteDuplicateType.test_dupType::622531e00d3ad8b7f0": {
+    "blind_id": "HO-SOTA-033",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "2c077965b6a55ff418b79f84db0e14e5042108258ba750322d376b0907a9ccc6"
+  },
+  "fastjson::WriteDuplicateType.test_dupType::633854ccb99c2025c8": {
+    "blind_id": "HO-SOTA-034",
+    "majority_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 10
+    },
+    "session_votes": [
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "07f8a376925e395d3ad963de0fea352c78ec1cc9ca74f5eb1a98374c4dcec8b5"
+  },
+  "fastjson::WriteDuplicateType.test_dupType::a199e3fc37854b254d": {
+    "blind_id": "HO-SOTA-035",
+    "majority_label": "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 10
+    },
+    "session_votes": [
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "67b39f7da9e34da0d6888df7b26b79224d9ff61f21ca699770a9bd46df85719d"
+  },
+  "hippo4j::ContentUtilTest.assertGetPoolContent::222a01b0515feb9171": {
+    "blind_id": "HO-SOTA-036",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 6,
+    "normalized_vote_entropy": 0.6126,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 6,
+      "TEST_RESPONSIBILITY_SHIFT": 4
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "GENUINE_ORACLE_WEAKENING",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "a2436e4a54460c927e157c69fa0639e8434cbc4195bdb7abf4cee4a987b7b861"
+  },
+  "http-request::HttpRequestTest.singleVerifier::7b6c7ab2c4add11c64": {
+    "blind_id": "HO-SOTA-037",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "b8a352d2218fed6448fff0edaef4867a8ea0d23580e4c1aaa7eb67a8e8206a77"
+  },
+  "openhtmltopdf::Slf4JLoggerTest.testLogger::c6f99c7df1c883e9c6": {
+    "blind_id": "HO-SOTA-038",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "3ce0b4a79b5d8d831d693c32a0e3c3b8966a67069617195e4102472993910216"
+  },
+  "openwebbeans::BeanCacheKeyUnitTest.testEquals2Annotations::72e84faadf9dbd3ef7": {
+    "blind_id": "HO-SOTA-039",
+    "majority_label": "TEST_RESPONSIBILITY_SHIFT",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 10
+    },
+    "session_votes": [
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "126f83f479ac91c7364db70d3cd543d7b9cbc55ef958d1c8673eff672b7964b8"
+  },
+  "py::crom::TestFactorySerialization.test_toJSON::3068910eb9a986f2d5": {
+    "blind_id": "HO-SOTA-040",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 9,
+    "normalized_vote_entropy": 0.2959,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 9,
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION": 1
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "LEGITIMATE_RELAXATION_OR_CANONICALIZATION",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "dad9da8b2a5ad47e95f3a9f695fd377f5dee96b04e3d359c777495ce6eca8e1d"
+  },
+  "py::crom::TestFactorySerialization.test_toString::e3327207304dfd4936": {
+    "blind_id": "HO-SOTA-041",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "8579db1eed4843594e47f5b1e7924fc497ebf16be175a064cf60bcc9708b2458"
+  },
+  "py::krllint::TrailingWhiteSpaceTestCase.test_rule_without_fix::1ea1515d30ef107792": {
+    "blind_id": "HO-SOTA-042",
+    "majority_label": "TEST_RESPONSIBILITY_SHIFT",
+    "majority_count_of_10": 9,
+    "normalized_vote_entropy": 0.2959,
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 9,
+      "GENUINE_ORACLE_WEAKENING": 1
+    },
+    "session_votes": [
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "GENUINE_ORACLE_WEAKENING",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "fcb20d581b132344b72f7e826789afd63df3dd9d946f96b04b7a8da31749961e"
+  },
+  "py::py-autodoc::TestAutodoc.test_parse_response::c50cf17b73ccb63659": {
+    "blind_id": "HO-SOTA-043",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "d231cc278e767e0dd487309808972ddaae7f62ae97a5dcd24f965ab47b337e48"
+  },
+  "py::tornado-swirl::TestSampleEndpoints.test_security_scheme2::a165baa1893843e6f4": {
+    "blind_id": "HO-SOTA-044",
+    "majority_label": "GENUINE_ORACLE_WEAKENING",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "GENUINE_ORACLE_WEAKENING": 10
+    },
+    "session_votes": [
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING",
+      "GENUINE_ORACLE_WEAKENING"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "a47922499d3f95a1cb2c05d906657115f2e565c5ea781b04b9968a75d6d21c74"
+  },
+  "visualee::DescriptionTest.testGenerateDescription2::15a2c2c5e39630ed85": {
+    "blind_id": "HO-SOTA-045",
+    "majority_label": "TEST_RESPONSIBILITY_SHIFT",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 10
+    },
+    "session_votes": [
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "18450ae823f0ed8fb44606af8e8c9b45645c5915b4e3e150fa73dee5a6f81930"
+  },
+  "visualee::GraphCreatorTest.testBuildJSONNodes::49ce716c38861e4fda": {
+    "blind_id": "HO-SOTA-046",
+    "majority_label": "TEST_RESPONSIBILITY_SHIFT",
+    "majority_count_of_10": 10,
+    "normalized_vote_entropy": -0.0,
+    "vote_counts": {
+      "TEST_RESPONSIBILITY_SHIFT": 10
+    },
+    "session_votes": [
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT",
+      "TEST_RESPONSIBILITY_SHIFT"
+    ],
+    "adjudicator_model": "gpt-6-astra",
+    "dossier_sha256": "85a4c12d8248ac7646f2ab10dbaa0d0fd68634338ffe10aeb485466baeb2c265"
+  }
+}

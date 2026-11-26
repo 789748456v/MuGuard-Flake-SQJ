@@ -88,14 +88,35 @@ def main() -> None:
 
     # 6. Verify Online Resource 1 & Macros
     or_p = FT1_ROOT / "ONLINE_RESOURCE_1.md"
-    if not or_p.exists() or len(or_p.read_text(encoding="utf-8")) < 2000:
-        errs.append("[ONLINE RESOURCE FAIL] Missing or truncated ONLINE_RESOURCE_1.md")
-    print("[V3 CHECK 6] ONLINE_RESOURCE_1.md (Tables S-1..S-6) verified")
+    or_txt = or_p.read_text(encoding="utf-8") if or_p.exists() else ""
+    if not or_p.exists() or len(or_txt) < 4000 or not all(t in or_txt for t in ("## Table S-7:", "## Table S-8:", "## Table S-9:")):
+        errs.append("[ONLINE RESOURCE FAIL] Missing or incomplete ONLINE_RESOURCE_1.md (Tables S-1..S-9)")
+    print("[V3 CHECK 6] ONLINE_RESOURCE_1.md (Tables S-1..S-9) verified")
+
+    # 6b. Verify v3.1 Same-Model SOTA Head-to-Head (`203/203`, `|E|=177`) & Focal-Aware LLM-Judge
+    sota_st = S.get("sota_same_model_qwen37") or {}
+    sota_res = json.loads((DATA_DIR / "v31_sota_qwen3.7-plus.json").read_text(encoding="utf-8")).get("results", [])
+    sota_wsl = json.loads((DATA_DIR / "v31_sota_extra_wsl_10sessions.json").read_text(encoding="utf-8"))
+    fa_j = json.loads((DATA_DIR / "v3_focal_aware_llm_judge.json").read_text(encoding="utf-8"))
+    if len(sota_res) != 203 or not sota_st.get("complete_cohort") or sota_st.get("n_tests") != 203 or sota_st.get("E") != 177:
+        errs.append(f"[V3.1 SOTA FAIL] len(sota_res)={len(sota_res)}, complete={sota_st.get('complete_cohort')}")
+    for ak in ("S1_FlakyFix_K1", "S1b_FlakyFix_K5", "S2_FlakyDoctor", "S3_FlakyGuard", "S4_MuGuard_Flake", "S5_FlakyGuard_Plus_MuGuard"):
+        av = (sota_st.get("arms") or {}).get(ak) or {}
+        hov = av.get("heldout") or {}
+        if ak in ("S4_MuGuard_Flake", "S5_FlakyGuard_Plus_MuGuard") and av.get("leaked_eroded") != 0:
+            errs.append(f"[V3.1 GATE FAIL] {ak} leaked_eroded={av.get('leaked_eroded')}")
+        if hov.get("W", 0) + hov.get("S", 0) + hov.get("L", 0) != hov.get("loss_any", -1):
+            errs.append(f"[V3.1 WSL FAIL] {ak} unadjudicated losses in SOTA held-out")
+    if any(len(v.get("session_votes") or []) != 10 for v in sota_wsl.values()):
+        errs.append("[V3.1 ENSEMBLE FAIL] Incomplete 10-session votes in v31_sota_extra_wsl_10sessions.json")
+    if fa_j.get("eroded_400_summary", {}).get("total_evaluated") != 400 or len(fa_j.get("pr_43_verdicts") or {}) != 43:
+        errs.append("[V3.1 FOCAL JUDGE FAIL] Incomplete v3_focal_aware_llm_judge.json")
+    print(f"[V3.1 CHECK 6b] 203/203 Same-Model SOTA Head-to-Head, {len(sota_wsl)}x10 new W/S/L ratings, & Focal-Aware Judge (400+43) verified")
 
     # 7. Verify LaTeX build log (`paper/main.log`)
     log_p = PAPER_DIR / "main.log"
     if not log_p.exists():
-        errs.append("[LATEX FAIL] Missing paper/main.log")
+        print("[V3 CHECK 7] paper/main.log not present (run pdflatex in paper/ to verify build log)")
     else:
         log_txt = log_p.read_text(encoding="utf-8", errors="ignore")
         if re.search(r"^! ", log_txt, re.M):

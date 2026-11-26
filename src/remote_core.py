@@ -16,13 +16,70 @@ IDOFT_ROOT = "/root/sqj_work/FT1/repos/idoft"
 
 # Global cap: at most 3 concurrent Docker containers * 2.5 vCPU = 7.5 vCPU (<= 8 vCPU), 3 * 4 GB = 12 GB (<= 14 GB)
 DOCKER_SEM = threading.Semaphore(3)
+INFRA_TLS = threading.local()
+
+INFRA_PATTERNS = [
+    re.compile(r"Cannot connect to the Docker daemon", re.IGNORECASE),
+    re.compile(r"Is the docker daemon running", re.IGNORECASE),
+    re.compile(r"docker:\s*Error response from daemon", re.IGNORECASE),
+    re.compile(r"Error response from daemon:", re.IGNORECASE),
+    re.compile(r"OCI runtime (?:create|exec) failed", re.IGNORECASE),
+    re.compile(r"runc create failed|failed to create shim", re.IGNORECASE),
+    re.compile(r"No space left on device|\bENOSPC\b", re.IGNORECASE),
+    re.compile(r"Read-only file system|\bEROFS\b", re.IGNORECASE),
+    re.compile(r"Input/output error|\bEIO\b", re.IGNORECASE),
+    re.compile(r"Cannot allocate memory|\bENOMEM\b|unable to create native thread|Resource temporarily unavailable", re.IGNORECASE),
+    re.compile(r"There is insufficient memory for the Java Runtime Environment|Native memory allocation .* failed", re.IGNORECASE),
+    re.compile(r"Too many open files", re.IGNORECASE),
+    re.compile(r"FT1_INNER_PYTEST_INFRA", re.IGNORECASE),
+    re.compile(r"Could not transfer artifact", re.IGNORECASE),
+    re.compile(r"PluginResolutionException|PluginContainerException|LocalRepositoryNotAccessibleException|RepoOfflineException", re.IGNORECASE),
+    re.compile(r"error in opening zip file|zip END header not found", re.IGNORECASE),
+]
+
+
+def detect_infra_failure(rc_code: Optional[int], output: str, is_compile: bool = False) -> Optional[str]:
+    """Recognize Docker/OS/Maven/filesystem infrastructure failures while keeping candidate test failures & timeouts intact."""
+    txt = output or ""
+    eff_rc = rc_code
+    if eff_rc is None:
+        m_rc = re.search(r"\[rc=(-?\d+)\]", txt)
+        if m_rc:
+            eff_rc = int(m_rc.group(1))
+    if eff_rc in (93, 125, 126):
+        return f"docker/runtime/inner-infra exit code {eff_rc}: {txt[-350:].strip()}"
+    for pat in INFRA_PATTERNS:
+        if pat.search(txt):
+            return f"matched `{pat.pattern}` (rc={eff_rc}): {txt[-350:].strip()}"
+    if is_compile and "BUILD SUCCESS" not in txt:
+        has_err = ("[ERROR]" in txt) or ("COMPILATION ERROR" in txt) or ("BUILD FAILURE" in txt)
+        if not has_err:
+            return f"test-compile produced no javac/Maven diagnostics (rc={eff_rc}): {txt[-350:].strip()}"
+    return None
+
+
+def reset_infra_trace() -> None:
+    INFRA_TLS.hit = None
+
+
+def record_subproc_result(rc_code: Optional[int], output: str, stage: str = "", is_compile: bool = False) -> None:
+    hit = detect_infra_failure(rc_code, output, is_compile=is_compile)
+    if hit and not getattr(INFRA_TLS, "hit", None):
+        INFRA_TLS.hit = f"{stage}: {hit}" if stage else hit
+
+
+def pop_infra_trace() -> Optional[str]:
+    hit = getattr(INFRA_TLS, "hit", None)
+    INFRA_TLS.hit = None
+    return hit
 
 MVN_SKIPS = (
     "-Dfindbugs.skip=true -Dbasepom.check.skip-prettier -Dgpg.skip -Drat.skip "
     "-Dcheckstyle.skip -Denforcer.skip=true -Dspotbugs.skip -Djacoco.skip "
     "-Danimal.sniffer.skip -Dmaven.antrun.skip -Dfmt.skip -Dlicense.skip=true "
     "-Dlicense.skipCheckLicense -Dlicense.skipAddThirdParty=true -Ddependency-check.skip=true "
-    "-Dspotless.check.skip=true -Dmaven.javadoc.skip=true "
+    "-Dspotless.check.skip=true -Dspotless.apply.skip=true -Dspotless.skip=true -Dskip.spotless.apply=true "
+    "-Dskip.checkstyle.check=true -Dflatten.skip=true -Dmaven.javadoc.skip=true "
     "-Dskip.npm -Dskip.yarn -Dskip.bower -Dskip.grunt -Dskip.gulp -DskipDockerBuild -DskipDocker"
 )
 
@@ -110,14 +167,18 @@ def run_docker_cmd(
         t0 = time.time()
         try:
             p = subprocess.run(cmd, capture_output=True, text=True, errors="replace", timeout=timeout)
-            return p.returncode, (p.stdout + "\n" + p.stderr), (time.time() - t0)
+            out_s = p.stdout + "\n" + p.stderr
+            record_subproc_result(p.returncode, out_s, "run_docker_cmd")
+            return p.returncode, out_s, (time.time() - t0)
         except subprocess.TimeoutExpired:
             subprocess.run(["docker", "rm", "-f", cname], capture_output=True)
             return 124, f"TIMEOUT after {timeout}s", (time.time() - t0)
 
 
 def docker_mvn(proj_dir: str, jdk: str, mvn_args: str, timeout: int = 150) -> Tuple[int, str, float]:
-    return run_docker_cmd(proj_dir, jdk, f"mvn {mvn_args} {MVN_SKIPS}", timeout=timeout)
+    rc_c, out_s, dt = run_docker_cmd(proj_dir, jdk, f"mvn {mvn_args} {MVN_SKIPS}", timeout=timeout)
+    record_subproc_result(rc_c, out_s, "docker_mvn")
+    return rc_c, out_s, dt
 
 
 def mask_java_comments_and_literals(code: str) -> str:
@@ -676,12 +737,16 @@ def check_stability_w_plus(
         )
         if rc_code == 0 and "BUILD SUCCESS" in out and not has_fail:
             return True, "NonDex passed across all seeds", dt
-        # Extract concise failure diagnostic
+        infra_hit = detect_infra_failure(rc_code, out)
+        if infra_hit:
+            return False, f"[rc={rc_code}] [INFRA] {infra_hit}\n{out[-1000:]}", dt
+        # Extract concise failure diagnostic (never return empty diagnostic when subprocess failed)
         err_lines = []
         for ln in out.splitlines():
             if any(k in ln for k in ("[ERROR]", "AssertionError", "ComparisonFailure", "Exception", "expected", "but was", victim_fqcn.split(".")[-1])):
                 err_lines.append(ln)
-        return False, "\n".join(err_lines[-25:])[-1800:], dt
+        body = "\n".join(err_lines[-25:])[-1650:] if err_lines else out[-1650:]
+        return False, f"[rc={rc_code}]\n{body}", dt
     else:
         t0 = time.time()
         v_spec = f"{victim_fqcn}#{victim_method}"
@@ -715,7 +780,7 @@ def check_stability_w_plus(
                 rc_code, out, _ = run_docker_cmd(proj_dir, jdk, bash_cmd, workdir_rel=mod_rel, timeout=90)
                 if rc_code == 0 and "FT1_OD_ALL_OK" in out:
                     return True, "OD passed standalone, polluter->victim, and victim->polluter", (time.time() - t0)
-                return False, out[-1200:], (time.time() - t0)
+                return False, f"[rc={rc_code}]\n{out[-1200:]}", (time.time() - t0)
             finally:
                 for fn in os.listdir(tclasses):
                     if fn.startswith("FT1OrderRunner"):
@@ -730,8 +795,8 @@ def check_stability_w_plus(
                     f"test {pl} -Dsurefire.runOrder=testorder -Dtest={order_arg}",
                     timeout=90,
                 )
-                if "BUILD SUCCESS" not in out or re.search(r"Failures:\s*[1-9]|Errors:\s*[1-9]|Skipped:\s*[1-9]", out):
-                    return False, f"Surefire order `{order_arg}` failed:\n{out[-1200:]}", (time.time() - t0)
+                if rc_code != 0 or "BUILD SUCCESS" not in out or re.search(r"Failures:\s*[1-9]|Errors:\s*[1-9]|Skipped:\s*[1-9]", out):
+                    return False, f"Surefire order `{order_arg}` failed [rc={rc_code}]:\n{out[-1200:]}", (time.time() - t0)
             return True, "OD passed Surefire orders", (time.time() - t0)
 
 

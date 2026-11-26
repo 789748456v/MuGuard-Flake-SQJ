@@ -11,7 +11,9 @@ import json
 import os
 import re
 import shutil
+import subprocess
 import sys
+import threading
 import time
 from typing import Any, Dict, List, Optional, Set, Tuple
 
@@ -19,12 +21,28 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import remote_core as rc
 import remote_python_core as rpc
 from remote_v2_freeze_benchmark_and_mext import (
+    LAST_PY_MUT_DIAG,
     check_java_w_plus_heldout_detailed,
     check_py_w_plus_heldout,
     check_py_w_plus_heldout_detailed,
     run_attributed_java_pit,
     run_attributed_py_mut,
 )
+
+
+def _check_and_mark_infra(
+    res: Dict[str, Any],
+    rc_code: Optional[int],
+    diag_text: str,
+    stage: str,
+    is_compile: bool = False,
+) -> bool:
+    hit = rc.detect_infra_failure(rc_code, diag_text, is_compile=is_compile) or rc.pop_infra_trace()
+    if hit:
+        res["infra_error"] = True
+        res["infra_error_detail"] = f"[{stage}] {hit}"
+        return True
+    return False
 from v2_guards_and_attribution import (
     HARNESS_VERSION,
     analyze_affected_test_scope,
@@ -36,7 +54,24 @@ from v2_guards_and_attribution import (
 )
 
 
+def _restore_runtime_py_fixtures(pdir: str, exclude_rels: Set[str]) -> None:
+    """Reset any non-candidate tracked fixture files modified at runtime by OD polluters (e.g., Breathe fruit.py, py-autodoc .md)."""
+    try:
+        p = subprocess.run(["git", "-C", pdir, "diff", "--name-only", "HEAD", "--"], capture_output=True, text=True, timeout=30)
+        if p.returncode == 0:
+            to_reset = [
+                x.strip()
+                for x in (p.stdout or "").splitlines()
+                if x.strip() and x.strip().replace("\\", "/") not in exclude_rels
+            ]
+            if to_reset:
+                subprocess.run(["git", "-C", pdir, "checkout", "HEAD", "--"] + to_reset, capture_output=True, timeout=30)
+    except Exception:
+        pass
+
+
 def evaluate_java_v2_in_loop(sample: Dict[str, Any], candidate: Dict[str, Any]) -> Dict[str, Any]:
+    rc.reset_infra_trace()
     t0 = time.time()
     pdir = sample["proj_dir"]
     mod_rel = sample["module"]
@@ -50,12 +85,15 @@ def evaluate_java_v2_in_loop(sample: Dict[str, Any], candidate: Dict[str, Any]) 
     pol_file = sample.get("polluter_file_path") or vic_file
     same_file = (os.path.abspath(vic_file) == os.path.abspath(pol_file))
 
-    orig_vic_src = re.sub(r"/\*FT1_ISOLATED\s*(.*?)\s*\*/", r"\1", open(vic_file, encoding="utf-8", errors="replace").read())
+    orig_vic_b = open(vic_file, "rb").read()
+    orig_pol_b = orig_vic_b if same_file else open(pol_file, "rb").read()
+    orig_pom_b = open(pom_path, "rb").read()
+    orig_vic_src = re.sub(r"/\*FT1_ISOLATED\s*(.*?)\s*\*/", r"\1", orig_vic_b.decode("utf-8", errors="replace"))
     orig_pol_src = (
         orig_vic_src if same_file
-        else re.sub(r"/\*FT1_ISOLATED\s*(.*?)\s*\*/", r"\1", open(pol_file, encoding="utf-8", errors="replace").read())
+        else re.sub(r"/\*FT1_ISOLATED\s*(.*?)\s*\*/", r"\1", orig_pol_b.decode("utf-8", errors="replace"))
     )
-    orig_pom_src = open(pom_path, encoding="utf-8", errors="replace").read()
+    orig_pom_src = orig_pom_b.decode("utf-8", errors="replace")
     vbak = rc.backup_class_files(mod_dir, sample["victim_fqcn"])
     pbak = rc.backup_class_files(mod_dir, sample["polluter_fqcn"]) if (sample.get("polluter_fqcn") and sample["polluter_fqcn"] != sample["victim_fqcn"]) else {}
 
@@ -183,12 +221,17 @@ def evaluate_java_v2_in_loop(sample: Dict[str, Any], candidate: Dict[str, Any]) 
 
         pl = f"-pl {mod_rel}" if mod_rel not in ("", ".") else ""
         extra_cp = "dependency:build-classpath -Dmdep.outputFile=target/ft1_cp.txt" if pom_mod else ""
-        _, out_c, dt_c = rc.docker_mvn(pdir, jdk, f"test-compile {extra_cp} {pl}", timeout=120)
+        rc_c, out_c, dt_c = rc.docker_mvn(pdir, jdk, f"test-compile {extra_cp} {pl}", timeout=120)
         res["compile_sec"] = round(dt_c, 2)
-        if "BUILD SUCCESS" not in out_c:
+        if _check_and_mark_infra(res, rc_c, out_c, "java_compile", is_compile=(rc_c != 0 or "BUILD SUCCESS" not in out_c)):
             err_lns = [ln for ln in out_c.splitlines() if "[ERROR]" in ln]
             res["compile_error"] = "\n".join(err_lns[:25])[-1800:] or out_c[-1000:]
             return res
+        if rc_c != 0 or "BUILD SUCCESS" not in out_c:
+            err_lns = [ln for ln in out_c.splitlines() if "[ERROR]" in ln]
+            res["compile_error"] = "\n".join(err_lns[:25])[-1800:] or out_c[-1000:]
+            return res
+        rc.reset_infra_trace()
         res["compiled"] = True
 
         w_ok, w_diag, dt_w = rc.check_stability_w_plus(
@@ -199,8 +242,12 @@ def evaluate_java_v2_in_loop(sample: Dict[str, Any], candidate: Dict[str, Any]) 
         res["w_plus_passed"] = w_ok
         res["w_plus_diag"] = w_diag
         res["w_plus_sec"] = round(dt_w, 2)
+        if _check_and_mark_infra(res, None, w_diag, "java_w_plus"):
+            res["w_plus_passed"] = False
+            return res
         if not w_ok:
             return res
+        rc.reset_infra_trace()
 
         # Attributed Target PIT on `DEFAULTS`
         t_ok, t_muts, dt_tpit, t_tail = run_attributed_java_pit(
@@ -212,10 +259,15 @@ def evaluate_java_v2_in_loop(sample: Dict[str, Any], candidate: Dict[str, Any]) 
         )
         res["target_pit_sec"] = dt_tpit
         res["pit_sec"] = dt_tpit
+        if _check_and_mark_infra(res, None, t_tail, "java_target_pit"):
+            res["pit_ran"] = False
+            res["w_plus_diag"] += f"\n[TARGET_PIT_INFRA_ERROR]: {t_tail[-400:]}"
+            return res
         if not t_ok:
             res["pit_ran"] = False
             res["w_plus_diag"] += f"\n[TARGET_PIT_ERROR]: {t_tail[-400:]}"
             return res
+        rc.reset_infra_trace()
 
         t_by_eid, t_st_by_eid = resolve_pit_mutants_by_exact_id(t_muts)
         t_killed: Set[str] = set()
@@ -245,6 +297,9 @@ def evaluate_java_v2_in_loop(sample: Dict[str, Any], candidate: Dict[str, Any]) 
             )
             res["partner_pit_sec"] = dt_ppit
             res["pit_sec"] = round(dt_tpit + dt_ppit, 2)
+            if _check_and_mark_infra(res, None, p_tail, "java_partner_pit"):
+                res["w_plus_diag"] += f"\n[PARTNER_PIT_INFRA_ERROR]: {p_tail[-400:]}"
+                return res
             if p_ok:
                 p_by_eid, _ = resolve_pit_mutants_by_exact_id(p_muts)
                 p_killed = set()
@@ -291,12 +346,15 @@ def evaluate_java_v2_in_loop(sample: Dict[str, Any], candidate: Dict[str, Any]) 
         return res
     except Exception as ex:
         res["compile_error"] = str(ex)
+        if isinstance(ex, (OSError, subprocess.SubprocessError, TimeoutError, MemoryError)):
+            res["infra_error"] = True
+            res["infra_error_detail"] = f"{type(ex).__name__}: {ex}"
         return res
     finally:
-        open(vic_file, "w", encoding="utf-8").write(orig_vic_src)
+        open(vic_file, "wb").write(orig_vic_b)
         if not same_file:
-            open(pol_file, "w", encoding="utf-8").write(orig_pol_src)
-        open(pom_path, "w", encoding="utf-8").write(orig_pom_src)
+            open(pol_file, "wb").write(orig_pol_b)
+        open(pom_path, "wb").write(orig_pom_b)
         rc.restore_class_files(mod_dir, sample["victim_fqcn"], vbak)
         if pbak:
             rc.restore_class_files(mod_dir, sample["polluter_fqcn"], pbak)
@@ -304,6 +362,7 @@ def evaluate_java_v2_in_loop(sample: Dict[str, Any], candidate: Dict[str, Any]) 
 
 
 def evaluate_py_v2_in_loop(sample: Dict[str, Any], candidate: Dict[str, Any]) -> Dict[str, Any]:
+    rc.reset_infra_trace()
     t0 = time.time()
     pdir = sample["proj_dir"]
     vic_file = os.path.join(pdir, sample["victim_file_rel"])
@@ -430,16 +489,32 @@ def evaluate_py_v2_in_loop(sample: Dict[str, Any], candidate: Dict[str, Any]) ->
         res["w_plus_passed"] = w_ok
         res["w_plus_diag"] = w_diag
         res["w_plus_sec"] = round(dt_w, 2)
+        if _check_and_mark_infra(res, None, w_diag, "py_w_plus"):
+            res["w_plus_passed"] = False
+            return res
         if not w_ok:
             return res
+        rc.reset_infra_trace()
+        _cand_py_rels = {
+            sample["victim_file_rel"].replace("\\", "/"),
+            (sample.get("polluter_file_rel") or sample["victim_file_rel"]).replace("\\", "/"),
+        }
+        _restore_runtime_py_fixtures(pdir, _cand_py_rels)
 
+        LAST_PY_MUT_DIAG.pop(threading.get_ident(), None)
         t_ok, t_map, dt_t = run_attributed_py_mut(pdir, [sample["test_full_name"]], sample["test_full_name"], sample["m_det_exec"], timeout=115)
+        rc_tm, diag_tm = LAST_PY_MUT_DIAG.pop(threading.get_ident(), (None, ""))
         res["target_pit_sec"] = dt_t
         res["pit_sec"] = dt_t
+        if _check_and_mark_infra(res, rc_tm, diag_tm, "py_target_mut"):
+            res["pit_ran"] = False
+            res["w_plus_diag"] += f"\n[TARGET_PY_MUT_INFRA_ERROR]: {diag_tm[-400:]}"
+            return res
         if not t_ok:
             res["pit_ran"] = False
-            res["w_plus_diag"] += "\n[TARGET_PY_MUT_ERROR]"
+            res["w_plus_diag"] += f"\n[TARGET_PY_MUT_ERROR]: {diag_tm[-400:]}"
             return res
+        rc.reset_infra_trace()
 
         t_killed = {mid for mid, inf in t_map.items() if inf.get("killed")}
         t_unknown_ids = [
@@ -454,9 +529,14 @@ def evaluate_py_v2_in_loop(sample: Dict[str, Any], candidate: Dict[str, Any]) ->
         pol_exec = sample.get("polluter_m_det_exec") or []
         if scope["affects_partner_or_shared"] and len(pol_exec) > 0:
             p_ran = True
+            LAST_PY_MUT_DIAG.pop(threading.get_ident(), None)
             p_ok, p_map, dt_p = run_attributed_py_mut(pdir, [sample["polluter_full_name"]], sample["polluter_full_name"], pol_exec, timeout=95)
+            rc_pm, diag_pm = LAST_PY_MUT_DIAG.pop(threading.get_ident(), (None, ""))
             res["partner_pit_sec"] = dt_p
             res["pit_sec"] = round(dt_t + dt_p, 2)
+            if _check_and_mark_infra(res, rc_pm, diag_pm, "py_partner_mut"):
+                res["w_plus_diag"] += f"\n[PARTNER_PY_MUT_INFRA_ERROR]: {diag_pm[-400:]}"
+                return res
             if p_ok:
                 p_killed = {pid for pid, pinf in p_map.items() if pinf.get("killed")}
                 p_unknown_ids = [
@@ -464,7 +544,7 @@ def evaluate_py_v2_in_loop(sample: Dict[str, Any], candidate: Dict[str, Any]) ->
                     if (pm["id"] not in p_map) or p_map[pm["id"]].get("is_unknown")
                 ]
             else:
-                res["w_plus_diag"] += "\n[PARTNER_PY_MUT_ERROR]"
+                res["w_plus_diag"] += f"\n[PARTNER_PY_MUT_ERROR]: {diag_pm[-400:]}"
         res["partner_unknown_count"] = len(p_unknown_ids)
         res["partner_unknown_ids"] = p_unknown_ids[:10]
 
@@ -496,11 +576,15 @@ def evaluate_py_v2_in_loop(sample: Dict[str, Any], candidate: Dict[str, Any]) ->
         return res
     except Exception as ex:
         res["compile_error"] = str(ex)
+        if isinstance(ex, (OSError, subprocess.SubprocessError, TimeoutError, MemoryError)):
+            res["infra_error"] = True
+            res["infra_error_detail"] = f"{type(ex).__name__}: {ex}"
         return res
     finally:
         open(vic_file, "wb").write(orig_vic_b)
         if not same_file:
             open(pol_file, "wb").write(orig_pol_b)
+        _restore_runtime_py_fixtures(pdir, set())
         for tf in {vic_file, pol_file}:
             pc = os.path.join(os.path.dirname(tf), "__pycache__")
             if os.path.isdir(pc):
@@ -513,6 +597,7 @@ def evaluate_post_freeze_heldout(sample: Dict[str, Any], candidate: Dict[str, An
     Post-freeze external validation (`W+_heldout` + frozen `M_ext` pools).
     NEVER called inside any repair loop.
     """
+    rc.reset_infra_trace()
     lang = sample.get("language", "java")
     t0 = time.time()
     if lang == "java":
@@ -527,12 +612,15 @@ def evaluate_post_freeze_heldout(sample: Dict[str, Any], candidate: Dict[str, An
         pol_file = sample.get("polluter_file_path") or vic_file
         same_file = (os.path.abspath(vic_file) == os.path.abspath(pol_file))
 
-        orig_vic = re.sub(r"/\*FT1_ISOLATED\s*(.*?)\s*\*/", r"\1", open(vic_file, encoding="utf-8", errors="replace").read())
+        orig_vic_b = open(vic_file, "rb").read()
+        orig_pol_b = orig_vic_b if same_file else open(pol_file, "rb").read()
+        orig_pom_b = open(pom_path, "rb").read()
+        orig_vic = re.sub(r"/\*FT1_ISOLATED\s*(.*?)\s*\*/", r"\1", orig_vic_b.decode("utf-8", errors="replace"))
         orig_pol = (
             orig_vic if same_file
-            else re.sub(r"/\*FT1_ISOLATED\s*(.*?)\s*\*/", r"\1", open(pol_file, encoding="utf-8", errors="replace").read())
+            else re.sub(r"/\*FT1_ISOLATED\s*(.*?)\s*\*/", r"\1", orig_pol_b.decode("utf-8", errors="replace"))
         )
-        orig_pom = open(pom_path, encoding="utf-8", errors="replace").read()
+        orig_pom = orig_pom_b.decode("utf-8", errors="replace")
         vbak = rc.backup_class_files(mod_dir, sample["victim_fqcn"])
         pbak = rc.backup_class_files(mod_dir, sample["polluter_fqcn"]) if (sample.get("polluter_fqcn") and sample["polluter_fqcn"] != sample["victim_fqcn"]) else {}
         try:
@@ -571,7 +659,27 @@ def evaluate_post_freeze_heldout(sample: Dict[str, Any], candidate: Dict[str, An
 
             pl = f"-pl {mod_rel}" if mod_rel not in ("", ".") else ""
             extra_cp = "dependency:build-classpath -Dmdep.outputFile=target/ft1_cp.txt" if pom_mod else ""
-            rc.docker_mvn(pdir, jdk, f"test-compile {extra_cp} {pl}", timeout=115)
+            rc_hc, out_hc, _ = rc.docker_mvn(pdir, jdk, f"test-compile {extra_cp} {pl}", timeout=115)
+            ho_c_probe: Dict[str, Any] = {}
+            if _check_and_mark_infra(ho_c_probe, rc_hc, out_hc, "heldout_java_compile", is_compile=(rc_hc != 0 or "BUILD SUCCESS" not in out_hc)):
+                ho_c_probe["harness_version"] = HARNESS_VERSION
+                ho_c_probe["w_plus_heldout_passed"] = False
+                ho_c_probe["w_plus_heldout_passed_strict"] = False
+                ho_c_probe["w_plus_heldout_diag"] = out_hc[-500:]
+                return ho_c_probe
+            if rc_hc != 0 or "BUILD SUCCESS" not in out_hc:
+                return {
+                    "harness_version": HARNESS_VERSION,
+                    "w_plus_heldout_passed": False,
+                    "w_plus_heldout_passed_strict": False,
+                    "w_plus_heldout_passed_target_stress": False,
+                    "w_plus_heldout_diag": out_hc[-500:],
+                    "m_ext_applicable": bool((sample.get("m_ext_op_value_flow") or []) or (sample.get("m_ext_op_call") or [])),
+                    "m_ext_eval_ok": False,
+                    "m_ext_runner_ok": False,
+                    "total_sec": round(time.time() - t0, 2),
+                }
+            rc.reset_infra_trace()
             j_ctrl = sample.get("upstream_repeated_control") or {}
             upstream_nonidemp_p2_java = bool(
                 (not j_ctrl.get("is_unknown"))
@@ -584,6 +692,11 @@ def evaluate_post_freeze_heldout(sample: Dict[str, Any], candidate: Dict[str, An
                 allow_upstream_nonidempotent_p2_call_fail=allow_stress_p2_java,
                 expected_p2_call_exc=expected_p2_exc_java,
             )
+            ho_w_probe: Dict[str, Any] = {}
+            if _check_and_mark_infra(ho_w_probe, None, w_ho_diag, "heldout_java_w_plus"):
+                ho_w_probe["harness_version"] = HARNESS_VERSION
+                return ho_w_probe
+            rc.reset_infra_trace()
             w_ho_stress = bool(w_ho_scheds.get("w_plus_heldout_passed_target_stress", w_ho_strict))
             if not allow_stress_p2_java:
                 w_ho_stress = bool(w_ho_strict)
@@ -626,6 +739,10 @@ def evaluate_post_freeze_heldout(sample: Dict[str, Any], candidate: Dict[str, An
                 pit_pair=pit_pair, fqcn_to_path=sample.get("fqcn_to_path"),
                 mutators_arg=mut_flag_ext, timeout=155,
             )
+            ho_j_probe1: Dict[str, Any] = {}
+            if _check_and_mark_infra(ho_j_probe1, None, pit_tail, "heldout_java_mext"):
+                ho_j_probe1["harness_version"] = HARNESS_VERSION
+                return ho_j_probe1
             if not ok_all and mut_flag_ext == "ALL":
                 ok_all, muts_all, dt_all2, pit_tail = run_attributed_java_pit(
                     proj_dir=pdir, mod_rel=mod_rel, jdk=jdk,
@@ -635,8 +752,12 @@ def evaluate_post_freeze_heldout(sample: Dict[str, Any], candidate: Dict[str, An
                     mutators_arg="STRONGER,EXPERIMENTAL_SWITCH", timeout=155,
                 )
                 dt_all = round(dt_all + dt_all2, 2)
+                ho_j_probe2: Dict[str, Any] = {}
+                if _check_and_mark_infra(ho_j_probe2, None, pit_tail, "heldout_java_mext_fallback"):
+                    ho_j_probe2["harness_version"] = HARNESS_VERSION
+                    return ho_j_probe2
             if not ok_all:
-                return {
+                ho_j_fail: Dict[str, Any] = {
                     "harness_version": HARNESS_VERSION,
                     "w_plus_heldout_passed": w_ho_strict,
                     "w_plus_heldout_passed_strict": w_ho_strict,
@@ -652,6 +773,8 @@ def evaluate_post_freeze_heldout(sample: Dict[str, Any], candidate: Dict[str, An
                     "m_ext_err_tail": pit_tail[-300:],
                     "total_sec": round(time.time() - t0, 2),
                 }
+                _check_and_mark_infra(ho_j_fail, None, pit_tail, "heldout_java_mext")
+                return ho_j_fail
             # Lossless 8-field exact_id matching (zero 4-tuple collision; conflicting duplicates -> UNKNOWN!)
             by_eid, status_by_eid = resolve_pit_mutants_by_exact_id(muts_all)
 
@@ -710,15 +833,15 @@ def evaluate_post_freeze_heldout(sample: Dict[str, Any], candidate: Dict[str, An
                     for m in (vf_unk + cl_unk)[:10]
                 },
                 "m_ext_all_retention": round(tot_k / tot_ext, 4) if tot_ext else None,
-                "lost_value_flow_mutants": lost_vf[:8],
-                "lost_call_mutants": lost_cl[:8],
+                "lost_value_flow_mutants": lost_vf,
+                "lost_call_mutants": lost_cl,
                 "total_sec": round(time.time() - t0, 2),
             }
         finally:
-            open(vic_file, "w", encoding="utf-8").write(orig_vic)
+            open(vic_file, "wb").write(orig_vic_b)
             if not same_file:
-                open(pol_file, "w", encoding="utf-8").write(orig_pol)
-            open(pom_path, "w", encoding="utf-8").write(orig_pom)
+                open(pol_file, "wb").write(orig_pol_b)
+            open(pom_path, "wb").write(orig_pom_b)
             rc.restore_class_files(mod_dir, sample["victim_fqcn"], vbak)
             if pbak:
                 rc.restore_class_files(mod_dir, sample["polluter_fqcn"], pbak)
@@ -763,6 +886,16 @@ def evaluate_post_freeze_heldout(sample: Dict[str, Any], candidate: Dict[str, An
                 pdir, sample["test_full_name"], sample["polluter_full_name"],
                 allow_upstream_nonidempotent_p2_call_fail=allow_stress_p2,
             )
+            ho_py_w_probe: Dict[str, Any] = {}
+            if _check_and_mark_infra(ho_py_w_probe, None, w_ho_diag, "heldout_py_w_plus"):
+                ho_py_w_probe["harness_version"] = HARNESS_VERSION
+                return ho_py_w_probe
+            rc.reset_infra_trace()
+            _ho_py_rels = {
+                sample["victim_file_rel"].replace("\\", "/"),
+                (sample.get("polluter_file_rel") or sample["victim_file_rel"]).replace("\\", "/"),
+            }
+            _restore_runtime_py_fixtures(pdir, _ho_py_rels)
             w_ho_stress = bool(w_ho_scheds.get("w_plus_heldout_passed_target_stress", w_ho_strict))
             op_pool = sample.get("m_ext_operator_exec") or []
             in_pool = sample.get("m_ext_instance_exec") or []
@@ -792,9 +925,15 @@ def evaluate_post_freeze_heldout(sample: Dict[str, Any], candidate: Dict[str, An
                     "m_ext_all_retention": None,
                     "total_sec": round(time.time() - t0, 2),
                 }
+            LAST_PY_MUT_DIAG.pop(threading.get_ident(), None)
             ok_x, dmap, dt_x = run_attributed_py_mut(pdir, [sample["test_full_name"]], sample["test_full_name"], comb, timeout=125)
+            rc_xm, diag_xm = LAST_PY_MUT_DIAG.pop(threading.get_ident(), (None, ""))
+            ho_py_mext_probe: Dict[str, Any] = {}
+            if _check_and_mark_infra(ho_py_mext_probe, rc_xm, diag_xm, "heldout_py_mext"):
+                ho_py_mext_probe["harness_version"] = HARNESS_VERSION
+                return ho_py_mext_probe
             if not ok_x:
-                return {
+                ho_py_fail: Dict[str, Any] = {
                     "harness_version": HARNESS_VERSION,
                     "w_plus_heldout_passed": w_ho_strict,
                     "w_plus_heldout_passed_strict": w_ho_strict,
@@ -807,8 +946,11 @@ def evaluate_post_freeze_heldout(sample: Dict[str, Any], candidate: Dict[str, An
                     "m_ext_eval_ok": False,
                     "m_ext_all_total": len(comb),
                     "m_ext_all_unknown": len(comb),
+                    "m_ext_err_tail": diag_xm[-350:],
                     "total_sec": round(time.time() - t0, 2),
                 }
+                _check_and_mark_infra(ho_py_fail, rc_xm, diag_xm, "heldout_py_mext")
+                return ho_py_fail
             op_k = sum(1 for m in op_pool if dmap.get(m["id"], {}).get("killed"))
             op_unk = [m for m in op_pool if (m["id"] not in dmap) or dmap[m["id"]].get("is_unknown")]
             in_k = sum(1 for m in in_pool if dmap.get(m["id"], {}).get("killed"))
@@ -872,14 +1014,15 @@ def evaluate_post_freeze_heldout(sample: Dict[str, Any], candidate: Dict[str, An
                     for m in (op_unk + in_unk)[:10]
                 },
                 "m_ext_all_retention": round(tot_k / len(comb), 4) if comb else None,
-                "lost_op_mutants": lost_op[:8],
-                "lost_inst_mutants": lost_inst[:8],
+                "lost_op_mutants": lost_op,
+                "lost_inst_mutants": lost_inst,
                 "total_sec": round(time.time() - t0, 2),
             }
         finally:
             open(vic_file, "wb").write(orig_vb)
             if not same_file:
                 open(pol_file, "wb").write(orig_pb)
+            _restore_runtime_py_fixtures(pdir, set())
             for tf in {vic_file, pol_file}:
                 pc = os.path.join(os.path.dirname(tf), "__pycache__")
                 if os.path.isdir(pc):

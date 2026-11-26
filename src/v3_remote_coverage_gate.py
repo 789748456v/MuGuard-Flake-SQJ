@@ -17,13 +17,71 @@ CLI modes (reads JSON payload from stdin, writes single JSON line to stdout):
                      measures candidate focal coverage & computes lost lines + +-3 line source slices
   - `eval_pr_cov`  : evaluates a clean developer Java PR under Coverage Gate (line preservation)
 """
+import hashlib
 import json
 import os
 import re
 import shutil
+import subprocess
 import sys
+import tempfile
 import time
-from typing import Any, Dict, List, Optional, Set, Tuple
+from contextlib import contextmanager
+from typing import Any, Dict, Iterator, List, Optional, Set, Tuple
+
+try:
+    import fcntl
+except ImportError:
+    fcntl = None  # type: ignore
+
+DEFAULT_BASELINE_VERIFIER = "/root/sqj_work/FT1/scripts/ft1_verify_and_restore_repo.py"
+
+
+def repo_lock_path(pdir: str) -> str:
+    lock_dir = "/tmp" if os.path.isdir("/tmp") else tempfile.gettempdir()
+    digest = hashlib.md5(pdir.encode("utf-8")).hexdigest()[:16]
+    return os.path.join(lock_dir, f"ft1lock_{digest}")
+
+
+@contextmanager
+def repo_flock_and_baseline_guard(pdir: str, timeout_sec: float = 1800.0) -> Iterator[None]:
+    """Cross-process per-repo `flock` matching `ft1_safe_eval.sh` (`/tmp/ft1lock_<md5_16>`)
+    around mandatory `pre` verification -> coverage evaluation -> `post` verification."""
+    verifier = os.environ.get("FT1_BASELINE_VERIFIER", DEFAULT_BASELINE_VERIFIER)
+    if not os.path.isfile(verifier):
+        raise RuntimeError(f"Mandatory baseline verifier missing at {verifier}; refusing unguarded repo evaluation")
+
+    lpath = repo_lock_path(pdir)
+    fd = os.open(lpath, os.O_CREAT | os.O_RDWR, 0o666)
+    locked = False
+    try:
+        if fcntl is not None:
+            deadline = time.time() + timeout_sec
+            while True:
+                try:
+                    fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                    locked = True
+                    break
+                except BlockingIOError:
+                    if time.time() >= deadline:
+                        raise RuntimeError(f"repo flock timeout ({timeout_sec}s) on {lpath}")
+                    time.sleep(0.2)
+        p_pre = subprocess.run([sys.executable, verifier, pdir, "pre"], capture_output=True, text=True)
+        if p_pre.returncode != 0:
+            raise RuntimeError(f"baseline guard pre failed (rc={p_pre.returncode}) for {pdir}: {p_pre.stdout.strip()}")
+        try:
+            yield
+        finally:
+            p_post = subprocess.run([sys.executable, verifier, pdir, "post"], capture_output=True, text=True)
+            if p_post.returncode != 0:
+                raise RuntimeError(f"baseline guard post failed (rc={p_post.returncode}) for {pdir}: {p_post.stdout.strip()}")
+    finally:
+        if locked and fcntl is not None:
+            try:
+                fcntl.flock(fd, fcntl.LOCK_UN)
+            except OSError:
+                pass
+        os.close(fd)
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import remote_core as rc
@@ -761,7 +819,7 @@ def run_batch_offline(spec_path: str, state_path: str, workers: int = 2) -> None
     print(f"[BATCH COV] Phase 1 Baselines: {len(spec['samples']) - len(todo_b)}/{len(spec['samples'])} cached; running {len(todo_b)}...", flush=True)
 
     def _do_base(s: Dict[str, Any]) -> None:
-        with proj_locks[s["project_name"]]:
+        with proj_locks[s["project_name"]], repo_flock_and_baseline_guard(s["proj_dir"]):
             r = compute_baseline_cov(s)
         with lock:
             state["baselines"][s["sample_id"]] = r
@@ -788,7 +846,7 @@ def run_batch_offline(spec_path: str, state_path: str, workers: int = 2) -> None
 
     def _do_pr(j: Dict[str, Any]) -> None:
         s = samples_by_id[j["sample_id"]]
-        with proj_locks[s["project_name"]]:
+        with proj_locks[s["project_name"]], repo_flock_and_baseline_guard(s["proj_dir"]):
             if j.get("pr_diff") or j.get("pr_url"):
                 r = eval_pr_cov_atomic(s, j, state["baselines"][j["sample_id"]])
             else:
@@ -822,7 +880,7 @@ def run_batch_offline(spec_path: str, state_path: str, workers: int = 2) -> None
 
     def _do_er(j: Dict[str, Any]) -> None:
         s = samples_by_id[j["sample_id"]]
-        with proj_locks[s["project_name"]]:
+        with proj_locks[s["project_name"]], repo_flock_and_baseline_guard(s["proj_dir"]):
             r = eval_candidate_cov(s, j["candidate"], state["baselines"][j["sample_id"]])
         with lock:
             state["eroded_evals"][j["uk"]] = r
@@ -855,12 +913,18 @@ def main() -> None:
         run_batch_offline(spec_p, state_p, workers=workers)
         return
     payload = json.loads(sys.stdin.read())
-    if mode == "baseline_cov":
-        res = compute_baseline_cov(payload["sample"])
-    elif mode == "eval_cand_cov":
-        res = eval_candidate_cov(payload["sample"], payload["candidate"], payload["baseline_cov"])
-    else:
-        raise ValueError(f"Unknown mode: {mode}")
+    pdir = (payload.get("sample") or {}).get("proj_dir", "")
+    if not pdir:
+        raise RuntimeError("Missing sample.proj_dir in coverage payload")
+    with repo_flock_and_baseline_guard(pdir):
+        if mode == "baseline_cov":
+            res = compute_baseline_cov(payload["sample"])
+        elif mode == "eval_cand_cov":
+            res = eval_candidate_cov(payload["sample"], payload["candidate"], payload["baseline_cov"])
+        elif mode == "eval_pr_cov":
+            res = eval_pr_cov_atomic(payload["sample"], payload["pr_job"], payload["baseline_cov"])
+        else:
+            raise ValueError(f"Unknown mode: {mode}")
     print("FT1_V3_COV_RESULT=" + json.dumps(res, ensure_ascii=False))
 
 
