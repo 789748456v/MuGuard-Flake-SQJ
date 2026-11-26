@@ -113,6 +113,49 @@ def parse_judge_json(raw: str) -> Dict[str, Any]:
     }
 
 
+def build_full_pr_unified_diff(
+    sample: Dict[str, Any],
+    pr_entry: Dict[str, Any],
+    pr_diff_cache: Dict[str, str],
+    max_chars: int = 16000,
+) -> str:
+    """
+    Extract the complete PR test-file unified diff (prioritizing target test file,
+    partner test file, and then any shared fixture/helper test files in the PR) so
+    class-level @Before/@After, shared fixtures, imports, and helper edits are 100% visible.
+    """
+    pr_url = (pr_entry.get("pr_url") or sample.get("pr_url") or "").strip().rstrip("/")
+    slug = re.sub(r"[^A-Za-z0-9_.-]+", "_", pr_url) + ".diff"
+    raw = pr_diff_cache.get(slug, "")
+    idx_git = raw.find("diff --git ")
+    clean = raw[idx_git:].strip() if idx_git >= 0 else raw.strip()
+    if not clean:
+        return ""
+
+    vic_rel = (sample.get("victim_file_rel") or "").replace("\\", "/").lstrip("/")
+    pol_rel = (sample.get("polluter_file_rel") or "").replace("\\", "/").lstrip("/")
+
+    parts = re.split(r"(?=^diff --git )", clean, flags=re.M)
+    pri_vic, pri_pol, others = [], [], []
+    for sec in parts:
+        s = sec.strip()
+        if not s:
+            continue
+        m = re.match(r"diff --git a/(\S+)\s+b/(\S+)", s)
+        f_rel = m.group(2) if m else ""
+        if vic_rel and (f_rel.endswith(vic_rel) or vic_rel.endswith(f_rel)):
+            pri_vic.append(s)
+        elif pol_rel and pol_rel != vic_rel and (f_rel.endswith(pol_rel) or pol_rel.endswith(f_rel)):
+            pri_pol.append(s)
+        else:
+            others.append(s)
+
+    ordered = "\n\n".join(pri_vic + pri_pol + others)
+    if len(ordered) > max_chars:
+        ordered = ordered[:max_chars] + "\n... [truncated remaining lines of large multi-file PR diff]"
+    return ordered
+
+
 def call_judge_cached(
     cache: Dict[str, Any],
     judge_model: str,
@@ -125,19 +168,35 @@ def call_judge_cached(
     cand_p: str = "",
     extra_context: str = "",
     purpose: str = "v3_llm_judge",
+    full_pr_diff: str = "",
 ) -> Dict[str, Any]:
     ext = "java" if lang == "java" else "py"
     t_diff = make_diff(orig_t, cand_t, f"target.{ext}")
     p_diff = make_diff(orig_p, cand_p, f"partner.{ext}") if (orig_p and cand_p and orig_p.strip() != cand_p.strip()) else ""
-    user_msg = (
-        f"Language: {lang} | Flaky Type: {flaky_type} | Test: {test_name}\n"
-        f"{extra_context}\n"
-        f"=== ORIGINAL TARGET TEST ===\n{(orig_t or '')[:4000]}\n\n"
-        f"=== CANDIDATE PATCHED TARGET TEST ===\n{(cand_t or '')[:4000]}\n\n"
-        f"=== TARGET UNIFIED DIFF ===\n{t_diff[:4000]}\n"
-    )
-    if p_diff:
-        user_msg += f"\n=== PARTNER TEST DIFF ===\n{p_diff[:3000]}\n"
+    if full_pr_diff:
+        method_note = (
+            "(Unchanged method body; PR modifies @Before/@After class fixtures, imports, partner, or shared test helpers — inspect COMPLETE PR TEST-FILE UNIFIED DIFF below)"
+            if not t_diff.strip()
+            else t_diff[:4000]
+        )
+        user_msg = (
+            f"Language: {lang} | Flaky Type: {flaky_type} | Test: {test_name}\n"
+            f"{extra_context}\n"
+            f"=== ORIGINAL TARGET TEST METHOD ===\n{(orig_t or '')[:4000]}\n\n"
+            f"=== CANDIDATE PATCHED TARGET TEST METHOD ===\n{(cand_t or '')[:4000]}\n\n"
+            f"=== TARGET METHOD DIFF ===\n{method_note}\n\n"
+            f"=== COMPLETE PR TEST-FILE UNIFIED DIFF (Target Class, @Before/@After Fixtures, Partner, Imports, & Helpers) ===\n{full_pr_diff}\n"
+        )
+    else:
+        user_msg = (
+            f"Language: {lang} | Flaky Type: {flaky_type} | Test: {test_name}\n"
+            f"{extra_context}\n"
+            f"=== ORIGINAL TARGET TEST ===\n{(orig_t or '')[:4000]}\n\n"
+            f"=== CANDIDATE PATCHED TARGET TEST ===\n{(cand_t or '')[:4000]}\n\n"
+            f"=== TARGET UNIFIED DIFF ===\n{t_diff[:4000]}\n"
+        )
+        if p_diff:
+            user_msg += f"\n=== PARTNER TEST DIFF ===\n{p_diff[:3000]}\n"
 
     key_raw = f"v3judge|{judge_model}|{user_msg}"
     ckey = hashlib.sha256(key_raw.encode("utf-8")).hexdigest()[:24]
@@ -224,23 +283,26 @@ def run_pr_and_eroded400(workers: int = 6) -> None:
     from build_v3_human_audit_pack import build_candidate_lookup
     by_cand_key, by_unique_key = build_candidate_lookup(bm_by_id)
 
-    # 1. All 43 W+-passing test-only Java PRs judged by BOTH qwen3.7-plus AND deepseek-flash
+    # 1. All 43 W+-passing test-only Java PRs judged by BOTH qwen3.7-plus AND glm-5 with COMPLETE PR test-file unified diff!
     pr_man = json.loads((DATA_DIR / "pr_reference_manifest.json").read_text(encoding="utf-8"))["entries"]
     pr_adj = json.loads((DATA_DIR / "pr_independent_adjudication_input.json").read_text(encoding="utf-8"))["entries"]
+    pr_diff_cache = json.loads((DATA_DIR / "v3_pr_diff_cache.json").read_text(encoding="utf-8"))
     pr_43 = [
         e for e in pr_man
         if e.get("pr_apply_outcome") == "CLEAN_FULL_TEST_APPLY"
         and e.get("pr_scope_type") == "TEST_ONLY_PR"
         and e.get("w_plus_passed")
     ]
-    print(f"[Phase 1A] Judging {len(pr_43)} W+-passing test-only Java PRs with BOTH qwen3.7-plus and glm-5...")
+    print(f"[Phase 1A] Judging {len(pr_43)} W+-passing test-only Java PRs (with full PR test-file diffs) using BOTH qwen3.7-plus and glm-5...")
 
     pr_jobs = []
     for e in pr_43:
         sid = e["sample_id"]
         s = bm_by_id[sid]
+        full_pr_diff = build_full_pr_unified_diff(s, e, pr_diff_cache)
+        assert full_pr_diff, f"Empty PR diff for {sid} ({e.get('pr_url')})"
         for jm in ("qwen3.7-plus", "glm-5"):
-            pr_jobs.append((sid, jm, s, e))
+            pr_jobs.append((sid, jm, s, e, full_pr_diff))
 
     pr_results: Dict[str, Dict[str, Any]] = defaultdict(dict)
     with ThreadPoolExecutor(max_workers=workers) as ex:
@@ -257,9 +319,10 @@ def run_pr_and_eroded400(workers: int = 6) -> None:
                 s.get("orig_polluter_code", ""),
                 e.get("applied_polluter_code", ""),
                 "",
-                f"v3_pr_judge_{jm}",
+                f"v3_pr_judge_fulldiff_{jm}",
+                full_pr_diff,
             ): (sid, jm)
-            for sid, jm, s, e in pr_jobs
+            for sid, jm, s, e, full_pr_diff in pr_jobs
         }
         done_n = 0
         for fut in as_completed(futs):
@@ -274,13 +337,14 @@ def run_pr_and_eroded400(workers: int = 6) -> None:
     # Compute PR metrics: each Judge standalone + Hybrid (MuGuard + Judge override on MuGuard-rejected PRs!)
     pr_summary: Dict[str, Any] = {}
     for jm in ("qwen3.7-plus", "glm-5"):
+        merged_rej = merged_tot = 0
         legit_rej = 0
         legit_tot = 0
         weak_caught = 0
         weak_tot = 0
         shift_caught = 0
         shift_tot = 0
-        # Hybrid: accept if MuGuard accepts OR (MuGuard rejects AND Judge says SAFE_PASS with confidence >= 2)
+        # Hybrid: accept if MuGuard accepts OR (MuGuard rejects AND Judge says SAFE_PASS)
         hyb_legit_rej = 0
         hyb_weak_caught = 0
         hyb_shift_caught = 0
@@ -296,6 +360,10 @@ def run_pr_and_eroded400(workers: int = 6) -> None:
             hyb_rej = mg_rej and j_rej
             if jr.get("latency_sec"):
                 latencies.append(jr["latency_sec"])
+            if e.get("idoft_status") == "Accepted":
+                merged_tot += 1
+                if j_rej:
+                    merged_rej += 1
             if is_legit:
                 legit_tot += 1
                 if j_rej:
@@ -314,11 +382,16 @@ def run_pr_and_eroded400(workers: int = 6) -> None:
                     shift_caught += 1
                 if hyb_rej:
                     hyb_shift_caught += 1
+        ls_rej = legit_rej + shift_caught
+        ls_tot = legit_tot + shift_tot
         pr_summary[jm] = {
             "standalone_judge": {
+                "merged_rej": f"{merged_rej}/{merged_tot} ({merged_rej/max(1,merged_tot)*100:.1f}%)",
                 "legit_false_rej": f"{legit_rej}/{legit_tot}",
                 "legit_false_rej_pct": round(legit_rej / max(1, legit_tot) * 100, 2),
+                "legit_plus_shift_rej": f"{ls_rej}/{ls_tot} ({ls_rej/max(1,ls_tot)*100:.1f}%)",
                 "weakening_caught": f"{weak_caught}/{weak_tot}",
+                "weakening_caught_with_pct": f"{weak_caught}/{weak_tot} ({weak_caught/max(1,weak_tot)*100:.0f}%)",
                 "shift_caught": f"{shift_caught}/{shift_tot}",
             },
             "hybrid_muguard_plus_judge_triage": {

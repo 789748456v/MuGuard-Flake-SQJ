@@ -6711,10 +6711,10 @@
     "fig5_latency_distributions"
   ],
   "security_audit": {
-    "scanned_ft1_files": 234,
+    "scanned_ft1_files": 226,
     "secret_leaks_found": [],
     "outside_ft1_git_changes": [],
-    "logged_api_calls": 10641
+    "logged_api_calls": 10762
   },
   "qwen_extra_baselines_k5": {
     "B5_Coverage_Gate": {

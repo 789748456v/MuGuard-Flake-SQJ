@@ -11,14 +11,14 @@ Patch Edit Mechanism & Auto Prim. & Bypass Struct. & Bypass Judge & Bypass Cov.$
 Predicate Projection or Relaxation & 10 & 5 & 3 & 8/10 & 2 \\
 State Reset or Post-Act Clobber & 26 & 7 & 26 & 26/26 & 4 \\
 Control-Flow or Exception Shift & 0 & 0 & 0 & 0/0 & 2 \\
-Focal Call Alteration or Bypass & 52 & 48 & 39 & 14/30 & 9 \\
+Focal Call Alteration or Bypass & 52 & 48 & 39 & 17/52 & 9 \\
 Partner or Shared-Scope Side-Effect & 53 & 43 & 49 & 40/53 & 4 \\
 Delimiter or Format Normalization & 112 & 86 & 64 & 106/112 & 14 \\
-Precondition or Singleton Setup Shift & 120 & 119 & 112 & 63/120 & 25 \\
+Precondition or Singleton Setup Shift & 120 & 119 & 111 & 63/120 & 25 \\
 Unclassified Residual & 27 & 27 & 20 & 8/26 & 0 \\
 \midrule
-\textbf{Total Eroded Patches (Bypass\%)} & \textbf{400} & \textbf{335 (83.8\%)} & \textbf{313 (78.3\%)} & \textbf{265/377 (70.3\%)} & \textbf{60} \\
+\textbf{Total Eroded Patches (Bypass\%)} & \textbf{400} & \textbf{335 (83.8\%)} & \textbf{312 (78.0\%)} & \textbf{268/399 (67.2\%)} & \textbf{60} \\
 \bottomrule
 \end{tabular}
-\par\smallskip\parbox{0.97\textwidth}{\scriptsize\textit{Note:} Syntactic Guard is bypassed by 396/400 (99.0\%) patches; \textsc{MuGuard-Flake} intercepts all 400/400 (0\% bypass) by definition. $^{\dagger}$Dynamic line/branch Coverage Gate (JaCoCo + \texttt{coverage.py}) evaluated on 377/400 patches with clean baseline coverage (23 Java patches in 7 tests had Maven \texttt{argLine} conflicts).}
+\par\smallskip\parbox{0.97\textwidth}{\scriptsize\textit{Note:} Syntactic Guard is bypassed by 396/400 (99.0\%) patches; \textsc{MuGuard-Flake} intercepts all 400/400 (0\% bypass) by definition. $^{\dagger}$Dynamic focal line Coverage Gate (JaCoCo + \texttt{coverage.py}) evaluated on 399/400 patches with clean baseline coverage (1 Java patch had an upstream Maven \texttt{argLine} conflict).}
 \end{table}

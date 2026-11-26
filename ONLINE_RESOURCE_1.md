@@ -23,8 +23,8 @@ Companion supplementary tables for *Stabilization via Oracle Erosion: An Empiric
 
 | Historical Benchmark Subset | Cohort $n$ | Upstream Tool SoundFix% (Leak%) | DS-Flash `MuGuard` SoundFix% | DS-V4-Pro `MuGuard` SoundFix% | Qwen 3.7+ `MuGuard` SoundFix% | `MuGuard` Leak% |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| `FlakyDoctor GPT-4` cohort | 75 | 32.00% (27.27%) | **94.67%** | **93.33%** | **92.00%** | **0.00%** |
-| `FlakyDoctor Magicoder` cohort | 13 | 30.77% (0.00%) | **84.62%** | **69.23%** | **84.62%** | **0.00%** |
+| `FlakyDoctor GPT-4` cohort | 75 | 32.00% (27.27%) | **94.67%** | **92.00%** | **92.00%** | **0.00%** |
+| `FlakyDoctor Magicoder` cohort | 13 | 30.77% (0.00%) | **84.62%** | **84.62%** | **69.23%** | **0.00%** |
 | `iPFlakies` partner-matched cohort | 77 | 41.56% (23.81%) | **85.71%** | **72.73%** | **70.13%** | **0.00%** |
 
 ### Part C: Shared Python Held-Out Mutant Deduplication Sensitivity
@@ -66,9 +66,9 @@ Deduplicating all `38` held-out Python mutant keys shared across sibling tests i
 | Scalar/Mutation Threshold $\tau = 0.90$ | 172/400 (43.00%) | 228 (57.00%) | 6/39 (15.38%) | 1/3 |
 | Scalar/Mutation Threshold $\tau = 0.85$ | 130/400 (32.50%) | 270 (67.50%) | 5/39 (12.82%) | 0/3 |
 | Scalar/Mutation Threshold $\tau = 0.80$ | 100/400 (25.00%) | 300 (75.00%) | 2/39 (5.13%) | 0/3 |
-| **Strict $\tau = 1.00$ `MuGuard-Flake` + Surviving-Mutant Witness Triage (Qwen 3.7+)** | **400/400 (100.00%)** | **0 (0.00%)** | **0/39 (0.00%)** | **1/3** |
+| **Witness-Augmented LLM Triage (`\tau = 1.00` Gate + Witness Triage, Qwen 3.7+)** | **52/60 (86.67% stratified sample)** | **8/60 (13.33% sample)** | **1/39 (2.56%)** | **1/1 (of 3 total)** |
 
-*Finding*: Relaxing $\tau$ from `1.00` to `0.90` cuts PR false rejections modestly (`20.51% -> 15.38%`) while missing **57.00% (`228/400`)** of eroded patches. By contrast, keeping strict $\tau = 1.00$ and attaching surviving-mutant witnesses to abstention reviews boosts cross-vendor judge erosion recognition on stratified patches from **28.33% (`17/60`) to 86.67% (`52/60`, +58.33 pp)** and eliminates all `8/8` legitimate PR false rejections (**0.00%**).
+*Finding*: Relaxing $\tau$ from `1.00` to `0.90` cuts PR false rejections modestly (`20.51% -> 15.38%`) while missing **57.00% (`228/400`)** of eroded patches. Keeping strict $\tau = 1.00$ preserves `400/400` automated gate interception, and attaching surviving-mutant witnesses to abstention reviews boosts cross-vendor LLM-judge erosion recognition on stratified eroded patches from **28.33% (`17/60`) to 86.67% (`52/60`, +58.33 pp)** while reducing legitimate PR false rejections to **1/39 (2.56%)** (`1/19 (5.3%)` at the PR-URL level) and keeping the Nacos weakening blocked (`1/1`).
 
 ---
 
@@ -106,12 +106,12 @@ Deduplicating all `38` held-out Python mutant keys shared across sibling tests i
 
 ---
 
-## Table S-6: Empirical Audit of Historical Production Bug-Commit Reversions (`167` Executable Commits Across `61` Tests in `19` Repositories)
+## Table S-6: Empirical Audit of Historical Production Bug-Commit Reversions (`167` Test–Commit Replay Trials Across `59` Distinct Commits, `61` Tests, and `19` Repositories)
 
-| Replay Outcome Against Frozen Benchmark HEAD | File-Level Commits (`n=149`) | Line-Targeted Focal Commits (`n=18`) | Combined (`n=167`) | Methodological Implication |
+| Replay Outcome Against Frozen Benchmark HEAD | File-Level Trials (`n=149`) | Line-Targeted Focal Trials (`n=18`) | Combined (`n=167`) | Methodological Implication |
 | :--- | :---: | :---: | :---: | :--- |
-| Fails to compile cleanly against HEAD | 19 | 3 | 22 (13.2%) | API/schema evolution breaks historical commit reverts |
-| Compiles cleanly, does not fail $T_{\text{orig}}$ under $e_0$ | 123 | 15 | 138 (82.6%) | Historical fixes target sibling paths outside $T_{\text{orig}}$'s assertions |
-| Reproduces failure on $T_{\text{orig}}$ under $e_0$ | 7 | 0 | 7 (4.2%) | Coarse return-value breaks (`centreon-sdk-python`), caught by all candidate patches |
+| Fails to compile cleanly against HEAD | 14 | 8 | 22 (13.2%) | API/schema evolution breaks historical commit reverts |
+| Compiles cleanly, does not fail $T_{\text{orig}}$ under $e_0$ | 128 | 10 | 138 (82.6%) | Reverted production changes do not trigger $T_{\text{orig}}$ failure under $e_0$ |
+| Reproduces failure on $T_{\text{orig}}$ under $e_0$ | 7 | 0 | 7 (4.2%) | Coarse return-value break (`centreon-sdk-python` commit `70d1752f91`), caught by all candidate patches |
 
 *Finding*: Because real historical bug commits in evolving repositories rarely isolate fine-grained relational or delimiter invariants covered by a single flaky test without breaking compilation, disjoint held-out mutation pools ($M_{\text{ext}}$) remain indispensable for non-circular sensitivity evaluation.

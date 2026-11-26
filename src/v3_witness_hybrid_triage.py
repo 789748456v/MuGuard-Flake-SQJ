@@ -21,7 +21,7 @@ from typing import Any, Dict, List
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_v3_human_audit_pack import build_candidate_lookup
 from remote_and_llm import DATA_DIR
-from v3_llm_judge_baseline import call_judge_cached, cross_vendor_judge_for, load_cache, save_cache
+from v3_llm_judge_baseline import build_full_pr_unified_diff, call_judge_cached, cross_vendor_judge_for, load_cache, save_cache
 
 OUT_PATH = DATA_DIR / "v3_witness_hybrid_triage.json"
 
@@ -57,9 +57,10 @@ def main() -> None:
     bm_by_id = {s["sample_id"]: s for s in bm["samples"]}
     by_cand_key, by_unique_key = build_candidate_lookup(bm_by_id)
 
-    # 1. All MuGuard-rejected W+-passing test-only Java PRs (8 legit + 1 Nacos weakening = 9)
+    # 1. All MuGuard-rejected W+-passing test-only Java PRs (8 legit + 1 Avro shift + 1 Nacos weakening = 10)
     pr_man = json.loads((DATA_DIR / "pr_reference_manifest.json").read_text(encoding="utf-8"))["entries"]
     pr_adj = json.loads((DATA_DIR / "pr_independent_adjudication_input.json").read_text(encoding="utf-8"))["entries"]
+    pr_diff_cache = json.loads((DATA_DIR / "v3_pr_diff_cache.json").read_text(encoding="utf-8"))
     rej_prs = [
         e for e in pr_man
         if e.get("pr_apply_outcome") == "CLEAN_FULL_TEST_APPLY"
@@ -67,7 +68,7 @@ def main() -> None:
         and e.get("w_plus_passed")
         and not e.get("pr_full_gate_accepts")
     ]
-    print(f"[HYBRID TRIAGE] Testing {len(rej_prs)} MuGuard-rejected PRs with surviving-mutant witnesses...")
+    print(f"[HYBRID TRIAGE] Testing {len(rej_prs)} MuGuard-rejected PRs with FULL PR test-file unified diffs + surviving-mutant witnesses...")
 
     pr_out: Dict[str, Dict[str, Any]] = {}
     with ThreadPoolExecutor(max_workers=6) as ex:
@@ -75,6 +76,8 @@ def main() -> None:
         for e in rej_prs:
             sid = e["sample_id"]
             s = bm_by_id[sid]
+            full_pr_diff = build_full_pr_unified_diff(s, e, pr_diff_cache)
+            assert full_pr_diff, f"Empty PR diff for {sid}"
             dev_ev = s.get("v2_dev_pr_eval") or {}
             muts = dev_ev.get("survived_mutant_summaries") or dev_ev.get("lost_mutants") or [f"{e.get('lost_mutant_count_3x', '?')} baseline PIT mutants survived (retention={e.get('retention_m_det_3x')})"]
             wb = format_witness_block(muts)
@@ -91,7 +94,8 @@ def main() -> None:
                     s.get("orig_polluter_code", ""),
                     e.get("applied_polluter_code", ""),
                     wb,
-                    f"v3_witness_triage_pr_{jm}",
+                    f"v3_witness_triage_pr_fulldiff_{jm}",
+                    full_pr_diff,
                 )] = (sid, jm)
         for fut in as_completed(futs):
             sid, jm = futs[fut]
@@ -135,30 +139,61 @@ def main() -> None:
 
     save_cache(cache)
 
-    # Summarize results
+    # Summarize results (including Legitimate n=39, Legit+Shift n=40, Merged n=16, and PR-URL n=19!)
+    all_pr_43 = [
+        e for e in pr_man
+        if e.get("pr_apply_outcome") == "CLEAN_FULL_TEST_APPLY"
+        and e.get("pr_scope_type") == "TEST_ONLY_PR"
+        and e.get("w_plus_passed")
+    ]
     pr_sum = {}
     for jm in ("qwen3.7-plus", "glm-5"):
         legit_still_rej = 0
         legit_n = 0
+        shift_still_rej = 0
+        shift_n = 0
         weak_still_caught = 0
         weak_n = 0
+        merged_still_rej = 0
+        merged_n = sum(1 for x in all_pr_43 if x.get("idoft_status") == "Accepted")
+        legit_rej_urls = set()
+        legit_all_urls = {x["pr_url"] for x in all_pr_43 if (pr_adj.get(x["sample_id"]) or {}).get("is_legitimate_repair")}
         for e in rej_prs:
             sid = e["sample_id"]
             adj = pr_adj.get(sid) or {}
             verdict = pr_out[sid][jm].get("verdict")
             rej = (verdict != "SAFE_PASS")
+            if e.get("idoft_status") == "Accepted" and rej:
+                merged_still_rej += 1
             if adj.get("is_legitimate_repair"):
                 legit_n += 1
                 if rej:
                     legit_still_rej += 1
+                    legit_rej_urls.add(e["pr_url"])
+            elif adj.get("label") == "TEST_RESPONSIBILITY_SHIFT":
+                shift_n += 1
+                if rej:
+                    shift_still_rej += 1
             elif adj.get("label") == "GENUINE_ORACLE_WEAKENING":
                 weak_n += 1
                 if rej:
                     weak_still_caught += 1
+        ls_rej = legit_still_rej + shift_still_rej
         pr_sum[jm] = {
+            "merged_16_rej_after_witness_triage": f"{merged_still_rej}/{merged_n} ({merged_still_rej/max(1,merged_n)*100:.1f}%)",
             "legit_false_rej_after_witness_triage": f"{legit_still_rej}/39 ({legit_still_rej/39*100:.2f}%)",
+            "legit_false_rej_cnt": legit_still_rej,
+            "legit_false_rej_pct": round(legit_still_rej / 39 * 100, 2),
+            "legit_plus_shift_rej_after_witness_triage": f"{ls_rej}/40 ({ls_rej/40*100:.2f}%)",
+            "legit_plus_shift_rej_cnt": ls_rej,
+            "legit_plus_shift_rej_pct": round(ls_rej / 40 * 100, 2),
+            "legit_pr_url_false_rej": f"{len(legit_rej_urls)}/{len(legit_all_urls)} ({len(legit_rej_urls)/max(1,len(legit_all_urls))*100:.1f}%)",
+            "legit_pr_url_rej_cnt": len(legit_rej_urls),
+            "legit_pr_url_total": len(legit_all_urls),
             "legit_resolved_of_8": f"{legit_n - legit_still_rej}/{legit_n}",
+            "shift_still_caught": f"{shift_still_rej}/{shift_n}",
             "nacos_weakening_still_caught": f"{weak_still_caught}/{weak_n}",
+            "total_weakening_caught_of_3": f"{weak_still_caught}/3 ({weak_still_caught/3*100:.1f}%)",
         }
 
     # On 60 stratified eroded patches (excluding legitimate canonicalization if any)

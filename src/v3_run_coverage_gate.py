@@ -81,14 +81,15 @@ def remote_cov_call(mode: str, payload: Dict[str, Any], proj_key: str, timeout: 
 
 def ensure_remote_scripts() -> None:
     src_dir = Path(__file__).resolve().parent
-    for fn in (
-        "v2_guards_and_attribution.py",
-        "v2_pytest_attribution_runner.py",
-        "remote_v2_freeze_benchmark_and_mext.py",
-        "remote_eval_v2.py",
-        "v3_remote_coverage_gate.py",
-    ):
-        scp_to_remote(src_dir / fn, f"scripts/{fn}")
+    for fn in ("v3_remote_coverage_gate.py",):
+        for att in range(4):
+            try:
+                time.sleep(1.5 * (att + 1))
+                scp_to_remote(src_dir / fn, f"scripts/{fn}")
+                break
+            except Exception:
+                if att == 3:
+                    raise
 
 
 def freeze_baseline_coverage(bm_samples: List[Dict[str, Any]], workers: int = 2) -> Dict[str, Any]:
@@ -149,6 +150,9 @@ def run_offline_pr_and_400(workers: int = 2) -> None:
     bm_by_id = {s["sample_id"]: s for s in elig}
 
     seed_base = load_json_or(BASE_COV_PATH, {"samples": {}}).get("samples", {})
+    prev_off = load_json_or(OFFLINE_COV_OUT, {})
+    seed_eroded = prev_off.get("eroded_records") or {}
+    pr_diff_cache = load_json_or(DATA_DIR / "v3_pr_diff_cache.json", {})
 
     pr_man = json.loads((DATA_DIR / "pr_reference_manifest.json").read_text(encoding="utf-8"))["entries"]
     pr_adj = json.loads((DATA_DIR / "pr_independent_adjudication_input.json").read_text(encoding="utf-8"))["entries"]
@@ -159,18 +163,16 @@ def run_offline_pr_and_400(workers: int = 2) -> None:
         and e.get("w_plus_passed")
         and e["sample_id"] in bm_by_id
     ]
-    pr_jobs = [
-        {
+    import re
+    pr_jobs = []
+    for e in pr_43:
+        slug = re.sub(r"[^A-Za-z0-9_.-]+", "_", e["pr_url"].strip().rstrip("/")) + ".diff"
+        pr_jobs.append({
             "sample_id": e["sample_id"],
-            "candidate": {
-                "test_code": e.get("applied_victim_code") or "",
-                "victim_code": e.get("applied_victim_code") or "",
-                "polluter_code": e.get("applied_polluter_code") or "",
-                "imports": [],
-            },
-        }
-        for e in pr_43
-    ]
+            "pr_url": e["pr_url"],
+            "expected_tree_sha256": e.get("applied_tree_sha256", ""),
+            "pr_diff": pr_diff_cache.get(slug, ""),
+        })
 
     by_cand_key, by_unique_key = build_candidate_lookup(bm_by_id)
     tax_cb = json.loads((DATA_DIR / "taxonomy_audit_codebook.json").read_text(encoding="utf-8"))["entries"]
@@ -212,15 +214,25 @@ def run_offline_pr_and_400(workers: int = 2) -> None:
     spec_obj = {
         "samples": slim_samples,
         "seed_baselines": seed_base,
+        "seed_eroded_evals": seed_eroded,
+        "force_rerun_prs": True,
         "pr_jobs": pr_jobs,
         "eroded_jobs": er_jobs,
     }
     tmp_spec = DATA_DIR / "_tmp_cov_batch_spec.json"
     tmp_spec.write_text(json.dumps(spec_obj, ensure_ascii=False), encoding="utf-8")
     try:
-        scp_to_remote(tmp_spec, "scripts/_tmp_cov_batch_spec.json")
+        for att in range(4):
+            try:
+                time.sleep(2.0 * (att + 1))
+                scp_to_remote(tmp_spec, "scripts/_tmp_cov_batch_spec.json")
+                break
+            except Exception:
+                if att == 3:
+                    raise
     finally:
         tmp_spec.unlink(missing_ok=True)
+    time.sleep(2.0)
 
     print(f"[BATCH COV] Uploaded single batch spec (samples={len(slim_samples)}, PR={len(pr_jobs)}, Eroded={len(er_jobs)}). Running remotely...", flush=True)
     rc, out, err = run_ssh(
@@ -233,7 +245,14 @@ def run_offline_pr_and_400(workers: int = 2) -> None:
         raise RuntimeError(f"Remote batch_offline failed rc={rc}: {err[-500:]}")
 
     local_state = DATA_DIR / "_tmp_cov_batch_state.json"
-    scp_from_remote("data/v3_cov_batch_state.json", local_state)
+    for att in range(4):
+        try:
+            time.sleep(2.0 * (att + 1))
+            scp_from_remote("data/v3_cov_batch_state.json", local_state)
+            break
+        except Exception:
+            if att == 3:
+                raise
     state = json.loads(local_state.read_text(encoding="utf-8"))
     local_state.unlink(missing_ok=True)
 
@@ -252,14 +271,19 @@ def run_offline_pr_and_400(workers: int = 2) -> None:
             cov_cache[f"cov::{j['sample_id']}::{fp}"] = er_out[uk]
     save_json_atomic(COV_EVAL_CACHE_PATH, cov_cache)
 
-    legit_rej = legit_tot = weak_caught = weak_tot = shift_caught = shift_tot = 0
+    merged_rej = merged_tot = legit_rej = legit_tot = weak_caught = weak_tot = shift_caught = shift_tot = ran_pr_tot = 0
     for e in pr_43:
         sid = e["sample_id"]
         adj = pr_adj.get(sid) or {}
         r = pr_out.get(sid) or {}
         if not r.get("cov_ran"):
             continue
+        ran_pr_tot += 1
         rej = not bool(r.get("cov_safe"))
+        if e.get("idoft_status") == "Accepted":
+            merged_tot += 1
+            if rej:
+                merged_rej += 1
         if adj.get("is_legitimate_repair"):
             legit_tot += 1
             if rej:
@@ -307,9 +331,15 @@ def run_offline_pr_and_400(workers: int = 2) -> None:
         "protocol_version": "3.0.0-coverage-gate-offline-and-pr",
         "baseline_cov_ready": sum(1 for v in cov_map.values() if v.get("ok_target")),
         "pr_43_summary": {
+            "ran_of_43": ran_pr_tot,
+            "blocked_argline": len(pr_43) - ran_pr_tot,
+            "merged_rej": f"{merged_rej}/{merged_tot} ({merged_rej/max(1,merged_tot)*100:.1f}%)",
             "legit_false_rej": f"{legit_rej}/{legit_tot}",
+            "legit_false_rej_with_pct": f"{legit_rej}/{legit_tot} ({legit_rej/max(1,legit_tot)*100:.1f}%)",
             "legit_false_rej_pct": round(legit_rej / max(1, legit_tot) * 100, 2),
+            "legit_plus_shift_rej": f"{legit_rej+shift_caught}/{legit_tot+shift_tot} ({(legit_rej+shift_caught)/max(1,legit_tot+shift_tot)*100:.1f}%)",
             "weakening_caught": f"{weak_caught}/{weak_tot}",
+            "weakening_caught_with_pct": f"{weak_caught}/{weak_tot} ({weak_caught/max(1,weak_tot)*100:.1f}%)",
             "shift_caught": f"{shift_caught}/{shift_tot}",
         },
         "eroded_400_summary": {

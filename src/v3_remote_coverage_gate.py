@@ -313,6 +313,179 @@ def compute_baseline_cov(sample: Dict[str, Any]) -> Dict[str, Any]:
         }
 
 
+def eval_pr_cov_atomic(sample: Dict[str, Any], pr_job: Dict[str, Any], baseline_cov: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Apply the COMPLETE developer PR test-file tree atomically (matching `eval_pr_full_gate_atomic`
+    in `remote_v23_certify.py` and verifying `applied_tree_sha256`), compile, run JaCoCo focal line
+    coverage on target (and partner when shared-scope OD), and restore every modified test file cleanly.
+    """
+    import hashlib
+    import remote_v2_freeze_benchmark_and_mext as rfreeze
+
+    t0 = time.time()
+    pdir = sample["proj_dir"]
+    mod_rel = sample["module"]
+    jdk = sample["jdk"]
+    uses_j5 = sample["uses_junit5"]
+    ttype = sample["test_type"]
+    mod_dir = pdir if mod_rel in ("", ".") else os.path.join(pdir, mod_rel)
+    vic_file = sample.get("victim_file_path") or os.path.join(pdir, sample["victim_file_rel"])
+    pol_file = sample.get("polluter_file_path") or (
+        os.path.join(pdir, sample["polluter_file_rel"]) if sample.get("polluter_file_rel") else vic_file
+    )
+    same_file = (os.path.abspath(vic_file) == os.path.abspath(pol_file))
+
+    diff_txt = pr_job.get("pr_diff") or rfreeze.get_cached_pr_diff(pr_job.get("pr_url") or sample.get("pr_url", ""))
+    if not diff_txt:
+        return {"compiled": False, "cov_ran": False, "cov_safe": False, "error": "missing_pr_diff"}
+
+    info = rfreeze.inspect_pr_diff_files(diff_txt)
+    orig_vic = re.sub(r"/\*FT1_ISOLATED\s*(.*?)\s*\*/", r"\1", open(vic_file, encoding="utf-8", errors="replace").read())
+    orig_pol = orig_vic if same_file else re.sub(r"/\*FT1_ISOLATED\s*(.*?)\s*\*/", r"\1", open(pol_file, encoding="utf-8", errors="replace").read())
+    norm_vic_rel = sample["victim_file_rel"].replace("\\", "/").lstrip("/")
+    norm_pol_rel = os.path.relpath(pol_file, pdir).replace("\\", "/").lstrip("/")
+
+    applied_test_files: Dict[str, str] = {}
+    failed_files: List[str] = []
+    expected_test_files = list(info["test_files"])
+
+    for f_rel in expected_test_files:
+        sec = info["sec_by_file"][f_rel]
+        f_abs = os.path.join(pdir, f_rel)
+        if f_rel.endswith(norm_vic_rel) or norm_vic_rel.endswith(f_rel):
+            patched = rfreeze.apply_single_file_diff_hunk(orig_vic, sec)
+            if patched is None:
+                failed_files.append(f_rel)
+            else:
+                applied_test_files[vic_file] = patched
+        elif (not same_file) and (f_rel.endswith(norm_pol_rel) or norm_pol_rel.endswith(f_rel)):
+            patched_p = rfreeze.apply_single_file_diff_hunk(orig_pol, sec)
+            if patched_p is None:
+                failed_files.append(f_rel)
+            else:
+                applied_test_files[pol_file] = patched_p
+        elif os.path.exists(f_abs):
+            orig_other = open(f_abs, encoding="utf-8", errors="replace").read()
+            patched_o = rfreeze.apply_single_file_diff_hunk(orig_other, sec)
+            if patched_o is None:
+                failed_files.append(f_rel)
+            else:
+                applied_test_files[f_abs] = patched_o
+        else:
+            failed_files.append(f_rel)
+
+    if not (len(expected_test_files) > 0 and len(failed_files) == 0 and len(applied_test_files) == len(expected_test_files) and vic_file in applied_test_files):
+        return {"compiled": False, "cov_ran": False, "cov_safe": False, "error": f"pr_apply_failed:{failed_files}"}
+
+    tree_hasher = hashlib.sha256()
+    for fp_k in sorted(applied_test_files.keys()):
+        rel_k = os.path.relpath(fp_k, pdir).replace("\\", "/")
+        tree_hasher.update(rel_k.encode("utf-8") + b"\0" + applied_test_files[fp_k].encode("utf-8") + b"\0")
+    applied_tree_sha = tree_hasher.hexdigest()[:24]
+
+    new_vic_src = applied_test_files[vic_file]
+    new_pol_src = applied_test_files.get(pol_file, new_vic_src if same_file else orig_pol)
+    act_orig_t = rc.extract_java_method(orig_vic, sample["victim_method"]) or sample.get("orig_test_code", "")
+    act_new_t = rc.extract_java_method(new_vic_src, sample["victim_method"]) or ""
+    act_orig_p = (rc.extract_java_method(orig_pol, sample["polluter_method"]) if (ttype == "OD" and sample.get("polluter_method")) else "") or sample.get("orig_polluter_code", "")
+    act_new_p = (rc.extract_java_method(new_pol_src, sample["polluter_method"]) if (ttype == "OD" and sample.get("polluter_method")) else "") or ""
+
+    scope_info = analyze_affected_test_scope(
+        language="java",
+        test_type=ttype,
+        orig_vic_file_src=orig_vic,
+        new_vic_file_src=new_vic_src,
+        orig_pol_file_src=orig_pol,
+        new_pol_file_src=new_pol_src,
+        same_file=same_file,
+        orig_target_method_src=act_orig_t,
+        new_target_method_src=act_new_t,
+        orig_partner_method_src=act_orig_p,
+        new_partner_method_src=act_new_p,
+        pom_modified=bool(info.get("build_files")),
+    )
+    extra_files_edited = [
+        os.path.relpath(f, pdir).replace("\\", "/")
+        for f in sorted(applied_test_files.keys())
+        if os.path.abspath(f) not in {os.path.abspath(vic_file), os.path.abspath(pol_file)}
+    ]
+    affects_shared = bool(scope_info.get("affects_partner_or_shared") or (ttype == "OD" and len(extra_files_edited) > 0))
+    scope_kind = scope_info.get("scope_kind", "TARGET_ONLY")
+    if ttype == "OD" and len(extra_files_edited) > 0 and scope_kind == "TARGET_ONLY":
+        scope_kind = "EXTRA_TEST_FILES_SHARED_SCOPE"
+
+    base_t_set = cov_map_to_set(baseline_cov.get("target_cov") or {})
+    base_p_set = cov_map_to_set(baseline_cov.get("partner_cov") or {})
+    backups_extra = {fp: open(fp, "rb").read() for fp in applied_test_files}
+    vbak = rc.backup_class_files(mod_dir, sample["victim_fqcn"])
+    pbak = rc.backup_class_files(mod_dir, sample["polluter_fqcn"]) if (sample.get("polluter_fqcn") and sample["polluter_fqcn"] != sample["victim_fqcn"]) else {}
+
+    try:
+        for fp, new_txt in applied_test_files.items():
+            open(fp, "w", encoding="utf-8").write(new_txt)
+        pl = f"-pl {mod_rel}" if mod_rel not in ("", ".") else ""
+        c_rc, c_out, c_sec = rc.docker_mvn(pdir, jdk, f"test-compile {pl}", timeout=120)
+        if c_rc != 0:
+            return {"compiled": False, "cov_ran": False, "cov_safe": False, "atomic_same_tree": True, "applied_tree_sha256": applied_tree_sha, "compile_sec": round(c_sec, 3), "compile_error": c_out[-500:]}
+
+        f_filter = sorted({x.split(":")[0] for x in base_t_set})
+        ok_t, cov_t, sec_t, diag_t = run_java_jacoco_single_test(
+            pdir, mod_rel, jdk, uses_j5, sample["victim_fqcn"], sample["victim_method"], f_filter
+        )
+        if not ok_t:
+            return {"compiled": True, "cov_ran": False, "cov_safe": False, "atomic_same_tree": True, "applied_tree_sha256": applied_tree_sha, "target_cov_sec": sec_t, "error": f"jacoco_target_fail: {diag_t[:200]}"}
+
+        cand_t_set = cov_map_to_set(cov_t)
+        lost_t = sorted(base_t_set - cand_t_set)
+        lost_p: List[str] = []
+        sec_p = 0.0
+        if ttype == "OD" and affects_shared and base_p_set:
+            pf_filter = sorted({x.split(":")[0] for x in base_p_set})
+            ok_p, cov_p, sec_p, diag_p = run_java_jacoco_single_test(
+                pdir, mod_rel, jdk, uses_j5, sample["polluter_fqcn"], sample["polluter_method"], pf_filter
+            )
+            if not ok_p:
+                return {"compiled": True, "cov_ran": False, "cov_safe": False, "atomic_same_tree": True, "applied_tree_sha256": applied_tree_sha, "target_cov_sec": sec_t, "partner_cov_sec": sec_p, "error": f"jacoco_partner_fail: {diag_p[:200]}"}
+            cand_p_set = cov_map_to_set(cov_p)
+            lost_p = sorted(base_p_set - cand_p_set)
+
+        lost_roles = [("target", x) for x in lost_t] + [("partner", x) for x in lost_p]
+        tot_base = len(base_t_set) + (len(base_p_set) if (ttype == "OD" and affects_shared) else 0)
+        tot_lost = len(lost_roles)
+        cov_ret = (tot_base - tot_lost) / tot_base if tot_base > 0 else 1.0
+        witnesses = build_cov_witness_slices("java", sample, lost_roles, max_items=6) if lost_roles else []
+        return {
+            "compiled": True,
+            "cov_ran": True,
+            "cov_safe": (tot_lost == 0),
+            "cov_eroded": (tot_lost > 0),
+            "atomic_same_tree": True,
+            "applied_tree_sha256": applied_tree_sha,
+            "expected_tree_sha256_match": (not pr_job.get("expected_tree_sha256") or applied_tree_sha == pr_job.get("expected_tree_sha256")),
+            "scope_kind": scope_kind,
+            "affects_partner_or_shared": affects_shared,
+            "extra_files_edited_count": len(extra_files_edited),
+            "base_lines_total": tot_base,
+            "lost_lines_count": tot_lost,
+            "cov_retention": round(cov_ret, 6),
+            "lost_target_lines": lost_t[:30],
+            "lost_partner_lines": lost_p[:30],
+            "cov_witnesses": witnesses,
+            "compile_sec": round(c_sec, 3),
+            "target_cov_sec": sec_t,
+            "partner_cov_sec": sec_p,
+            "cov_sec": round(sec_t + sec_p, 3),
+            "wall_sec": round(time.time() - t0, 3),
+        }
+    finally:
+        for fp, raw_b in backups_extra.items():
+            with open(fp, "wb") as f_out:
+                f_out.write(raw_b)
+        rc.restore_class_files(mod_dir, sample["victim_fqcn"], vbak)
+        if pbak and sample.get("polluter_fqcn"):
+            rc.restore_class_files(mod_dir, sample["polluter_fqcn"], pbak)
+
+
 def eval_candidate_cov(sample: Dict[str, Any], candidate: Dict[str, Any], baseline_cov: Dict[str, Any], skip_wplus: bool = False) -> Dict[str, Any]:
     """
     Apply candidate patch, compile, optionally verify W+, then run ONLY fast focal coverage
@@ -562,10 +735,15 @@ def run_batch_offline(spec_path: str, state_path: str, workers: int = 2) -> None
             state = json.load(open(state_path, encoding="utf-8"))
         except Exception:
             pass
-    # Seed any already-known baselines from spec
+    # Seed any already-known baselines and eroded_evals from spec (force fresh atomic PR re-eval when force_rerun_prs is set)
     for sid, b in (spec.get("seed_baselines") or {}).items():
         if b.get("ok_target") and sid not in state["baselines"]:
             state["baselines"][sid] = b
+    for uk, er in (spec.get("seed_eroded_evals") or {}).items():
+        if er.get("cov_ran") and uk not in state["eroded_evals"]:
+            state["eroded_evals"][uk] = er
+    if spec.get("force_rerun_prs"):
+        state["pr_evals"] = {}
 
     lock = threading.Lock()
     proj_locks: Dict[str, threading.Lock] = defaultdict(threading.Lock)
@@ -611,12 +789,19 @@ def run_batch_offline(spec_path: str, state_path: str, workers: int = 2) -> None
     def _do_pr(j: Dict[str, Any]) -> None:
         s = samples_by_id[j["sample_id"]]
         with proj_locks[s["project_name"]]:
-            r = eval_candidate_cov(s, j["candidate"], state["baselines"][j["sample_id"]])
+            if j.get("pr_diff") or j.get("pr_url"):
+                r = eval_pr_cov_atomic(s, j, state["baselines"][j["sample_id"]])
+            else:
+                r = eval_candidate_cov(s, j["candidate"], state["baselines"][j["sample_id"]])
         with lock:
             state["pr_evals"][j["sample_id"]] = r
             if len(state["pr_evals"]) % 8 == 0:
                 _save()
-        print(f"  [PR] {j['sample_id']}: ran={r.get('cov_ran')} safe={r.get('cov_safe')} lost={r.get('lost_lines_count')} ({r.get('cov_sec',0)}s)", flush=True)
+        print(
+            f"  [PR ATOMIC] {j['sample_id']}: ran={r.get('cov_ran')} safe={r.get('cov_safe')} "
+            f"lost={r.get('lost_lines_count')} sha_ok={r.get('expected_tree_sha256_match')} ({r.get('cov_sec',0)}s)",
+            flush=True,
+        )
 
     with ThreadPoolExecutor(max_workers=workers) as ex:
         futs = [ex.submit(_do_pr, j) for j in todo_pr]

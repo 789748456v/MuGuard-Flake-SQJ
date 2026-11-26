@@ -2,7 +2,7 @@
 \centering
 \scriptsize
 \setlength{\tabcolsep}{3.3pt}
-\caption{Cross-family single-pass ($K=1$) gate screening on Kimi K2.5 and GLM-5 over all $\BenchEligible$ eligible tests without multi-round retry, including cross-vendor LLM-Judge screening.}
+\caption{Cross-family single-pass ($K=1$) gate screening on Kimi K2.5 and GLM-5 over all $\BenchEligible$ eligible tests without multi-round retry, including diff-only cross-vendor LLM-Judge screening.}
 \label{tab:crossfamily_r1}
 \begin{tabular}{llrrrrrr}
 \toprule
@@ -12,16 +12,16 @@ Kimi K2.5 (203) & Unconstrained & 112 (55.17\%) & 30 & 0 & 26.79\% & 40.39\% [29
  & Prompt Guard & 112 (55.17\%) & 29 & 0 & 25.89\% & 40.89\% [29.6, 53.4] & 0.9568 \\
  & Syntactic Guard & 112 (55.17\%) & 29 & 0 & 25.89\% & 40.89\% [29.6, 53.4] & 0.9568 \\
  & Structural Guard & 100 (49.26\%) & 21 & 0 & 21.00\% & 38.92\% [27.3, 51.7] & 0.9602 \\
- & LLM-Judge Gate & 101 (49.75\%) & 22 & 0 & 21.78\% & 38.92\% [---] & --- \\
+ & LLM-Judge Gate & 101 (49.75\%) & 22 & 0 & 21.78\% & 38.92\% [27.5, 51.7] & 0.9661 \\
  & \textbf{MuGuard-Flake} & 83 (40.89\%) & 0 & 0 & 0.00\% & \textbf{40.89\% [29.6, 53.4]} & 1.0000 \\
 \midrule
 GLM-5 (203) & Unconstrained & 133 (65.52\%) & 34 & 3 & 25.56\% & 47.29\% [35.2, 61.0] & 0.9573 \\
  & Prompt Guard & 128 (63.05\%) & 31 & 2 & 24.22\% & 46.80\% [35.4, 59.7] & 0.9547 \\
  & Syntactic Guard & 126 (62.07\%) & 30 & 2 & 23.81\% & 46.31\% [34.8, 59.1] & 0.9547 \\
  & Structural Guard & 117 (57.64\%) & 25 & 2 & 21.37\% & 44.33\% [32.7, 57.5] & 0.9535 \\
- & LLM-Judge Gate & 113 (55.67\%) & 26 & 2 & 23.01\% & 41.87\% [---] & --- \\
+ & LLM-Judge Gate & 113 (55.67\%) & 26 & 2 & 23.01\% & 41.87\% [30.1, 55.4] & 0.9643 \\
  & \textbf{MuGuard-Flake} & 95 (46.80\%) & 0 & 0 & 0.00\% & \textbf{46.80\% [35.4, 59.7]} & 1.0000 \\
 \bottomrule
 \end{tabular}
-\par\smallskip\parbox{0.96\textwidth}{\scriptsize\textit{Note:} Cross-vendor LLM-Judge (Alibaba Qwen 3.7 Plus) catches 7/29 eroded patches while falsely rejecting 4 healthy fixes on Kimi K2.5, and catches 5/31 while falsely rejecting 10 healthy fixes on GLM-5 (5-model screening in Table~S-3).}
+\par\smallskip\parbox{0.96\textwidth}{\scriptsize\textit{Note:} Diff-only cross-vendor LLM-Judge (Alibaba Qwen 3.7 Plus) catches 7/29 eroded patches while falsely rejecting 4 healthy fixes on Kimi K2.5, and catches 5/31 while falsely rejecting 10 healthy fixes on GLM-5 (5-model screening in Table~S-3).}
 \end{table}
