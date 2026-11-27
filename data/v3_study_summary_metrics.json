@@ -6711,7 +6711,7 @@
     "fig5_latency_distributions"
   ],
   "security_audit": {
-    "scanned_ft1_files": 264,
+    "scanned_ft1_files": 265,
     "secret_leaks_found": [],
     "outside_ft1_git_changes": [],
     "logged_api_calls": 13915

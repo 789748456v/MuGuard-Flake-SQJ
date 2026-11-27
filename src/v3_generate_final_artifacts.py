@@ -730,21 +730,21 @@ def main() -> None:
         "\\bottomrule",
         "\\end{tabular}",
         "\\par\\smallskip",
-        "\\setlength{\\tabcolsep}{0.95pt}",
-        "\\begin{tabular}{lrrrrrrr}",
+        "\\setlength{\\tabcolsep}{2.5pt}",
+        "\\begin{tabular}{@{}lrrrrrrr@{}}",
         "\\toprule",
-        "\\multicolumn{8}{@{}l}{\\textbf{Panel B: Same-Model, $W^+$-Standardized Adaptations on Qwen 3.7 Plus ($N=203$, $|E|=177$)}} \\\\",
+        "\\multicolumn{8}{@{}l@{}}{\\textbf{Panel B: Same-Model, $W^+$-Standardized Adaptations on Qwen 3.7 Plus ($N=203$, $|E|=177$)}} \\\\",
         "\\midrule",
-        "Adaptation & Pass@$W^+$ & Leak ($W^+$) & SoundFix & Prim.\\,(f,u) & Harmful [W/S/L] & Strict $Y_s$ & Full $Y_s$ \\\\",
+        "Adaptation & Pass@$W^+$ & Leak & SoundFix & Prim\\,(f,u) & Harm.\\,[W/S/L] & Strict $Y_s$ & Full $Y_s$ \\\\",
         "\\midrule",
     ])
     for s_key, s_disp, is_ours in [
-        ("S1_FlakyFix_K1", "FlakyFix-style ($K{=}1$)", False),
-        ("S1b_FlakyFix_K5", "FlakyFix-style ($K{=}5$)", False),
+        ("S1_FlakyFix_K1", "FlakyFix-style, $K{=}1$", False),
+        ("S1b_FlakyFix_K5", "FlakyFix-style, $K{=}5$", False),
         ("S2_FlakyDoctor", "FlakyDoctor-style", False),
         ("S3_FlakyGuard", "FlakyGuard-style", False),
         ("S4_MuGuard_Flake", "\\textbf{MuGuard-Flake}", True),
-        ("S5_FlakyGuard_Plus_MuGuard", "\\textbf{FlakyGuard+MuGuard}", True),
+        ("S5_FlakyGuard_Plus_MuGuard", "\\textbf{FG+MuGuard}", True),
     ]:
         ar = sa[s_key]
         ho_s = ar["heldout"]
@@ -769,7 +769,7 @@ def main() -> None:
     t2.extend([
         "\\bottomrule",
         "\\end{tabular}",
-        f"\\par\\smallskip\\parbox{{0.97\\textwidth}}{{\\scriptsize\\textit{{Note:}} Panel~A multi-backbone matched rates span {min(gpt_rates):.1f}\\%--{max(gpt_rates):.1f}\\% on the FlakyDoctor GPT-4 cohort and {min(ipf_rates):.1f}\\%--{max(ipf_rates):.1f}\\% on the iPFlakies cohort (Table~S-1). In Panel~B, all six arms share identical Qwen 3.7 Plus decoding, Docker containers, deterministic Python method re-indentation, and $K=5$ budgets except single-pass FlakyFix-style $K=1$ (adaptation deviations in Table~S-8). Column Prim.\\,(f,u) gives accepted patches in $E$ passing strict $W^+_{{\\text{{heldout}}}}$ with zero indeterminate mutants ($f$ = strict $W^+_{{\\text{{heldout}}}}$ failures, $u$ = indeterminate mutation timeouts, zero unadjudicated losses). $^{{\\ddagger}}$Zero in-loop $M_{{\\text{{det}}}}$ leakage holds by gate construction. On conditional harmful (W+S) unseen loss, two-sided null-centered studentized cluster-bootstrap Holm ($m=4$) tests are significant against FlakyFix-style $K=5$ ($p_{{\\text{{Holm}}}}={pi_s4['S1b_FlakyFix_K5']['p_holm_m4']:.4f}$ and ${pi_s5['S1b_FlakyFix_K5']['p_holm_m4']:.4f}$) and directionally lower without reaching significance against FlakyFix-style $K=1$, FlakyDoctor-style, and FlakyGuard-style ($p_{{\\text{{Holm}}}}=0.21\\text{{--}}0.27$; full statistics in Table~S-7).}}",
+        f"\\par\\smallskip\\parbox{{0.97\\textwidth}}{{\\scriptsize\\textit{{Note:}} Panel~A multi-backbone matched rates span {min(gpt_rates):.1f}\\%--{max(gpt_rates):.1f}\\% on the FlakyDoctor GPT-4 cohort and {min(ipf_rates):.1f}\\%--{max(ipf_rates):.1f}\\% on the iPFlakies cohort (Table~S-1). In Panel~B, all six arms share identical Qwen 3.7 Plus decoding, Docker containers, deterministic Python method re-indentation, and $K=5$ budgets except single-pass FlakyFix-style $K=1$ (FG+MuGuard denotes the trajectory-shared FlakyGuard+MuGuard hybrid; adaptation deviations in Table~S-8). Column Prim\\,(f,u) gives accepted patches in $E$ passing strict $W^+_{{\\text{{heldout}}}}$ with zero indeterminate mutants ($f$ = strict $W^+_{{\\text{{heldout}}}}$ failures, $u$ = indeterminate mutation timeouts, zero unadjudicated losses). $^{{\\ddagger}}$Zero in-loop $M_{{\\text{{det}}}}$ leakage holds by gate construction. On conditional harmful (W+S) unseen loss, two-sided null-centered studentized cluster-bootstrap Holm ($m=4$) tests are significant against FlakyFix-style $K=5$ ($p_{{\\text{{Holm}}}}={pi_s4['S1b_FlakyFix_K5']['p_holm_m4']:.4f}$ and ${pi_s5['S1b_FlakyFix_K5']['p_holm_m4']:.4f}$) and directionally lower without reaching significance against FlakyFix-style $K=1$, FlakyDoctor-style, and FlakyGuard-style ($p_{{\\text{{Holm}}}}=0.21\\text{{--}}0.27$; full statistics in Table~S-7).}}",
         "\\end{table*}",
     ])
     (TBL_DIR / "tab2_b1_sota.tex").write_text("\n".join(t2) + "\n", encoding="utf-8")
@@ -977,7 +977,7 @@ def main() -> None:
     t4a.extend([
         "\\bottomrule",
         "\\end{tabular}",
-        "\\par\\smallskip\\parbox{0.97\\textwidth}{\\scriptsize\\textit{Note:} All three backbones completed 203/203 eligible tests (1 DS-Flash and 15 DS-V4-Pro tests that hit 16k reasoning-token caps under default high effort were completed uniformly across all strategies under bounded reasoning). On every row, $\\text{SoundFix} = \\text{Pass@}W^+ - \\text{Leaked} - \\text{Unver.}$; ITT\\% divides by $\\BenchInitAttempted$ attempted tests. $^{\\dagger}$Coverage Gate ran on $n=195$ ($|E_{\\text{cov}}|=169$, excluding 7 Java Maven \\texttt{argLine} conflicts and 1 uncovered Python partner); LLM-Judge Gate used cross-vendor Zhipu GLM-5.}",
+        "\\par\\smallskip\\parbox{0.97\\textwidth}{\\scriptsize\\textit{Note:} All three backbones completed 203/203 eligible tests (1 DS-Flash and 15 DS-V4-Pro tests that hit 16k reasoning-token caps under default high effort were completed uniformly across all strategies under bounded reasoning). On every row, $\\text{SoundFix} = \\text{Pass@}W^+ - \\text{Leaked} - \\text{Unver.}$; ITT\\% divides by $\\BenchInitAttempted$ attempted tests. $^{\\dagger}$Coverage Gate ran on $n=195$ ($|E_{\\text{cov}}|=169$: 102 Java and all 93 Python tests, excluding eight Java ID tests lacking frozen JaCoCo baseline coverage at gate freeze); LLM-Judge Gate used cross-vendor Zhipu GLM-5.}",
         "\\end{table}",
     ])
     t4b.extend([
@@ -1317,12 +1317,17 @@ def main() -> None:
             f"{dv['mean_normalized_vote_entropy']:.4f} | "
             f"{sc['raw_pct']:.1f}% ({sc['kappa']:.4f}) | {si['kappa_min']:.4f}–{si['kappa_max']:.4f} |"
         )
+    from v3_codex_10session_blinded_audit import HO_WSL_LABELS, fleiss_kappa as compute_fleiss_kappa
+    raw_c10_sess = load_json("v3_codex_10session_raw_runs.json")["sessions"]
+    ho111_mat = [[raw_c10_sess[s]["HELDOUT_111"][bid]["label_wsl"] for s in sorted(raw_c10_sess)] for bid in sorted(next(iter(raw_c10_sess.values()))["HELDOUT_111"])]
+    ho118_fk = compute_fleiss_kappa(ho111_mat + [[v["majority_label"]] * 10 for v in extra7.values()], HO_WSL_LABELS)
+    sota46_fk = compute_fleiss_kappa([v["session_votes"] for v in sota_extra_wsl.values()], HO_WSL_LABELS)
     fl_loss = k5["deepseek-flash"]["strategies"]["Ours_MuGuard_Flake"]["heldout_external"]["heldout_m_ext_loss_among_accepted"]
     pr_loss = k5["deepseek-v4-pro"]["strategies"]["Ours_MuGuard_Flake"]["heldout_external"]["heldout_m_ext_loss_among_accepted"]
     qw_loss = k5["qwen3.7-plus"]["strategies"]["Ours_MuGuard_Flake"]["heldout_external"]["heldout_m_ext_loss_among_accepted"]
     or_lines.extend([
         "",
-        f"*Note*: All 7 additional held-out $M_{{\\text{{ext}}}}$-loss patches introduced by gap-completed runs and dynamic/LLM-judge baselines (`HO-112`..`HO-118`) achieved `10/10` (`100%`) unanimous ensemble agreement. The `{len(sota_extra_wsl)}` newly encountered held-out $M_{{\\text{{ext}}}}$-loss patches in the same-model SOTA campaign (`HO-SOTA-001`..`HO-SOTA-{len(sota_extra_wsl):03d}`, `{len(sota_extra_wsl)*10}` stateless Codex adjudications) achieved `{sum(1 for v in sota_extra_wsl.values() if v['majority_count_of_10']==10)}/{len(sota_extra_wsl)}` (`{100.0*sum(1 for v in sota_extra_wsl.values() if v['majority_count_of_10']==10)/max(1,len(sota_extra_wsl)):.1f}%`) unanimous `10/10` agreement and `{sum(1 for v in sota_extra_wsl.values() if v['majority_count_of_10']>=8)}/{len(sota_extra_wsl)}` (`{100.0*sum(1 for v in sota_extra_wsl.values() if v['majority_count_of_10']>=8)/max(1,len(sota_extra_wsl)):.1f}%`) `>=8/10` supermajority agreement (`0` unadjudicated items).",
+        f"*Note*: All 7 additional held-out $M_{{\\text{{ext}}}}$-loss patches introduced by gap-completed runs and dynamic/LLM-judge baselines (`HO-112`..`HO-118`) achieved `10/10` (`100%`) unanimous ensemble agreement (yielding combined `118`-item Fleiss' $\\kappa = {ho118_fk:.4f}$). The `{len(sota_extra_wsl)}` newly encountered held-out $M_{{\\text{{ext}}}}$-loss patches in the same-model SOTA campaign (`HO-SOTA-001`..`HO-SOTA-{len(sota_extra_wsl):03d}`, `{len(sota_extra_wsl)*10}` stateless Codex adjudications) achieved **Fleiss' $\\kappa = {sota46_fk:.4f}$**, with `{sum(1 for v in sota_extra_wsl.values() if v['majority_count_of_10']==10)}/{len(sota_extra_wsl)}` (`{100.0*sum(1 for v in sota_extra_wsl.values() if v['majority_count_of_10']==10)/max(1,len(sota_extra_wsl)):.1f}%`) unanimous `10/10` agreement and `{sum(1 for v in sota_extra_wsl.values() if v['majority_count_of_10']>=8)}/{len(sota_extra_wsl)}` (`{100.0*sum(1 for v in sota_extra_wsl.values() if v['majority_count_of_10']>=8)/max(1,len(sota_extra_wsl)):.1f}%`) `>=8/10` supermajority agreement (`0` unadjudicated items).",
         "",
         "### Part B: Matched-Cohort Head-to-Head Comparison Against Historical SOTA Tools Across All Three Multi-Round Backbones",
         "",
@@ -1423,7 +1428,7 @@ def main() -> None:
         "| Scalar Gate | 75.37% | 79.80% (+4.43) | 0 $\\to$ **0 (0.00%)** | 67.23% $\\to$ 70.06% | 75.71% $\\to$ 78.53% |",
         "| **MuGuard-Flake** | **79.31%** | **85.22% (+5.91)** | **0 $\\to$ 0 (0.00%)** | **70.06% $\\to$ 72.88%** | **78.53% $\\to$ 81.36%** |",
         "",
-        "*Note*: `Table S-4` re-executes only the 24 Qwen 3.7 Plus Python tests whose Round-1 output failed syntax parsing due to class-method indentation (out of 35 across all three backbones) while preserving all other cached trajectories from the main Qwen 3.7 Plus campaign. In `Table S-7`, `S4_MuGuard_Flake` applies deterministic Python method re-indentation uniformly across every round of all 93 Python tests in a fresh end-to-end SOTA run, yielding `167/203 (82.27%)` SoundFix.",
+        "*Note*: Offline AST re-indentation rescues all 35 Round-1 Python indentation rejections across our three multi-round backbones (`100%`). `Table S-4` re-executes end to end all 24 affected Qwen 3.7 Plus Python tests within the same $K=5$ budget (cutting executed rounds on those 24 tests from `120` to `59`, including `16` downstream follow-up calls) while preserving unaffected trajectories from the main Qwen 3.7 Plus campaign. In `Table S-7`, `S4_MuGuard_Flake` applies unconditional `dedent` re-indentation across every round of all 93 Python tests in a fresh end-to-end SOTA run, yielding `167/203 (82.27%)` SoundFix (where unconditional dedenting perturbs multiline whitespace string literals in `krllint`).",
         "",
         "---",
         "",
@@ -1550,7 +1555,7 @@ def main() -> None:
         "| :--- | :--- | :--- | :--- |",
         "| `FlakyFix`-style ($K=1$ & $K=5$) | Fatima et al., *IEEE TSE* 2024 (`Codex` / `GPT-3.5`, Java) | Test-code-only input (zero focal production code or partner test edits); 2-step prediction of 13 root-cause repair categories followed by 2 same-language, out-of-benchmark few-shot exemplars (`52` verified zero-overlap exemplars); single-pass $K=1$ plus budget-matched $K=5$ execution-feedback extension. | Executed on `Qwen 3.7 Plus` (`temperature=0.0`) instead of fine-tuned/legacy OpenAI `Codex`; extended to Python OD tests under target-test-only editing; validated under unified $W^+$ schedules and deterministic Python method re-indentation. |",
         "| `FlakyDoctor`-style ($K=5$) | Chen & Jabbarvand, *ISSTA* 2024 (`GPT-4` / `Magicoder`, Java ID & OD) | Neurosymbolic failure localization stack, target + OD partner test code, surrounding class headers, reactive Java import-collision `Stitching`, and 3-identical-substantive-error early termination within $K=5$ rounds. | Executed on `Qwen 3.7 Plus` (`temperature=0.0`); extended to Python OD victim/brittle tests with pytest failure localization and deterministic re-indentation; uses containerized `W+` (`5` NonDex seeds / `3` OD schedules) rather than whole-module `NonDex` sweeps. |",
-        "| `FlakyGuard`-style ($K=5$) | Li et al., *ASE* 2025 Distinguished Paper (`GPT-4o`, Uber Java/Kotlin) | Pruned Dynamic Call Graph (`DCG`) over baseline-executed same-repository production functions (`mean 50.7` nodes, strictly `M_ext`-free), LLM-guided BFS selection of $F \\le 5$ focal production functions (`mean 4.62`), structured `<thought>` (`Root Cause`, `Explanation`, `Fixing Plan`), accumulated failed-attempt `Reflection` history, and single-sided $W^+$ acceptance. | Executed on `Qwen 3.7 Plus` (`temperature=0.0`); DCG built from `JaCoCo`/`coverage.py` executed lines + AST call edges (using `m_det`-only lines on 7 `argLine`-conflicted Java tests) rather than Uber's internal JVM agent; validated with benchmark $W^+$ schedules instead of 1,000 internal Bazel reruns. |",
+        "| `FlakyGuard`-style ($K=5$) | Li et al., *ASE* 2025 Distinguished Paper (`GPT-4o`, Uber Java/Kotlin) | Pruned Dynamic Call Graph (`DCG`) over baseline-executed same-repository production functions (`mean 50.7` nodes, strictly `M_ext`-free), LLM-guided BFS selection of $F \\le 5$ focal production functions (`mean 4.62`), structured `<thought>` (`Root Cause`, `Explanation`, `Fixing Plan`), accumulated failed-attempt `Reflection` history, and single-sided $W^+$ acceptance. | Executed on `Qwen 3.7 Plus` (`temperature=0.0`); DCG built from `JaCoCo`/`coverage.py` executed lines + AST call edges (using `m_det`-only lines on three `argLine`-conflicted Java tests) rather than Uber's internal JVM agent; validated with benchmark $W^+$ schedules instead of 1,000 internal Bazel reruns. |",
         "| `FlakyGuard + MuGuard` ($K=5$) | Hybrid Package (This Paper) | Shares 100% of `FlakyGuard`-style's Round-1..$r_0$ prompt prefix and $F \\le 5$ DCG focal production functions; accepts identical patch at $r_0$ whenever `gate_safe == True`. | Intercepts $W^+$-passing drafts that erode $\\mathcal{O}_{\\text{joint}}$ or modify uncovered partner scope at $r_0$, appending contract rules and up to 4 localized surviving-mutant witnesses into `FlakyGuard`'s `Reflection` loop for rounds $r_0+1 \\dots 5$ (abstaining fail-closed at round 5). |",
         "",
         "---",
